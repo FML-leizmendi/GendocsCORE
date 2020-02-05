@@ -4,8 +4,9 @@ namespace GendocsController
 {
     public class Class1
     {
-        void Saludar()
+        void VerDB()
         {
+            using (GendocsModeloDatos.gen)
             Console.WriteLine("Buenos tardes");
         }
     }
