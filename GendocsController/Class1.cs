@@ -6,7 +6,7 @@ namespace GendocsController
     {
         void Saludar()
         {
-            Console.WriteLine("Buenos días");
+            Console.WriteLine("Buenos tardes");
         }
     }
 }
