@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GendocsForms.models
+namespace GendocsModeloDatos.models
 {
     public partial class GdDocCampos
     {

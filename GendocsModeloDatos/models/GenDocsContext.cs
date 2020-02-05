@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace GendocsForms.models
+namespace GendocsModeloDatos.models
 {
     public partial class GenDocsContext : DbContext
     {
