@@ -46,25 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\GendocsForms\frmListaProyectos.cs">
+    <Compile Include="..\GendocsForms\Forms\frmListaProyectos.cs">
       <Link>frmListaProyectos.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\GendocsForms\frmListaProyectos.designer.cs">
+    <Compile Include="..\GendocsForms\Forms\frmListaProyectos.designer.cs">
       <Link>frmListaProyectos.designer.cs</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\GendocsForms\frmMenu.cs">
-      <Link>frmMenu.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\GendocsForms\frmMenu.designer.cs">
-      <Link>frmMenu.designer.cs</Link>
-      <DependentUpon>frmMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\GendocsForms\frmListaProyectos.resx">
+    <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
       <Link>frmListaProyectos.resx</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
     </EmbeddedResource>

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GendocsForms
+namespace GendocsForms.Forms
 {
     public partial class frmMenu : Form
     {
