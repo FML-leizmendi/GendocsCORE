@@ -1,4 +1,4 @@
-﻿namespace GendocsForm
+﻿namespace GendocsForms
 {
     partial class frmListaProyectos
     {
@@ -123,7 +123,7 @@
             // 
             // btnAT
             // 
-            this.btnAT.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAT.BackColor = System.Drawing.Color.Yellow;
             this.btnAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAT.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAT.Location = new System.Drawing.Point(12, 241);
@@ -148,7 +148,6 @@
             // 
             this.btnMinimizarForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnMinimizarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizarForm.Image = global::GendocsForm.Properties.Resources.icons8_minimizar_la_ventana_32;
             this.btnMinimizarForm.Location = new System.Drawing.Point(1063, 6);
             this.btnMinimizarForm.Name = "btnMinimizarForm";
             this.btnMinimizarForm.Size = new System.Drawing.Size(32, 32);
@@ -161,7 +160,6 @@
             // 
             this.btnMaximizarForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnMaximizarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizarForm.Image = global::GendocsForm.Properties.Resources.icons8_maximizar_la_ventana_32;
             this.btnMaximizarForm.Location = new System.Drawing.Point(1101, 6);
             this.btnMaximizarForm.Name = "btnMaximizarForm";
             this.btnMaximizarForm.Size = new System.Drawing.Size(32, 32);
@@ -175,7 +173,6 @@
             this.btnCerrarForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarForm.Image = global::GendocsForm.Properties.Resources.icons8_cerrar_ventana_32;
             this.btnCerrarForm.Location = new System.Drawing.Point(1139, 6);
             this.btnCerrarForm.Name = "btnCerrarForm";
             this.btnCerrarForm.Size = new System.Drawing.Size(32, 32);

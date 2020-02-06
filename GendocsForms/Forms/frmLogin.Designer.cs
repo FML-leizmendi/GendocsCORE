@@ -1,6 +1,6 @@
-﻿namespace GendocsForm
+﻿namespace GendocsForms
 {
-    partial class Login
+    partial class frmLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -150,7 +150,7 @@
             // pbMinimizarForm
             // 
             this.pbMinimizarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMinimizarForm.Image = global::GendocsForm.Properties.Resources.icons8_minimizar_la_ventana_16;
+            this.pbMinimizarForm.Image = global::GendocsForms.Properties.Resources.icons8_minimizar_la_ventana_16;
             this.pbMinimizarForm.Location = new System.Drawing.Point(485, 12);
             this.pbMinimizarForm.Name = "pbMinimizarForm";
             this.pbMinimizarForm.Size = new System.Drawing.Size(16, 16);
@@ -162,7 +162,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::GendocsForm.Properties.Resources.icons8_cerrar_ventana_16;
+            this.btnCerrar.Image = global::GendocsForms.Properties.Resources.icons8_cerrar_ventana_16;
             this.btnCerrar.Location = new System.Drawing.Point(507, 12);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(16, 16);

@@ -6,7 +6,6 @@ namespace GendocsController
     {
         void VerDB()
         {
-            using (GendocsModeloDatos.gen)
             Console.WriteLine("Buenos tardes");
         }
     }
