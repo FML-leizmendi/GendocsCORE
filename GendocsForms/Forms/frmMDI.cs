@@ -14,5 +14,12 @@ namespace GendocsForms
         {
             InitializeComponent();
         }
+
+        private void frmMDI_Load(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            frm.ShowDialog();
+            frm.MdiParent = this;
+        }
     }
 }

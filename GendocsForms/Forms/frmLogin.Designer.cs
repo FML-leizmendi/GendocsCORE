@@ -38,18 +38,11 @@
             this.chkRecordarUsuario = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblRestablecerContraseña = new System.Windows.Forms.LinkLabel();
-            this.pbMinimizarForm = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.pnlTituloLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimizarForm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTituloLogin
             // 
             this.pnlTituloLogin.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlTituloLogin.Controls.Add(this.pbMinimizarForm);
-            this.pnlTituloLogin.Controls.Add(this.btnCerrar);
             this.pnlTituloLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTituloLogin.Location = new System.Drawing.Point(0, 0);
             this.pnlTituloLogin.Name = "pnlTituloLogin";
@@ -60,9 +53,9 @@
             // 
             this.pnlPieFormulario.BackColor = System.Drawing.Color.DarkGray;
             this.pnlPieFormulario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlPieFormulario.Location = new System.Drawing.Point(0, 365);
+            this.pnlPieFormulario.Location = new System.Drawing.Point(0, 361);
             this.pnlPieFormulario.Name = "pnlPieFormulario";
-            this.pnlPieFormulario.Size = new System.Drawing.Size(539, 66);
+            this.pnlPieFormulario.Size = new System.Drawing.Size(539, 49);
             this.pnlPieFormulario.TabIndex = 1;
             // 
             // lblUsuario
@@ -147,36 +140,12 @@
             this.lblRestablecerContraseña.TabStop = true;
             this.lblRestablecerContraseña.Text = "Restablecer Contraseña";
             // 
-            // pbMinimizarForm
-            // 
-            this.pbMinimizarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMinimizarForm.Image = global::GendocsForms.Properties.Resources.icons8_minimizar_la_ventana_16;
-            this.pbMinimizarForm.Location = new System.Drawing.Point(485, 12);
-            this.pbMinimizarForm.Name = "pbMinimizarForm";
-            this.pbMinimizarForm.Size = new System.Drawing.Size(16, 16);
-            this.pbMinimizarForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbMinimizarForm.TabIndex = 2;
-            this.pbMinimizarForm.TabStop = false;
-            this.pbMinimizarForm.Click += new System.EventHandler(this.pbMinimizarForm_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::GendocsForms.Properties.Resources.icons8_cerrar_ventana_16;
-            this.btnCerrar.Location = new System.Drawing.Point(507, 12);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(16, 16);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnCerrar.TabIndex = 1;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // Login
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(539, 431);
+            this.ClientSize = new System.Drawing.Size(539, 410);
             this.Controls.Add(this.lblRestablecerContraseña);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkRecordarUsuario);
@@ -187,15 +156,13 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pnlPieFormulario);
             this.Controls.Add(this.pnlTituloLogin);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Login";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmLogin";
             this.Opacity = 0.98D;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
-            this.pnlTituloLogin.ResumeLayout(false);
-            this.pnlTituloLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimizarForm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Iniciar Sesión";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,9 +171,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlTituloLogin;
-        private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Panel pnlPieFormulario;
-        private System.Windows.Forms.PictureBox pbMinimizarForm;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.TextBox txtUsuario;

@@ -19,5 +19,11 @@ namespace GendocsForms.Forms
         {
             this.Close();
         }
+
+        private void btnExpedientes_Click(object sender, EventArgs e)
+        {
+            frmListaProyectos frm = new frmListaProyectos();
+            frm.Show();
+        }
     }
 }

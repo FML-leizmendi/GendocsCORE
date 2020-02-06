@@ -292,10 +292,9 @@
             this.Controls.Add(this.grbProyectos);
             this.Controls.Add(this.pnlCabercera);
             this.Controls.Add(this.pnlLateral);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListaProyectos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListaProyectos";
+            this.Text = "Listado de Proyectos";
             this.pnlLateral.ResumeLayout(false);
             this.pnlCabercera.ResumeLayout(false);
             this.pnlCabercera.PerformLayout();

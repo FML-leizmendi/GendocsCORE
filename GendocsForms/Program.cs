@@ -30,7 +30,7 @@ namespace GendocsForms
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmLogin frm = new frmLogin();
+            frmMDI frm = new frmMDI();
 
             frm.ShowDialog();
         }

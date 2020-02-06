@@ -54,6 +54,22 @@
       <Link>frmListaProyectos.designer.cs</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmLogin.cs">
+      <Link>frmLogin.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmLogin.designer.cs">
+      <Link>frmLogin.designer.cs</Link>
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmMDI.cs">
+      <Link>frmMDI.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmMDI.designer.cs">
+      <Link>frmMDI.designer.cs</Link>
+      <DependentUpon>frmMDI.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\frmMenu.cs">
       <Link>frmMenu.cs</Link>
       <SubType>Form</SubType>
@@ -67,6 +83,14 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
       <Link>frmListaProyectos.resx</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\frmLogin.resx">
+      <Link>frmLogin.resx</Link>
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\frmMDI.resx">
+      <Link>frmMDI.resx</Link>
+      <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmMenu.resx">
       <Link>frmMenu.resx</Link>

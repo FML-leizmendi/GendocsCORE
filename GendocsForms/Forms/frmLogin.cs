@@ -32,13 +32,19 @@ namespace GendocsForms
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            frmListaProyectos frm = new frmListaProyectos();
+            Forms.frmMenu frm = new Forms.frmMenu();
+            frm.MdiParent = this.MdiParent;
             frm.Show();
         }
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
             txtContraseña.PasswordChar = '*';
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
