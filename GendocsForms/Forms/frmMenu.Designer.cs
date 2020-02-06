@@ -1,4 +1,4 @@
-﻿namespace GendocsForms
+﻿namespace GendocsForms.Forms
 {
     partial class frmMenu
     {
