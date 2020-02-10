@@ -1,6 +1,6 @@
 ﻿namespace GendocsForms
 {
-    partial class frmListaProyectos
+    partial class FrmListaProyectos
     {
         /// <summary>
         /// Required designer variable.

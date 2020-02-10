@@ -46,27 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\GendocsForms\frmListaProyectos.cs">
-      <Link>frmListaProyectos.cs</Link>
+    <Compile Include="FrmMDIGd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\GendocsForms\frmListaProyectos.designer.cs">
-      <Link>frmListaProyectos.designer.cs</Link>
-      <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    <Compile Include="FrmMDIGd.designer.cs">
+      <DependentUpon>FrmMDIGd.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\GendocsForms\frmMenu.cs">
-      <Link>frmMenu.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\GendocsForms\frmMenu.designer.cs">
-      <Link>frmMenu.designer.cs</Link>
-      <DependentUpon>frmMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\GendocsForms\frmListaProyectos.resx">
-      <Link>frmListaProyectos.resx</Link>
-      <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMDIGd.resx">
+      <DependentUpon>FrmMDIGd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

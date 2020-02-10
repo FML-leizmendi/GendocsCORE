@@ -30,9 +30,16 @@ namespace GendocsForms
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmLogin frm = new frmLogin();
-
-            frm.ShowDialog();
+            if (Gdf.Login())
+            {
+                //MessageBox.Show("OK!","Acceso correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                FrmMDIGd frmMDI = new FrmMDIGd();
+                frmMDI.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No access", "ACCESS DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GendocsForms
 {
-    public partial class frmListaProyectos : Form
+    public partial class FrmListaProyectos : Form
     {
-        public frmListaProyectos()
+        public FrmListaProyectos()
         {
             InitializeComponent();
         }
