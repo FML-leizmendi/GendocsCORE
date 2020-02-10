@@ -6,13 +6,24 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GendocsForms
+namespace GendocsForms.Forms
 {
     public partial class FrmMenu : Form
     {
         public FrmMenu()
         {
             InitializeComponent();
+        }
+
+        private void btnCerrarForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExpedientes_Click(object sender, EventArgs e)
+        {
+            frmListaProyectos frm = new frmListaProyectos();
+            frm.Show();
         }
     }
 }
