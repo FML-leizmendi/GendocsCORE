@@ -18,8 +18,8 @@ namespace GendocsForms
             if (frm.DialogResult == DialogResult.OK)
             {
 
-                MessageBox.Show("USER:" + frm.user + Environment.NewLine +
-                                "Pass:" + "*********");
+                //MessageBox.Show("USER:" + frm.user + Environment.NewLine +
+                //                "Pass:" + "*********");
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     List<GendocsModeloDatos.models.GdEmpleadosFml> lst = (from d in db.GdEmpleadosFml

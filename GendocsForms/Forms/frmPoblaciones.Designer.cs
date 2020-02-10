@@ -1,4 +1,4 @@
-﻿namespace GendocsForms.Forms
+﻿namespace GendocsForms
 {
     partial class frmPoblaciones
     {

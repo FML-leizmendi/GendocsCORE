@@ -31,5 +31,10 @@ namespace GendocsForms
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void FrmListaProyectos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

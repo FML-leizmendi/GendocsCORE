@@ -1,4 +1,4 @@
-﻿namespace GendocsForms.Forms
+﻿namespace GendocsForms
 {
     partial class FrmMenu
     {
@@ -59,6 +59,7 @@
             // 
             // btnExpedientes
             // 
+            this.btnExpedientes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnExpedientes.BackColor = System.Drawing.Color.SteelBlue;
             this.btnExpedientes.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpedientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -72,6 +73,7 @@
             // 
             // btnPedidos
             // 
+            this.btnPedidos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPedidos.BackColor = System.Drawing.Color.SteelBlue;
             this.btnPedidos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPedidos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -85,6 +87,7 @@
             // 
             // btnDocumentos
             // 
+            this.btnDocumentos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDocumentos.BackColor = System.Drawing.Color.SteelBlue;
             this.btnDocumentos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDocumentos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -97,6 +100,7 @@
             // 
             // btnAgenda
             // 
+            this.btnAgenda.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAgenda.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAgenda.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgenda.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -109,6 +113,7 @@
             // 
             // btnContactos
             // 
+            this.btnContactos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnContactos.BackColor = System.Drawing.Color.SteelBlue;
             this.btnContactos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContactos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -121,6 +126,7 @@
             // 
             // btnFmlStaff
             // 
+            this.btnFmlStaff.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnFmlStaff.BackColor = System.Drawing.Color.SteelBlue;
             this.btnFmlStaff.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFmlStaff.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -140,7 +146,7 @@
             this.panel3.Size = new System.Drawing.Size(767, 58);
             this.panel3.TabIndex = 8;
             // 
-            // frmMenu
+            // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,9 +161,10 @@
             this.Controls.Add(this.btnExpedientes);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "frmMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "FrmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Menú Principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.ResumeLayout(false);
 
         }

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GendocsForms.Forms
+namespace GendocsForms
 {
     public partial class FrmMenu : Form
     {
@@ -22,8 +22,11 @@ namespace GendocsForms.Forms
 
         private void btnExpedientes_Click(object sender, EventArgs e)
         {
-            frmListaProyectos frm = new frmListaProyectos();
+            FrmListaProyectos frm = new FrmListaProyectos();
+            FrmMDIGd frmMDI = new FrmMDIGd();
+            frm.MdiParent = this.MdiParent;
             frm.Show();
+           // this.Hide();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
@@ -44,6 +47,14 @@ namespace GendocsForms.Forms
           
             //return IdPoblacion;
 
+        }
+
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (MessageBox.Show("¿Desea cerrar la aplicación?", "Gendocs", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    Application.Exit();
+            //}
         }
     }
 }

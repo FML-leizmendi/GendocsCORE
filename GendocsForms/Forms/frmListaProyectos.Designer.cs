@@ -35,9 +35,6 @@
             this.btnMediaTension = new System.Windows.Forms.Button();
             this.btnAT = new System.Windows.Forms.Button();
             this.pnlCabercera = new System.Windows.Forms.Panel();
-            this.btnMinimizarForm = new System.Windows.Forms.PictureBox();
-            this.btnMaximizarForm = new System.Windows.Forms.PictureBox();
-            this.btnCerrarForm = new System.Windows.Forms.PictureBox();
             this.grbProyectos = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblEstadoProyecto = new System.Windows.Forms.Label();
@@ -49,10 +46,6 @@
             this.btnProyecto = new System.Windows.Forms.Button();
             this.btnEditarDocs = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
-            this.pnlCabercera.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarForm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizarForm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarForm)).BeginInit();
             this.grbProyectos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
             this.pnlBotonera.SuspendLayout();
@@ -135,54 +128,18 @@
             // 
             // pnlCabercera
             // 
+            this.pnlCabercera.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlCabercera.BackColor = System.Drawing.Color.LightBlue;
-            this.pnlCabercera.Controls.Add(this.btnMinimizarForm);
-            this.pnlCabercera.Controls.Add(this.btnMaximizarForm);
-            this.pnlCabercera.Controls.Add(this.btnCerrarForm);
             this.pnlCabercera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabercera.Name = "pnlCabercera";
             this.pnlCabercera.Size = new System.Drawing.Size(1186, 47);
             this.pnlCabercera.TabIndex = 2;
             // 
-            // btnMinimizarForm
-            // 
-            this.btnMinimizarForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnMinimizarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizarForm.Location = new System.Drawing.Point(1063, 6);
-            this.btnMinimizarForm.Name = "btnMinimizarForm";
-            this.btnMinimizarForm.Size = new System.Drawing.Size(32, 32);
-            this.btnMinimizarForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnMinimizarForm.TabIndex = 2;
-            this.btnMinimizarForm.TabStop = false;
-            this.btnMinimizarForm.Click += new System.EventHandler(this.btnMinimizarForm_Click);
-            // 
-            // btnMaximizarForm
-            // 
-            this.btnMaximizarForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnMaximizarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizarForm.Location = new System.Drawing.Point(1101, 6);
-            this.btnMaximizarForm.Name = "btnMaximizarForm";
-            this.btnMaximizarForm.Size = new System.Drawing.Size(32, 32);
-            this.btnMaximizarForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnMaximizarForm.TabIndex = 1;
-            this.btnMaximizarForm.TabStop = false;
-            this.btnMaximizarForm.Click += new System.EventHandler(this.btnMaximizarForm_Click);
-            // 
-            // btnCerrarForm
-            // 
-            this.btnCerrarForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrarForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarForm.Location = new System.Drawing.Point(1139, 6);
-            this.btnCerrarForm.Name = "btnCerrarForm";
-            this.btnCerrarForm.Size = new System.Drawing.Size(32, 32);
-            this.btnCerrarForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnCerrarForm.TabIndex = 0;
-            this.btnCerrarForm.TabStop = false;
-            this.btnCerrarForm.Click += new System.EventHandler(this.btnCerrarForm_Click);
-            // 
             // grbProyectos
             // 
+            this.grbProyectos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbProyectos.Controls.Add(this.comboBox1);
             this.grbProyectos.Controls.Add(this.lblEstadoProyecto);
             this.grbProyectos.Controls.Add(this.textBox1);
@@ -232,6 +189,9 @@
             // 
             // dgvProyectos
             // 
+            this.dgvProyectos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProyectos.Location = new System.Drawing.Point(192, 145);
             this.dgvProyectos.Name = "dgvProyectos";
@@ -240,6 +200,8 @@
             // 
             // pnlBotonera
             // 
+            this.pnlBotonera.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBotonera.Controls.Add(this.flpBotonera);
             this.pnlBotonera.Location = new System.Drawing.Point(192, 667);
@@ -249,6 +211,7 @@
             // 
             // flpBotonera
             // 
+            this.flpBotonera.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.flpBotonera.Controls.Add(this.btnProyecto);
             this.flpBotonera.Controls.Add(this.btnEditarDocs);
             this.flpBotonera.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -281,7 +244,7 @@
             this.btnEditarDocs.Text = "Editar Docs.";
             this.btnEditarDocs.UseVisualStyleBackColor = false;
             // 
-            // frmListaProyectos
+            // FrmListaProyectos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -292,15 +255,11 @@
             this.Controls.Add(this.grbProyectos);
             this.Controls.Add(this.pnlCabercera);
             this.Controls.Add(this.pnlLateral);
-            this.Name = "frmListaProyectos";
+            this.Name = "FrmListaProyectos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Proyectos";
+            this.Load += new System.EventHandler(this.FrmListaProyectos_Load);
             this.pnlLateral.ResumeLayout(false);
-            this.pnlCabercera.ResumeLayout(false);
-            this.pnlCabercera.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarForm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizarForm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarForm)).EndInit();
             this.grbProyectos.ResumeLayout(false);
             this.grbProyectos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
@@ -319,9 +278,6 @@
         private System.Windows.Forms.Button btnBajaTension;
         private System.Windows.Forms.Button btnMediaTension;
         private System.Windows.Forms.Button btnAT;
-        private System.Windows.Forms.PictureBox btnMinimizarForm;
-        private System.Windows.Forms.PictureBox btnMaximizarForm;
-        private System.Windows.Forms.PictureBox btnCerrarForm;
         private System.Windows.Forms.GroupBox grbProyectos;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblEstadoProyecto;

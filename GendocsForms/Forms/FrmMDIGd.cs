@@ -101,5 +101,13 @@ namespace GendocsForms
                 childForm.Close();
             }
         }
+
+        private void FrmMDIGd_Load(object sender, EventArgs e)
+        {
+            FrmMenu frm = new FrmMenu();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }

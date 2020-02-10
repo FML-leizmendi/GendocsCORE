@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{47BF9144-C5CA-4B29-9ED2-E7E5B51A13EB}</ProjectGuid>
+    <ProjectGuid>{1608BCDF-E781-4ACA-8302-8682AF32B58B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsAppFramework</RootNamespace>
-    <AssemblyName>WindowsFormsAppFramework</AssemblyName>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,7 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GendocsForms\Forms\frmListaProyectos.cs">
+      <Link>frmListaProyectos.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmListaProyectos.designer.cs">
+      <Link>frmListaProyectos.designer.cs</Link>
+      <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
+      <Link>frmListaProyectos.resx</Link>
+      <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -68,12 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GendocsModeloDatos\GendocsModeloDatos.csproj">
-      <Project>{9ca13226-193f-4a3c-b854-d072e07b53f6}</Project>
-      <Name>GendocsModeloDatos</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
