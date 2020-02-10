@@ -1,6 +1,6 @@
 ﻿namespace GendocsForms.Forms
 {
-    partial class frmMenu
+    partial class FrmMenu
     {
         /// <summary>
         /// Required designer variable.

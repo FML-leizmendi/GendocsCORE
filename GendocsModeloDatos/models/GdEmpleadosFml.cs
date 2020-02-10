@@ -17,5 +17,6 @@ namespace GendocsModeloDatos.models
         public string Etiquetas { get; set; }
         public string TrelloIdMember { get; set; }
         public int? CodigoPersona { get; set; }
+        public string Pass { get; set; }
     }
 }

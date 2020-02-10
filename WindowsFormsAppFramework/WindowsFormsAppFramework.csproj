@@ -46,82 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\GendocsForms\Forms\frmListaProyectos.cs">
-      <Link>frmListaProyectos.cs</Link>
+    <Compile Include="FrmMDIGd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmListaProyectos.designer.cs">
-      <Link>frmListaProyectos.designer.cs</Link>
-      <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    <Compile Include="FrmMDIGd.designer.cs">
+      <DependentUpon>FrmMDIGd.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmLogin.cs">
-      <Link>frmLogin.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmLogin.designer.cs">
-      <Link>frmLogin.designer.cs</Link>
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmMDI.cs">
-      <Link>frmMDI.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmMDI.designer.cs">
-      <Link>frmMDI.designer.cs</Link>
-      <DependentUpon>frmMDI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmMenu.cs">
-      <Link>frmMenu.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmMenu.designer.cs">
-      <Link>frmMenu.designer.cs</Link>
-      <DependentUpon>frmMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmPoblaciones.cs">
-      <Link>frmPoblaciones.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmPoblaciones.designer.cs">
-      <Link>frmPoblaciones.designer.cs</Link>
-      <DependentUpon>frmPoblaciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
-      <Link>frmListaProyectos.resx</Link>
-      <DependentUpon>frmListaProyectos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\frmLogin.resx">
-      <Link>frmLogin.resx</Link>
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\frmMDI.resx">
-      <Link>frmMDI.resx</Link>
-      <DependentUpon>frmMDI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\frmMenu.resx">
-      <Link>frmMenu.resx</Link>
-      <DependentUpon>frmMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\frmPoblaciones.resx">
-      <Link>frmPoblaciones.resx</Link>
-      <DependentUpon>frmPoblaciones.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMDIGd.resx">
+      <DependentUpon>FrmMDIGd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
