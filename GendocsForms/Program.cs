@@ -33,8 +33,10 @@ namespace GendocsForms
             if (Gdf.Login())
             {
                 //MessageBox.Show("OK!","Acceso correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                FrmMDIGd frmMDI = new FrmMDIGd();
-                frmMDI.ShowDialog();
+                //FrmMDIGd frmMDI = new FrmMDIGd();
+                //frmMDI.ShowDialog();
+                FrmListaProyectos frm = new FrmListaProyectos();
+                frm.ShowDialog();
             }
             else
             {

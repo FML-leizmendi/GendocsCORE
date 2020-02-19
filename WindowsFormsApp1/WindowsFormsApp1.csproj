@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1608BCDF-E781-4ACA-8302-8682AF32B58B}</ProjectGuid>
+    <ProjectGuid>{CF266B66-9EF7-42CE-B7EE-CC0CDA4CB634}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WindowsFormsApp1</RootNamespace>
     <AssemblyName>WindowsFormsApp1</AssemblyName>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GendocsForms\Forms\frmEmpleadosFML.cs">
+      <Link>frmEmpleadosFML.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmEmpleadosFML.designer.cs">
+      <Link>frmEmpleadosFML.designer.cs</Link>
+      <DependentUpon>frmEmpleadosFML.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\frmListaProyectos.cs">
       <Link>frmListaProyectos.cs</Link>
       <SubType>Form</SubType>
@@ -54,10 +63,23 @@
       <Link>frmListaProyectos.designer.cs</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmMenu.cs">
+      <Link>frmMenu.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmMenu.designer.cs">
+      <Link>frmMenu.designer.cs</Link>
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
       <Link>frmListaProyectos.resx</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\frmMenu.resx">
+      <Link>frmMenu.resx</Link>
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
