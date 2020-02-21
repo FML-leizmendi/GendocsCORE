@@ -44,32 +44,32 @@ namespace GendocsForms
         {
             try
             {   //Ocultar una columna de un datagridview 
-                this.dgvProyectos.Columns["IdProyecto"].Visible = false;
-                this.dgvProyectos.Columns["CarpetaBase"].Visible = false;
-                this.dgvProyectos.Columns["IdCliente"].Visible = false;
-                this.dgvProyectos.Columns["Titulo"].Visible = false;
-                this.dgvProyectos.Columns["TituloCorto"].Visible = false;
-                this.dgvProyectos.Columns["Autor"].Visible = false;
-                this.dgvProyectos.Columns["Colegiado"].Visible = false;
-                this.dgvProyectos.Columns["Provincia"].Visible = false;
-                this.dgvProyectos.Columns["LineaAereaSn"].Visible = false;
-                this.dgvProyectos.Columns["LineaSubterraneaSn"].Visible = false;
-                this.dgvProyectos.Columns["CentroTransformadorSn"].Visible = false;
-                this.dgvProyectos.Columns["IdEmpleadoGestor"].Visible = false;
-                this.dgvProyectos.Columns["EmailGestor"].Visible = false;
+                //this.dgvProyectos.Columns["IdProyecto"].Visible = false;
+                //this.dgvProyectos.Columns["CarpetaBase"].Visible = false;
+                //this.dgvProyectos.Columns["IdCliente"].Visible = false;
+                //this.dgvProyectos.Columns["Titulo"].Visible = false;
+                //this.dgvProyectos.Columns["TituloCorto"].Visible = false;
+                //this.dgvProyectos.Columns["Autor"].Visible = false;
+                //this.dgvProyectos.Columns["Colegiado"].Visible = false;
+                //this.dgvProyectos.Columns["Provincia"].Visible = false;
+                //this.dgvProyectos.Columns["LineaAereaSn"].Visible = false;
+                //this.dgvProyectos.Columns["LineaSubterraneaSn"].Visible = false;
+                //this.dgvProyectos.Columns["CentroTransformadorSn"].Visible = false;
+                //this.dgvProyectos.Columns["IdEmpleadoGestor"].Visible = false;
+                //this.dgvProyectos.Columns["EmailGestor"].Visible = false;
 
-                this.dgvProyectos.Columns["IdEmpleadoResponsable"].Visible = false;
-                this.dgvProyectos.Columns["EmailResponsable"].Visible = false;
-                this.dgvProyectos.Columns["FModificado"].Visible = false;
-                this.dgvProyectos.Columns["UModificado"].Visible = false;
-                this.dgvProyectos.Columns["FCreado"].Visible = false;
-                this.dgvProyectos.Columns["UCreado"].Visible = false;
-                this.dgvProyectos.Columns["Notas"].Visible = false;
-                this.dgvProyectos.Columns["Historico"].Visible = false;
-                this.dgvProyectos.Columns["IdProyectoEstadoNavigation"].Visible = false;
-                this.dgvProyectos.Columns["TipoProyectoNavigation"].Visible = false;
-                this.dgvProyectos.Columns["NotasG"].Visible = false;
-                this.dgvProyectos.Columns["GdPedidosCab"].Visible = false;
+                //this.dgvProyectos.Columns["IdEmpleadoResponsable"].Visible = false;
+                //this.dgvProyectos.Columns["EmailResponsable"].Visible = false;
+                //this.dgvProyectos.Columns["FModificado"].Visible = false;
+                //this.dgvProyectos.Columns["UModificado"].Visible = false;
+                //this.dgvProyectos.Columns["FCreado"].Visible = false;
+                //this.dgvProyectos.Columns["UCreado"].Visible = false;
+                //this.dgvProyectos.Columns["Notas"].Visible = false;
+                //this.dgvProyectos.Columns["Historico"].Visible = false;
+                //this.dgvProyectos.Columns["IdProyectoEstadoNavigation"].Visible = false;
+                //this.dgvProyectos.Columns["TipoProyectoNavigation"].Visible = false;
+                //this.dgvProyectos.Columns["NotasG"].Visible = false;
+                //this.dgvProyectos.Columns["GdPedidosCab"].Visible = false;
 
                 //Modificar el ancho de una columna
                 this.dgvProyectos.Columns["CodigoProyecto"].Width = 120;
@@ -96,23 +96,20 @@ namespace GendocsForms
             try
             {
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                //var linq = from a in bd_alq.actor
-                //           join p in bd_alq.pais on a.pais_ID equals p.pais_ID
-                //           join dt in bd_alq.det_act_pel on dt.ID equals p.ID
-                //           join x in bd_alq.otro on x.otro_ID equals a.otro_ID
-                //           select;
-                List<GendocsModeloDatos.models.GdProyectos> lst = (from d in db.GdProyectos
-                                                                   join pEstados in db.GdProyectoEstados on d.IdProyectoEstado equals pEstados.IdProyectoEstado
-                                                                   where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido))))
-                                                                   select d
-                                                                    ).ToList();
+                var lst = (from d in db.GdProyectos
+                           join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
+                           where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido) & (d.IdProyectoEstado == EstadoProyecto))))
+                           select new { d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+
+                           ).ToList();
 
                 if (EstadoProyecto != 0)
                 {
-                    List<GendocsModeloDatos.models.GdProyectos> lstFiltrada = (from d in db.GdProyectos
-                                                                               where (d.TipoProyecto.Contains(TipoProyecto) & ((d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido)))  & (d.IdProyectoEstado == EstadoProyecto)))
-                                                                               select d
-                                                                    ).ToList();
+                    var lstFiltrada = (from d in db.GdProyectos
+                                       join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
+                                       where (d.TipoProyecto.Contains(TipoProyecto) & ((d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido))) & (d.IdProyectoEstado == EstadoProyecto)))
+                                       select new { d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                                        ).ToList();
 
                     dgvProyectos.DataSource = lstFiltrada;
                 }
@@ -208,73 +205,54 @@ namespace GendocsForms
         {
             CambiarColorBotonSeleccionado(btnAT);
             TipoProyecto = "AT";
-            //cmbEstadoProyecto.SelectedIndex = 0;
-            CargarGrid(TipoProyecto, "", Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
         private void btnMediaTension_Click(object sender, EventArgs e)
         {
             CambiarColorBotonSeleccionado(btnMediaTension);
             TipoProyecto = "MT";
-            //cmbEstadoProyecto.SelectedIndex = 0;
-            CargarGrid(TipoProyecto, "", Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
         private void btnBajaTension_Click(object sender, EventArgs e)
         {
             CambiarColorBotonSeleccionado(btnBajaTension);
             TipoProyecto = "BT";
-            //cmbEstadoProyecto.SelectedIndex = 0;
-            CargarGrid(TipoProyecto, "", Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
         private void btnCartografia_Click(object sender, EventArgs e)
         {
             CambiarColorBotonSeleccionado(btnCartografia);
             TipoProyecto = "Ca";
-            //cmbEstadoProyecto.SelectedIndex = 0;
-            CargarGrid(TipoProyecto, "", Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
         private void btnOtros_Click(object sender, EventArgs e)
         {
             CambiarColorBotonSeleccionado(btnOtros);
             TipoProyecto = "Ot";
-            //cmbEstadoProyecto.SelectedIndex = 0;
-            CargarGrid(TipoProyecto, "", Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
         private void btnTodos_Click(object sender, EventArgs e)
         {
             CambiarColorBotonSeleccionado(btnTodos);
             TipoProyecto = "";
-           // cmbEstadoProyecto.SelectedIndex = 0;
-            CargarGrid(TipoProyecto, "", Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
         #endregion
 
         private void cmbEstadoProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarGrid(TipoProyecto,txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
-
-        //private void txtIntroduzcaTexto_lostFocus(object sender, EventArgs e)
-        //{
-        //    CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
-        //}
 
         private void txtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
         {
             CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
-
-
-        //private void txtIntroduzcaTexto_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text , Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
-        //}
-
-
     }
 }
