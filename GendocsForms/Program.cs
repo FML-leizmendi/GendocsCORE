@@ -35,7 +35,10 @@ namespace GendocsForms
                 //MessageBox.Show("OK!","Acceso correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 //FrmMDIGd frmMDI = new FrmMDIGd();
                 //frmMDI.ShowDialog();
-                FrmListaProyectos frm = new FrmListaProyectos();
+                //FrmListaProyectos frm = new FrmListaProyectos();
+                //frm.ShowDialog();
+
+                frmEmpleados frm = new frmEmpleados();
                 frm.ShowDialog();
             }
             else

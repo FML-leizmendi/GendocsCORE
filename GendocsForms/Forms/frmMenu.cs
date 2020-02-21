@@ -56,5 +56,11 @@ namespace GendocsForms
             //    Application.Exit();
             //}
         }
+
+        private void btnFmlStaff_Click(object sender, EventArgs e)
+        {
+            //frmEmpleados frm = new frmEmpleados();
+            //frm.showDialog();
+        }
     }
 }

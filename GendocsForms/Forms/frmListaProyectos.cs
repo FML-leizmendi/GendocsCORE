@@ -44,32 +44,12 @@ namespace GendocsForms
         {
             try
             {   //Ocultar una columna de un datagridview 
-                //this.dgvProyectos.Columns["IdProyecto"].Visible = false;
+                //this.dgvEmpleados.Columns["IdProyecto"].Visible = false;
                 //this.dgvProyectos.Columns["CarpetaBase"].Visible = false;
                 //this.dgvProyectos.Columns["IdCliente"].Visible = false;
                 //this.dgvProyectos.Columns["Titulo"].Visible = false;
                 //this.dgvProyectos.Columns["TituloCorto"].Visible = false;
                 //this.dgvProyectos.Columns["Autor"].Visible = false;
-                //this.dgvProyectos.Columns["Colegiado"].Visible = false;
-                //this.dgvProyectos.Columns["Provincia"].Visible = false;
-                //this.dgvProyectos.Columns["LineaAereaSn"].Visible = false;
-                //this.dgvProyectos.Columns["LineaSubterraneaSn"].Visible = false;
-                //this.dgvProyectos.Columns["CentroTransformadorSn"].Visible = false;
-                //this.dgvProyectos.Columns["IdEmpleadoGestor"].Visible = false;
-                //this.dgvProyectos.Columns["EmailGestor"].Visible = false;
-
-                //this.dgvProyectos.Columns["IdEmpleadoResponsable"].Visible = false;
-                //this.dgvProyectos.Columns["EmailResponsable"].Visible = false;
-                //this.dgvProyectos.Columns["FModificado"].Visible = false;
-                //this.dgvProyectos.Columns["UModificado"].Visible = false;
-                //this.dgvProyectos.Columns["FCreado"].Visible = false;
-                //this.dgvProyectos.Columns["UCreado"].Visible = false;
-                //this.dgvProyectos.Columns["Notas"].Visible = false;
-                //this.dgvProyectos.Columns["Historico"].Visible = false;
-                //this.dgvProyectos.Columns["IdProyectoEstadoNavigation"].Visible = false;
-                //this.dgvProyectos.Columns["TipoProyectoNavigation"].Visible = false;
-                //this.dgvProyectos.Columns["NotasG"].Visible = false;
-                //this.dgvProyectos.Columns["GdPedidosCab"].Visible = false;
 
                 //Modificar el ancho de una columna
                 this.dgvProyectos.Columns["CodigoProyecto"].Width = 120;

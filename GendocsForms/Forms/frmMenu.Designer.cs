@@ -151,6 +151,7 @@
             this.btnFmlStaff.TabIndex = 7;
             this.btnFmlStaff.Text = "FML STAFF";
             this.btnFmlStaff.UseVisualStyleBackColor = false;
+            this.btnFmlStaff.Click += new System.EventHandler(this.btnFmlStaff_Click);
             // 
             // panel3
             // 
