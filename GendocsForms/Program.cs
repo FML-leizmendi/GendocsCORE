@@ -38,7 +38,7 @@ namespace GendocsForms
                 //FrmListaProyectos frm = new FrmListaProyectos();
                 //frm.ShowDialog();
 
-                frmEmpleados frm = new frmEmpleados();
+                frmEmpleadosFML frm = new frmEmpleadosFML();
                 frm.ShowDialog();
             }
             else

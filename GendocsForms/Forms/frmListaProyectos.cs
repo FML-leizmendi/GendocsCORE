@@ -75,7 +75,11 @@ namespace GendocsForms
 
             try
             {
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 var lst = (from d in db.GdProyectos
                            join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
                            where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido) & (d.IdProyectoEstado == EstadoProyecto))))
@@ -108,19 +112,33 @@ namespace GendocsForms
         {
             try
             {
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 List<GendocsModeloDatos.models.GdProyectoEstados> lista = new List<GendocsModeloDatos.models.GdProyectoEstados>();
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
 
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 lista.Add(new GendocsModeloDatos.models.GdProyectoEstados()
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 {
                     IdProyectoEstado = 0,
                     ProyectoEstado = "Todos"
                 });
 
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 List<GendocsModeloDatos.models.GdProyectoEstados> lstEstadoProyectos;
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
 
                 // lstEstadoProyectos = db.GdProyectos.Select(p => new GendocsModeloDatos.models.GdProyectos_Reducida());
+#pragma warning disable CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 lstEstadoProyectos = db.GdProyectoEstados.Select(e => new GendocsModeloDatos.models.GdProyectoEstados()
+#pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'GendocsModeloDatos' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
                 {
                     IdProyectoEstado = e.IdProyectoEstado,
                     ProyectoEstado = e.ProyectoEstado
@@ -146,7 +164,9 @@ namespace GendocsForms
             {
                 if (cnt is Button)
                 {
+#pragma warning disable CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
                     clsBordesRedondeados.RedondearBordeBoton(cnt);
+#pragma warning restore CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
                 }
             }
         }
@@ -158,7 +178,9 @@ namespace GendocsForms
             {
                 if (cnt is Button)
                 {
+#pragma warning disable CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
                     clsBordesRedondeados.RedondearBordeBoton(cnt);
+#pragma warning restore CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
                 }
             }
         }
@@ -223,8 +245,6 @@ namespace GendocsForms
             CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
-        #endregion
-
         private void cmbEstadoProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
@@ -234,5 +254,9 @@ namespace GendocsForms
         {
             CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
+
+        #endregion
+
+
     }
 }

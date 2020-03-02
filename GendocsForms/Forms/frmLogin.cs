@@ -40,8 +40,8 @@ namespace GendocsForms
             //CancelClose = true;
 
             this.Close();
-            //frmListaProyectos frm = new frmListaProyectos();
-            //frm.Show();
+            FrmMDIGd frm = new FrmMDIGd();
+            frm.Show();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
