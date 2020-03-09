@@ -60,10 +60,10 @@ namespace GendocsForms
 
         private void btnFmlStaff_Click(object sender, EventArgs e)
         {
-            //frmEmpleadosFML frm = new frmEmpleadosFML();
-            //frm.MdiParent = this.MdiParent;
-            //frm.WindowState = FormWindowState.Maximized;
-            //frm.Show();
+            frmEmpleadosFML frm = new frmEmpleadosFML();
+            frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
         }
     }
 }

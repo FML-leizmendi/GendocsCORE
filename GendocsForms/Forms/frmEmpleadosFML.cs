@@ -3,7 +3,6 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System;
-using GendocsModeloDatos.models;
 
 namespace GendocsForms.Forms
 {
@@ -22,6 +21,49 @@ namespace GendocsForms.Forms
             CargarGrid();
             FormatearGrid();
             txtIntroduzcaTexto.Focus();
+        }
+
+        private void btnEditarEmpleado_Click(object sender, EventArgs e)
+        {
+            clsEmpFml cEmp = new clsEmpFml();
+            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+            {
+                var lst = (from d in db.GdEmpleadosFml
+                           where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
+                           select d.IdEmpleadoFml
+
+                       ).ToList();
+
+                cEmp.lstId = lst;
+                cEmp.CargarFrmEmpleadosFML();
+            }
+
+        }
+
+
+        private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            clsEmpFml cEmp = new clsEmpFml();
+            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+            {
+                var lst = (from d in db.GdEmpleadosFml
+                           where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
+                           select d.IdEmpleadoFml
+
+                       ).ToList();
+
+                cEmp.lstId = lst;
+                cEmp.CargarFrmEmpleadosFML();
+            }
+        }
+
+        private void dgvEmpleados_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvEmpleados.CurrentRow != null)
+            {
+                //IdEmpleado = Convert.ToInt32(dgvEmpleados.Rows[0].Cells[1].Value);
+                IdEmpleado = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value);
+            }
         }
 
         #endregion
@@ -94,48 +136,7 @@ namespace GendocsForms.Forms
             CargarGrid(txtIntroduzcaTexto.Text);
         }
 
-        private void btnEditarEmpleado_Click(object sender, EventArgs e)
-        {
-            clsEmpFml cEmp = new clsEmpFml();
-            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-            {
-                var lst = (from d in db.GdEmpleadosFml
-                           where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
-                           select d.IdEmpleadoFml
 
-                       ).ToList();
-
-                cEmp.lstId = lst;
-                cEmp.CargarFrmEmpleadosFML();
-            }
-
-        }
-
-        private void dgvEmpleados_CurrentCellChanged(object sender, EventArgs e)
-        {
-
-            if (dgvEmpleados.CurrentRow != null)
-            {
-                //IdEmpleado = Convert.ToInt32(dgvEmpleados.Rows[0].Cells[1].Value);
-                IdEmpleado = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value);
-            }
-        }
-
-        private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            clsEmpFml cEmp = new clsEmpFml();
-            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-            {
-                var lst = (from d in db.GdEmpleadosFml
-                           where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
-                           select d.IdEmpleadoFml
-
-                       ).ToList();
-
-                cEmp.lstId = lst;
-                cEmp.CargarFrmEmpleadosFML();
-            }
-        }
     }
     #endregion
 }
