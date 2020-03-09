@@ -106,6 +106,7 @@ namespace GendocsForms
         {
             FrmMenu frm = new FrmMenu();
             frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }

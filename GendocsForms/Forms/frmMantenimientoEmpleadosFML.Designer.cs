@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoEmpleadosFML));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlCabecera = new System.Windows.Forms.Panel();
+            this.pnlBotonera = new System.Windows.Forms.Panel();
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
@@ -38,9 +39,10 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.btnPrimero = new System.Windows.Forms.Button();
             this.grbEmpleadoFML = new System.Windows.Forms.GroupBox();
+            this.btnEtiquetas = new System.Windows.Forms.Button();
             this.txtIdEmpleado = new System.Windows.Forms.TextBox();
             this.txtEtiquetas = new System.Windows.Forms.TextBox();
             this.lblEtiquetas = new System.Windows.Forms.Label();
@@ -54,32 +56,33 @@
             this.lblApellidos = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pnlBotonera.SuspendLayout();
             this.flpBotonera.SuspendLayout();
             this.grbEmpleadoFML.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlCabecera
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightBlue;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(997, 40);
-            this.panel1.TabIndex = 0;
+            this.pnlCabecera.BackColor = System.Drawing.Color.LightBlue;
+            this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
+            this.pnlCabecera.Name = "pnlCabecera";
+            this.pnlCabecera.Size = new System.Drawing.Size(999, 40);
+            this.pnlCabecera.TabIndex = 0;
             // 
-            // panel2
+            // pnlBotonera
             // 
-            this.panel2.Controls.Add(this.btnUltimo);
-            this.panel2.Controls.Add(this.btnSiguiente);
-            this.panel2.Controls.Add(this.btnAnterior);
-            this.panel2.Controls.Add(this.flpBotonera);
-            this.panel2.Controls.Add(this.btnPrimero);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 264);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(997, 57);
-            this.panel2.TabIndex = 2;
+            this.pnlBotonera.Controls.Add(this.btnUltimo);
+            this.pnlBotonera.Controls.Add(this.btnSiguiente);
+            this.pnlBotonera.Controls.Add(this.btnAnterior);
+            this.pnlBotonera.Controls.Add(this.flpBotonera);
+            this.pnlBotonera.Controls.Add(this.btnPrimero);
+            this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotonera.Location = new System.Drawing.Point(0, 264);
+            this.pnlBotonera.Name = "pnlBotonera";
+            this.pnlBotonera.Size = new System.Drawing.Size(999, 57);
+            this.pnlBotonera.TabIndex = 0;
             // 
             // btnUltimo
             // 
@@ -94,6 +97,7 @@
             this.btnUltimo.Name = "btnUltimo";
             this.btnUltimo.Size = new System.Drawing.Size(35, 35);
             this.btnUltimo.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnUltimo, "Ir al último empleado");
             this.btnUltimo.UseVisualStyleBackColor = false;
             this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
@@ -110,6 +114,7 @@
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(35, 35);
             this.btnSiguiente.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnSiguiente, "Ir al siguiente empleado");
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
@@ -126,6 +131,7 @@
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(35, 35);
             this.btnAnterior.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btnAnterior, "Ir al anterior empleado");
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
@@ -135,11 +141,11 @@
             this.flpBotonera.Controls.Add(this.btnNuevo);
             this.flpBotonera.Controls.Add(this.btnGuardar);
             this.flpBotonera.Controls.Add(this.btnEliminar);
-            this.flpBotonera.Controls.Add(this.btnCancelar);
+            this.flpBotonera.Controls.Add(this.btnSalir);
             this.flpBotonera.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flpBotonera.Location = new System.Drawing.Point(317, 4);
             this.flpBotonera.Name = "flpBotonera";
-            this.flpBotonera.Size = new System.Drawing.Size(677, 50);
+            this.flpBotonera.Size = new System.Drawing.Size(679, 50);
             this.flpBotonera.TabIndex = 4;
             // 
             // btnNuevo
@@ -150,11 +156,12 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(513, 3);
+            this.btnNuevo.Location = new System.Drawing.Point(515, 3);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(161, 39);
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "NUEVO";
+            this.toolTip1.SetToolTip(this.btnNuevo, "Crear nuevo Empleado");
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -166,11 +173,12 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(346, 3);
+            this.btnGuardar.Location = new System.Drawing.Point(348, 3);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(161, 39);
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "GUARDAR";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar Empleado");
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -182,28 +190,30 @@
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(179, 3);
+            this.btnEliminar.Location = new System.Drawing.Point(181, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(161, 39);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "ELIMINAR";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Eliminar Empleado");
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnCancelar
+            // btnSalir
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(12, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(161, 39);
-            this.btnCancelar.TabIndex = 0;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(14, 3);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(161, 39);
+            this.btnSalir.TabIndex = 0;
+            this.btnSalir.Text = "SALIR";
+            this.toolTip1.SetToolTip(this.btnSalir, "Salir");
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnPrimero
             // 
@@ -218,11 +228,13 @@
             this.btnPrimero.Name = "btnPrimero";
             this.btnPrimero.Size = new System.Drawing.Size(35, 35);
             this.btnPrimero.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnPrimero, "Ir al primer empleado");
             this.btnPrimero.UseVisualStyleBackColor = false;
             this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
             // grbEmpleadoFML
             // 
+            this.grbEmpleadoFML.Controls.Add(this.btnEtiquetas);
             this.grbEmpleadoFML.Controls.Add(this.txtIdEmpleado);
             this.grbEmpleadoFML.Controls.Add(this.txtEtiquetas);
             this.grbEmpleadoFML.Controls.Add(this.lblEtiquetas);
@@ -239,9 +251,20 @@
             this.grbEmpleadoFML.Location = new System.Drawing.Point(4, 46);
             this.grbEmpleadoFML.Name = "grbEmpleadoFML";
             this.grbEmpleadoFML.Size = new System.Drawing.Size(990, 215);
-            this.grbEmpleadoFML.TabIndex = 1;
+            this.grbEmpleadoFML.TabIndex = 2;
             this.grbEmpleadoFML.TabStop = false;
             this.grbEmpleadoFML.Text = "Empleado Seleccionado";
+            // 
+            // btnEtiquetas
+            // 
+            this.btnEtiquetas.Image = ((System.Drawing.Image)(resources.GetObject("btnEtiquetas.Image")));
+            this.btnEtiquetas.Location = new System.Drawing.Point(838, 148);
+            this.btnEtiquetas.Name = "btnEtiquetas";
+            this.btnEtiquetas.Size = new System.Drawing.Size(37, 22);
+            this.btnEtiquetas.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnEtiquetas, "Etiquetar Empleado");
+            this.btnEtiquetas.UseVisualStyleBackColor = true;
+            this.btnEtiquetas.Click += new System.EventHandler(this.btnEtiquetas_Click);
             // 
             // txtIdEmpleado
             // 
@@ -253,6 +276,7 @@
             // 
             // txtEtiquetas
             // 
+            this.txtEtiquetas.Enabled = false;
             this.txtEtiquetas.Location = new System.Drawing.Point(402, 149);
             this.txtEtiquetas.Name = "txtEtiquetas";
             this.txtEtiquetas.Size = new System.Drawing.Size(437, 20);
@@ -352,14 +376,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(997, 321);
+            this.ClientSize = new System.Drawing.Size(999, 321);
             this.Controls.Add(this.grbEmpleadoFML);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlBotonera);
+            this.Controls.Add(this.pnlCabecera);
+            this.MaximumSize = new System.Drawing.Size(1015, 360);
+            this.MinimumSize = new System.Drawing.Size(1015, 360);
             this.Name = "frmMantenimientoEmpleadosFML";
-            this.Text = "Mantenimiento Empleados FML";
+            this.Text = "Empleados FML";
             this.Load += new System.EventHandler(this.frmMantenimientoEmpleadosFML_Load);
-            this.panel2.ResumeLayout(false);
+            this.pnlBotonera.ResumeLayout(false);
             this.flpBotonera.ResumeLayout(false);
             this.grbEmpleadoFML.ResumeLayout(false);
             this.grbEmpleadoFML.PerformLayout();
@@ -369,13 +395,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlCabecera;
+        private System.Windows.Forms.Panel pnlBotonera;
         private System.Windows.Forms.FlowLayoutPanel flpBotonera;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox grbEmpleadoFML;
         private System.Windows.Forms.TextBox txtEtiquetas;
         private System.Windows.Forms.Label lblEtiquetas;
@@ -394,5 +420,7 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimero;
         private System.Windows.Forms.TextBox txtIdEmpleado;
+        private System.Windows.Forms.Button btnEtiquetas;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -29,8 +29,8 @@ namespace GendocsForms
             CargarComboEstadosProyectos();
             CargarGrid();
             FormatearGrid();
-            CargarEstilosBotonesLateral();
-            CargarEstilosBotonera();
+            //CargarEstilosBotonesLateral();
+            //CargarEstilosBotonera();
         }
         private void btnCerrarForm_Click(object sender, EventArgs e)
         {
@@ -157,33 +157,29 @@ namespace GendocsForms
             }
         }
 
-        private void CargarEstilosBotonesLateral()
-        {
-            //GendocsForms.clsBordesRedondeados clsBordes = new GendocsForms.clsBordesRedondeados();
-            foreach (Control cnt in this.pnlLateral.Controls)
-            {
-                if (cnt is Button)
-                {
-#pragma warning disable CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
-                    clsBordesRedondeados.RedondearBordeBoton(cnt);
-#pragma warning restore CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
-                }
-            }
-        }
+        //private void CargarEstilosBotonesLateral()
+        //{
+        //    //GendocsForms.clsBordesRedondeados clsBordes = new GendocsForms.clsBordesRedondeados();
+        //    foreach (Control cnt in this.pnlLateral.Controls)
+        //    {
+        //        if (cnt is Button)
+        //        {
+        //            clsBordesRedondeados.RedondearBordeBoton(cnt);
+        //        }
+        //    }
+        //}
 
-        private void CargarEstilosBotonera()
-        {
-            //GendocsForms.clsBordesRedondeados clsBordes = new GendocsForms.clsBordesRedondeados();
-            foreach (Control cnt in this.flpBotonera.Controls)
-            {
-                if (cnt is Button)
-                {
-#pragma warning disable CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
-                    clsBordesRedondeados.RedondearBordeBoton(cnt);
-#pragma warning restore CS0103 // El nombre 'clsBordesRedondeados' no existe en el contexto actual
-                }
-            }
-        }
+        //private void CargarEstilosBotonera()
+        //{
+        //    //GendocsForms.clsBordesRedondeados clsBordes = new GendocsForms.clsBordesRedondeados();
+        //    foreach (Control cnt in this.flpBotonera.Controls)
+        //    {
+        //        if (cnt is Button)
+        //        {
+        //           clsBordesRedondeados.RedondearBordeBoton(cnt);
+        //        }
+        //    }
+        //}
 
         private void CambiarColorBotonSeleccionado(Button button)
         {

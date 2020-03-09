@@ -17,7 +17,6 @@ namespace GendocsForms
     public partial class frmMantenimientoEmpleadosFML : Form
     {
         public clsEmpFml cEmp { get; set; }
-        public int IdEmpleadoMantenimiento { get; set; }
 
         public frmMantenimientoEmpleadosFML(clsEmpFml cemp)
         {
@@ -61,14 +60,13 @@ namespace GendocsForms
         {
             try
             {
-                //txtIdEmpleado.Text = cEmp.IdEmpleado.ToString();
+                txtIdEmpleado.Text = cEmp.IdEmpleado.ToString();
                 txtNIF.Text = cEmp.Nif;
                 txtNombre.Text = cEmp.Nombre;
                 txtApellidos.Text = cEmp.Apellidos;
                 txtTelefono.Text = cEmp.Telefono;
                 txtEmail.Text = cEmp.Email;
                 txtEtiquetas.Text = cEmp.Etiquetas;
-
             }
             catch (Exception ex)
             {
@@ -78,24 +76,50 @@ namespace GendocsForms
 
         bool validarControles()
         {
-            foreach (Control item in this.Controls)
+            bool EsValido = true;
+            string cadena = "Faltan los siguientes campos obligatorios:" + Environment.NewLine;
+            try
             {
-                try
+                if (txtNIF.Text == string.Empty)
                 {
-                    if (item is TextBox)
-                    {
-                        //Codigo comprobacion  de textbox
-                        if (item.Text == "")
-                        {
-                            MessageBox.Show("Hay campos vacios");
-                            item.Focus();
-                            return false;
-                        }
-                    }
+                    cadena += "NIF " + Environment.NewLine;
+                    txtNIF.Focus();
+                    EsValido = false;
                 }
-                catch { }
+                if (txtNombre.Text == string.Empty)
+                {
+                    cadena += "Nombre " + Environment.NewLine;
+                    txtNombre.Focus();
+                    EsValido = false;
+                }
+                if (txtApellidos.Text == string.Empty)
+                {
+                    cadena += "Apellidos " + Environment.NewLine;
+                    txtApellidos.Focus();
+                    EsValido =  false;
+                }
+                if (txtTelefono.Text == string.Empty)
+                {
+                    cadena += "Teléfono " + Environment.NewLine;
+                    txtTelefono.Focus();
+                    EsValido =  false;
+                }
+                if (txtEmail.Text == string.Empty)
+                {
+                    cadena += "Email " + Environment.NewLine;
+                    txtEmail.Focus();
+                    EsValido = false;
+                }
+                if (!EsValido)
+                {
+                    MessageBox.Show(cadena, "Empleados FML", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            return true;
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+            return EsValido;
         }
 
         #endregion
@@ -134,6 +158,7 @@ namespace GendocsForms
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarControles();
+            txtNIF.Focus();
             // txtIdEmpleado.Visible = true;
             cEmp.EsAlta = true;
             btnEliminar.Visible = false;
@@ -157,6 +182,18 @@ namespace GendocsForms
             }
 
         }
+
+        private void btnEtiquetas_Click(object sender, EventArgs e)
+        {
+            clsEmpFml cEmp = new clsEmpFml();
+            cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
+            cEmp.AsignarEtiquetasFML();
+            //CargarForm();
+            txtEtiquetas.Text = cEmp.Etiquetas;
+
+        }
         #endregion
+
+
     }
 }

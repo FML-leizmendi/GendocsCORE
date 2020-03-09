@@ -27,6 +27,7 @@ namespace GendocsForms
         {
             CargarGrid();
             FormatearGrid();
+            txtIntroduzcaTexto.Focus();
         }
 
         #endregion
@@ -133,9 +134,6 @@ namespace GendocsForms
 
         private void btnEditarEmpleado_Click(object sender, EventArgs e)
         {
-            //frmMantenimientoEmpleadosFML frm = new frmMantenimientoEmpleadosFML();
-            //frm.IdEmpleadoMantenimiento = IdEmpleado;
-            //frm.ShowDialog();
             clsEmpFml cEmp = new clsEmpFml();
             using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
             {
@@ -161,6 +159,21 @@ namespace GendocsForms
             }
         }
 
+        private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            clsEmpFml cEmp = new clsEmpFml();
+            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+            {
+                var lst = (from d in db.GdEmpleadosFml
+                           where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
+                           select d.IdEmpleadoFml
+
+                       ).ToList();
+
+                cEmp.lstId = lst;
+                cEmp.CargarFrmEmpleadosFML();
+            }
+        }
     }
     #endregion
 }

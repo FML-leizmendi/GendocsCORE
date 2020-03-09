@@ -35,13 +35,10 @@ namespace GendocsForms
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("sender: " + sender.ToString());
-            //MessageBox.Show("e: " + e.ToString());
-            //CancelClose = true;
-
+          
             this.Close();
-            FrmMDIGd frm = new FrmMDIGd();
-            frm.Show();
+            //FrmMDIGd frm = new FrmMDIGd();
+            //frm.Show();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

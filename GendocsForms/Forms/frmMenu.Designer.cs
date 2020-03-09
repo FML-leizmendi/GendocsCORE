@@ -29,36 +29,36 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlCabecera = new System.Windows.Forms.Panel();
+            this.pnlLateral = new System.Windows.Forms.Panel();
             this.btnExpedientes = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.btnDocumentos = new System.Windows.Forms.Button();
             this.btnAgenda = new System.Windows.Forms.Button();
             this.btnContactos = new System.Windows.Forms.Button();
             this.btnFmlStaff = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlBotonera = new System.Windows.Forms.Panel();
+            this.pcbLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlCabecera
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightBlue;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(956, 35);
-            this.panel1.TabIndex = 0;
+            this.pnlCabecera.BackColor = System.Drawing.Color.LightBlue;
+            this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
+            this.pnlCabecera.Name = "pnlCabecera";
+            this.pnlCabecera.Size = new System.Drawing.Size(956, 35);
+            this.pnlCabecera.TabIndex = 0;
             // 
-            // panel2
+            // pnlLateral
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkGray;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 35);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(147, 495);
-            this.panel2.TabIndex = 1;
+            this.pnlLateral.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLateral.Location = new System.Drawing.Point(0, 35);
+            this.pnlLateral.Name = "pnlLateral";
+            this.pnlLateral.Size = new System.Drawing.Size(147, 495);
+            this.pnlLateral.TabIndex = 1;
             // 
             // btnExpedientes
             // 
@@ -153,25 +153,25 @@
             this.btnFmlStaff.UseVisualStyleBackColor = false;
             this.btnFmlStaff.Click += new System.EventHandler(this.btnFmlStaff_Click);
             // 
-            // panel3
+            // pnlBotonera
             // 
-            this.panel3.BackColor = System.Drawing.Color.LightBlue;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(147, 485);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(809, 45);
-            this.panel3.TabIndex = 8;
+            this.pnlBotonera.BackColor = System.Drawing.Color.LightBlue;
+            this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotonera.Location = new System.Drawing.Point(147, 485);
+            this.pnlBotonera.Name = "pnlBotonera";
+            this.pnlBotonera.Size = new System.Drawing.Size(809, 45);
+            this.pnlBotonera.TabIndex = 8;
             // 
-            // pictureBox1
+            // pcbLogo
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(420, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 89);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pcbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pcbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcbLogo.Image")));
+            this.pcbLogo.Location = new System.Drawing.Point(420, 90);
+            this.pcbLogo.Name = "pcbLogo";
+            this.pcbLogo.Size = new System.Drawing.Size(194, 89);
+            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbLogo.TabIndex = 0;
+            this.pcbLogo.TabStop = false;
             // 
             // FrmMenu
             // 
@@ -179,21 +179,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(956, 530);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pcbLogo);
+            this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.btnFmlStaff);
             this.Controls.Add(this.btnContactos);
             this.Controls.Add(this.btnAgenda);
             this.Controls.Add(this.btnDocumentos);
             this.Controls.Add(this.btnPedidos);
             this.Controls.Add(this.btnExpedientes);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlLateral);
+            this.Controls.Add(this.pnlCabecera);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Menú Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,15 +205,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlCabecera;
+        private System.Windows.Forms.Panel pnlLateral;
         private System.Windows.Forms.Button btnExpedientes;
         private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Button btnDocumentos;
         private System.Windows.Forms.Button btnAgenda;
         private System.Windows.Forms.Button btnContactos;
         private System.Windows.Forms.Button btnFmlStaff;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pnlBotonera;
+        private System.Windows.Forms.PictureBox pcbLogo;
     }
 }

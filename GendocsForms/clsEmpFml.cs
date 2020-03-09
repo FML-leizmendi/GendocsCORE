@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using GendocsModeloDatos.models;
+using GendocsForms.Forms;
 
 namespace GendocsForms
 {
@@ -36,10 +37,19 @@ namespace GendocsForms
         public void CargarFrmEmpleadosFML()
         {
             frmMantenimientoEmpleadosFML frm = new frmMantenimientoEmpleadosFML(this);
-            // frm.cEmp = this;
             IdEmpleado = lstId[0];
             CargarEmpleado();
             frm.ShowDialog();
+        }
+
+        public void AsignarEtiquetasFML()
+        {
+            frmEtiquetarEmpleadoFML frm = new frmEtiquetarEmpleadoFML(this);
+            CargarEmpleado();
+            frm.CargarListaAsignadas(IdEmpleado);
+            frm.CargarListaDisponibles();
+            frm.ShowDialog();
+            Etiquetame();
         }
 
 
@@ -79,6 +89,75 @@ namespace GendocsForms
                     Telefono = string.Empty;
                 }
 
+            }
+        }
+
+        public void CargarListaAsignadas()
+        {
+            try
+            {
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    var lst = (from d in db.GdEmpleadosFml
+                               where (d.IdEmpleadoFml == this.IdEmpleado)
+                               select d.Etiquetas
+
+                           ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+
+        }
+
+        public void CargarListaDisponibles()
+        {
+            try
+            {
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    var lst = (from d in db.GdEmpleadosFml
+                               select d.Etiquetas
+
+                           ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+
+        }
+
+        public void Etiquetame()
+        {
+            try
+            {
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    Etiquetas = string.Empty;
+
+                    var lst = (from d in db.GdEmpleadosFmlEtiquetas
+                               join f in db.GdEtiquetasFml
+                               on d.IdEtiqueta equals f.IdEtiqueta
+                               where d.IdEmpleadoFml == IdEmpleado
+                               select new { f.EtiquetaFml }
+
+                                  ).ToList();
+
+                    foreach (var list in lst)
+                    {
+                        Etiquetas += list.EtiquetaFml + "~";
+                        GuardarUsuario();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
             }
         }
 
@@ -140,19 +219,6 @@ namespace GendocsForms
         {
             try
             {
-                //int IdEmpleadoFml = lstId.IndexOf(IdEmpleado);
-                DialogResult result = DialogResult.No;
-                if (EsAlta)
-                {
-                    result = MessageBox.Show("¿Desea crear un nuevo Usuario?", "Empleados FML", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                }
-                else
-                {
-                    result = MessageBox.Show("¿Desea modificar los datos?", "Empleados FML", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                }
-
-
-                if (result == DialogResult.Yes)
                 {
                     using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                         if (EsAlta)
@@ -168,6 +234,8 @@ namespace GendocsForms
 
                             db.GdEmpleadosFml.Add(EmpFml);
                             db.SaveChanges();
+
+                            MessageBox.Show("Los cambios han sido guardados correctamente", "Guardar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -184,6 +252,8 @@ namespace GendocsForms
                                 query.Etiquetas = Etiquetas;
 
                                 db.SaveChanges();
+
+                                //MessageBox.Show("Los cambios han sido guardados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     CargarEmpleado();

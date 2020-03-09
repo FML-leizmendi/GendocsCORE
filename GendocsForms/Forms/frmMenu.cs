@@ -26,7 +26,7 @@ namespace GendocsForms
             FrmMDIGd frmMDI = new FrmMDIGd();
             frm.MdiParent = this.MdiParent;
             frm.Show();
-           // this.Hide();
+            // this.Hide();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace GendocsForms
             IdPoblacion = frm.IdPoblacion;
             frm.Dispose();
             MessageBox.Show("El idPoblacion dentro del acceso es :" + IdPoblacion);
-          
+
             //return IdPoblacion;
 
         }
@@ -59,8 +59,10 @@ namespace GendocsForms
 
         private void btnFmlStaff_Click(object sender, EventArgs e)
         {
-            //frmEmpleados frm = new frmEmpleados();
-            //frm.showDialog();
+            frmEmpleadosFML frm = new frmEmpleadosFML();
+            frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
         }
     }
 }

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListaProyectos));
             this.pnlLateral = new System.Windows.Forms.Panel();
             this.btnTodos = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOtros = new System.Windows.Forms.Button();
             this.btnCartografia = new System.Windows.Forms.Button();
             this.btnBajaTension = new System.Windows.Forms.Button();
@@ -49,7 +48,6 @@
             this.btnProyecto = new System.Windows.Forms.Button();
             this.btnEditarDocs = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grbProyectos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
             this.pnlBotonera.SuspendLayout();
@@ -60,7 +58,6 @@
             // 
             this.pnlLateral.BackColor = System.Drawing.Color.Gray;
             this.pnlLateral.Controls.Add(this.btnTodos);
-            this.pnlLateral.Controls.Add(this.pictureBox1);
             this.pnlLateral.Controls.Add(this.btnOtros);
             this.pnlLateral.Controls.Add(this.btnCartografia);
             this.pnlLateral.Controls.Add(this.btnBajaTension);
@@ -78,7 +75,7 @@
             this.btnTodos.FlatAppearance.BorderSize = 0;
             this.btnTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTodos.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTodos.Location = new System.Drawing.Point(12, 231);
+            this.btnTodos.Location = new System.Drawing.Point(12, 264);
             this.btnTodos.Name = "btnTodos";
             this.btnTodos.Size = new System.Drawing.Size(161, 39);
             this.btnTodos.TabIndex = 0;
@@ -87,24 +84,13 @@
             this.btnTodos.UseVisualStyleBackColor = false;
             this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(31, 637);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 54);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnOtros
             // 
             this.btnOtros.BackColor = System.Drawing.Color.LightBlue;
             this.btnOtros.FlatAppearance.BorderSize = 0;
             this.btnOtros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOtros.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOtros.Location = new System.Drawing.Point(12, 481);
+            this.btnOtros.Location = new System.Drawing.Point(12, 514);
             this.btnOtros.Name = "btnOtros";
             this.btnOtros.Size = new System.Drawing.Size(161, 39);
             this.btnOtros.TabIndex = 5;
@@ -121,7 +107,7 @@
             this.btnCartografia.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCartografia.Image = ((System.Drawing.Image)(resources.GetObject("btnCartografia.Image")));
             this.btnCartografia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCartografia.Location = new System.Drawing.Point(12, 430);
+            this.btnCartografia.Location = new System.Drawing.Point(12, 463);
             this.btnCartografia.Name = "btnCartografia";
             this.btnCartografia.Size = new System.Drawing.Size(161, 39);
             this.btnCartografia.TabIndex = 4;
@@ -138,7 +124,7 @@
             this.btnBajaTension.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBajaTension.Image = ((System.Drawing.Image)(resources.GetObject("btnBajaTension.Image")));
             this.btnBajaTension.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBajaTension.Location = new System.Drawing.Point(12, 381);
+            this.btnBajaTension.Location = new System.Drawing.Point(12, 414);
             this.btnBajaTension.Name = "btnBajaTension";
             this.btnBajaTension.Size = new System.Drawing.Size(161, 39);
             this.btnBajaTension.TabIndex = 3;
@@ -155,7 +141,7 @@
             this.btnMediaTension.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMediaTension.Image = ((System.Drawing.Image)(resources.GetObject("btnMediaTension.Image")));
             this.btnMediaTension.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMediaTension.Location = new System.Drawing.Point(12, 330);
+            this.btnMediaTension.Location = new System.Drawing.Point(12, 363);
             this.btnMediaTension.Name = "btnMediaTension";
             this.btnMediaTension.Size = new System.Drawing.Size(161, 39);
             this.btnMediaTension.TabIndex = 2;
@@ -172,7 +158,7 @@
             this.btnAT.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAT.Image = ((System.Drawing.Image)(resources.GetObject("btnAT.Image")));
             this.btnAT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAT.Location = new System.Drawing.Point(12, 279);
+            this.btnAT.Location = new System.Drawing.Point(12, 312);
             this.btnAT.Name = "btnAT";
             this.btnAT.Size = new System.Drawing.Size(161, 39);
             this.btnAT.TabIndex = 1;
@@ -327,7 +313,6 @@
             this.Text = "Listado de Proyectos";
             this.Load += new System.EventHandler(this.FrmListaProyectos_Load);
             this.pnlLateral.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbProyectos.ResumeLayout(false);
             this.grbProyectos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
@@ -356,7 +341,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpBotonera;
         private System.Windows.Forms.Button btnProyecto;
         private System.Windows.Forms.Button btnEditarDocs;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnTodos;
     }
 }
