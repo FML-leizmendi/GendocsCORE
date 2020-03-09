@@ -1,4 +1,4 @@
-﻿namespace GendocsForms
+﻿namespace GendocsForms.Forms
 {
     partial class frmEmpleadosFML
     {
@@ -88,11 +88,11 @@
             this.btnEditarEmpleado.TabIndex = 0;
             this.btnEditarEmpleado.Text = "      Editar Empleado";
             this.btnEditarEmpleado.UseVisualStyleBackColor = false;
-            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
+            //this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
             // 
             // grbEmpleados
             // 
-            this.grbEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grbEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grbEmpleados.Controls.Add(this.txtIntroduzcaTexto);
             this.grbEmpleados.Controls.Add(this.lblTexto);
@@ -111,7 +111,7 @@
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
             this.txtIntroduzcaTexto.Size = new System.Drawing.Size(287, 23);
             this.txtIntroduzcaTexto.TabIndex = 1;
-            this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
+            //this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
             // 
             // lblTexto
             // 
@@ -128,8 +128,8 @@
             this.dgvEmpleados.AllowUserToAddRows = false;
             this.dgvEmpleados.AllowUserToDeleteRows = false;
             this.dgvEmpleados.AllowUserToOrderColumns = true;
-            this.dgvEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(191, 137);
@@ -138,8 +138,8 @@
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(1025, 563);
             this.dgvEmpleados.TabIndex = 4;
-            this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
-            this.dgvEmpleados.CurrentCellChanged += new System.EventHandler(this.dgvEmpleados_CurrentCellChanged);
+            //this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
+            //this.dgvEmpleados.CurrentCellChanged += new System.EventHandler(this.dgvEmpleados_CurrentCellChanged);
             // 
             // frmEmpleadosFML
             // 
@@ -153,7 +153,7 @@
             this.Controls.Add(this.pnlCabercera);
             this.Name = "frmEmpleadosFML";
             this.Text = "Empleados FML";
-            this.Load += new System.EventHandler(this.frmEmpleadosFML_Load);
+            //this.Load += new System.EventHandler(this.frmEmpleadosFML_Load);
             this.pnlLateral.ResumeLayout(false);
             this.grbEmpleados.ResumeLayout(false);
             this.grbEmpleados.PerformLayout();
