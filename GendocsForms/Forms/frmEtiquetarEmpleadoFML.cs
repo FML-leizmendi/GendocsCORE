@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System;
+using GendocsModeloDatos.models;
 
 namespace GendocsForms.Forms
 {
