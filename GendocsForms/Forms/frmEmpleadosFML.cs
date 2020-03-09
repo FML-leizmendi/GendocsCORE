@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using System.Globalization;
+using System;
+using GendocsModeloDatos.models;
 
 namespace GendocsForms.Forms
 {
@@ -90,38 +84,6 @@ namespace GendocsForms.Forms
             {
                 string mensaje = ex.Message;
             }
-        }
-
-        private static String textoSinAcentos(String TextoIntroducido)
-        {
-            string palabaSinTildes = string.Empty;
-            try
-            {
-                palabaSinTildes = Regex.Replace(TextoIntroducido.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-
-            return palabaSinTildes;
-        }
-
-        static string EliminarAcentos(string text)
-        {
-            string formD = text.Normalize(NormalizationForm.FormD);
-            StringBuilder sb = new StringBuilder();
-
-            foreach (char ch in formD)
-            {
-                UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(ch);
-                if (uc != UnicodeCategory.NonSpacingMark)
-                {
-                    sb.Append(ch);
-                }
-            }
-
-            return sb.ToString().Normalize(NormalizationForm.FormC);
         }
 
         #endregion
