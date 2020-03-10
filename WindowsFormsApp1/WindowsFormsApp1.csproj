@@ -79,6 +79,14 @@
       <Link>frmListaProyectos.designer.cs</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados.cs">
+      <Link>FrmMantenimientoEmpleados.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados.designer.cs">
+      <Link>FrmMantenimientoEmpleados.designer.cs</Link>
+      <DependentUpon>FrmMantenimientoEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\frmMantenimientoEmpleadosFML.cs">
       <Link>frmMantenimientoEmpleadosFML.cs</Link>
       <SubType>Form</SubType>
@@ -128,6 +136,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
       <Link>frmListaProyectos.resx</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados.resx">
+      <Link>FrmMantenimientoEmpleados.resx</Link>
+      <DependentUpon>FrmMantenimientoEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmMantenimientoEmpleadosFML.resx">
       <Link>frmMantenimientoEmpleadosFML.resx</Link>
