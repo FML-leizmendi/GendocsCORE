@@ -65,5 +65,13 @@ namespace GendocsForms
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
+
+        private void btnContactos_Click(object sender, EventArgs e)
+        {
+            FrmContactos frm = new FrmContactos();
+            frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
     }
 }

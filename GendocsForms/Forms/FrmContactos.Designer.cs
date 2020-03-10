@@ -1,6 +1,6 @@
 ﻿namespace GendocsForms.Forms
 {
-    partial class frmEmpleadosFML
+    partial class FrmContactos
     {
         /// <summary>
         /// Required designer variable.
@@ -33,12 +33,14 @@
             this.btnConsultarEmpleado = new System.Windows.Forms.Button();
             this.btnEditarEmpleado = new System.Windows.Forms.Button();
             this.grbEmpleados = new System.Windows.Forms.GroupBox();
+            this.lblCliente = new System.Windows.Forms.Label();
             this.txtIntroduzcaTexto = new System.Windows.Forms.TextBox();
             this.lblTexto = new System.Windows.Forms.Label();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.dgvContactos = new System.Windows.Forms.DataGridView();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.pnlLateral.SuspendLayout();
             this.grbEmpleados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContactos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlCabercera
@@ -48,7 +50,7 @@
             this.pnlCabercera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabercera.Name = "pnlCabercera";
             this.pnlCabercera.Size = new System.Drawing.Size(1224, 50);
-            this.pnlCabercera.TabIndex = 0;
+            this.pnlCabercera.TabIndex = 1;
             // 
             // pnlLateral
             // 
@@ -59,7 +61,7 @@
             this.pnlLateral.Location = new System.Drawing.Point(0, 50);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(185, 661);
-            this.pnlLateral.TabIndex = 1;
+            this.pnlLateral.TabIndex = 2;
             // 
             // btnConsultarEmpleado
             // 
@@ -94,22 +96,34 @@
             // 
             this.grbEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbEmpleados.Controls.Add(this.cmbClientes);
+            this.grbEmpleados.Controls.Add(this.lblCliente);
             this.grbEmpleados.Controls.Add(this.txtIntroduzcaTexto);
             this.grbEmpleados.Controls.Add(this.lblTexto);
             this.grbEmpleados.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbEmpleados.Location = new System.Drawing.Point(191, 56);
             this.grbEmpleados.Name = "grbEmpleados";
             this.grbEmpleados.Size = new System.Drawing.Size(1025, 75);
-            this.grbEmpleados.TabIndex = 2;
+            this.grbEmpleados.TabIndex = 3;
             this.grbEmpleados.TabStop = false;
             this.grbEmpleados.Text = "Empleados";
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(298, 23);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(46, 16);
+            this.lblCliente.TabIndex = 2;
+            this.lblCliente.Text = "Cliente";
             // 
             // txtIntroduzcaTexto
             // 
             this.txtIntroduzcaTexto.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(35, 37);
+            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(33, 41);
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
-            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(287, 23);
+            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(256, 23);
             this.txtIntroduzcaTexto.TabIndex = 1;
             this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
             // 
@@ -117,47 +131,57 @@
             // 
             this.lblTexto.AutoSize = true;
             this.lblTexto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTexto.Location = new System.Drawing.Point(38, 19);
+            this.lblTexto.Location = new System.Drawing.Point(36, 23);
             this.lblTexto.Name = "lblTexto";
             this.lblTexto.Size = new System.Drawing.Size(115, 16);
             this.lblTexto.TabIndex = 0;
             this.lblTexto.Text = "Introduzca un texto";
             // 
-            // dgvEmpleados
+            // dgvContactos
             // 
-            this.dgvEmpleados.AllowUserToAddRows = false;
-            this.dgvEmpleados.AllowUserToDeleteRows = false;
-            this.dgvEmpleados.AllowUserToOrderColumns = true;
-            this.dgvEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvContactos.AllowUserToAddRows = false;
+            this.dgvContactos.AllowUserToDeleteRows = false;
+            this.dgvContactos.AllowUserToOrderColumns = true;
+            this.dgvContactos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(191, 137);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.ReadOnly = true;
-            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleados.Size = new System.Drawing.Size(1025, 562);
-            this.dgvEmpleados.TabIndex = 3;
-            this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
-            this.dgvEmpleados.CurrentCellChanged += new System.EventHandler(this.dgvEmpleados_CurrentCellChanged);
+            this.dgvContactos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContactos.Location = new System.Drawing.Point(191, 137);
+            this.dgvContactos.Name = "dgvContactos";
+            this.dgvContactos.ReadOnly = true;
+            this.dgvContactos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContactos.Size = new System.Drawing.Size(1025, 562);
+            this.dgvContactos.TabIndex = 4;
+            this.dgvContactos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContactos_CellContentDoubleClick);
+            this.dgvContactos.CurrentCellChanged += new System.EventHandler(this.dgvContactos_CurrentCellChanged);
             // 
-            // frmEmpleadosFML
+            // cmbClientes
+            // 
+            this.cmbClientes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(301, 39);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(180, 25);
+            this.cmbClientes.TabIndex = 4;
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            // 
+            // FrmContactos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1224, 711);
-            this.Controls.Add(this.dgvEmpleados);
+            this.Controls.Add(this.dgvContactos);
             this.Controls.Add(this.grbEmpleados);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabercera);
-            this.Name = "frmEmpleadosFML";
-            this.Text = "Empleados FML";
-            this.Load += new System.EventHandler(this.frmEmpleadosFML_Load);
+            this.Name = "FrmContactos";
+            this.Text = "Contactos";
+            this.Load += new System.EventHandler(this.FrmContactos_Load);
             this.pnlLateral.ResumeLayout(false);
             this.grbEmpleados.ResumeLayout(false);
             this.grbEmpleados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContactos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,6 +195,8 @@
         private System.Windows.Forms.GroupBox grbEmpleados;
         private System.Windows.Forms.TextBox txtIntroduzcaTexto;
         private System.Windows.Forms.Label lblTexto;
-        private System.Windows.Forms.DataGridView dgvEmpleados;
+        private System.Windows.Forms.DataGridView dgvContactos;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.ComboBox cmbClientes;
     }
 }

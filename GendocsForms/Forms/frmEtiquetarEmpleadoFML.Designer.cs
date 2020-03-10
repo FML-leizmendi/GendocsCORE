@@ -52,7 +52,7 @@
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabecera.Name = "pnlCabecera";
             this.pnlCabecera.Size = new System.Drawing.Size(964, 49);
-            this.pnlCabecera.TabIndex = 3;
+            this.pnlCabecera.TabIndex = 0;
             // 
             // pnlLateral
             // 
@@ -64,7 +64,7 @@
             this.pnlLateral.MinimumSize = new System.Drawing.Size(180, 336);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(180, 336);
-            this.pnlLateral.TabIndex = 4;
+            this.pnlLateral.TabIndex = 1;
             // 
             // btnSalir
             // 
@@ -76,7 +76,7 @@
             this.btnSalir.Location = new System.Drawing.Point(12, 135);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(146, 39);
-            this.btnSalir.TabIndex = 1;
+            this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
@@ -88,7 +88,7 @@
             this.pnlBotonera.Location = new System.Drawing.Point(180, 314);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(784, 39);
-            this.pnlBotonera.TabIndex = 5;
+            this.pnlBotonera.TabIndex = 6;
             // 
             // btnAnadir
             // 
@@ -97,7 +97,7 @@
             this.btnAnadir.Location = new System.Drawing.Point(516, 146);
             this.btnAnadir.Name = "btnAnadir";
             this.btnAnadir.Size = new System.Drawing.Size(100, 35);
-            this.btnAnadir.TabIndex = 9;
+            this.btnAnadir.TabIndex = 3;
             this.btnAnadir.Text = "Añadir";
             this.btnAnadir.UseVisualStyleBackColor = true;
             this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
@@ -109,7 +109,7 @@
             this.btnQuitar.Location = new System.Drawing.Point(516, 188);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(100, 35);
-            this.btnQuitar.TabIndex = 8;
+            this.btnQuitar.TabIndex = 4;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
@@ -124,7 +124,7 @@
             this.lstvDisponibles.Location = new System.Drawing.Point(196, 66);
             this.lstvDisponibles.Name = "lstvDisponibles";
             this.lstvDisponibles.Size = new System.Drawing.Size(314, 225);
-            this.lstvDisponibles.TabIndex = 10;
+            this.lstvDisponibles.TabIndex = 2;
             this.lstvDisponibles.UseCompatibleStateImageBehavior = false;
             this.lstvDisponibles.View = System.Windows.Forms.View.Details;
             this.lstvDisponibles.DoubleClick += new System.EventHandler(this.lstvDisponibles_DoubleClick);
@@ -150,7 +150,7 @@
             this.lstvAsignadas.Location = new System.Drawing.Point(622, 66);
             this.lstvAsignadas.Name = "lstvAsignadas";
             this.lstvAsignadas.Size = new System.Drawing.Size(314, 225);
-            this.lstvAsignadas.TabIndex = 11;
+            this.lstvAsignadas.TabIndex = 5;
             this.lstvAsignadas.UseCompatibleStateImageBehavior = false;
             this.lstvAsignadas.View = System.Windows.Forms.View.Details;
             this.lstvAsignadas.DoubleClick += new System.EventHandler(this.lstvAsignadas_DoubleClick);

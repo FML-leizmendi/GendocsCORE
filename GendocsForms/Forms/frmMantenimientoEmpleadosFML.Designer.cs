@@ -82,7 +82,7 @@
             this.pnlBotonera.Location = new System.Drawing.Point(0, 264);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(999, 57);
-            this.pnlBotonera.TabIndex = 0;
+            this.pnlBotonera.TabIndex = 2;
             // 
             // btnUltimo
             // 
@@ -251,7 +251,7 @@
             this.grbEmpleadoFML.Location = new System.Drawing.Point(4, 46);
             this.grbEmpleadoFML.Name = "grbEmpleadoFML";
             this.grbEmpleadoFML.Size = new System.Drawing.Size(990, 215);
-            this.grbEmpleadoFML.TabIndex = 2;
+            this.grbEmpleadoFML.TabIndex = 1;
             this.grbEmpleadoFML.TabStop = false;
             this.grbEmpleadoFML.Text = "Empleado Seleccionado";
             // 
@@ -271,7 +271,7 @@
             this.txtIdEmpleado.Location = new System.Drawing.Point(46, 51);
             this.txtIdEmpleado.Name = "txtIdEmpleado";
             this.txtIdEmpleado.Size = new System.Drawing.Size(29, 20);
-            this.txtIdEmpleado.TabIndex = 1;
+            this.txtIdEmpleado.TabIndex = 0;
             this.txtIdEmpleado.Visible = false;
             // 
             // txtEtiquetas
@@ -336,7 +336,7 @@
             this.lblNIF.Location = new System.Drawing.Point(80, 34);
             this.lblNIF.Name = "lblNIF";
             this.lblNIF.Size = new System.Drawing.Size(24, 13);
-            this.lblNIF.TabIndex = 0;
+            this.lblNIF.TabIndex = 1;
             this.lblNIF.Text = "NIF";
             // 
             // txtApellidos

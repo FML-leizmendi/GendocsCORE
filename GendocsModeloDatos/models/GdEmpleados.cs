@@ -14,5 +14,8 @@ namespace GendocsModeloDatos.models
         public string Telefono { get; set; }
         public string Email { get; set; }
         public string Etiquetas { get; set; }
+
+        //public virtual GdCargos IdCargoNavigation { get; set; }
+        //public virtual GdProyectoEstados IdProyectoEstadoNavigation { get; set; }
     }
 }

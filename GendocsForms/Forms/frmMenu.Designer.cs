@@ -136,6 +136,7 @@
             this.btnContactos.TabIndex = 6;
             this.btnContactos.Text = "CONTACTOS";
             this.btnContactos.UseVisualStyleBackColor = false;
+            this.btnContactos.Click += new System.EventHandler(this.btnContactos_Click);
             // 
             // btnFmlStaff
             // 
