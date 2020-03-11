@@ -39,6 +39,7 @@ namespace GendocsForms.Forms
                     cEmp.lstId = lst;
                     cEmp.CargarFrmEmpleadosFML();
                 }
+                CargarGrid();
             }
             catch (Exception ex)
             {

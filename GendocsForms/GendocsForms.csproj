@@ -31,4 +31,10 @@
     <ProjectReference Include="..\GendocsModeloDatos\GendocsModeloDatos.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Forms\FrmMantenimientoEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

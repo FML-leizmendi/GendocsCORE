@@ -1,6 +1,6 @@
-﻿namespace GendocsForms.Forms
+﻿namespace GendocsForms
 {
-    partial class frmEtiquetarEmpleadoFML
+    partial class FrmEtiquetarEmpleado
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEtiquetarEmpleadoFML));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEtiquetarEmpleado));
             this.pnlCabecera = new System.Windows.Forms.Panel();
             this.pnlLateral = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pnlBotonera = new System.Windows.Forms.Panel();
-            this.btnAnadir = new System.Windows.Forms.Button();
-            this.btnQuitar = new System.Windows.Forms.Button();
             this.lstvDisponibles = new System.Windows.Forms.ListView();
             this.IdEtiqueta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dEtiquetaFML = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,6 +40,8 @@
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cIdEtiqueta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IdEmpleadoFML = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAnadir = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabecera.Name = "pnlCabecera";
             this.pnlCabecera.Size = new System.Drawing.Size(964, 49);
-            this.pnlCabecera.TabIndex = 0;
+            this.pnlCabecera.TabIndex = 1;
             // 
             // pnlLateral
             // 
@@ -64,7 +64,7 @@
             this.pnlLateral.MinimumSize = new System.Drawing.Size(180, 336);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(180, 336);
-            this.pnlLateral.TabIndex = 1;
+            this.pnlLateral.TabIndex = 2;
             // 
             // btnSalir
             // 
@@ -79,7 +79,7 @@
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // pnlBotonera
             // 
@@ -88,31 +88,7 @@
             this.pnlBotonera.Location = new System.Drawing.Point(180, 312);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(784, 39);
-            this.pnlBotonera.TabIndex = 6;
-            // 
-            // btnAnadir
-            // 
-            this.btnAnadir.Image = ((System.Drawing.Image)(resources.GetObject("btnAnadir.Image")));
-            this.btnAnadir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAnadir.Location = new System.Drawing.Point(516, 146);
-            this.btnAnadir.Name = "btnAnadir";
-            this.btnAnadir.Size = new System.Drawing.Size(100, 35);
-            this.btnAnadir.TabIndex = 3;
-            this.btnAnadir.Text = "Añadir";
-            this.btnAnadir.UseVisualStyleBackColor = true;
-            this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
-            // 
-            // btnQuitar
-            // 
-            this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
-            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(516, 188);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(100, 35);
-            this.btnQuitar.TabIndex = 4;
-            this.btnQuitar.Text = "Quitar";
-            this.btnQuitar.UseVisualStyleBackColor = true;
-            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            this.pnlBotonera.TabIndex = 7;
             // 
             // lstvDisponibles
             // 
@@ -124,10 +100,9 @@
             this.lstvDisponibles.Location = new System.Drawing.Point(196, 66);
             this.lstvDisponibles.Name = "lstvDisponibles";
             this.lstvDisponibles.Size = new System.Drawing.Size(314, 225);
-            this.lstvDisponibles.TabIndex = 2;
+            this.lstvDisponibles.TabIndex = 8;
             this.lstvDisponibles.UseCompatibleStateImageBehavior = false;
             this.lstvDisponibles.View = System.Windows.Forms.View.Details;
-            this.lstvDisponibles.DoubleClick += new System.EventHandler(this.lstvDisponibles_DoubleClick);
             // 
             // IdEtiqueta
             // 
@@ -150,10 +125,9 @@
             this.lstvAsignadas.Location = new System.Drawing.Point(622, 66);
             this.lstvAsignadas.Name = "lstvAsignadas";
             this.lstvAsignadas.Size = new System.Drawing.Size(314, 225);
-            this.lstvAsignadas.TabIndex = 5;
+            this.lstvAsignadas.TabIndex = 9;
             this.lstvAsignadas.UseCompatibleStateImageBehavior = false;
             this.lstvAsignadas.View = System.Windows.Forms.View.Details;
-            this.lstvAsignadas.DoubleClick += new System.EventHandler(this.lstvAsignadas_DoubleClick);
             // 
             // Id
             // 
@@ -172,41 +146,64 @@
             this.IdEmpleadoFML.Text = "IdEmpleadoFML";
             this.IdEmpleadoFML.Width = 0;
             // 
-            // frmEtiquetarEmpleadoFML
+            // btnAnadir
+            // 
+            this.btnAnadir.Image = ((System.Drawing.Image)(resources.GetObject("btnAnadir.Image")));
+            this.btnAnadir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAnadir.Location = new System.Drawing.Point(516, 146);
+            this.btnAnadir.Name = "btnAnadir";
+            this.btnAnadir.Size = new System.Drawing.Size(100, 35);
+            this.btnAnadir.TabIndex = 10;
+            this.btnAnadir.Text = "Añadir";
+            this.btnAnadir.UseVisualStyleBackColor = true;
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
+            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitar.Location = new System.Drawing.Point(516, 188);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(100, 35);
+            this.btnQuitar.TabIndex = 11;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            // 
+            // FrmEtiquetarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(964, 351);
-            this.Controls.Add(this.lstvAsignadas);
-            this.Controls.Add(this.lstvDisponibles);
             this.Controls.Add(this.btnAnadir);
             this.Controls.Add(this.btnQuitar);
+            this.Controls.Add(this.lstvAsignadas);
+            this.Controls.Add(this.lstvDisponibles);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabecera);
             this.MaximumSize = new System.Drawing.Size(980, 390);
             this.MinimumSize = new System.Drawing.Size(980, 390);
-            this.Name = "frmEtiquetarEmpleadoFML";
-            this.Text = "Etiquetar Empleado FML";
+            this.Name = "FrmEtiquetarEmpleado";
+            this.Text = "Etiquetar Empleado";
             this.pnlLateral.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
         private System.Windows.Forms.Panel pnlCabecera;
         private System.Windows.Forms.Panel pnlLateral;
-        private System.Windows.Forms.Panel pnlBotonera;
-        private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnAnadir;
+        private System.Windows.Forms.Panel pnlBotonera;
         private System.Windows.Forms.ListView lstvDisponibles;
-        private System.Windows.Forms.ListView lstvAsignadas;
         private System.Windows.Forms.ColumnHeader IdEtiqueta;
         private System.Windows.Forms.ColumnHeader dEtiquetaFML;
+        private System.Windows.Forms.ListView lstvAsignadas;
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader cIdEtiqueta;
         private System.Windows.Forms.ColumnHeader IdEmpleadoFML;
+        private System.Windows.Forms.Button btnAnadir;
+        private System.Windows.Forms.Button btnQuitar;
     }
 }

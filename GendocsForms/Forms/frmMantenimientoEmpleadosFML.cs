@@ -178,7 +178,7 @@ namespace GendocsForms
                 cEmp.GuardarUsuario();
                 cEmp.EsAlta = false;
                 // txtIdEmpleado.Visible = false;
-                btnEliminar.Visible = true;
+                //btnEliminar.Visible = true;
             }
 
         }

@@ -1,4 +1,4 @@
-﻿namespace GendocsForms.Forms
+﻿namespace GendocsForms
 {
     partial class frmMantenimientoEmpleados
     {
@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoEmpleados));
             this.pnlCabecera = new System.Windows.Forms.Panel();
             this.grbEmpleadoFML = new System.Windows.Forms.GroupBox();
+            this.lblCargo = new System.Windows.Forms.Label();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
+            this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.btnEtiquetas = new System.Windows.Forms.Button();
             this.txtIdEmpleado = new System.Windows.Forms.TextBox();
             this.txtEtiquetas = new System.Windows.Forms.TextBox();
@@ -39,10 +44,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
-            this.txtNIF = new System.Windows.Forms.TextBox();
-            this.lblNIF = new System.Windows.Forms.Label();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.lblApellidos = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.pnlBotonera = new System.Windows.Forms.Panel();
@@ -55,6 +56,9 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnPrimero = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lblJefe = new System.Windows.Forms.Label();
+            this.cmbJefes = new System.Windows.Forms.ComboBox();
             this.grbEmpleadoFML.SuspendLayout();
             this.pnlBotonera.SuspendLayout();
             this.flpBotonera.SuspendLayout();
@@ -67,10 +71,16 @@
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabecera.Name = "pnlCabecera";
             this.pnlCabecera.Size = new System.Drawing.Size(999, 40);
-            this.pnlCabecera.TabIndex = 1;
+            this.pnlCabecera.TabIndex = 0;
             // 
             // grbEmpleadoFML
             // 
+            this.grbEmpleadoFML.Controls.Add(this.lblJefe);
+            this.grbEmpleadoFML.Controls.Add(this.cmbJefes);
+            this.grbEmpleadoFML.Controls.Add(this.lblCargo);
+            this.grbEmpleadoFML.Controls.Add(this.lblCliente);
+            this.grbEmpleadoFML.Controls.Add(this.cmbClientes);
+            this.grbEmpleadoFML.Controls.Add(this.cmbCargo);
             this.grbEmpleadoFML.Controls.Add(this.btnEtiquetas);
             this.grbEmpleadoFML.Controls.Add(this.txtIdEmpleado);
             this.grbEmpleadoFML.Controls.Add(this.txtEtiquetas);
@@ -79,18 +89,50 @@
             this.grbEmpleadoFML.Controls.Add(this.lblEmail);
             this.grbEmpleadoFML.Controls.Add(this.txtTelefono);
             this.grbEmpleadoFML.Controls.Add(this.lblTelefono);
-            this.grbEmpleadoFML.Controls.Add(this.txtNIF);
-            this.grbEmpleadoFML.Controls.Add(this.lblNIF);
-            this.grbEmpleadoFML.Controls.Add(this.txtApellidos);
-            this.grbEmpleadoFML.Controls.Add(this.lblApellidos);
             this.grbEmpleadoFML.Controls.Add(this.txtNombre);
             this.grbEmpleadoFML.Controls.Add(this.lblNombre);
-            this.grbEmpleadoFML.Location = new System.Drawing.Point(4, 46);
+            this.grbEmpleadoFML.Location = new System.Drawing.Point(4, 43);
             this.grbEmpleadoFML.Name = "grbEmpleadoFML";
             this.grbEmpleadoFML.Size = new System.Drawing.Size(990, 215);
-            this.grbEmpleadoFML.TabIndex = 2;
+            this.grbEmpleadoFML.TabIndex = 1;
             this.grbEmpleadoFML.TabStop = false;
             this.grbEmpleadoFML.Text = "Empleado Seleccionado";
+            // 
+            // lblCargo
+            // 
+            this.lblCargo.AutoSize = true;
+            this.lblCargo.Location = new System.Drawing.Point(287, 80);
+            this.lblCargo.Name = "lblCargo";
+            this.lblCargo.Size = new System.Drawing.Size(45, 13);
+            this.lblCargo.TabIndex = 7;
+            this.lblCargo.Text = "CARGO";
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(86, 80);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(52, 13);
+            this.lblCliente.TabIndex = 5;
+            this.lblCliente.Text = "CLIENTE";
+            // 
+            // cmbClientes
+            // 
+            this.cmbClientes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(83, 97);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(198, 25);
+            this.cmbClientes.TabIndex = 6;
+            // 
+            // cmbCargo
+            // 
+            this.cmbCargo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbCargo.FormattingEnabled = true;
+            this.cmbCargo.Location = new System.Drawing.Point(285, 97);
+            this.cmbCargo.Name = "cmbCargo";
+            this.cmbCargo.Size = new System.Drawing.Size(265, 25);
+            this.cmbCargo.TabIndex = 8;
             // 
             // btnEtiquetas
             // 
@@ -100,6 +142,7 @@
             this.btnEtiquetas.Size = new System.Drawing.Size(37, 22);
             this.btnEtiquetas.TabIndex = 13;
             this.btnEtiquetas.UseVisualStyleBackColor = true;
+            this.btnEtiquetas.Click += new System.EventHandler(this.btnEtiquetas_Click);
             // 
             // txtIdEmpleado
             // 
@@ -144,66 +187,34 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(526, 100);
+            this.txtTelefono.Location = new System.Drawing.Point(526, 51);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(313, 20);
-            this.txtTelefono.TabIndex = 8;
+            this.txtTelefono.TabIndex = 4;
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(523, 83);
+            this.lblTelefono.Location = new System.Drawing.Point(521, 34);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(64, 13);
-            this.lblTelefono.TabIndex = 7;
+            this.lblTelefono.TabIndex = 3;
             this.lblTelefono.Text = "TELÉFONO";
-            // 
-            // txtNIF
-            // 
-            this.txtNIF.Location = new System.Drawing.Point(83, 51);
-            this.txtNIF.Name = "txtNIF";
-            this.txtNIF.Size = new System.Drawing.Size(313, 20);
-            this.txtNIF.TabIndex = 2;
-            // 
-            // lblNIF
-            // 
-            this.lblNIF.AutoSize = true;
-            this.lblNIF.Location = new System.Drawing.Point(80, 34);
-            this.lblNIF.Name = "lblNIF";
-            this.lblNIF.Size = new System.Drawing.Size(24, 13);
-            this.lblNIF.TabIndex = 1;
-            this.lblNIF.Text = "NIF";
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Location = new System.Drawing.Point(83, 100);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(437, 20);
-            this.txtApellidos.TabIndex = 6;
-            // 
-            // lblApellidos
-            // 
-            this.lblApellidos.AutoSize = true;
-            this.lblApellidos.Location = new System.Drawing.Point(80, 83);
-            this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(66, 13);
-            this.lblApellidos.TabIndex = 5;
-            this.lblApellidos.Text = "APELLIDOS";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(402, 51);
+            this.txtNombre.Location = new System.Drawing.Point(83, 51);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(437, 20);
-            this.txtNombre.TabIndex = 4;
+            this.txtNombre.Size = new System.Drawing.Size(435, 20);
+            this.txtNombre.TabIndex = 2;
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(399, 34);
+            this.lblNombre.Location = new System.Drawing.Point(78, 34);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(54, 13);
-            this.lblNombre.TabIndex = 3;
+            this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "NOMBRE";
             // 
             // pnlBotonera
@@ -217,7 +228,7 @@
             this.pnlBotonera.Location = new System.Drawing.Point(0, 264);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(999, 57);
-            this.pnlBotonera.TabIndex = 3;
+            this.pnlBotonera.TabIndex = 2;
             // 
             // btnUltimo
             // 
@@ -233,6 +244,7 @@
             this.btnUltimo.Size = new System.Drawing.Size(35, 35);
             this.btnUltimo.TabIndex = 3;
             this.btnUltimo.UseVisualStyleBackColor = false;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // btnSiguiente
             // 
@@ -248,6 +260,7 @@
             this.btnSiguiente.Size = new System.Drawing.Size(35, 35);
             this.btnSiguiente.TabIndex = 2;
             this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnAnterior
             // 
@@ -263,6 +276,7 @@
             this.btnAnterior.Size = new System.Drawing.Size(35, 35);
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.UseVisualStyleBackColor = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // flpBotonera
             // 
@@ -291,6 +305,7 @@
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGuardar
             // 
@@ -306,6 +321,7 @@
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEliminar
             // 
@@ -321,6 +337,7 @@
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
@@ -335,6 +352,7 @@
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnPrimero
             // 
@@ -350,8 +368,27 @@
             this.btnPrimero.Size = new System.Drawing.Size(35, 35);
             this.btnPrimero.TabIndex = 0;
             this.btnPrimero.UseVisualStyleBackColor = false;
+            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
-            // FrmMantenimientoEmpleados
+            // lblJefe
+            // 
+            this.lblJefe.AutoSize = true;
+            this.lblJefe.Location = new System.Drawing.Point(553, 81);
+            this.lblJefe.Name = "lblJefe";
+            this.lblJefe.Size = new System.Drawing.Size(32, 13);
+            this.lblJefe.TabIndex = 14;
+            this.lblJefe.Text = "JEFE";
+            // 
+            // cmbJefes
+            // 
+            this.cmbJefes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbJefes.FormattingEnabled = true;
+            this.cmbJefes.Location = new System.Drawing.Point(556, 97);
+            this.cmbJefes.Name = "cmbJefes";
+            this.cmbJefes.Size = new System.Drawing.Size(283, 25);
+            this.cmbJefes.TabIndex = 15;
+            // 
+            // frmMantenimientoEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -362,8 +399,9 @@
             this.Controls.Add(this.pnlCabecera);
             this.MaximumSize = new System.Drawing.Size(1015, 360);
             this.MinimumSize = new System.Drawing.Size(1015, 360);
-            this.Name = "FrmMantenimientoEmpleados";
+            this.Name = "frmMantenimientoEmpleados";
             this.Text = "Empleados";
+            this.Load += new System.EventHandler(this.frmMantenimientoEmpleados_Load);
             this.grbEmpleadoFML.ResumeLayout(false);
             this.grbEmpleadoFML.PerformLayout();
             this.pnlBotonera.ResumeLayout(false);
@@ -384,10 +422,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.TextBox txtNIF;
-        private System.Windows.Forms.Label lblNIF;
-        private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Panel pnlBotonera;
@@ -400,5 +434,12 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnPrimero;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ComboBox cmbCargo;
+        private System.Windows.Forms.Label lblCargo;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.ComboBox cmbClientes;
+        private System.Windows.Forms.Label lblJefe;
+        private System.Windows.Forms.ComboBox cmbJefes;
     }
 }

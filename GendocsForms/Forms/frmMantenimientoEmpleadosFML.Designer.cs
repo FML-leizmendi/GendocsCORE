@@ -82,7 +82,7 @@
             this.pnlBotonera.Location = new System.Drawing.Point(0, 264);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(999, 57);
-            this.pnlBotonera.TabIndex = 2;
+            this.pnlBotonera.TabIndex = 1;
             // 
             // btnUltimo
             // 

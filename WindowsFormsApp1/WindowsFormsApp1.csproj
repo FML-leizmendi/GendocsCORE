@@ -63,6 +63,14 @@
       <Link>frmEmpleadosFML.designer.cs</Link>
       <DependentUpon>frmEmpleadosFML.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmEtiquetarEmpleado.cs">
+      <Link>FrmEtiquetarEmpleado.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmEtiquetarEmpleado.designer.cs">
+      <Link>FrmEtiquetarEmpleado.designer.cs</Link>
+      <DependentUpon>FrmEtiquetarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\frmEtiquetarEmpleadoFML.cs">
       <Link>frmEtiquetarEmpleadoFML.cs</Link>
       <SubType>Form</SubType>
@@ -128,6 +136,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\frmEmpleadosFML.resx">
       <Link>frmEmpleadosFML.resx</Link>
       <DependentUpon>frmEmpleadosFML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmEtiquetarEmpleado.resx">
+      <Link>FrmEtiquetarEmpleado.resx</Link>
+      <DependentUpon>FrmEtiquetarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmEtiquetarEmpleadoFML.resx">
       <Link>frmEtiquetarEmpleadoFML.resx</Link>

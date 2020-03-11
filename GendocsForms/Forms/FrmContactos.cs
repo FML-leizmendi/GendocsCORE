@@ -33,13 +33,15 @@ namespace GendocsForms.Forms
                 {
                     var lst = (from d in db.GdEmpleados
                                where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
+                               orderby d.IdEmpleado
                                select d.IdEmpleado
 
                            ).ToList();
 
                     cEmp.lstId = lst;
-                    cEmp.CargarEmpleado();
+                    cEmp.CargarFrmEmpleados();
                 }
+                CargarGrid();
             }
             catch (Exception ex)
             {
