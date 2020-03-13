@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.pnlCabercera = new System.Windows.Forms.Panel();
-            this.pnlLateral = new System.Windows.Forms.Panel();
-            this.btnConsultarEmpleado = new System.Windows.Forms.Button();
-            this.btnEditarEmpleado = new System.Windows.Forms.Button();
             this.grbEmpleados = new System.Windows.Forms.GroupBox();
             this.txtIntroduzcaTexto = new System.Windows.Forms.TextBox();
             this.lblTexto = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.pnlLateral.SuspendLayout();
+            this.btnEditarEmpleado = new System.Windows.Forms.Button();
+            this.btnConsultarEmpleado = new System.Windows.Forms.Button();
+            this.pnlLateral = new System.Windows.Forms.Panel();
             this.grbEmpleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            this.pnlLateral.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCabercera
@@ -49,46 +49,6 @@
             this.pnlCabercera.Name = "pnlCabercera";
             this.pnlCabercera.Size = new System.Drawing.Size(1224, 50);
             this.pnlCabercera.TabIndex = 0;
-            // 
-            // pnlLateral
-            // 
-            this.pnlLateral.BackColor = System.Drawing.Color.Gray;
-            this.pnlLateral.Controls.Add(this.btnConsultarEmpleado);
-            this.pnlLateral.Controls.Add(this.btnEditarEmpleado);
-            this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(0, 50);
-            this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(185, 661);
-            this.pnlLateral.TabIndex = 1;
-            // 
-            // btnConsultarEmpleado
-            // 
-            this.btnConsultarEmpleado.BackColor = System.Drawing.Color.LightBlue;
-            this.btnConsultarEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnConsultarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultarEmpleado.Location = new System.Drawing.Point(12, 360);
-            this.btnConsultarEmpleado.Name = "btnConsultarEmpleado";
-            this.btnConsultarEmpleado.Size = new System.Drawing.Size(161, 39);
-            this.btnConsultarEmpleado.TabIndex = 1;
-            this.btnConsultarEmpleado.Text = "Consultar Empleado";
-            this.btnConsultarEmpleado.UseVisualStyleBackColor = false;
-            // 
-            // btnEditarEmpleado
-            // 
-            this.btnEditarEmpleado.BackColor = System.Drawing.Color.LightBlue;
-            this.btnEditarEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEditarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarEmpleado.Location = new System.Drawing.Point(12, 304);
-            this.btnEditarEmpleado.Name = "btnEditarEmpleado";
-            this.btnEditarEmpleado.Size = new System.Drawing.Size(161, 39);
-            this.btnEditarEmpleado.TabIndex = 0;
-            this.btnEditarEmpleado.Text = "      Editar Empleado";
-            this.btnEditarEmpleado.UseVisualStyleBackColor = false;
-            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
             // 
             // grbEmpleados
             // 
@@ -141,6 +101,48 @@
             this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
             this.dgvEmpleados.CurrentCellChanged += new System.EventHandler(this.dgvEmpleados_CurrentCellChanged);
             // 
+            // btnEditarEmpleado
+            // 
+            this.btnEditarEmpleado.BackColor = System.Drawing.Color.LightBlue;
+            this.btnEditarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEditarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarEmpleado.ForeColor = System.Drawing.Color.Black;
+            this.btnEditarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarEmpleado.Location = new System.Drawing.Point(12, 323);
+            this.btnEditarEmpleado.Name = "btnEditarEmpleado";
+            this.btnEditarEmpleado.Size = new System.Drawing.Size(161, 39);
+            this.btnEditarEmpleado.TabIndex = 0;
+            this.btnEditarEmpleado.Text = "EDITAR";
+            this.btnEditarEmpleado.UseVisualStyleBackColor = false;
+            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
+            // 
+            // btnConsultarEmpleado
+            // 
+            this.btnConsultarEmpleado.BackColor = System.Drawing.Color.LightBlue;
+            this.btnConsultarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnConsultarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarEmpleado.ForeColor = System.Drawing.Color.Black;
+            this.btnConsultarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultarEmpleado.Location = new System.Drawing.Point(12, 372);
+            this.btnConsultarEmpleado.Name = "btnConsultarEmpleado";
+            this.btnConsultarEmpleado.Size = new System.Drawing.Size(161, 39);
+            this.btnConsultarEmpleado.TabIndex = 1;
+            this.btnConsultarEmpleado.Text = "CONSULTAR";
+            this.btnConsultarEmpleado.UseVisualStyleBackColor = false;
+            // 
+            // pnlLateral
+            // 
+            this.pnlLateral.BackColor = System.Drawing.Color.Gray;
+            this.pnlLateral.Controls.Add(this.btnConsultarEmpleado);
+            this.pnlLateral.Controls.Add(this.btnEditarEmpleado);
+            this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLateral.Location = new System.Drawing.Point(0, 50);
+            this.pnlLateral.Name = "pnlLateral";
+            this.pnlLateral.Size = new System.Drawing.Size(185, 661);
+            this.pnlLateral.TabIndex = 1;
+            // 
             // frmEmpleadosFML
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,10 +156,10 @@
             this.Name = "frmEmpleadosFML";
             this.Text = "Empleados FML";
             this.Load += new System.EventHandler(this.frmEmpleadosFML_Load);
-            this.pnlLateral.ResumeLayout(false);
             this.grbEmpleados.ResumeLayout(false);
             this.grbEmpleados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            this.pnlLateral.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -165,12 +167,12 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlCabercera;
-        private System.Windows.Forms.Panel pnlLateral;
-        private System.Windows.Forms.Button btnConsultarEmpleado;
-        private System.Windows.Forms.Button btnEditarEmpleado;
         private System.Windows.Forms.GroupBox grbEmpleados;
         private System.Windows.Forms.TextBox txtIntroduzcaTexto;
         private System.Windows.Forms.Label lblTexto;
         private System.Windows.Forms.DataGridView dgvEmpleados;
+        private System.Windows.Forms.Button btnEditarEmpleado;
+        private System.Windows.Forms.Button btnConsultarEmpleado;
+        private System.Windows.Forms.Panel pnlLateral;
     }
 }

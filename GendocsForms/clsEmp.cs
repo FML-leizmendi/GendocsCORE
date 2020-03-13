@@ -40,12 +40,12 @@ namespace GendocsForms
 
         public void AsignarEtiquetasFML()
         {
-            //frm = new frmEtiquetarEmpleado(this);
-            //CargarEmpleado();
-            //frm.CargarListaAsignadas(IdEmpleado);
-            //frm.CargarListaDisponibles();
-            //frm.ShowDialog();
-            //Etiquetame();
+            FrmEtiquetarEmpleado frm = new FrmEtiquetarEmpleado(this);
+            CargarEmpleado();
+            frm.CargarListaAsignadas(IdEmpleado);
+            frm.CargarListaDisponibles();
+            frm.ShowDialog();
+            Etiquetame();
         }
 
         public void CargarEmpleado()
@@ -87,84 +87,73 @@ namespace GendocsForms
             }
         }
 
-        //public void AsignarEtiquetasFML()
-        //{
-        //    //frm frm = new frmEtiquetarEmpleadoFML(this);
-        //    //CargarEmpleado();
-        //    //frm.CargarListaAsignadas(IdEmpleado);
-        //    //frm.CargarListaDisponibles();
-        //    //frm.ShowDialog();
-        //    //Etiquetame();
-        //}
+        public void CargarListaAsignadas()
+        {
+            try
+            {
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    var lst = (from d in db.GdEmpleados
+                               where (d.IdEmpleado == this.IdEmpleado)
+                               select d.Etiquetas
 
-        //public void CargarListaAsignadas()
-        //{
-        //    try
-        //    {
-        //        using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-        //        {
-        //            var lst = (from d in db.GdEmpleadosFml
-        //                       where (d.IdEmpleadoFml == this.IdEmpleado)
-        //                       select d.Etiquetas
+                           ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
 
-        //                   ).ToList();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string mensaje = ex.Message;
-        //    }
+        }
 
-        //}
+        public void CargarListaDisponibles()
+        {
+            try
+            {
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    var lst = (from d in db.GdEmpleados
+                               select d.Etiquetas
 
-        //public void CargarListaDisponibles()
-        //{
-        //    try
-        //    {
-        //        using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-        //        {
-        //            var lst = (from d in db.GdEmpleadosFml
-        //                       select d.Etiquetas
+                           ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
 
-        //                   ).ToList();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string mensaje = ex.Message;
-        //    }
+        }
 
-        //}
+        public void Etiquetame()
+        {
+            try
+            {
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    Etiquetas = string.Empty;
 
-        //public void Etiquetame()
-        //{
-        //    try
-        //    {
-        //        using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-        //        {
-        //            Etiquetas = string.Empty;
+                    var lst = (from d in db.GdEmpleadosEtiquetas
+                               join f in db.GdEtiquetas
+                               on d.IdEtiqueta equals f.IdEtiqueta
+                               where d.IdEmpleado == IdEmpleado
+                               select new { f.Etiqueta }
 
-        //            var lst = (from d in db.GdEmpleadosFmlEtiquetas
-        //                       join f in db.GdEtiquetasFml
-        //                       on d.IdEtiqueta equals f.IdEtiqueta
-        //                       where d.IdEmpleadoFml == IdEmpleado
-        //                       select new { f.EtiquetaFml }
+                                  ).ToList();
 
-        //                          ).ToList();
-
-        //            foreach (var list in lst)
-        //            {
-        //                Etiquetas += list.EtiquetaFml + "~";
-        //                GuardarUsuario();
-
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string mensaje = ex.Message;
-        //    }
-        //}
+                    foreach (var list in lst)
+                    {
+                        Etiquetas += list.Etiqueta + "~";
+                    }
+                    GuardarUsuario();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
 
         public void IrSiguiente()
         {
@@ -252,6 +241,9 @@ namespace GendocsForms
 
                                 query.IdEmpleado = IdEmpleado;
                                 query.Empleado = Empleado;
+                                query.IdCargo = IdCargo;
+                                query.IdCliente = IdCliente;
+                                query.IdEmpleadoSuperior = IdEmpleadoSuperior;
                                 query.IdCliente = IdCliente;
                                 query.Telefono = Telefono;
                                 query.Email = Email;
@@ -259,9 +251,10 @@ namespace GendocsForms
 
                                 db.SaveChanges();
 
-                                MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
+                    CargarEmpleado();
                 }
             }
             catch (Exception ex)

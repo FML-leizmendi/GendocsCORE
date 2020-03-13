@@ -41,7 +41,7 @@ namespace GendocsForms
             this.Close();
         }
 
-        private void LimpiarControles()
+        public void LimpiarControles()
         {
             txtApellidos.Text = String.Empty;
             txtEmail.Text = string.Empty;
@@ -96,13 +96,13 @@ namespace GendocsForms
                 {
                     cadena += "Apellidos " + Environment.NewLine;
                     txtApellidos.Focus();
-                    EsValido =  false;
+                    EsValido = false;
                 }
                 if (txtTelefono.Text == string.Empty)
                 {
                     cadena += "Teléfono " + Environment.NewLine;
                     txtTelefono.Focus();
-                    EsValido =  false;
+                    EsValido = false;
                 }
                 if (txtEmail.Text == string.Empty)
                 {
@@ -180,7 +180,6 @@ namespace GendocsForms
                 // txtIdEmpleado.Visible = false;
                 //btnEliminar.Visible = true;
             }
-
         }
 
         private void btnEtiquetas_Click(object sender, EventArgs e)
@@ -193,7 +192,5 @@ namespace GendocsForms
 
         }
         #endregion
-
-
     }
 }

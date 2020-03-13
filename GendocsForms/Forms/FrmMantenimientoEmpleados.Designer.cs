@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoEmpleados));
             this.pnlCabecera = new System.Windows.Forms.Panel();
             this.grbEmpleadoFML = new System.Windows.Forms.GroupBox();
+            this.lblJefe = new System.Windows.Forms.Label();
+            this.cmbJefes = new System.Windows.Forms.ComboBox();
             this.lblCargo = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
@@ -57,8 +59,6 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnPrimero = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblJefe = new System.Windows.Forms.Label();
-            this.cmbJefes = new System.Windows.Forms.ComboBox();
             this.grbEmpleadoFML.SuspendLayout();
             this.pnlBotonera.SuspendLayout();
             this.flpBotonera.SuspendLayout();
@@ -98,6 +98,26 @@
             this.grbEmpleadoFML.TabStop = false;
             this.grbEmpleadoFML.Text = "Empleado Seleccionado";
             // 
+            // lblJefe
+            // 
+            this.lblJefe.AutoSize = true;
+            this.lblJefe.Location = new System.Drawing.Point(553, 81);
+            this.lblJefe.Name = "lblJefe";
+            this.lblJefe.Size = new System.Drawing.Size(32, 13);
+            this.lblJefe.TabIndex = 14;
+            this.lblJefe.Text = "JEFE";
+            // 
+            // cmbJefes
+            // 
+            this.cmbJefes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbJefes.FormattingEnabled = true;
+            this.cmbJefes.Location = new System.Drawing.Point(556, 97);
+            this.cmbJefes.Name = "cmbJefes";
+            this.cmbJefes.Size = new System.Drawing.Size(283, 25);
+            this.cmbJefes.TabIndex = 15;
+            this.cmbJefes.SelectedIndexChanged += new System.EventHandler(this.cmbJefes_SelectedIndexChanged);
+            this.cmbJefes.Leave += new System.EventHandler(this.cmbJefes_Leave);
+            // 
             // lblCargo
             // 
             this.lblCargo.AutoSize = true;
@@ -124,6 +144,8 @@
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(198, 25);
             this.cmbClientes.TabIndex = 6;
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            this.cmbClientes.Leave += new System.EventHandler(this.cmbClientes_Leave);
             // 
             // cmbCargo
             // 
@@ -133,6 +155,8 @@
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(265, 25);
             this.cmbCargo.TabIndex = 8;
+            this.cmbCargo.SelectedIndexChanged += new System.EventHandler(this.cmbCargo_SelectedIndexChanged);
+            this.cmbCargo.Leave += new System.EventHandler(this.cmbCargo_Leave);
             // 
             // btnEtiquetas
             // 
@@ -159,6 +183,8 @@
             this.txtEtiquetas.Name = "txtEtiquetas";
             this.txtEtiquetas.Size = new System.Drawing.Size(437, 20);
             this.txtEtiquetas.TabIndex = 12;
+            this.txtEtiquetas.TextChanged += new System.EventHandler(this.txtEtiquetas_TextChanged);
+            this.txtEtiquetas.Leave += new System.EventHandler(this.txtEtiquetas_Leave);
             // 
             // lblEtiquetas
             // 
@@ -175,6 +201,8 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(313, 20);
             this.txtEmail.TabIndex = 10;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblEmail
             // 
@@ -191,6 +219,8 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(313, 20);
             this.txtTelefono.TabIndex = 4;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
             // 
             // lblTelefono
             // 
@@ -207,6 +237,8 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(435, 20);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // lblNombre
             // 
@@ -321,6 +353,7 @@
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEliminar
@@ -369,24 +402,6 @@
             this.btnPrimero.TabIndex = 0;
             this.btnPrimero.UseVisualStyleBackColor = false;
             this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
-            // 
-            // lblJefe
-            // 
-            this.lblJefe.AutoSize = true;
-            this.lblJefe.Location = new System.Drawing.Point(553, 81);
-            this.lblJefe.Name = "lblJefe";
-            this.lblJefe.Size = new System.Drawing.Size(32, 13);
-            this.lblJefe.TabIndex = 14;
-            this.lblJefe.Text = "JEFE";
-            // 
-            // cmbJefes
-            // 
-            this.cmbJefes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cmbJefes.FormattingEnabled = true;
-            this.cmbJefes.Location = new System.Drawing.Point(556, 97);
-            this.cmbJefes.Name = "cmbJefes";
-            this.cmbJefes.Size = new System.Drawing.Size(283, 25);
-            this.cmbJefes.TabIndex = 15;
             // 
             // frmMantenimientoEmpleados
             // 

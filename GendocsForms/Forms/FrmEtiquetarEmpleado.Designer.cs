@@ -103,6 +103,7 @@
             this.lstvDisponibles.TabIndex = 8;
             this.lstvDisponibles.UseCompatibleStateImageBehavior = false;
             this.lstvDisponibles.View = System.Windows.Forms.View.Details;
+            this.lstvDisponibles.DoubleClick += new System.EventHandler(this.lstvDisponibles_DoubleClick);
             // 
             // IdEtiqueta
             // 
@@ -128,6 +129,7 @@
             this.lstvAsignadas.TabIndex = 9;
             this.lstvAsignadas.UseCompatibleStateImageBehavior = false;
             this.lstvAsignadas.View = System.Windows.Forms.View.Details;
+            this.lstvAsignadas.DoubleClick += new System.EventHandler(this.lstvAsignadas_DoubleClick);
             // 
             // Id
             // 
@@ -156,6 +158,7 @@
             this.btnAnadir.TabIndex = 10;
             this.btnAnadir.Text = "Añadir";
             this.btnAnadir.UseVisualStyleBackColor = true;
+            this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
             // 
             // btnQuitar
             // 
@@ -167,6 +170,7 @@
             this.btnQuitar.TabIndex = 11;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // FrmEtiquetarEmpleado
             // 

@@ -16,6 +16,8 @@ namespace GendocsForms
     {
         public clsEmp cEmp { get; set; }
 
+        public bool HanModificado = false;
+
         public frmMantenimientoEmpleados(clsEmp cemp)
         {
             cEmp = cemp;
@@ -35,6 +37,7 @@ namespace GendocsForms
             CargarComboClientes();
             CargarComboCargos();
             CargarForm();
+            HanModificado = false;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -78,8 +81,10 @@ namespace GendocsForms
                     cmbJefes.SelectedValue = 0;
                 }
                 else
-                    cmbJefes.SelectedValue = Convert.ToInt32(cEmp.IdEmpleadoSuperior);
+                cmbJefes.SelectedValue = Convert.ToInt32(cEmp.IdEmpleadoSuperior);
                 txtEtiquetas.Text = cEmp.Etiquetas;
+                HanModificado = false;
+                btnGuardar.Visible = false;
             }
             catch (Exception ex)
             {
@@ -117,7 +122,7 @@ namespace GendocsForms
                     cmbCargo.Focus();
                     EsValido = false;
                 }
-                
+
                 if (cmbJefes.SelectedIndex == -1)
                 {
                     cadena += "Jefe " + Environment.NewLine;
@@ -268,6 +273,7 @@ namespace GendocsForms
             txtNombre.Focus();
             cmbCargo.SelectedIndex = -1;
             cmbClientes.SelectedIndex = -1;
+            cmbJefes.SelectedIndex = -1;
             cEmp.EsAlta = true;
             btnEliminar.Visible = false;
             btnGuardar.Visible = true;
@@ -275,36 +281,129 @@ namespace GendocsForms
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarControles())
+            if (HanModificado)
             {
-                //cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-                //cEmp.IdEmpleado = txtIdEmpleado.Text;
-                cEmp.Empleado = txtNombre.Text;
-                cEmp.Telefono = txtTelefono.Text;
-                cEmp.IdCargo = Convert.ToInt32 ( cmbCargo.SelectedValue);
-                cEmp.IdCliente = Convert.ToInt32 (cmbClientes.SelectedValue);
-                cEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
-                cEmp.Email = txtEmail.Text;
-                cEmp.Etiquetas = txtEtiquetas.Text;
-                cEmp.GuardarUsuario();
-                cEmp.EsAlta = false;
-                // txtIdEmpleado.Visible = false;
-                btnEliminar.Visible = false;
-                btnGuardar.Visible = false;
+                if (validarControles())
+                {
+                    //cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
+                    //cEmp.IdEmpleado = txtIdEmpleado.Text;
+                    cEmp.Empleado = txtNombre.Text;
+                    cEmp.Telefono = txtTelefono.Text;
+                    cEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
+                    cEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    cEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
+                    cEmp.Email = txtEmail.Text;
+                    cEmp.Etiquetas = txtEtiquetas.Text;
+                    cEmp.GuardarUsuario();
+                    cEmp.EsAlta = false;
+                    // txtIdEmpleado.Visible = false;
+                    btnEliminar.Visible = false;
+                    btnGuardar.Visible = false;
 
+                }
             }
         }
 
         private void btnEtiquetas_Click(object sender, EventArgs e)
         {
-            clsEmpFml cEmp = new clsEmpFml();
+            clsEmp cEmp = new clsEmp();
             cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
             cEmp.AsignarEtiquetasFML();
             //CargarForm();
             txtEtiquetas.Text = cEmp.Etiquetas;
         }
+
+
         #endregion
 
-      
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void cmbClientes_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void cmbCargo_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void cmbJefes_SelectedIndexChanged(object sender, EventArgs e)
+            {
+            HanModificado = true;
+        }
+
+        private void cmbJefes_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void txtEtiquetas_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void txtEtiquetas_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
     }
 }
