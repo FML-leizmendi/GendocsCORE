@@ -37,7 +37,6 @@ namespace GendocsForms
             CargarEmpleado();
             frm.ShowDialog();
         }
-
         public void AsignarEtiquetasFML()
         {
             FrmEtiquetarEmpleado frm = new FrmEtiquetarEmpleado(this);

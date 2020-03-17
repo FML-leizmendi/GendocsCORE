@@ -8,7 +8,6 @@ namespace GendocsForms.Forms
 {
     public partial class frmEmpleadosFML : Form
     {
-
         public int IdEmpleado { get; set; }
         public frmEmpleadosFML()
         {

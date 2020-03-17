@@ -55,6 +55,14 @@
       <Link>FrmContactos.designer.cs</Link>
       <DependentUpon>FrmContactos.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmEmpleados.cs">
+      <Link>FrmEmpleados.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmEmpleados.designer.cs">
+      <Link>FrmEmpleados.designer.cs</Link>
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\frmEmpleadosFML.cs">
       <Link>frmEmpleadosFML.cs</Link>
       <SubType>Form</SubType>
@@ -79,6 +87,14 @@
       <Link>frmEtiquetarEmpleadoFML.designer.cs</Link>
       <DependentUpon>frmEtiquetarEmpleadoFML.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmEtiquetarEmpleados.cs">
+      <Link>FrmEtiquetarEmpleados.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmEtiquetarEmpleados.designer.cs">
+      <Link>FrmEtiquetarEmpleados.designer.cs</Link>
+      <DependentUpon>FrmEtiquetarEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\frmListaProyectos.cs">
       <Link>frmListaProyectos.cs</Link>
       <SubType>Form</SubType>
@@ -94,6 +110,14 @@
     <Compile Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados.designer.cs">
       <Link>FrmMantenimientoEmpleados.designer.cs</Link>
       <DependentUpon>FrmMantenimientoEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados2.cs">
+      <Link>FrmMantenimientoEmpleados2.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados2.designer.cs">
+      <Link>FrmMantenimientoEmpleados2.designer.cs</Link>
+      <DependentUpon>FrmMantenimientoEmpleados2.cs</DependentUpon>
     </Compile>
     <Compile Include="..\GendocsForms\Forms\frmMantenimientoEmpleadosFML.cs">
       <Link>frmMantenimientoEmpleadosFML.cs</Link>
@@ -133,6 +157,10 @@
       <Link>FrmContactos.resx</Link>
       <DependentUpon>FrmContactos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmEmpleados.resx">
+      <Link>FrmEmpleados.resx</Link>
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmEmpleadosFML.resx">
       <Link>frmEmpleadosFML.resx</Link>
       <DependentUpon>frmEmpleadosFML.cs</DependentUpon>
@@ -145,6 +173,10 @@
       <Link>frmEtiquetarEmpleadoFML.resx</Link>
       <DependentUpon>frmEtiquetarEmpleadoFML.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmEtiquetarEmpleados.resx">
+      <Link>FrmEtiquetarEmpleados.resx</Link>
+      <DependentUpon>FrmEtiquetarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
       <Link>frmListaProyectos.resx</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
@@ -152,6 +184,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados.resx">
       <Link>FrmMantenimientoEmpleados.resx</Link>
       <DependentUpon>FrmMantenimientoEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados2.resx">
+      <Link>FrmMantenimientoEmpleados2.resx</Link>
+      <DependentUpon>FrmMantenimientoEmpleados2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmMantenimientoEmpleadosFML.resx">
       <Link>frmMantenimientoEmpleadosFML.resx</Link>

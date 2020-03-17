@@ -153,6 +153,8 @@
             this.Controls.Add(this.grbEmpleados);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabercera);
+            this.MaximumSize = new System.Drawing.Size(1240, 750);
+            this.MinimumSize = new System.Drawing.Size(1240, 750);
             this.Name = "frmEmpleadosFML";
             this.Text = "Empleados FML";
             this.Load += new System.EventHandler(this.frmEmpleadosFML_Load);
