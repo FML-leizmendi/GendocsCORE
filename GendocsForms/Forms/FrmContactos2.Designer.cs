@@ -1,6 +1,6 @@
-﻿namespace GendocsForms.Forms
+﻿namespace GendocsForms
 {
-    partial class FrmContactos
+    partial class FrmContactos2
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContactos2));
             this.pnlCabercera = new System.Windows.Forms.Panel();
             this.pnlLateral = new System.Windows.Forms.Panel();
-            this.btnConsultarEmpleado = new System.Windows.Forms.Button();
-            this.btnEditarEmpleado = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnEliminarEmpleado = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.grbEmpleados = new System.Windows.Forms.GroupBox();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
@@ -50,47 +52,67 @@
             this.pnlCabercera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabercera.Name = "pnlCabercera";
             this.pnlCabercera.Size = new System.Drawing.Size(1224, 50);
-            this.pnlCabercera.TabIndex = 1;
+            this.pnlCabercera.TabIndex = 0;
             // 
             // pnlLateral
             // 
             this.pnlLateral.BackColor = System.Drawing.Color.Gray;
-            this.pnlLateral.Controls.Add(this.btnConsultarEmpleado);
-            this.pnlLateral.Controls.Add(this.btnEditarEmpleado);
+            this.pnlLateral.Controls.Add(this.btnNuevo);
+            this.pnlLateral.Controls.Add(this.btnEliminarEmpleado);
+            this.pnlLateral.Controls.Add(this.btnModificar);
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLateral.Location = new System.Drawing.Point(0, 50);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(185, 651);
-            this.pnlLateral.TabIndex = 2;
+            this.pnlLateral.TabIndex = 1;
             // 
-            // btnConsultarEmpleado
+            // btnNuevo
             // 
-            this.btnConsultarEmpleado.BackColor = System.Drawing.Color.LightBlue;
-            this.btnConsultarEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnConsultarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultarEmpleado.Location = new System.Drawing.Point(12, 360);
-            this.btnConsultarEmpleado.Name = "btnConsultarEmpleado";
-            this.btnConsultarEmpleado.Size = new System.Drawing.Size(161, 39);
-            this.btnConsultarEmpleado.TabIndex = 1;
-            this.btnConsultarEmpleado.Text = "Consultar Empleado";
-            this.btnConsultarEmpleado.UseVisualStyleBackColor = false;
+            this.btnNuevo.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(12, 259);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(161, 39);
+            this.btnNuevo.TabIndex = 0;
+            this.btnNuevo.Text = "NUEVO";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // btnEditarEmpleado
+            // btnEliminarEmpleado
             // 
-            this.btnEditarEmpleado.BackColor = System.Drawing.Color.LightBlue;
-            this.btnEditarEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEditarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarEmpleado.Location = new System.Drawing.Point(12, 304);
-            this.btnEditarEmpleado.Name = "btnEditarEmpleado";
-            this.btnEditarEmpleado.Size = new System.Drawing.Size(161, 39);
-            this.btnEditarEmpleado.TabIndex = 0;
-            this.btnEditarEmpleado.Text = "      Editar Empleado";
-            this.btnEditarEmpleado.UseVisualStyleBackColor = false;
-            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
+            this.btnEliminarEmpleado.BackColor = System.Drawing.Color.LightBlue;
+            this.btnEliminarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEliminarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarEmpleado.Image")));
+            this.btnEliminarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(12, 349);
+            this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
+            this.btnEliminarEmpleado.Size = new System.Drawing.Size(161, 39);
+            this.btnEliminarEmpleado.TabIndex = 2;
+            this.btnEliminarEmpleado.Text = "ELIMINAR";
+            this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
+            this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.LightBlue;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(12, 304);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(161, 39);
+            this.btnModificar.TabIndex = 1;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // grbEmpleados
             // 
@@ -104,7 +126,7 @@
             this.grbEmpleados.Location = new System.Drawing.Point(191, 56);
             this.grbEmpleados.Name = "grbEmpleados";
             this.grbEmpleados.Size = new System.Drawing.Size(1025, 75);
-            this.grbEmpleados.TabIndex = 3;
+            this.grbEmpleados.TabIndex = 2;
             this.grbEmpleados.TabStop = false;
             this.grbEmpleados.Text = "Empleados";
             // 
@@ -115,7 +137,7 @@
             this.cmbClientes.Location = new System.Drawing.Point(301, 39);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(180, 25);
-            this.cmbClientes.TabIndex = 4;
+            this.cmbClientes.TabIndex = 3;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             // 
             // lblCliente
@@ -161,11 +183,11 @@
             this.dgvContactos.ReadOnly = true;
             this.dgvContactos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContactos.Size = new System.Drawing.Size(1025, 552);
-            this.dgvContactos.TabIndex = 4;
+            this.dgvContactos.TabIndex = 3;
             this.dgvContactos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContactos_CellContentDoubleClick);
             this.dgvContactos.CurrentCellChanged += new System.EventHandler(this.dgvContactos_CurrentCellChanged);
             // 
-            // FrmContactos
+            // FrmContactos2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,9 +197,9 @@
             this.Controls.Add(this.grbEmpleados);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabercera);
-            this.Name = "FrmContactos";
-            this.Text = "Contactos";
-            this.Load += new System.EventHandler(this.FrmContactos_Load);
+            this.Name = "FrmContactos2";
+            this.Text = "Contactos2";
+            this.Load += new System.EventHandler(this.FrmContactos2_Load);
             this.pnlLateral.ResumeLayout(false);
             this.grbEmpleados.ResumeLayout(false);
             this.grbEmpleados.PerformLayout();
@@ -190,13 +212,14 @@
 
         private System.Windows.Forms.Panel pnlCabercera;
         private System.Windows.Forms.Panel pnlLateral;
-        private System.Windows.Forms.Button btnConsultarEmpleado;
-        private System.Windows.Forms.Button btnEditarEmpleado;
+        private System.Windows.Forms.Button btnEliminarEmpleado;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.GroupBox grbEmpleados;
+        private System.Windows.Forms.ComboBox cmbClientes;
+        private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.TextBox txtIntroduzcaTexto;
         private System.Windows.Forms.Label lblTexto;
         private System.Windows.Forms.DataGridView dgvContactos;
-        private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.ComboBox cmbClientes;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

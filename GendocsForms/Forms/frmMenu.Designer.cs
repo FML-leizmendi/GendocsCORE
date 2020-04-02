@@ -39,6 +39,8 @@
             this.btnFmlStaff = new System.Windows.Forms.Button();
             this.pnlBotonera = new System.Windows.Forms.Panel();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnRecursos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,7 +148,7 @@
             this.btnFmlStaff.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnFmlStaff.Image = ((System.Drawing.Image)(resources.GetObject("btnFmlStaff.Image")));
             this.btnFmlStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFmlStaff.Location = new System.Drawing.Point(529, 347);
+            this.btnFmlStaff.Location = new System.Drawing.Point(236, 410);
             this.btnFmlStaff.Name = "btnFmlStaff";
             this.btnFmlStaff.Size = new System.Drawing.Size(266, 43);
             this.btnFmlStaff.TabIndex = 7;
@@ -167,12 +169,42 @@
             // 
             this.pcbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcbLogo.Image")));
-            this.pcbLogo.Location = new System.Drawing.Point(420, 90);
+            this.pcbLogo.Location = new System.Drawing.Point(429, 90);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(194, 89);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pcbLogo.TabIndex = 0;
             this.pcbLogo.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.Navy;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(529, 347);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(266, 43);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "CONTACTOS v2";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnRecursos
+            // 
+            this.btnRecursos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRecursos.BackColor = System.Drawing.Color.Navy;
+            this.btnRecursos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecursos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRecursos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecursos.Location = new System.Drawing.Point(529, 410);
+            this.btnRecursos.Name = "btnRecursos";
+            this.btnRecursos.Size = new System.Drawing.Size(266, 43);
+            this.btnRecursos.TabIndex = 10;
+            this.btnRecursos.Text = "RECURSOS";
+            this.btnRecursos.UseVisualStyleBackColor = false;
+            this.btnRecursos.Click += new System.EventHandler(this.btnRecursos_Click);
             // 
             // FrmMenu
             // 
@@ -180,6 +212,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(956, 530);
+            this.Controls.Add(this.btnRecursos);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pcbLogo);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.btnFmlStaff);
@@ -216,5 +250,7 @@
         private System.Windows.Forms.Button btnFmlStaff;
         private System.Windows.Forms.Panel pnlBotonera;
         private System.Windows.Forms.PictureBox pcbLogo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRecursos;
     }
 }

@@ -1,17 +1,9 @@
-﻿using System;
+﻿using GendocsModeloDatos.models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using System.Globalization;
-using GendocsModeloDatos.models;
-using GendocsForms.Forms;
 
 namespace GendocsForms
 {
@@ -27,13 +19,26 @@ namespace GendocsForms
         public string Email { get; set; }
         public string Etiquetas { get; set; }
         public List<int> lstId { get; set; }
-
+        public bool esNuevo { get; set; } = false;
         public bool EsAlta { get; set; } = false;
 
         public void CargarFrmEmpleados()
         {
             frmMantenimientoEmpleados frm = new frmMantenimientoEmpleados(this);
             IdEmpleado = lstId[0];
+            CargarEmpleado();
+            frm.ShowDialog();
+        }
+
+        public void CargarFrmEmpleados2()
+        {
+            FrmMantenimientoEmpleados2 frm = new FrmMantenimientoEmpleados2(this);
+            if (esNuevo)
+            {
+                IdEmpleado = 0;
+            }
+            else
+                IdEmpleado = lstId[0];
             CargarEmpleado();
             frm.ShowDialog();
         }
@@ -208,6 +213,19 @@ namespace GendocsForms
             }
         }
 
+        public void EliminarEmpleado()
+        {
+            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+            {
+                var cSelect = from x in db.GdEmpleados
+                              where x.IdEmpleado == IdEmpleado
+                              select x;
+
+                db.GdEmpleados.RemoveRange(cSelect);
+                db.SaveChanges();
+            }
+            CargarEmpleado();
+        }
         public void GuardarUsuario()
         {
             try
@@ -217,7 +235,7 @@ namespace GendocsForms
                         if (EsAlta)
                         {
                             GdEmpleados Emp = new GdEmpleados();
-                            Emp.Empleado = Empleado ;
+                            Emp.Empleado = Empleado;
                             Emp.IdCliente = IdCliente;
                             Emp.IdCargo = IdCargo;
                             //Emp.CodigoPersona = CodigoPersona;
@@ -225,7 +243,7 @@ namespace GendocsForms
                             Emp.Telefono = Telefono;
                             Emp.Email = Email;
                             Emp.Etiquetas = Etiquetas;
-                      
+
                             db.GdEmpleados.Add(Emp);
                             db.SaveChanges();
 
@@ -250,7 +268,7 @@ namespace GendocsForms
 
                                 db.SaveChanges();
 
-                                //MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     CargarEmpleado();

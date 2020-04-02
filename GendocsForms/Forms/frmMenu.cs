@@ -1,10 +1,5 @@
 ﻿using GendocsForms.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GendocsForms
@@ -69,6 +64,22 @@ namespace GendocsForms
         private void btnContactos_Click(object sender, EventArgs e)
         {
             FrmContactos frm = new FrmContactos();
+            frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmContactos2 frm = new FrmContactos2();
+            frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void btnRecursos_Click(object sender, EventArgs e)
+        {
+            FrmRecursos frm = new FrmRecursos();
             frm.MdiParent = this.MdiParent;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
