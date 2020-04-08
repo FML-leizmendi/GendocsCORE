@@ -95,6 +95,14 @@
       <Link>frmListaProyectos.designer.cs</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmLogin.cs">
+      <Link>frmLogin.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\frmLogin.designer.cs">
+      <Link>frmLogin.designer.cs</Link>
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados.cs">
       <Link>FrmMantenimientoEmpleados.cs</Link>
       <SubType>Form</SubType>
@@ -176,6 +184,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
       <Link>frmListaProyectos.resx</Link>
       <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\frmLogin.resx">
+      <Link>frmLogin.resx</Link>
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmMantenimientoEmpleados.resx">
       <Link>FrmMantenimientoEmpleados.resx</Link>

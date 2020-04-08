@@ -47,7 +47,7 @@ namespace GendocsForms
                 this.dgvProyectos.Columns["TerminoMunicipal"].Width = 200;
                 this.dgvProyectos.Columns["Gestor"].Width = 200;
                 this.dgvProyectos.Columns["Responsable"].Width = 180;
-                this.dgvProyectos.Columns["EstadoProyecto"].Width = 60;
+                this.dgvProyectos.Columns["ProyectoEstado"].Width = 60;
                 //Alinear las columnas 
                 dgvProyectos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvProyectos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -194,8 +194,7 @@ namespace GendocsForms
             CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
+
         #endregion
-
-
     }
 }
