@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace GendocsForms
 {
     public partial class FrmRecursos : Form
     {
+        bool EsProhibido = false;
         public FrmRecursos()
         {
             InitializeComponent();
@@ -50,7 +52,7 @@ namespace GendocsForms
                 dgvRecursos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvRecursos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvRecursos.Columns["RecursoContratacion"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-               dgvRecursos.Columns["CosteTotal"].DefaultCellStyle.Format = "C2";
+                dgvRecursos.Columns["CosteTotal"].DefaultCellStyle.Format = "C2";
                 //dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;              
             }
             catch (Exception ex)
@@ -60,36 +62,38 @@ namespace GendocsForms
         }
 
 
-        private void CargarGrid(String TextoIntroducido = "")
+        private void CargarGrid(String TextoIntroducido = "", bool EsProhibido = false)
         {
             try
             {
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    int IdArea = Convert.ToInt32 (cmbArea.SelectedValue);
+                    int IdArea = Convert.ToInt32(cmbArea.SelectedValue);
                     int IdActivo = 0;
-                   if (cmbActivos.SelectedItem != null)
+                    if (cmbActivos.SelectedItem != null)
                     {
-                       IdActivo = (((GendocsModeloDatos.models.GdRecursosActivos)cmbActivos.SelectedItem).IdRecursosActivo);
+                        IdActivo = (((GendocsModeloDatos.models.GdRecursosActivos)cmbActivos.SelectedItem).IdRecursosActivo);
                     }
-                        
+
                     var lst = (
                         from a in db.GdRecursosActivos
                         join b in db.GdRecursos on a.IdRecursosActivo equals b.IdRecursosActivo
                         join c in db.GdRecursosAreas on a.IdRecursosArea equals c.IdRecursosArea
                         where (b.CodRecurso.Contains(TextoIntroducido))
                         orderby c.IdCliente, c.Orden, a.Orden, b.CodRecurso
-                        select new { b.IdRecurso, c.Area, a.Activo, b.CodRecurso, b.RecursoContratacion, b.Unidad, b.CosteTotal, c.IdCliente, c.Orden, c.IdRecursosArea, a.IdRecursosActivo }
+                        select new { b.IdRecurso, c.Area, a.Activo, b.CodRecurso, b.RecursoContratacion, b.Unidad, b.CosteTotal, c.IdCliente, c.Orden, c.IdRecursosArea, a.IdRecursosActivo, b.Prohibido }
 
                         ).ToList();
 
                     var listaFiltrada = lst.Where(i => (IdCliente != 0 && IdCliente == i.IdCliente) || IdCliente == 0)
                                            .Where(i => (IdArea != 0 && IdArea == i.IdRecursosArea) || IdArea == 0)
+                                           .Where(i => (i.Prohibido == EsProhibido))
                                            .Where(i => (IdActivo != 0 && IdActivo == i.IdRecursosActivo) || IdActivo == 0).ToList();
 
                     dgvRecursos.DataSource = null;
                     dgvRecursos.DataSource = listaFiltrada;
+                    textBox1.Text = dgvRecursos.Rows.Count.ToString();
 
                 }
             }
@@ -220,8 +224,9 @@ namespace GendocsForms
 
         private void txtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
         {
-            CargarGrid(txtIntroduzcaTexto.Text);
+            CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
             FormatearGrid();
+            ColorearGrid();
         }
 
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
@@ -239,6 +244,56 @@ namespace GendocsForms
             catch (Exception Ex)
             {
                 string mensaje = Ex.Message;
+            }
+        }
+
+        private void btnProhibidos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnProhibidos.Text.Contains("MOSTRAR"))
+                {
+                    EsProhibido = true;
+                    txtIntroduzcaTexto.Text = string.Empty;
+                    CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
+                    btnProhibidos.Text = "OCULTAR PROHIBIDOS";
+                }
+                else
+                {
+                    EsProhibido = false;
+                    txtIntroduzcaTexto.Text = string.Empty;
+                    CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
+                    btnProhibidos.Text = "MOSTRAR PROHIBIDOS";
+                }
+                FormatearGrid();
+                ColorearGrid();
+                txtIntroduzcaTexto.Focus();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        public void ColorearGrid()
+        {
+            try
+            {
+                foreach (DataGridViewRow rowp in dgvRecursos.Rows)
+                {
+                    if (EsProhibido)
+                    {
+                        Color myRgbColor = new Color();
+                        myRgbColor = Color.FromArgb(229, 115, 115);
+                        dgvRecursos.Rows[rowp.Index].DefaultCellStyle.BackColor = myRgbColor;
+                    }
+                    else
+                        dgvRecursos.Rows[rowp.Index].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
             }
         }
     }
