@@ -10,6 +10,15 @@ namespace GendocsForms
     public partial class FrmRecursos : Form
     {
         bool EsProhibido = false;
+        public bool EsEdicion = false;
+        public clsRecursos cRec { get; set; }
+
+        public FrmRecursos(clsRecursos crec)
+        {
+            cRec = crec;
+            InitializeComponent();
+        }
+
         public FrmRecursos()
         {
             InitializeComponent();
@@ -20,10 +29,10 @@ namespace GendocsForms
         {
             CargarComboClientes();
             CargarComboAreas();
-            //CargarComboActivos();
             CargarGrid();
             FormatearGrid();
             txtIntroduzcaTexto.Focus();
+            //HabilitarBotonera();
         }
 
         #endregion
@@ -36,17 +45,21 @@ namespace GendocsForms
             {   //Ocultar una columna de un datagridview 
                 this.dgvRecursos.Columns["Area"].Visible = false;
                 this.dgvRecursos.Columns["Activo"].Visible = false;
-                this.dgvRecursos.Columns["IdRecurso"].Visible = false;
+                this.dgvRecursos.Columns["IdRecurso"].Visible = true;
                 this.dgvRecursos.Columns["IdCliente"].Visible = false;
                 this.dgvRecursos.Columns["Orden"].Visible = false;
                 this.dgvRecursos.Columns["IdRecursosArea"].Visible = false;
                 this.dgvRecursos.Columns["IdRecursosActivo"].Visible = false;
+                this.dgvRecursos.Columns["Prohibido"].Visible = false;
 
                 ////Modificar el ancho de una columna
-                this.dgvRecursos.Columns["CodRecurso"].Width = 500;
-                this.dgvRecursos.Columns["RecursoContratacion"].Width = 1000;
-                this.dgvRecursos.Columns["Unidad"].Width = 225;
-                this.dgvRecursos.Columns["CosteTotal"].Width = 225;
+                this.dgvRecursos.Columns["CodRecurso"].Width = 640;
+                this.dgvRecursos.Columns["CodRecurso"].HeaderText = "Código Recurso";
+                this.dgvRecursos.Columns["RecursoContratacion"].Width = 1200;
+                this.dgvRecursos.Columns["RecursoContratacion"].HeaderText = "Recurso Contratación";
+                this.dgvRecursos.Columns["Unidad"].Width = 250;
+                this.dgvRecursos.Columns["CosteTotal"].Width = 250;
+                this.dgvRecursos.Columns["CosteTotal"].HeaderText = "Coste Total";
 
                 ////Alinear las columnas 
                 dgvRecursos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -80,7 +93,7 @@ namespace GendocsForms
                         from a in db.GdRecursosActivos
                         join b in db.GdRecursos on a.IdRecursosActivo equals b.IdRecursosActivo
                         join c in db.GdRecursosAreas on a.IdRecursosArea equals c.IdRecursosArea
-                        where (b.CodRecurso.Contains(TextoIntroducido))
+                        where (b.CodRecurso.Contains(TextoIntroducido) || b.RecursoContratacion.Contains(TextoIntroducido))
                         orderby c.IdCliente, c.Orden, a.Orden, b.CodRecurso
                         select new { b.IdRecurso, c.Area, a.Activo, b.CodRecurso, b.RecursoContratacion, b.Unidad, b.CosteTotal, c.IdCliente, c.Orden, c.IdRecursosArea, a.IdRecursosActivo, b.Prohibido }
 
@@ -93,7 +106,7 @@ namespace GendocsForms
 
                     dgvRecursos.DataSource = null;
                     dgvRecursos.DataSource = listaFiltrada;
-                    textBox1.Text = dgvRecursos.Rows.Count.ToString();
+                    //textBox1.Text = dgvRecursos.Rows.Count.ToString();
 
                 }
             }
@@ -193,6 +206,27 @@ namespace GendocsForms
             }
         }
 
+        private void HabilitarBotonera()
+        {
+            try
+            {
+                if (EsEdicion)
+                {
+                    PnlLateralPrincipal.Visible = true;
+                    pnlLateralSecundario.Visible = false;
+                }
+                else
+                {
+                    PnlLateralPrincipal.Visible = false;
+                    pnlLateralSecundario.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
         #endregion
 
         #region "Control de Eventos"
@@ -237,8 +271,15 @@ namespace GendocsForms
                 cmbArea.SelectedIndex = 0;
                 cmbClientes.SelectedIndex = 0;
                 txtIntroduzcaTexto.Text = String.Empty;
-                CargarGrid();
+                if (btnProhibidos.Text.Contains("MOSTRAR"))
+                {
+                    EsProhibido = false;
+                }
+                else
+                    EsProhibido = true;
+                CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
                 FormatearGrid();
+                ColorearGrid();
                 txtIntroduzcaTexto.Focus();
             }
             catch (Exception Ex)
@@ -257,6 +298,8 @@ namespace GendocsForms
                     txtIntroduzcaTexto.Text = string.Empty;
                     CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
                     btnProhibidos.Text = "OCULTAR PROHIBIDOS";
+                    btnHabilitarProhibidos.Text = "QUITAR DE PROHIBIDOS";
+                    btnProhibidos.Image = imageList1.Images[0];
                 }
                 else
                 {
@@ -264,6 +307,8 @@ namespace GendocsForms
                     txtIntroduzcaTexto.Text = string.Empty;
                     CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
                     btnProhibidos.Text = "MOSTRAR PROHIBIDOS";
+                    btnHabilitarProhibidos.Text = "AÑADIR A PROHIBIDOS";
+                    btnProhibidos.Image = imageList1.Images[1];
                 }
                 FormatearGrid();
                 ColorearGrid();
@@ -295,6 +340,80 @@ namespace GendocsForms
             {
                 string mensaje = ex.Message;
             }
+        }
+
+        private void btnHabilitarProhibidos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clsRecursos cRecu = new clsRecursos();
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    List<int> miLista = new List<int>();
+                    for (int i = 0; i < dgvRecursos.SelectedRows.Count; i++)
+                    {
+                        miLista.Add(Convert.ToInt32(dgvRecursos.SelectedRows[i].Cells["IdRecurso"].Value));
+                    }
+                    cRecu.lstId = miLista;
+
+                    if (btnProhibidos.Text.Contains("MOSTRAR"))
+                    {
+                        DialogResult result = MessageBox.Show("¿Marcar " + dgvRecursos.SelectedRows.Count + " recurso/s como PROHIBIDO/S?", "Recursos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            cRecu.EsProhibido = true;
+                            cRecu.ModificarProhibidos();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Marcar " + dgvRecursos.SelectedRows.Count + " recurso/s como NO PROHIBIDO/S?", "Recursos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            cRecu.EsProhibido = false;
+                            cRecu.ModificarProhibidos();
+                        }
+                    }
+                    miLista = null;
+                    CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
+                    FormatearGrid();
+                    ColorearGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void btnEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clsRecursos cRecu = new clsRecursos();
+
+                DialogResult result = MessageBox.Show("¿Desea eliminar el recurso seleccionado?", "Recursos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    cRecu.IdRecurso = Convert.ToInt32(dgvRecursos.CurrentRow.Cells["IdRecurso"].Value);
+                    cRecu.EliminarRecurso();
+                }
+                CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
+                FormatearGrid();
+                ColorearGrid();
+
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

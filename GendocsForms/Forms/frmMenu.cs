@@ -80,6 +80,7 @@ namespace GendocsForms
         private void btnRecursos_Click(object sender, EventArgs e)
         {
             FrmRecursos frm = new FrmRecursos();
+           // frm.EsEdicion = true;
             frm.MdiParent = this.MdiParent;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
