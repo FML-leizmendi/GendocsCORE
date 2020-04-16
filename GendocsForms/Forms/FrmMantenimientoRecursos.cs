@@ -30,7 +30,7 @@ namespace GendocsForms
         private void FrmMantenimientoRecursos_Load(object sender, EventArgs e)
         {
             //LimpiarControles();
-            //CargarComboUnidad();
+            CargarComboUnidad();
             //CargarComboProhibido();
             CargarForm();
             if (cRec.esNuevo == true)
@@ -168,38 +168,38 @@ namespace GendocsForms
         }
 
 
-        //private void CargarComboUnidad()
-        //{
-        //    try
-        //    {
-        //        List<GendocsModeloDatos.models.GdRecursos_Unidad> lista = new List<GendocsModeloDatos.models.GdRecursos_Unidad>();
-        //        lista.Add(new GendocsModeloDatos.models.GdRecursos_Unidad()
-        //        {
-        //            IdUnidad = 0,
-        //            Unidad = ""
-        //        });
+        private void CargarComboUnidad()
+        {
+            try
+            {
+                List<GendocsModeloDatos.models.GdRecursos_Unidad> lista = new List<GendocsModeloDatos.models.GdRecursos_Unidad>();
+                lista.Add(new GendocsModeloDatos.models.GdRecursos_Unidad()
+                {
+                    IdUnidad = 0,
+                    Unidad = ""
+                });
 
-        //        GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-        //        List<GendocsModeloDatos.models.GdRecursos_Unidad> lstUnidades;
-        //        lstUnidades = db.GdRecursos_Unidad.Select(e => new GendocsModeloDatos.models.GdRecursos_Unidad()
-        //        {
-        //            IdUnidad = e.IdUnidad,
-        //            Unidad = e.Unidad
-        //        }
-        //        ).ToList();
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                List<GendocsModeloDatos.models.GdRecursos_Unidad> lstUnidades;
+                lstUnidades = db.GdRecursos_Unidad.Select(e => new GendocsModeloDatos.models.GdRecursos_Unidad()
+                {
+                    IdUnidad = e.IdUnidad,
+                    Unidad = e.Unidad
+                }
+                ).ToList();
 
-        //        lista.AddRange(lstUnidades);
+                lista.AddRange(lstUnidades);
 
-        //        cmbUnidad.DisplayMember = "Unidad";
-        //        cmbUnidad.ValueMember = "IdUnidad";
-        //        cmbUnidad.DataSource = lista;
+                cmbUnidad.DisplayMember = "Unidad";
+                cmbUnidad.ValueMember = "IdUnidad";
+                cmbUnidad.DataSource = lista;
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string mensaje = ex.Message;
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
 
         //private void CargarComboProhibido()
         //{

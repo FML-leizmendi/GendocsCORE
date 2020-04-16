@@ -57,6 +57,7 @@ namespace GendocsModeloDatos.models
         public virtual DbSet<GdProyectosHitos> GdProyectosHitos { get; set; }
         public virtual DbSet<GdRbda> GdRbda { get; set; }
         public virtual DbSet<GdRecursos> GdRecursos { get; set; }
+        public virtual DbSet<GdRecursos_Unidad> GdRecursos_Unidad { get; set; }
         public virtual DbSet<GdRecursosActivos> GdRecursosActivos { get; set; }
         public virtual DbSet<GdRecursosAreas> GdRecursosAreas { get; set; }
         public virtual DbSet<GdTiposTrabajo> GdTiposTrabajo { get; set; }
@@ -1459,6 +1460,17 @@ namespace GendocsModeloDatos.models
                 entity.Property(e => e.TitularPropietario).HasColumnName("Titular_Propietario");
 
                 entity.Property(e => e.TitularProvincia).HasColumnName("Titular_Provincia");
+            });
+
+            modelBuilder.Entity<GdRecursos_Unidad>(entity =>
+            {
+                entity.HasKey(e => e.IdUnidad)
+                    .HasName("PK_GD_Recursos_Unidad");
+
+                entity.ToTable("GD_Recursos_Unidad");
+
+                entity.HasIndex(e => e.IdUnidad)
+                    .HasName("IdUnidad");
             });
 
             modelBuilder.Entity<GdRecursos>(entity =>
