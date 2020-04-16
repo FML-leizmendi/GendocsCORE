@@ -237,7 +237,7 @@ namespace GendocsForms
         {
             cmbArea.SelectedIndex = -1;
             cmbActivos.SelectedIndex = -1;
-            CargarGrid();
+            CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
             FormatearGrid();
         }
 
@@ -245,13 +245,13 @@ namespace GendocsForms
         {
             CargarComboActivos();
             cmbActivos.SelectedIndex = 0;
-            CargarGrid();
+            CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
             FormatearGrid();
         }
 
         private void cmbActivos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarGrid();
+            CargarGrid(txtIntroduzcaTexto.Text, EsProhibido);
             Validate();
             FormatearGrid();
         }
@@ -413,13 +413,25 @@ namespace GendocsForms
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            
-        }
+            try
+            {
+                clsRecursos cRec = new clsRecursos();
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    var lst = (from d in db.GdRecursos
+                               where (d.CodRecurso.Contains(txtIntroduzcaTexto.Text) || d.RecursoContratacion.Contains(txtIntroduzcaTexto.Text))
+                               select d.IdRecurso
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Prueba GIT");
-            MessageBox.Show("Prueba  2 GIT");
+                           ).ToList();
+
+                    cRec.lstId = lst;
+                    cRec.CargarFrmMantenimientoRecursos();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
         }
     }
 }

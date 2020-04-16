@@ -23,10 +23,22 @@ namespace GendocsForms
 
         public List<int> lstId = new List<int>();
 
+        public bool esNuevo = false;
+
+        public bool EsAlta = false;
+
         public void CargarFrmRecursos()
         {
             FrmRecursos frm = new FrmRecursos(this);
             IdRecurso = lstId[0];
+            frm.ShowDialog();
+        }
+
+        public void CargarFrmMantenimientoRecursos()
+        {
+            FrmMantenimientoRecursos frm = new FrmMantenimientoRecursos(this);
+            IdRecurso = lstId[0];
+            CargarRecurso();
             frm.ShowDialog();
         }
 
@@ -39,8 +51,8 @@ namespace GendocsForms
                         if (EsProhibido)
                         {
                             var lst = from a in db.GdRecursos
-                                                  where (lstId.Contains(a.IdRecurso))
-                                                  select a;
+                                      where (lstId.Contains(a.IdRecurso))
+                                      select a;
                             lst.ToList();
                             foreach (var item in lst)
                             {
@@ -59,9 +71,9 @@ namespace GendocsForms
                                 item.Prohibido = false;
                             }
                             db.SaveChanges();
-                        }         
-                } 
-             MessageBox.Show("Los cambios han sido guardados correctamente", "Modificar Recursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                }
+                MessageBox.Show("Los cambios han sido guardados correctamente", "Modificar Recursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -70,7 +82,57 @@ namespace GendocsForms
 
         }
 
-        public void EliminarRecurso ()
+        public void GuardarUsuario()
+        {
+            try
+            {
+                {
+                    using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                        if (EsAlta)
+                        {
+                            GdRecursos recu = new GdRecursos();
+                            //EmpFml.IdEmpleadoFml = UltimoIdRegistrado();
+                            recu.CodRecurso = CodRecurso;
+                            recu.RecursoContratacion = RecursoContratacion;
+                            recu.Unidad = Unidad;
+                            recu.Prohibido = Prohibido;
+                            recu.CosteManodeObra = CosteManodeObra;
+                            recu.CosteMateriales = CosteMateriales;
+                            recu.CosteTotal = CosteTotal;
+
+                            db.GdRecursos.Add(recu);
+                            db.SaveChanges();
+
+                            MessageBox.Show("Los cambios han sido guardados correctamente", "Guardar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            {
+                                var query = (from a in db.GdRecursos
+                                             where a.IdRecurso == IdRecurso
+                                             select a).FirstOrDefault();
+
+                                query.CodRecurso = CodRecurso;
+                                query.RecursoContratacion = RecursoContratacion;
+                                query.Unidad = Unidad;
+                                query.Prohibido = Prohibido;
+                                query.CosteManodeObra = CosteManodeObra;
+                                query.CosteMateriales = CosteMateriales;
+                                query.CosteTotal = CosteTotal;
+
+                                db.SaveChanges();
+                            }
+                        }
+                    CargarRecurso();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+          }
+
+        public void EliminarRecurso()
         {
             try
             {
@@ -88,6 +150,79 @@ namespace GendocsForms
             {
                 string mensaje = ex.Message;
             }
+        }
+
+        public void CargarRecurso()
+        {
+            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+            {
+                var lst = (from d in db.GdRecursos
+                           where (d.IdRecurso == this.IdRecurso)
+                           select d
+
+                       ).ToList();
+
+                if (lst.Count() != 0)
+                {
+                    foreach (var item in lst)
+                    {
+                        IdRecursosActivo = item.IdRecursosActivo;
+                        CodRecurso = item.CodRecurso;
+                        RecursoContratacion = item.RecursoContratacion;
+                        Unidad = item.Unidad;
+                        CosteManodeObra = item.CosteManodeObra;
+                        CosteMateriales = item.CosteMateriales;
+                        CosteTotal = item.CosteTotal;
+                        Prohibido = item.Prohibido;
+                    }
+                }
+                else
+                {
+                    IdRecurso = 0;
+                    CodRecurso = string.Empty;
+                    RecursoContratacion = string.Empty;
+                    Unidad = string.Empty;
+                    CosteManodeObra = 0;
+                    CosteMateriales = 0;
+                    CosteTotal = 0;
+                    Prohibido = true;
+                }
+
+            }
+        }
+
+        public void IrSiguiente()
+        {
+            int i = lstId.IndexOf(IdRecurso);
+
+            if (i != -1 && i + 1 < lstId.Count())
+            {
+                IdRecurso = lstId[i + 1];
+                CargarRecurso();
+            }
+        }
+
+        public void IrAnterior()
+        {
+            int i = lstId.IndexOf(IdRecurso);
+
+            if (i != -1 && i > 0)
+            {
+                IdRecurso = lstId[i - 1];
+                CargarRecurso();
+            }
+        }
+
+        public void IrPrimero()
+        {
+            IdRecurso = lstId[0];
+            CargarRecurso();
+        }
+
+        public void IrUltimo()
+        {
+            IdRecurso = lstId[lstId.Count() - 1];
+            CargarRecurso();
         }
     }
 }

@@ -118,21 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAhVJREFUWEft
-        lrdOBDEQhq8AGhChAQQtSaIgvwbhXQgtEqFFIEoQD0FFlHgHROhILUjkivB/1lo6FnvXu3dwOul+6dOt
-        7bHXN57ZcaGmalO/WBCH4ly8RPB8IOZFnyi7xsWR+AqEDY6JklUvNsWnYOF7sSUmBd5ojOB5SmwLbLBl
-        zoaoE7nUJo4Fi72KJdEs0oTNsngT1hutIpP459bld4IjyKohcSVY40Q0iGDhdibeiC46coq5t4K11ukI
-        Ef+W88PtI3SUqFHBcXxEz6myrufMXWqKfl3yja0I1iRVE0U0Y0gkuwJuUZDznab1U/Qxhk1cLeJBsHYv
-        HT7xkcGIdIqLf8cLGI9vwr7cjrk8sSMYnzMtj3ARRuS0S/EX0Xb1uTQjsNk3LY8uBUZJn9P4C0Nejuzx
-        XpiWR88Co6RAQ+3iVGBrF01LV9bElnd49SRCNtAhijeA59I2QFBj+2haHlX8CP4jCPdMyyPqOUZ/mYaz
-        puVRxT9EiPKJISXVpaQA9Y2tCtZMdL8VNxmKEQUkqHikiOL2LihGw3SEiJsMO6aUdtORU8y15XiNjlBx
-        jbJHwYVkQmQV//ZasAbZlflqxjXKboLjoKQSTGnChjPH7czl25/5SmbFrrnJcH4sRiSTTtNiQBB0wDN5
-        zpiNdubg9tyX0mINil3BwiHg8nIE8C+Rw9Rz3ErOU1jgTJBifGR6RE3VokLhG0eIxB/J+jFBAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
   <data name="btnNuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVVJREFUSEvd
@@ -222,9 +207,6 @@
         /fafD08zT77PpT5bdwIb9/ks/xBF8RtL7rlA91/ZIAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="btnLimpiarFiltros.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVdJREFUSEvt
@@ -247,7 +229,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADE
-        CAAAAk1TRnQBSQFMAgEBAgEAASABAAEgAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CAAAAk1TRnQBSQFMAgEBAgEAASgBAAEoAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA

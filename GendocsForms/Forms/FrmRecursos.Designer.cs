@@ -57,7 +57,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.flpBotoneraLateral.SuspendLayout();
             this.PnlLateralPrincipal.SuspendLayout();
@@ -92,10 +91,9 @@
             // 
             this.flpBotoneraLateral.Controls.Add(this.PnlLateralPrincipal);
             this.flpBotoneraLateral.Controls.Add(this.pnlLateralSecundario);
-            this.flpBotoneraLateral.Controls.Add(this.button1);
             this.flpBotoneraLateral.Location = new System.Drawing.Point(26, 406);
             this.flpBotoneraLateral.Name = "flpBotoneraLateral";
-            this.flpBotoneraLateral.Size = new System.Drawing.Size(337, 742);
+            this.flpBotoneraLateral.Size = new System.Drawing.Size(337, 649);
             this.flpBotoneraLateral.TabIndex = 9;
             // 
             // PnlLateralPrincipal
@@ -407,23 +405,6 @@
             this.imageList1.Images.SetKeyName(0, "icons8-ocultar-32.png");
             this.imageList1.Images.SetKeyName(1, "icons8-visible-32.png");
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(7, 643);
-            this.button1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(322, 75);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "PRUEBA GIT";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmRecursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -480,6 +461,5 @@
         private System.Windows.Forms.Panel pnlLateralSecundario;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button button1;
     }
 }

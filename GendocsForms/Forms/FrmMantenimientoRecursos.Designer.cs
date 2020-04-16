@@ -44,6 +44,7 @@
             this.lblRecContratacion = new System.Windows.Forms.Label();
             this.txtRecContratacion = new System.Windows.Forms.TextBox();
             this.grbRecursos = new System.Windows.Forms.GroupBox();
+            this.cmbUnidad = new System.Windows.Forms.ComboBox();
             this.txtCosteTotal = new System.Windows.Forms.TextBox();
             this.lblCosteTotal = new System.Windows.Forms.Label();
             this.txtCosteMateriales = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.txtCosteManoObra = new System.Windows.Forms.TextBox();
             this.lblCosteManoDeObra = new System.Windows.Forms.Label();
             this.lblUnidad = new System.Windows.Forms.Label();
-            this.cmbUnidad = new System.Windows.Forms.ComboBox();
             this.pnlBotonera.SuspendLayout();
             this.flpBotonera.SuspendLayout();
             this.grbRecursos.SuspendLayout();
@@ -69,7 +69,7 @@
             this.pnlBotonera.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(1350, 105);
-            this.pnlBotonera.TabIndex = 3;
+            this.pnlBotonera.TabIndex = 1;
             // 
             // btnUltimo
             // 
@@ -80,12 +80,13 @@
             this.btnUltimo.ForeColor = System.Drawing.Color.White;
             this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
             this.btnUltimo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUltimo.Location = new System.Drawing.Point(272, 17);
+            this.btnUltimo.Location = new System.Drawing.Point(237, 18);
             this.btnUltimo.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(70, 75);
+            this.btnUltimo.Size = new System.Drawing.Size(65, 70);
             this.btnUltimo.TabIndex = 3;
             this.btnUltimo.UseVisualStyleBackColor = false;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click_1);
             // 
             // btnSiguiente
             // 
@@ -96,12 +97,13 @@
             this.btnSiguiente.ForeColor = System.Drawing.Color.White;
             this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
             this.btnSiguiente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSiguiente.Location = new System.Drawing.Point(193, 17);
+            this.btnSiguiente.Location = new System.Drawing.Point(166, 18);
             this.btnSiguiente.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(70, 75);
+            this.btnSiguiente.Size = new System.Drawing.Size(65, 70);
             this.btnSiguiente.TabIndex = 2;
             this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click_1);
             // 
             // btnAnterior
             // 
@@ -112,12 +114,13 @@
             this.btnAnterior.ForeColor = System.Drawing.Color.White;
             this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
             this.btnAnterior.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnterior.Location = new System.Drawing.Point(98, 17);
+            this.btnAnterior.Location = new System.Drawing.Point(89, 18);
             this.btnAnterior.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(70, 75);
+            this.btnAnterior.Size = new System.Drawing.Size(65, 70);
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.UseVisualStyleBackColor = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click_1);
             // 
             // flpBotonera
             // 
@@ -143,10 +146,10 @@
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(322, 75);
-            this.btnGuardar.TabIndex = 2;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Visible = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnSalir
             // 
@@ -162,6 +165,7 @@
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnPrimero
             // 
@@ -172,12 +176,13 @@
             this.btnPrimero.ForeColor = System.Drawing.Color.White;
             this.btnPrimero.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimero.Image")));
             this.btnPrimero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrimero.Location = new System.Drawing.Point(24, 17);
+            this.btnPrimero.Location = new System.Drawing.Point(16, 17);
             this.btnPrimero.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(70, 75);
+            this.btnPrimero.Size = new System.Drawing.Size(65, 70);
             this.btnPrimero.TabIndex = 0;
             this.btnPrimero.UseVisualStyleBackColor = false;
+            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click_1);
             // 
             // lblCodRecurso
             // 
@@ -187,7 +192,7 @@
             this.lblCodRecurso.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblCodRecurso.Name = "lblCodRecurso";
             this.lblCodRecurso.Size = new System.Drawing.Size(160, 29);
-            this.lblCodRecurso.TabIndex = 1;
+            this.lblCodRecurso.TabIndex = 0;
             this.lblCodRecurso.Text = "Cod. Recurso";
             // 
             // txtCodRecurso
@@ -196,27 +201,29 @@
             this.txtCodRecurso.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtCodRecurso.Name = "txtCodRecurso";
             this.txtCodRecurso.Size = new System.Drawing.Size(328, 31);
-            this.txtCodRecurso.TabIndex = 2;
+            this.txtCodRecurso.TabIndex = 1;
+            this.txtCodRecurso.TextChanged += new System.EventHandler(this.txtCodRecurso_TextChanged);
             // 
             // cmbProhibido
             // 
             this.cmbProhibido.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cmbProhibido.FormattingEnabled = true;
-            this.cmbProhibido.Location = new System.Drawing.Point(1092, 176);
+            this.cmbProhibido.Location = new System.Drawing.Point(1092, 185);
             this.cmbProhibido.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.cmbProhibido.Name = "cmbProhibido";
             this.cmbProhibido.Size = new System.Drawing.Size(150, 40);
-            this.cmbProhibido.TabIndex = 6;
+            this.cmbProhibido.TabIndex = 13;
+            this.cmbProhibido.SelectedIndexChanged += new System.EventHandler(this.cmbProhibido_SelectedIndexChanged);
             // 
             // lblProhibido
             // 
             this.lblProhibido.AutoSize = true;
             this.lblProhibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProhibido.Location = new System.Drawing.Point(1098, 144);
+            this.lblProhibido.Location = new System.Drawing.Point(1098, 152);
             this.lblProhibido.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblProhibido.Name = "lblProhibido";
             this.lblProhibido.Size = new System.Drawing.Size(118, 29);
-            this.lblProhibido.TabIndex = 5;
+            this.lblProhibido.TabIndex = 12;
             this.lblProhibido.Text = "Prohibido";
             // 
             // lblRecContratacion
@@ -227,7 +234,7 @@
             this.lblRecContratacion.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblRecContratacion.Name = "lblRecContratacion";
             this.lblRecContratacion.Size = new System.Drawing.Size(203, 29);
-            this.lblRecContratacion.TabIndex = 7;
+            this.lblRecContratacion.TabIndex = 2;
             this.lblRecContratacion.Text = "Rec. Contratación";
             // 
             // txtRecContratacion
@@ -236,7 +243,8 @@
             this.txtRecContratacion.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtRecContratacion.Name = "txtRecContratacion";
             this.txtRecContratacion.Size = new System.Drawing.Size(667, 31);
-            this.txtRecContratacion.TabIndex = 8;
+            this.txtRecContratacion.TabIndex = 3;
+            this.txtRecContratacion.TextChanged += new System.EventHandler(this.txtRecContratacion_TextChanged);
             // 
             // grbRecursos
             // 
@@ -259,9 +267,20 @@
             this.grbRecursos.Name = "grbRecursos";
             this.grbRecursos.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.grbRecursos.Size = new System.Drawing.Size(1330, 273);
-            this.grbRecursos.TabIndex = 2;
+            this.grbRecursos.TabIndex = 0;
             this.grbRecursos.TabStop = false;
             this.grbRecursos.Text = "Recursos Seleccionado";
+            // 
+            // cmbUnidad
+            // 
+            this.cmbUnidad.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbUnidad.FormattingEnabled = true;
+            this.cmbUnidad.Location = new System.Drawing.Point(1092, 87);
+            this.cmbUnidad.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.cmbUnidad.Name = "cmbUnidad";
+            this.cmbUnidad.Size = new System.Drawing.Size(150, 40);
+            this.cmbUnidad.TabIndex = 5;
+            this.cmbUnidad.SelectedIndexChanged += new System.EventHandler(this.cmbUnidad_SelectedIndexChanged);
             // 
             // txtCosteTotal
             // 
@@ -269,7 +288,8 @@
             this.txtCosteTotal.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtCosteTotal.Name = "txtCosteTotal";
             this.txtCosteTotal.Size = new System.Drawing.Size(328, 31);
-            this.txtCosteTotal.TabIndex = 16;
+            this.txtCosteTotal.TabIndex = 11;
+            this.txtCosteTotal.TextChanged += new System.EventHandler(this.txtCosteTotal_TextChanged);
             // 
             // lblCosteTotal
             // 
@@ -279,7 +299,7 @@
             this.lblCosteTotal.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblCosteTotal.Name = "lblCosteTotal";
             this.lblCosteTotal.Size = new System.Drawing.Size(137, 29);
-            this.lblCosteTotal.TabIndex = 15;
+            this.lblCosteTotal.TabIndex = 10;
             this.lblCosteTotal.Text = "Coste Total";
             // 
             // txtCosteMateriales
@@ -288,7 +308,8 @@
             this.txtCosteMateriales.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtCosteMateriales.Name = "txtCosteMateriales";
             this.txtCosteMateriales.Size = new System.Drawing.Size(328, 31);
-            this.txtCosteMateriales.TabIndex = 14;
+            this.txtCosteMateriales.TabIndex = 9;
+            this.txtCosteMateriales.TextChanged += new System.EventHandler(this.txtCosteMateriales_TextChanged);
             // 
             // lblCosteMateriales
             // 
@@ -298,7 +319,7 @@
             this.lblCosteMateriales.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblCosteMateriales.Name = "lblCosteMateriales";
             this.lblCosteMateriales.Size = new System.Drawing.Size(194, 29);
-            this.lblCosteMateriales.TabIndex = 13;
+            this.lblCosteMateriales.TabIndex = 8;
             this.lblCosteMateriales.Text = "Coste Materiales";
             // 
             // txtCosteManoObra
@@ -307,7 +328,8 @@
             this.txtCosteManoObra.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtCosteManoObra.Name = "txtCosteManoObra";
             this.txtCosteManoObra.Size = new System.Drawing.Size(328, 31);
-            this.txtCosteManoObra.TabIndex = 12;
+            this.txtCosteManoObra.TabIndex = 7;
+            this.txtCosteManoObra.TextChanged += new System.EventHandler(this.txtCosteManoObra_TextChanged);
             // 
             // lblCosteManoDeObra
             // 
@@ -317,29 +339,19 @@
             this.lblCosteManoDeObra.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblCosteManoDeObra.Name = "lblCosteManoDeObra";
             this.lblCosteManoDeObra.Size = new System.Drawing.Size(236, 29);
-            this.lblCosteManoDeObra.TabIndex = 11;
+            this.lblCosteManoDeObra.TabIndex = 6;
             this.lblCosteManoDeObra.Text = "Coste Mano de Obra";
             // 
             // lblUnidad
             // 
             this.lblUnidad.AutoSize = true;
             this.lblUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidad.Location = new System.Drawing.Point(1097, 44);
+            this.lblUnidad.Location = new System.Drawing.Point(1097, 53);
             this.lblUnidad.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblUnidad.Name = "lblUnidad";
             this.lblUnidad.Size = new System.Drawing.Size(90, 29);
-            this.lblUnidad.TabIndex = 9;
+            this.lblUnidad.TabIndex = 4;
             this.lblUnidad.Text = "Unidad";
-            // 
-            // cmbUnidad
-            // 
-            this.cmbUnidad.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cmbUnidad.FormattingEnabled = true;
-            this.cmbUnidad.Location = new System.Drawing.Point(1092, 79);
-            this.cmbUnidad.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.cmbUnidad.Name = "cmbUnidad";
-            this.cmbUnidad.Size = new System.Drawing.Size(150, 40);
-            this.cmbUnidad.TabIndex = 17;
             // 
             // FrmMantenimientoRecursos
             // 
@@ -351,6 +363,7 @@
             this.Controls.Add(this.grbRecursos);
             this.Name = "FrmMantenimientoRecursos";
             this.Text = "Modificación Recursos";
+            this.Load += new System.EventHandler(this.FrmMantenimientoRecursos_Load);
             this.pnlBotonera.ResumeLayout(false);
             this.flpBotonera.ResumeLayout(false);
             this.grbRecursos.ResumeLayout(false);

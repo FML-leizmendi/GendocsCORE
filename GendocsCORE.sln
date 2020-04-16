@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7B1F006D-DACA-47B0-8010-CC98F0144F48}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		WindowsFormsApp1\WindowsFormsApp1.csproj = WindowsFormsApp1\WindowsFormsApp1.csproj
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{CF266B66-9EF7-42CE-B7EE-CC0CDA4CB634}"
