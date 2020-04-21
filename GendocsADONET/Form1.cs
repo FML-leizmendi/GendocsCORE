@@ -29,10 +29,10 @@ namespace GendocsADONET
             {
                 //*********** OPCION 1 ********
                 SqlCommand command = new SqlCommand(cadena, conexion.conectarBD);
-                SqlDataReader rd = command.ExecuteReader();
-                while (rd.Read())
+                SqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
                 {
-                    MessageBox.Show(rd.GetValue(0).ToString() + "" + rd.GetValue(1).ToString());
+                    MessageBox.Show(dr.GetValue(0).ToString() + " " + dr.GetValue(1).ToString());
                 }
 
                 //********** OPCION 2 ****** 
@@ -41,6 +41,11 @@ namespace GendocsADONET
             {
                 string mensaje = Ex.Message;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
