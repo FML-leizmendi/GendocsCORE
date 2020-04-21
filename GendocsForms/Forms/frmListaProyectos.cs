@@ -39,19 +39,21 @@ namespace GendocsForms
         {
             try
             {   //Ocultar una columna de un datagridview 
-                //this.dgvEmpleados.Columns["IdProyecto"].Visible = false;
-      
+                //this.dgvProyectos.Columns["IdProyecto"].Visible = false;
+
                 //Modificar el ancho de una columna
-                this.dgvProyectos.Columns["CodigoProyecto"].Width = 120;
-                this.dgvProyectos.Columns["Alias"].Width = 200;
-                this.dgvProyectos.Columns["TerminoMunicipal"].Width = 200;
-                this.dgvProyectos.Columns["Gestor"].Width = 200;
-                this.dgvProyectos.Columns["Responsable"].Width = 180;
-                this.dgvProyectos.Columns["ProyectoEstado"].Width = 60;
+                this.dgvProyectos.Columns["CodigoProyecto"].Width = 315;
+                this.dgvProyectos.Columns["Alias"].Width = 450;
+                this.dgvProyectos.Columns["TerminoMunicipal"].Width = 400;
+                this.dgvProyectos.Columns["Gestor"].Width = 425;
+                this.dgvProyectos.Columns["Responsable"].Width = 325;
+                this.dgvProyectos.Columns["ProyectoEstado"].Width = 275;
+                
                 //Alinear las columnas 
                 dgvProyectos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvProyectos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvProyectos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //dgvProyectos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             }
             catch (Exception ex)
             {
@@ -196,5 +198,24 @@ namespace GendocsForms
 
 
         #endregion
+
+        private void dgvProyectos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgvProyectos.CurrentRow != null)
+                {
+                    clsProyectos clsProy = new clsProyectos();
+                    clsProy.IdProyecto  = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["IdProyecto"].Value);
+                    clsProy.CargarFrmExpedientes();
+                }
+                else
+                    MessageBox.Show("Debe seleccionar un proyecto para poder continuar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
     }
 }

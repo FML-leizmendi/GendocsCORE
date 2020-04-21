@@ -37,8 +37,11 @@ namespace GendocsForms
         public void CargarFrmMantenimientoRecursos()
         {
             FrmMantenimientoRecursos frm = new FrmMantenimientoRecursos(this);
-            IdRecurso = lstId[0];
-            CargarRecurso();
+            if (!EsAlta)
+            {
+                IdRecurso = lstId[0];
+                CargarRecurso();
+            }
             frm.ShowDialog();
         }
 

@@ -29,16 +29,19 @@ namespace GendocsForms
 
         private void FrmMantenimientoRecursos_Load(object sender, EventArgs e)
         {
-            //LimpiarControles();
-            CargarComboUnidad();
+            //CargarComboUnidad();
             //CargarComboProhibido();
-            CargarForm();
             if (cRec.esNuevo == true)
             {
                 OcultarBotonesNavegacion();
             }
+            if (cRec.EsAlta)
+            {
+                LimpiarControles();
+            }
+            else
+                CargarForm();
             txtCodRecurso.Focus();
-            cRec.EsAlta = true;
             HanModificado = false;
         }
 
@@ -168,38 +171,38 @@ namespace GendocsForms
         }
 
 
-        private void CargarComboUnidad()
-        {
-            try
-            {
-                List<GendocsModeloDatos.models.GdRecursos_Unidad> lista = new List<GendocsModeloDatos.models.GdRecursos_Unidad>();
-                lista.Add(new GendocsModeloDatos.models.GdRecursos_Unidad()
-                {
-                    IdUnidad = 0,
-                    Unidad = ""
-                });
+        //private void CargarComboUnidad()
+        //{
+        //    try
+        //    {
+        //        List<GendocsModeloDatos.models.GdRecursos_Unidad> lista = new List<GendocsModeloDatos.models.GdRecursos_Unidad>();
+        //        lista.Add(new GendocsModeloDatos.models.GdRecursos_Unidad()
+        //        {
+        //            IdUnidad = 0,
+        //            Unidad = ""
+        //        });
 
-                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                List<GendocsModeloDatos.models.GdRecursos_Unidad> lstUnidades;
-                lstUnidades = db.GdRecursos_Unidad.Select(e => new GendocsModeloDatos.models.GdRecursos_Unidad()
-                {
-                    IdUnidad = e.IdUnidad,
-                    Unidad = e.Unidad
-                }
-                ).ToList();
+        //        GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+        //        List<GendocsModeloDatos.models.GdRecursos_Unidad> lstUnidades;
+        //        lstUnidades = db.GdRecursos_Unidad.Select(e => new GendocsModeloDatos.models.GdRecursos_Unidad()
+        //        {
+        //            IdUnidad = e.IdUnidad,
+        //            Unidad = e.Unidad
+        //        }
+        //        ).ToList();
 
-                lista.AddRange(lstUnidades);
+        //        lista.AddRange(lstUnidades);
 
-                cmbUnidad.DisplayMember = "Unidad";
-                cmbUnidad.ValueMember = "IdUnidad";
-                cmbUnidad.DataSource = lista;
+        //        cmbUnidad.DisplayMember = "Unidad";
+        //        cmbUnidad.ValueMember = "IdUnidad";
+        //        cmbUnidad.DataSource = lista;
 
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string mensaje = ex.Message;
+        //    }
+        //}
 
         //private void CargarComboProhibido()
         //{
@@ -253,7 +256,7 @@ namespace GendocsForms
                     //}
                     //else
                     //    cRec.Prohibido = true;
-                    cRec.EsAlta = false;
+                    //cRec.EsAlta = false;
                     cRec.GuardarUsuario();
                 }
             }
@@ -321,6 +324,14 @@ namespace GendocsForms
         {
             cRec.IrUltimo();
             CargarForm();
+        }
+
+        private void txtCosteMateriales_Leave(object sender, EventArgs e)
+        {
+            int i = Convert.ToInt32(txtCosteMateriales.Text);
+            int x = Convert.ToInt32(txtCosteManoObra.Text);
+            int z = i + x;
+            txtCosteTotal.Text = z.ToString();
         }
     }
 }

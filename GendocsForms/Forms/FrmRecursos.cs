@@ -433,5 +433,23 @@ namespace GendocsForms
                 string mensaje = ex.Message;
             }
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            if (cmbActivos.SelectedIndex == -1 || cmbActivos.SelectedIndex == 0)
+            {
+                MessageBox.Show("Debe seleccionar un recurso activo antes de continuar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmbActivos.Focus();
+            }
+            else
+            {
+                clsRecursos cRec = new clsRecursos();
+                cRec.EsAlta = true;
+                cRec.IdRecursosActivo = ((GendocsModeloDatos.models.GdRecursosActivos)cmbActivos.SelectedItem).IdRecursosActivo;
+                cRec.CargarFrmMantenimientoRecursos();
+            }
+                
+
+        }
     }
 }

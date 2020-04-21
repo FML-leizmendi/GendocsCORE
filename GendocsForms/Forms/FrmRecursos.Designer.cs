@@ -71,9 +71,9 @@
             this.pnlCabercera.BackColor = System.Drawing.Color.LightBlue;
             this.pnlCabercera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabercera.Location = new System.Drawing.Point(0, 0);
-            this.pnlCabercera.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.pnlCabercera.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlCabercera.Name = "pnlCabercera";
-            this.pnlCabercera.Size = new System.Drawing.Size(2460, 84);
+            this.pnlCabercera.Size = new System.Drawing.Size(1230, 44);
             this.pnlCabercera.TabIndex = 0;
             // 
             // pnlLateral
@@ -81,19 +81,20 @@
             this.pnlLateral.BackColor = System.Drawing.Color.Gray;
             this.pnlLateral.Controls.Add(this.flpBotoneraLateral);
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(0, 84);
-            this.pnlLateral.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.pnlLateral.Location = new System.Drawing.Point(0, 44);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(382, 1283);
+            this.pnlLateral.Size = new System.Drawing.Size(191, 508);
             this.pnlLateral.TabIndex = 1;
             // 
             // flpBotoneraLateral
             // 
             this.flpBotoneraLateral.Controls.Add(this.PnlLateralPrincipal);
             this.flpBotoneraLateral.Controls.Add(this.pnlLateralSecundario);
-            this.flpBotoneraLateral.Location = new System.Drawing.Point(26, 406);
+            this.flpBotoneraLateral.Location = new System.Drawing.Point(13, 211);
+            this.flpBotoneraLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpBotoneraLateral.Name = "flpBotoneraLateral";
-            this.flpBotoneraLateral.Size = new System.Drawing.Size(337, 649);
+            this.flpBotoneraLateral.Size = new System.Drawing.Size(168, 337);
             this.flpBotoneraLateral.TabIndex = 9;
             // 
             // PnlLateralPrincipal
@@ -103,9 +104,10 @@
             this.PnlLateralPrincipal.Controls.Add(this.btnHabilitarProhibidos);
             this.PnlLateralPrincipal.Controls.Add(this.btnEliminarEmpleado);
             this.PnlLateralPrincipal.Controls.Add(this.btnProhibidos);
-            this.PnlLateralPrincipal.Location = new System.Drawing.Point(3, 3);
+            this.PnlLateralPrincipal.Location = new System.Drawing.Point(2, 2);
+            this.PnlLateralPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PnlLateralPrincipal.Name = "PnlLateralPrincipal";
-            this.PnlLateralPrincipal.Size = new System.Drawing.Size(334, 443);
+            this.PnlLateralPrincipal.Size = new System.Drawing.Size(167, 230);
             this.PnlLateralPrincipal.TabIndex = 0;
             // 
             // btnNuevo
@@ -116,13 +118,14 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(7, 6);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnNuevo.Location = new System.Drawing.Point(4, 3);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(322, 75);
+            this.btnNuevo.Size = new System.Drawing.Size(161, 39);
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
@@ -132,10 +135,10 @@
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(7, 94);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnModificar.Location = new System.Drawing.Point(4, 49);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(322, 75);
+            this.btnModificar.Size = new System.Drawing.Size(161, 39);
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -149,10 +152,10 @@
             this.btnHabilitarProhibidos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHabilitarProhibidos.Image = ((System.Drawing.Image)(resources.GetObject("btnHabilitarProhibidos.Image")));
             this.btnHabilitarProhibidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHabilitarProhibidos.Location = new System.Drawing.Point(7, 356);
-            this.btnHabilitarProhibidos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnHabilitarProhibidos.Location = new System.Drawing.Point(4, 185);
+            this.btnHabilitarProhibidos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnHabilitarProhibidos.Name = "btnHabilitarProhibidos";
-            this.btnHabilitarProhibidos.Size = new System.Drawing.Size(322, 75);
+            this.btnHabilitarProhibidos.Size = new System.Drawing.Size(161, 39);
             this.btnHabilitarProhibidos.TabIndex = 8;
             this.btnHabilitarProhibidos.Text = "    AÑADIR A PROHIBIDOS";
             this.btnHabilitarProhibidos.UseVisualStyleBackColor = false;
@@ -166,10 +169,10 @@
             this.btnEliminarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarEmpleado.Image")));
             this.btnEliminarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarEmpleado.Location = new System.Drawing.Point(7, 181);
-            this.btnEliminarEmpleado.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(4, 94);
+            this.btnEliminarEmpleado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
-            this.btnEliminarEmpleado.Size = new System.Drawing.Size(322, 75);
+            this.btnEliminarEmpleado.Size = new System.Drawing.Size(161, 39);
             this.btnEliminarEmpleado.TabIndex = 5;
             this.btnEliminarEmpleado.Text = "ELIMINAR";
             this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
@@ -183,10 +186,10 @@
             this.btnProhibidos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProhibidos.Image = ((System.Drawing.Image)(resources.GetObject("btnProhibidos.Image")));
             this.btnProhibidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProhibidos.Location = new System.Drawing.Point(7, 269);
-            this.btnProhibidos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnProhibidos.Location = new System.Drawing.Point(4, 140);
+            this.btnProhibidos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnProhibidos.Name = "btnProhibidos";
-            this.btnProhibidos.Size = new System.Drawing.Size(322, 75);
+            this.btnProhibidos.Size = new System.Drawing.Size(161, 39);
             this.btnProhibidos.TabIndex = 7;
             this.btnProhibidos.Text = "    MOSTRAR PROHIBIDOS";
             this.btnProhibidos.UseVisualStyleBackColor = false;
@@ -196,9 +199,10 @@
             // 
             this.pnlLateralSecundario.Controls.Add(this.btnCancelar);
             this.pnlLateralSecundario.Controls.Add(this.btnAceptar);
-            this.pnlLateralSecundario.Location = new System.Drawing.Point(3, 452);
+            this.pnlLateralSecundario.Location = new System.Drawing.Point(2, 236);
+            this.pnlLateralSecundario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlLateralSecundario.Name = "pnlLateralSecundario";
-            this.pnlLateralSecundario.Size = new System.Drawing.Size(334, 182);
+            this.pnlLateralSecundario.Size = new System.Drawing.Size(167, 95);
             this.pnlLateralSecundario.TabIndex = 1;
             // 
             // btnCancelar
@@ -209,10 +213,10 @@
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(5, 91);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnCancelar.Location = new System.Drawing.Point(2, 47);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(322, 75);
+            this.btnCancelar.Size = new System.Drawing.Size(161, 39);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -225,10 +229,10 @@
             this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(5, 3);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnAceptar.Location = new System.Drawing.Point(2, 2);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(322, 75);
+            this.btnAceptar.Size = new System.Drawing.Size(161, 39);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "ACEPTAR";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -240,12 +244,12 @@
             this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarFiltros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.Image")));
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(1915, 80);
-            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(101, 36);
-            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(101, 36);
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(958, 42);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(50, 19);
+            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(101, 36);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.TabIndex = 6;
             this.toolTip1.SetToolTip(this.btnLimpiarFiltros, "Eliminar Filtros");
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
@@ -265,11 +269,11 @@
             this.grbRecursos.Controls.Add(this.cmbClientes);
             this.grbRecursos.Controls.Add(this.lblCliente);
             this.grbRecursos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbRecursos.Location = new System.Drawing.Point(395, 107);
-            this.grbRecursos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.grbRecursos.Location = new System.Drawing.Point(198, 56);
+            this.grbRecursos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grbRecursos.Name = "grbRecursos";
-            this.grbRecursos.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.grbRecursos.Size = new System.Drawing.Size(2055, 144);
+            this.grbRecursos.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.grbRecursos.Size = new System.Drawing.Size(1028, 75);
             this.grbRecursos.TabIndex = 2;
             this.grbRecursos.TabStop = false;
             this.grbRecursos.Text = "Recursos";
@@ -277,10 +281,10 @@
             // txtIntroduzcaTexto
             // 
             this.txtIntroduzcaTexto.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(13, 81);
-            this.txtIntroduzcaTexto.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(6, 42);
+            this.txtIntroduzcaTexto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
-            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(508, 39);
+            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(256, 23);
             this.txtIntroduzcaTexto.TabIndex = 7;
             this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
             // 
@@ -288,10 +292,10 @@
             // 
             this.lblTexto.AutoSize = true;
             this.lblTexto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTexto.Location = new System.Drawing.Point(20, 46);
-            this.lblTexto.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblTexto.Location = new System.Drawing.Point(10, 24);
+            this.lblTexto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTexto.Name = "lblTexto";
-            this.lblTexto.Size = new System.Drawing.Size(219, 25);
+            this.lblTexto.Size = new System.Drawing.Size(115, 16);
             this.lblTexto.TabIndex = 6;
             this.lblTexto.Text = "Introduzca un texto";
             // 
@@ -299,10 +303,10 @@
             // 
             this.cmbActivos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cmbActivos.FormattingEnabled = true;
-            this.cmbActivos.Location = new System.Drawing.Point(1366, 81);
-            this.cmbActivos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.cmbActivos.Location = new System.Drawing.Point(683, 42);
+            this.cmbActivos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbActivos.Name = "cmbActivos";
-            this.cmbActivos.Size = new System.Drawing.Size(544, 40);
+            this.cmbActivos.Size = new System.Drawing.Size(274, 25);
             this.cmbActivos.TabIndex = 5;
             this.cmbActivos.SelectedIndexChanged += new System.EventHandler(this.cmbActivos_SelectedIndexChanged);
             // 
@@ -310,10 +314,10 @@
             // 
             this.lblActivo.AutoSize = true;
             this.lblActivo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivo.Location = new System.Drawing.Point(1361, 51);
-            this.lblActivo.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblActivo.Location = new System.Drawing.Point(680, 27);
+            this.lblActivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblActivo.Name = "lblActivo";
-            this.lblActivo.Size = new System.Drawing.Size(82, 25);
+            this.lblActivo.Size = new System.Drawing.Size(43, 16);
             this.lblActivo.TabIndex = 4;
             this.lblActivo.Text = "Activo";
             // 
@@ -321,10 +325,10 @@
             // 
             this.cmbArea.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(869, 81);
-            this.cmbArea.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.cmbArea.Location = new System.Drawing.Point(434, 42);
+            this.cmbArea.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(486, 40);
+            this.cmbArea.Size = new System.Drawing.Size(245, 25);
             this.cmbArea.TabIndex = 3;
             this.cmbArea.SelectedIndexChanged += new System.EventHandler(this.cmbArea_SelectedIndexChanged);
             // 
@@ -332,10 +336,10 @@
             // 
             this.lblArea.AutoSize = true;
             this.lblArea.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArea.Location = new System.Drawing.Point(865, 51);
-            this.lblArea.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblArea.Location = new System.Drawing.Point(432, 27);
+            this.lblArea.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(65, 25);
+            this.lblArea.Size = new System.Drawing.Size(33, 16);
             this.lblArea.TabIndex = 2;
             this.lblArea.Text = "Área";
             // 
@@ -343,10 +347,10 @@
             // 
             this.cmbClientes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(532, 81);
-            this.cmbClientes.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.cmbClientes.Location = new System.Drawing.Point(266, 42);
+            this.cmbClientes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(326, 40);
+            this.cmbClientes.Size = new System.Drawing.Size(165, 25);
             this.cmbClientes.TabIndex = 1;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             // 
@@ -354,10 +358,10 @@
             // 
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCliente.Location = new System.Drawing.Point(537, 51);
-            this.lblCliente.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblCliente.Location = new System.Drawing.Point(268, 27);
+            this.lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(89, 25);
+            this.lblCliente.Size = new System.Drawing.Size(46, 16);
             this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "Cliente";
             // 
@@ -369,13 +373,13 @@
             this.dgvRecursos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRecursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecursos.Location = new System.Drawing.Point(395, 262);
-            this.dgvRecursos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.dgvRecursos.Location = new System.Drawing.Point(198, 136);
+            this.dgvRecursos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvRecursos.Name = "dgvRecursos";
             this.dgvRecursos.ReadOnly = true;
             this.dgvRecursos.RowHeadersWidth = 72;
             this.dgvRecursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecursos.Size = new System.Drawing.Size(2055, 991);
+            this.dgvRecursos.Size = new System.Drawing.Size(1028, 515);
             this.dgvRecursos.TabIndex = 3;
             // 
             // pnlBotonera
@@ -384,18 +388,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBotonera.Controls.Add(this.flowLayoutPanel1);
-            this.pnlBotonera.Location = new System.Drawing.Point(382, 1266);
-            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.pnlBotonera.Location = new System.Drawing.Point(191, 658);
+            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(2068, 93);
+            this.pnlBotonera.Size = new System.Drawing.Size(1034, 48);
             this.pnlBotonera.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 6);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(2055, 81);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1028, 42);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // imageList1
@@ -407,16 +411,16 @@
             // 
             // FrmRecursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(2460, 1367);
+            this.ClientSize = new System.Drawing.Size(1230, 552);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.dgvRecursos);
             this.Controls.Add(this.grbRecursos);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabercera);
-            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmRecursos";
             this.Text = "Recursos";
             this.Load += new System.EventHandler(this.FrmRecursos_Load);

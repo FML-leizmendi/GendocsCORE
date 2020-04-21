@@ -21,6 +21,7 @@ namespace GendocsForms
             FrmListaProyectos frm = new FrmListaProyectos();
             FrmMDIGd frmMDI = new FrmMDIGd();
             frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
             // this.Hide();
         }
