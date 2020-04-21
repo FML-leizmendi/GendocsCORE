@@ -28,15 +28,14 @@ namespace GendocsADONET
             try
             {
                 //*********** OPCION 1 ********
-                //SqlCommand command = new SqlCommand(cadena, conexion.conectarBD);
-                //SqlDataReader rd = command.ExecuteReader();
-                //while (rd.Read())
-                //{
-                //    MessageBox.Show(rd.GetValue(0).ToString() + "" + rd.GetValue(1).ToString());
-                //}
+                SqlCommand command = new SqlCommand(cadena, conexion.conectarBD);
+                SqlDataReader rd = command.ExecuteReader();
+                while (rd.Read())
+                {
+                    MessageBox.Show(rd.GetValue(0).ToString() + "" + rd.GetValue(1).ToString());
+                }
 
                 //********** OPCION 2 ****** 
-                SqlDatS
             }
             catch (Exception Ex)
             {
