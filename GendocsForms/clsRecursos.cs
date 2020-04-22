@@ -18,7 +18,6 @@ namespace GendocsForms
         public decimal? CosteMateriales { get; set; }
         public decimal? CosteTotal { get; set; }
         public bool? Prohibido { get; set; }
-
         public bool EsProhibido { get; set; } = false;
 
         public List<int> lstId = new List<int>();
@@ -30,6 +29,7 @@ namespace GendocsForms
         public void CargarFrmRecursos()
         {
             FrmRecursos frm = new FrmRecursos(this);
+            frm.WindowState = FormWindowState.Maximized;
             IdRecurso = lstId[0];
             frm.ShowDialog();
         }

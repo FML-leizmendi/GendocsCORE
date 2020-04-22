@@ -44,6 +44,7 @@
             this.lblTexto = new System.Windows.Forms.Label();
             this.dgvProyectos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.grbProyectos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
@@ -174,13 +175,14 @@
             this.pnlCabercera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabercera.Margin = new System.Windows.Forms.Padding(6);
             this.pnlCabercera.Name = "pnlCabercera";
-            this.pnlCabercera.Size = new System.Drawing.Size(2977, 117);
+            this.pnlCabercera.Size = new System.Drawing.Size(2975, 115);
             this.pnlCabercera.TabIndex = 0;
             // 
             // grbProyectos
             // 
             this.grbProyectos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbProyectos.Controls.Add(this.btnLimpiarFiltros);
             this.grbProyectos.Controls.Add(this.cmbEstadoProyecto);
             this.grbProyectos.Controls.Add(this.lblEstadoProyecto);
             this.grbProyectos.Controls.Add(this.txtIntroduzcaTexto);
@@ -191,7 +193,7 @@
             this.grbProyectos.Name = "grbProyectos";
             this.grbProyectos.Padding = new System.Windows.Forms.Padding(6);
             this.grbProyectos.Size = new System.Drawing.Size(1896, 126);
-            this.grbProyectos.TabIndex = 1;
+            this.grbProyectos.TabIndex = 2;
             this.grbProyectos.TabStop = false;
             this.grbProyectos.Text = "Proyectos";
             // 
@@ -203,7 +205,7 @@
             this.cmbEstadoProyecto.Margin = new System.Windows.Forms.Padding(6);
             this.cmbEstadoProyecto.Name = "cmbEstadoProyecto";
             this.cmbEstadoProyecto.Size = new System.Drawing.Size(295, 35);
-            this.cmbEstadoProyecto.TabIndex = 3;
+            this.cmbEstadoProyecto.TabIndex = 2;
             this.cmbEstadoProyecto.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoProyecto_SelectedIndexChanged);
             // 
             // lblEstadoProyecto
@@ -250,7 +252,7 @@
             this.dgvProyectos.RowHeadersWidth = 82;
             this.dgvProyectos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProyectos.Size = new System.Drawing.Size(1896, 964);
-            this.dgvProyectos.TabIndex = 2;
+            this.dgvProyectos.TabIndex = 3;
             this.dgvProyectos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellContentDoubleClick);
             // 
             // panel1
@@ -261,7 +263,24 @@
             this.panel1.Location = new System.Drawing.Point(369, 1238);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1896, 96);
-            this.panel1.TabIndex = 3;
+            this.panel1.TabIndex = 4;
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.LightBlue;
+            this.btnLimpiarFiltros.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.Image")));
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(906, 64);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.TabIndex = 3;
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
             // FrmListaProyectos
             // 
@@ -304,5 +323,6 @@
         private System.Windows.Forms.DataGridView dgvProyectos;
         private System.Windows.Forms.Button btnTodos;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }

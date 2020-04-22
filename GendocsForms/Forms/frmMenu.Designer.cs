@@ -49,17 +49,19 @@
             this.pnlCabecera.BackColor = System.Drawing.Color.LightBlue;
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
+            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(956, 35);
+            this.pnlCabecera.Size = new System.Drawing.Size(1753, 65);
             this.pnlCabecera.TabIndex = 0;
             // 
             // pnlLateral
             // 
             this.pnlLateral.BackColor = System.Drawing.Color.DarkGray;
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(0, 35);
+            this.pnlLateral.Location = new System.Drawing.Point(0, 65);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(147, 495);
+            this.pnlLateral.Size = new System.Drawing.Size(270, 913);
             this.pnlLateral.TabIndex = 1;
             // 
             // btnExpedientes
@@ -70,9 +72,10 @@
             this.btnExpedientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnExpedientes.Image = ((System.Drawing.Image)(resources.GetObject("btnExpedientes.Image")));
             this.btnExpedientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpedientes.Location = new System.Drawing.Point(236, 219);
+            this.btnExpedientes.Location = new System.Drawing.Point(433, 404);
+            this.btnExpedientes.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnExpedientes.Name = "btnExpedientes";
-            this.btnExpedientes.Size = new System.Drawing.Size(266, 43);
+            this.btnExpedientes.Size = new System.Drawing.Size(488, 79);
             this.btnExpedientes.TabIndex = 2;
             this.btnExpedientes.Text = "EXPEDIENTES";
             this.btnExpedientes.UseVisualStyleBackColor = false;
@@ -86,9 +89,10 @@
             this.btnPedidos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.Location = new System.Drawing.Point(236, 283);
+            this.btnPedidos.Location = new System.Drawing.Point(433, 522);
+            this.btnPedidos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(266, 43);
+            this.btnPedidos.Size = new System.Drawing.Size(488, 79);
             this.btnPedidos.TabIndex = 3;
             this.btnPedidos.Text = "PEDIDOS";
             this.btnPedidos.UseVisualStyleBackColor = false;
@@ -102,9 +106,10 @@
             this.btnDocumentos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDocumentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDocumentos.Image")));
             this.btnDocumentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDocumentos.Location = new System.Drawing.Point(236, 347);
+            this.btnDocumentos.Location = new System.Drawing.Point(433, 641);
+            this.btnDocumentos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnDocumentos.Name = "btnDocumentos";
-            this.btnDocumentos.Size = new System.Drawing.Size(266, 43);
+            this.btnDocumentos.Size = new System.Drawing.Size(488, 79);
             this.btnDocumentos.TabIndex = 4;
             this.btnDocumentos.Text = "DOCUMENTOS";
             this.btnDocumentos.UseVisualStyleBackColor = false;
@@ -117,12 +122,14 @@
             this.btnAgenda.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAgenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAgenda.Image")));
             this.btnAgenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgenda.Location = new System.Drawing.Point(529, 219);
+            this.btnAgenda.Location = new System.Drawing.Point(970, 404);
+            this.btnAgenda.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAgenda.Name = "btnAgenda";
-            this.btnAgenda.Size = new System.Drawing.Size(266, 43);
+            this.btnAgenda.Size = new System.Drawing.Size(488, 79);
             this.btnAgenda.TabIndex = 5;
             this.btnAgenda.Text = "AGENDA";
             this.btnAgenda.UseVisualStyleBackColor = false;
+            this.btnAgenda.Click += new System.EventHandler(this.btnAgenda_Click);
             // 
             // btnContactos
             // 
@@ -132,9 +139,10 @@
             this.btnContactos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnContactos.Image = ((System.Drawing.Image)(resources.GetObject("btnContactos.Image")));
             this.btnContactos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContactos.Location = new System.Drawing.Point(529, 283);
+            this.btnContactos.Location = new System.Drawing.Point(970, 522);
+            this.btnContactos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnContactos.Name = "btnContactos";
-            this.btnContactos.Size = new System.Drawing.Size(266, 43);
+            this.btnContactos.Size = new System.Drawing.Size(488, 79);
             this.btnContactos.TabIndex = 6;
             this.btnContactos.Text = "CONTACTOS";
             this.btnContactos.UseVisualStyleBackColor = false;
@@ -148,9 +156,10 @@
             this.btnFmlStaff.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnFmlStaff.Image = ((System.Drawing.Image)(resources.GetObject("btnFmlStaff.Image")));
             this.btnFmlStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFmlStaff.Location = new System.Drawing.Point(236, 410);
+            this.btnFmlStaff.Location = new System.Drawing.Point(433, 757);
+            this.btnFmlStaff.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnFmlStaff.Name = "btnFmlStaff";
-            this.btnFmlStaff.Size = new System.Drawing.Size(266, 43);
+            this.btnFmlStaff.Size = new System.Drawing.Size(488, 79);
             this.btnFmlStaff.TabIndex = 7;
             this.btnFmlStaff.Text = "FML STAFF";
             this.btnFmlStaff.UseVisualStyleBackColor = false;
@@ -160,16 +169,18 @@
             // 
             this.pnlBotonera.BackColor = System.Drawing.Color.LightBlue;
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotonera.Location = new System.Drawing.Point(147, 485);
+            this.pnlBotonera.Location = new System.Drawing.Point(270, 895);
+            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(809, 45);
+            this.pnlBotonera.Size = new System.Drawing.Size(1483, 83);
             this.pnlBotonera.TabIndex = 8;
             // 
             // pcbLogo
             // 
             this.pcbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcbLogo.Image")));
-            this.pcbLogo.Location = new System.Drawing.Point(429, 90);
+            this.pcbLogo.Location = new System.Drawing.Point(787, 166);
+            this.pcbLogo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(194, 89);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -183,9 +194,10 @@
             this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(529, 347);
+            this.button1.Location = new System.Drawing.Point(970, 641);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(266, 43);
+            this.button1.Size = new System.Drawing.Size(488, 79);
             this.button1.TabIndex = 9;
             this.button1.Text = "CONTACTOS v2";
             this.button1.UseVisualStyleBackColor = false;
@@ -198,9 +210,10 @@
             this.btnRecursos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecursos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRecursos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecursos.Location = new System.Drawing.Point(529, 410);
+            this.btnRecursos.Location = new System.Drawing.Point(970, 757);
+            this.btnRecursos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnRecursos.Name = "btnRecursos";
-            this.btnRecursos.Size = new System.Drawing.Size(266, 43);
+            this.btnRecursos.Size = new System.Drawing.Size(488, 79);
             this.btnRecursos.TabIndex = 10;
             this.btnRecursos.Text = "RECURSOS";
             this.btnRecursos.UseVisualStyleBackColor = false;
@@ -208,10 +221,10 @@
             // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(956, 530);
+            this.ClientSize = new System.Drawing.Size(1753, 978);
             this.Controls.Add(this.btnRecursos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pcbLogo);
@@ -225,6 +238,7 @@
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMenu";

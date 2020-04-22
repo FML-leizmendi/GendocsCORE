@@ -10,6 +10,8 @@ namespace GendocsADONET
     public class ConexionBD
     {
         String cadena = "Data Source=PC-ALEXMOTA;Initial Catalog=GenDocs;Integrated Security=True;";
+
+        //String cadenaAccess = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source =| DataDirectory |\GenDoc_sys.accdb";
         
 
         public SqlConnection conectarBD = new SqlConnection();
@@ -18,6 +20,7 @@ namespace GendocsADONET
         {
             conectarBD.ConnectionString = cadena;
         }
+
 
         public void AbrirBD()
         {

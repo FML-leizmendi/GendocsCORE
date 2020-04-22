@@ -92,16 +92,15 @@ namespace GendocsForms
             try
             {   //Ocultar una columna de un datagridview 
                 this.dgvContactos.Columns["IdEmpleado"].Visible = false;
-                //this.dgvContactos.Columns["CodigoPersona"].Visible = false;
-                //this.dgvContactos.Columns["IdEmpleadoSuperior"].Visible = false;
 
                 ////Modificar el ancho de una columna
-                this.dgvContactos.Columns["Empleado"].Width = 300;
+                this.dgvContactos.Columns["Empleado"].Width = 350;     
                 this.dgvContactos.Columns["Cliente"].Width = 200;
-                this.dgvContactos.Columns["Cargo"].Width = 200;
-                this.dgvContactos.Columns["Telefono"].Width = 400;
-                this.dgvContactos.Columns["Email"].Width = 250;
-                this.dgvContactos.Columns["Etiquetas"].Width = 300;
+                this.dgvContactos.Columns["Cargo"].Width = 400;
+                this.dgvContactos.Columns["Telefono"].Width = 500;
+                this.dgvContactos.Columns["Telefono"].HeaderText = "Teléfono";
+                this.dgvContactos.Columns["Email"].Width = 450;
+                this.dgvContactos.Columns["Etiquetas"].Width = 500;
 
 
                 ////Alinear las columnas 
@@ -213,6 +212,7 @@ namespace GendocsForms
                 //CargarGrid();
 
                 clsEmp cEmp = new clsEmp();
+                cEmp.EsAlta = true;
                 cEmp.esNuevo = true;
                 cEmp.CargarFrmEmpleados2();
                 cmbClientes.SelectedIndex = -1;
@@ -234,27 +234,33 @@ namespace GendocsForms
                 clsEmp cEmp = new clsEmp();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
-                    int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    if (IdCliente != 0)
+                    List<int> miLista = new List<int>();
+                    for (int i = 0; i < dgvContactos.SelectedRows.Count; i++)
                     {
-                        var lst = (from d in db.GdEmpleados
-                                   where (d.Empleado.Contains(txtIntroduzcaTexto.Text) & (d.IdCliente == IdCliente))
-                                   orderby d.IdEmpleado
-                                   select d.IdEmpleado
-
-                          ).ToList();
-                        cEmp.lstId = lst;
+                        miLista.Add(Convert.ToInt32(dgvContactos.SelectedRows[i].Cells[0].Value.ToString()));
                     }
-                    else
-                    {
-                        var lst = (from d in db.GdEmpleados
-                                   where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
-                                   orderby d.IdEmpleado
-                                   select d.IdEmpleado
+                    cEmp.lstId = miLista.ToList();
+                    //int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    //if (IdCliente != 0)
+                    //{
+                    //    var lst = (from d in db.GdEmpleados
+                    //               where (d.Empleado.Contains(txtIntroduzcaTexto.Text) & (d.IdCliente == IdCliente))
+                    //               orderby d.IdEmpleado
+                    //               select d.IdEmpleado
 
-                         ).ToList();
-                        cEmp.lstId = lst;
-                    }
+                    //      ).ToList();
+                    //    cEmp.lstId = lst;
+                    //}
+                    //else
+                    //{
+                    //    var lst = (from d in db.GdEmpleados
+                    //               where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
+                    //               orderby d.IdEmpleado
+                    //               select d.IdEmpleado
+
+                    //     ).ToList();
+                    //    cEmp.lstId = lst;
+                    //}
                     cEmp.esNuevo = false;
                     cEmp.CargarFrmEmpleados2();
                 }
@@ -297,6 +303,22 @@ namespace GendocsForms
                         MessageBox.Show("No hay contactos seleccionado", "Contactos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                txtIntroduzcaTexto.Focus();
+                cmbClientes.SelectedIndex = 0;
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
             }
             catch (Exception ex)
             {

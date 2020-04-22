@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GendocsForms
@@ -23,6 +19,7 @@ namespace GendocsForms
         #region "Eventos Privados"
         private void FrmListaProyectos_Load(object sender, EventArgs e)
         {
+            txtIntroduzcaTexto.Focus();
             CargarComboEstadosProyectos();
             CargarGrid();
             FormatearGrid();
@@ -39,7 +36,7 @@ namespace GendocsForms
         {
             try
             {   //Ocultar una columna de un datagridview 
-                //this.dgvProyectos.Columns["IdProyecto"].Visible = false;
+                this.dgvProyectos.Columns["IdProyecto"].Visible = false;
 
                 //Modificar el ancho de una columna
                 this.dgvProyectos.Columns["CodigoProyecto"].Width = 315;
@@ -68,8 +65,10 @@ namespace GendocsForms
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 var lst = (from d in db.GdProyectos
                            join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
-                           where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido) & (d.IdProyectoEstado == EstadoProyecto))))
-                           select new { d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                           where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || 
+                                  d.TipoProyecto.Contains(TipoProyecto) & (d.Alias.Contains(TextoIntroducido)) ||
+                                  d.TipoProyecto.Contains(TipoProyecto) & (d.IdProyectoEstado == EstadoProyecto)))
+                           select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
 
                            ).ToList();
 
@@ -78,7 +77,7 @@ namespace GendocsForms
                     var lstFiltrada = (from d in db.GdProyectos
                                        join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
                                        where (d.TipoProyecto.Contains(TipoProyecto) & ((d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido))) & (d.IdProyectoEstado == EstadoProyecto)))
-                                       select new { d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                                       select new {d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
                                         ).ToList();
 
                     dgvProyectos.DataSource = lstFiltrada;
@@ -211,6 +210,23 @@ namespace GendocsForms
                 }
                 else
                     MessageBox.Show("Debe seleccionar un proyecto para poder continuar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                cmbEstadoProyecto.SelectedIndex = 0;
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
+                CambiarColorBotonSeleccionado(btnTodos);
+                txtIntroduzcaTexto.Focus();
             }
             catch (Exception ex)
             {
