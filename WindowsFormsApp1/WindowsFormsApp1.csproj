@@ -63,6 +63,14 @@
       <Link>FrmContactos2.designer.cs</Link>
       <DependentUpon>FrmContactos2.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmDatosUsuario.cs">
+      <Link>FrmDatosUsuario.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmDatosUsuario.designer.cs">
+      <Link>FrmDatosUsuario.designer.cs</Link>
+      <DependentUpon>FrmDatosUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\frmEmpleadosFML.cs">
       <Link>frmEmpleadosFML.cs</Link>
       <SubType>Form</SubType>
@@ -192,6 +200,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmContactos2.resx">
       <Link>FrmContactos2.resx</Link>
       <DependentUpon>FrmContactos2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmDatosUsuario.resx">
+      <Link>FrmDatosUsuario.resx</Link>
+      <DependentUpon>FrmDatosUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmEmpleadosFML.resx">
       <Link>frmEmpleadosFML.resx</Link>

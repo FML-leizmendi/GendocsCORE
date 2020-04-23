@@ -45,7 +45,7 @@ namespace GendocsForms
             {   //Ocultar una columna de un datagridview 
                 this.dgvRecursos.Columns["Area"].Visible = false;
                 this.dgvRecursos.Columns["Activo"].Visible = false;
-                this.dgvRecursos.Columns["IdRecurso"].Visible = true;
+                this.dgvRecursos.Columns["IdRecurso"].Visible = false;
                 this.dgvRecursos.Columns["IdCliente"].Visible = false;
                 this.dgvRecursos.Columns["Orden"].Visible = false;
                 this.dgvRecursos.Columns["IdRecursosArea"].Visible = false;
@@ -53,12 +53,12 @@ namespace GendocsForms
                 this.dgvRecursos.Columns["Prohibido"].Visible = false;
 
                 ////Modificar el ancho de una columna
-                this.dgvRecursos.Columns["CodRecurso"].Width = 640;
+                this.dgvRecursos.Columns["CodRecurso"].Width = 300;
                 this.dgvRecursos.Columns["CodRecurso"].HeaderText = "Código Recurso";
-                this.dgvRecursos.Columns["RecursoContratacion"].Width = 1200;
+                this.dgvRecursos.Columns["RecursoContratacion"].Width = 750;
                 this.dgvRecursos.Columns["RecursoContratacion"].HeaderText = "Recurso Contratación";
                 this.dgvRecursos.Columns["Unidad"].Width = 250;
-                this.dgvRecursos.Columns["CosteTotal"].Width = 250;
+                this.dgvRecursos.Columns["CosteTotal"].Width = 350;
                 this.dgvRecursos.Columns["CosteTotal"].HeaderText = "Coste Total";
 
                 ////Alinear las columnas 

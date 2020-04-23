@@ -84,17 +84,17 @@
             this.pnlLateral.Location = new System.Drawing.Point(0, 44);
             this.pnlLateral.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(191, 508);
+            this.pnlLateral.Size = new System.Drawing.Size(191, 736);
             this.pnlLateral.TabIndex = 1;
             // 
             // flpBotoneraLateral
             // 
             this.flpBotoneraLateral.Controls.Add(this.PnlLateralPrincipal);
             this.flpBotoneraLateral.Controls.Add(this.pnlLateralSecundario);
-            this.flpBotoneraLateral.Location = new System.Drawing.Point(13, 211);
-            this.flpBotoneraLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpBotoneraLateral.Location = new System.Drawing.Point(6, 197);
+            this.flpBotoneraLateral.Margin = new System.Windows.Forms.Padding(2);
             this.flpBotoneraLateral.Name = "flpBotoneraLateral";
-            this.flpBotoneraLateral.Size = new System.Drawing.Size(168, 337);
+            this.flpBotoneraLateral.Size = new System.Drawing.Size(173, 339);
             this.flpBotoneraLateral.TabIndex = 9;
             // 
             // PnlLateralPrincipal
@@ -105,7 +105,7 @@
             this.PnlLateralPrincipal.Controls.Add(this.btnEliminarEmpleado);
             this.PnlLateralPrincipal.Controls.Add(this.btnProhibidos);
             this.PnlLateralPrincipal.Location = new System.Drawing.Point(2, 2);
-            this.PnlLateralPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PnlLateralPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.PnlLateralPrincipal.Name = "PnlLateralPrincipal";
             this.PnlLateralPrincipal.Size = new System.Drawing.Size(167, 230);
             this.PnlLateralPrincipal.TabIndex = 0;
@@ -115,7 +115,7 @@
             this.btnNuevo.BackColor = System.Drawing.Color.LightBlue;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(4, 3);
@@ -132,7 +132,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.LightBlue;
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar.Location = new System.Drawing.Point(4, 49);
@@ -149,7 +149,7 @@
             this.btnHabilitarProhibidos.BackColor = System.Drawing.Color.LightBlue;
             this.btnHabilitarProhibidos.FlatAppearance.BorderSize = 0;
             this.btnHabilitarProhibidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHabilitarProhibidos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHabilitarProhibidos.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHabilitarProhibidos.Image = ((System.Drawing.Image)(resources.GetObject("btnHabilitarProhibidos.Image")));
             this.btnHabilitarProhibidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHabilitarProhibidos.Location = new System.Drawing.Point(4, 185);
@@ -157,7 +157,7 @@
             this.btnHabilitarProhibidos.Name = "btnHabilitarProhibidos";
             this.btnHabilitarProhibidos.Size = new System.Drawing.Size(161, 39);
             this.btnHabilitarProhibidos.TabIndex = 8;
-            this.btnHabilitarProhibidos.Text = "    AÑADIR A PROHIBIDOS";
+            this.btnHabilitarProhibidos.Text = "      AÑADIR A PROHIBIDOS";
             this.btnHabilitarProhibidos.UseVisualStyleBackColor = false;
             this.btnHabilitarProhibidos.Click += new System.EventHandler(this.btnHabilitarProhibidos_Click);
             // 
@@ -166,7 +166,7 @@
             this.btnEliminarEmpleado.BackColor = System.Drawing.Color.LightBlue;
             this.btnEliminarEmpleado.FlatAppearance.BorderSize = 0;
             this.btnEliminarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEmpleado.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarEmpleado.Image")));
             this.btnEliminarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarEmpleado.Location = new System.Drawing.Point(4, 94);
@@ -183,7 +183,7 @@
             this.btnProhibidos.BackColor = System.Drawing.Color.LightBlue;
             this.btnProhibidos.FlatAppearance.BorderSize = 0;
             this.btnProhibidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProhibidos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProhibidos.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProhibidos.Image = ((System.Drawing.Image)(resources.GetObject("btnProhibidos.Image")));
             this.btnProhibidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProhibidos.Location = new System.Drawing.Point(4, 140);
@@ -191,7 +191,7 @@
             this.btnProhibidos.Name = "btnProhibidos";
             this.btnProhibidos.Size = new System.Drawing.Size(161, 39);
             this.btnProhibidos.TabIndex = 7;
-            this.btnProhibidos.Text = "    MOSTRAR PROHIBIDOS";
+            this.btnProhibidos.Text = "    MOSTRAR PROH.";
             this.btnProhibidos.UseVisualStyleBackColor = false;
             this.btnProhibidos.Click += new System.EventHandler(this.btnProhibidos_Click);
             // 
@@ -200,7 +200,7 @@
             this.pnlLateralSecundario.Controls.Add(this.btnCancelar);
             this.pnlLateralSecundario.Controls.Add(this.btnAceptar);
             this.pnlLateralSecundario.Location = new System.Drawing.Point(2, 236);
-            this.pnlLateralSecundario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLateralSecundario.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLateralSecundario.Name = "pnlLateralSecundario";
             this.pnlLateralSecundario.Size = new System.Drawing.Size(167, 95);
             this.pnlLateralSecundario.TabIndex = 1;
@@ -210,10 +210,10 @@
             this.btnCancelar.BackColor = System.Drawing.Color.LightBlue;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(2, 47);
+            this.btnCancelar.Location = new System.Drawing.Point(4, 47);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(161, 39);
@@ -226,10 +226,10 @@
             this.btnAceptar.BackColor = System.Drawing.Color.LightBlue;
             this.btnAceptar.FlatAppearance.BorderSize = 0;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(2, 2);
+            this.btnAceptar.Location = new System.Drawing.Point(4, 2);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(161, 39);
@@ -379,27 +379,25 @@
             this.dgvRecursos.ReadOnly = true;
             this.dgvRecursos.RowHeadersWidth = 72;
             this.dgvRecursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecursos.Size = new System.Drawing.Size(1028, 515);
+            this.dgvRecursos.Size = new System.Drawing.Size(1028, 586);
             this.dgvRecursos.TabIndex = 3;
             // 
             // pnlBotonera
             // 
-            this.pnlBotonera.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBotonera.Controls.Add(this.flowLayoutPanel1);
-            this.pnlBotonera.Location = new System.Drawing.Point(191, 658);
+            this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotonera.Location = new System.Drawing.Point(191, 728);
             this.pnlBotonera.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(1034, 48);
+            this.pnlBotonera.Size = new System.Drawing.Size(1039, 52);
             this.pnlBotonera.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 7);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1028, 42);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1022, 42);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // imageList1
@@ -414,7 +412,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1230, 552);
+            this.ClientSize = new System.Drawing.Size(1230, 780);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.dgvRecursos);
             this.Controls.Add(this.grbRecursos);

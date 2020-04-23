@@ -112,10 +112,10 @@ namespace GendocsForms.Forms
                 this.dgvEmpleados.Columns["Nombre"].Width = 250;
                 this.dgvEmpleados.Columns["Apellidos"].Width = 250;
                 this.dgvEmpleados.Columns["NIF"].Width = 150;
-                this.dgvEmpleados.Columns["Telefono"].Width = 350;
-                this.dgvEmpleados.Columns["Email"].Width = 300;
-                this.dgvEmpleados.Columns["Etiquetas"].Width = 500;
-                this.dgvEmpleados.Columns["TrelloIdMember"].Width = 600;
+                this.dgvEmpleados.Columns["Telefono"].Width = 150;
+                this.dgvEmpleados.Columns["Email"].Width = 250;
+                this.dgvEmpleados.Columns["Etiquetas"].Width = 270;
+                this.dgvEmpleados.Columns["TrelloIdMember"].Width = 285;
 
 
                 ////Alinear las columnas 
