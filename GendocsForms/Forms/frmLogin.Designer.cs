@@ -54,7 +54,7 @@
             // 
             this.pnlPieFormulario.BackColor = System.Drawing.Color.DarkGray;
             this.pnlPieFormulario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlPieFormulario.Location = new System.Drawing.Point(0, 365);
+            this.pnlPieFormulario.Location = new System.Drawing.Point(0, 325);
             this.pnlPieFormulario.Name = "pnlPieFormulario";
             this.pnlPieFormulario.Size = new System.Drawing.Size(539, 66);
             this.pnlPieFormulario.TabIndex = 10;
@@ -64,7 +64,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblUsuario.Location = new System.Drawing.Point(96, 75);
+            this.lblUsuario.Location = new System.Drawing.Point(96, 49);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(66, 21);
             this.lblUsuario.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblContraseña.ForeColor = System.Drawing.Color.Black;
-            this.lblContraseña.Location = new System.Drawing.Point(95, 130);
+            this.lblContraseña.Location = new System.Drawing.Point(95, 104);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(103, 21);
             this.lblContraseña.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(92, 97);
+            this.txtUsuario.Location = new System.Drawing.Point(92, 71);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(354, 20);
             this.txtUsuario.TabIndex = 2;
@@ -92,7 +92,7 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(92, 152);
+            this.txtContraseña.Location = new System.Drawing.Point(92, 126);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(354, 20);
             this.txtContraseña.TabIndex = 4;
@@ -106,7 +106,7 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(92, 225);
+            this.btnAceptar.Location = new System.Drawing.Point(92, 199);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(175, 39);
             this.btnAceptar.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.chkRecordarUsuario.AutoSize = true;
             this.chkRecordarUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkRecordarUsuario.ForeColor = System.Drawing.Color.Black;
-            this.chkRecordarUsuario.Location = new System.Drawing.Point(92, 181);
+            this.chkRecordarUsuario.Location = new System.Drawing.Point(92, 155);
             this.chkRecordarUsuario.Name = "chkRecordarUsuario";
             this.chkRecordarUsuario.Size = new System.Drawing.Size(119, 20);
             this.chkRecordarUsuario.TabIndex = 5;
@@ -130,7 +130,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(92, 302);
+            this.panel1.Location = new System.Drawing.Point(92, 276);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(354, 1);
             this.panel1.TabIndex = 8;
@@ -139,7 +139,7 @@
             // 
             this.lblRestablecerContraseña.AutoSize = true;
             this.lblRestablecerContraseña.LinkColor = System.Drawing.Color.Black;
-            this.lblRestablecerContraseña.Location = new System.Drawing.Point(206, 326);
+            this.lblRestablecerContraseña.Location = new System.Drawing.Point(206, 300);
             this.lblRestablecerContraseña.Name = "lblRestablecerContraseña";
             this.lblRestablecerContraseña.Size = new System.Drawing.Size(121, 13);
             this.lblRestablecerContraseña.TabIndex = 9;
@@ -154,7 +154,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(271, 225);
+            this.btnCancelar.Location = new System.Drawing.Point(271, 199);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(175, 39);
             this.btnCancelar.TabIndex = 7;
@@ -167,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(539, 431);
+            this.ClientSize = new System.Drawing.Size(539, 391);
             this.Controls.Add(this.lblRestablecerContraseña);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkRecordarUsuario);

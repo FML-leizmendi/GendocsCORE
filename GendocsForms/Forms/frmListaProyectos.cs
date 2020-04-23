@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GendocsForms
@@ -23,6 +19,7 @@ namespace GendocsForms
         #region "Eventos Privados"
         private void FrmListaProyectos_Load(object sender, EventArgs e)
         {
+            txtIntroduzcaTexto.Focus();
             CargarComboEstadosProyectos();
             CargarGrid();
             FormatearGrid();
@@ -39,19 +36,21 @@ namespace GendocsForms
         {
             try
             {   //Ocultar una columna de un datagridview 
-                //this.dgvEmpleados.Columns["IdProyecto"].Visible = false;
-      
+                this.dgvProyectos.Columns["IdProyecto"].Visible = false;
+
                 //Modificar el ancho de una columna
-                this.dgvProyectos.Columns["CodigoProyecto"].Width = 120;
-                this.dgvProyectos.Columns["Alias"].Width = 200;
-                this.dgvProyectos.Columns["TerminoMunicipal"].Width = 200;
-                this.dgvProyectos.Columns["Gestor"].Width = 200;
-                this.dgvProyectos.Columns["Responsable"].Width = 180;
-                this.dgvProyectos.Columns["EstadoProyecto"].Width = 60;
+                this.dgvProyectos.Columns["CodigoProyecto"].Width = 315;
+                this.dgvProyectos.Columns["Alias"].Width = 450;
+                this.dgvProyectos.Columns["TerminoMunicipal"].Width = 400;
+                this.dgvProyectos.Columns["Gestor"].Width = 425;
+                this.dgvProyectos.Columns["Responsable"].Width = 325;
+                this.dgvProyectos.Columns["ProyectoEstado"].Width = 275;
+                
                 //Alinear las columnas 
                 dgvProyectos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvProyectos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvProyectos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //dgvProyectos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             }
             catch (Exception ex)
             {
@@ -66,8 +65,10 @@ namespace GendocsForms
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 var lst = (from d in db.GdProyectos
                            join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
-                           where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido) & (d.IdProyectoEstado == EstadoProyecto))))
-                           select new { d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                           where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || 
+                                  d.TipoProyecto.Contains(TipoProyecto) & (d.Alias.Contains(TextoIntroducido)) ||
+                                  d.TipoProyecto.Contains(TipoProyecto) & (d.IdProyectoEstado == EstadoProyecto)))
+                           select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
 
                            ).ToList();
 
@@ -76,7 +77,7 @@ namespace GendocsForms
                     var lstFiltrada = (from d in db.GdProyectos
                                        join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
                                        where (d.TipoProyecto.Contains(TipoProyecto) & ((d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido))) & (d.IdProyectoEstado == EstadoProyecto)))
-                                       select new { d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                                       select new {d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
                                         ).ToList();
 
                     dgvProyectos.DataSource = lstFiltrada;
@@ -194,8 +195,43 @@ namespace GendocsForms
             CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
         }
 
+
         #endregion
 
+        private void dgvProyectos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgvProyectos.CurrentRow != null)
+                {
+                    clsProyectos clsProy = new clsProyectos();
+                    clsProy.IdProyecto  = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["IdProyecto"].Value);
+                    clsProy.CargarFrmExpedientes();
+                }
+                else
+                    MessageBox.Show("Debe seleccionar un proyecto para poder continuar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
 
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                cmbEstadoProyecto.SelectedIndex = 0;
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
+                CambiarColorBotonSeleccionado(btnTodos);
+                txtIntroduzcaTexto.Focus();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
     }
 }

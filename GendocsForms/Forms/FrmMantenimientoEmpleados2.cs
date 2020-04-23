@@ -279,8 +279,9 @@ namespace GendocsForms
                     cEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
                     cEmp.Email = txtEmail.Text;
                     cEmp.Etiquetas = txtEtiquetas.Text;
-                    cEmp.EsAlta = false;
+                    cEmp.EsAlta = true;
                     cEmp.GuardarUsuario();
+                    this.Close();
                     //btnEliminar.Visible = false;
                     //btnGuardar.Visible = false;
 

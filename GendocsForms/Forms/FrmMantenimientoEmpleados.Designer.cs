@@ -70,7 +70,7 @@
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(999, 40);
+            this.pnlCabecera.Size = new System.Drawing.Size(995, 40);
             this.pnlCabecera.TabIndex = 0;
             // 
             // grbEmpleadoFML
@@ -93,7 +93,7 @@
             this.grbEmpleadoFML.Controls.Add(this.lblNombre);
             this.grbEmpleadoFML.Location = new System.Drawing.Point(4, 43);
             this.grbEmpleadoFML.Name = "grbEmpleadoFML";
-            this.grbEmpleadoFML.Size = new System.Drawing.Size(990, 215);
+            this.grbEmpleadoFML.Size = new System.Drawing.Size(984, 193);
             this.grbEmpleadoFML.TabIndex = 1;
             this.grbEmpleadoFML.TabStop = false;
             this.grbEmpleadoFML.Text = "Empleado Seleccionado";
@@ -257,9 +257,9 @@
             this.pnlBotonera.Controls.Add(this.flpBotonera);
             this.pnlBotonera.Controls.Add(this.btnPrimero);
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotonera.Location = new System.Drawing.Point(0, 264);
+            this.pnlBotonera.Location = new System.Drawing.Point(0, 252);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(999, 57);
+            this.pnlBotonera.Size = new System.Drawing.Size(995, 57);
             this.pnlBotonera.TabIndex = 2;
             // 
             // btnUltimo
@@ -320,7 +320,7 @@
             this.flpBotonera.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flpBotonera.Location = new System.Drawing.Point(317, 4);
             this.flpBotonera.Name = "flpBotonera";
-            this.flpBotonera.Size = new System.Drawing.Size(679, 50);
+            this.flpBotonera.Size = new System.Drawing.Size(675, 50);
             this.flpBotonera.TabIndex = 4;
             // 
             // btnNuevo
@@ -331,7 +331,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(515, 3);
+            this.btnNuevo.Location = new System.Drawing.Point(511, 3);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(161, 39);
             this.btnNuevo.TabIndex = 3;
@@ -347,7 +347,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(348, 3);
+            this.btnGuardar.Location = new System.Drawing.Point(344, 3);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(161, 39);
             this.btnGuardar.TabIndex = 2;
@@ -364,7 +364,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(181, 3);
+            this.btnEliminar.Location = new System.Drawing.Point(177, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(161, 39);
             this.btnEliminar.TabIndex = 1;
@@ -379,7 +379,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(14, 3);
+            this.btnSalir.Location = new System.Drawing.Point(10, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(161, 39);
             this.btnSalir.TabIndex = 0;
@@ -408,12 +408,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(999, 321);
+            this.ClientSize = new System.Drawing.Size(995, 309);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.grbEmpleadoFML);
             this.Controls.Add(this.pnlCabecera);
-            this.MaximumSize = new System.Drawing.Size(1015, 360);
-            this.MinimumSize = new System.Drawing.Size(1015, 360);
+            this.MaximumSize = new System.Drawing.Size(1011, 348);
+            this.MinimumSize = new System.Drawing.Size(792, 348);
             this.Name = "frmMantenimientoEmpleados";
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.frmMantenimientoEmpleados_Load);

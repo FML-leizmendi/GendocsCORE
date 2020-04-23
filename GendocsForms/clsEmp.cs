@@ -36,10 +36,13 @@ namespace GendocsForms
             if (esNuevo)
             {
                 IdEmpleado = 0;
+                EsAlta = true;
             }
             else
+            {
                 IdEmpleado = lstId[0];
-            CargarEmpleado();
+                CargarEmpleado();
+            }
             frm.ShowDialog();
         }
         public void AsignarEtiquetasFML()

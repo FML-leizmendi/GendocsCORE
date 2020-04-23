@@ -1,5 +1,6 @@
 ﻿using GendocsForms.Forms;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace GendocsForms
@@ -21,6 +22,7 @@ namespace GendocsForms
             FrmListaProyectos frm = new FrmListaProyectos();
             FrmMDIGd frmMDI = new FrmMDIGd();
             frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
             // this.Hide();
         }
@@ -29,7 +31,12 @@ namespace GendocsForms
         {
             //frmPoblaciones frm = new frmPoblaciones();
             //frm.Show();
-            IdAcceso();
+            //IdAcceso();
+            FrmPedidos frm = new FrmPedidos();
+            frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+
         }
 
         private void IdAcceso()
@@ -80,9 +87,16 @@ namespace GendocsForms
         private void btnRecursos_Click(object sender, EventArgs e)
         {
             FrmRecursos frm = new FrmRecursos();
+           // frm.EsEdicion = true;
             frm.MdiParent = this.MdiParent;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
+        }
+
+     
+        private void btnAgenda_Click(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start("https://trello.com");
         }
     }
 }

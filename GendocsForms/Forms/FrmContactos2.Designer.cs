@@ -40,6 +40,8 @@
             this.txtIntroduzcaTexto = new System.Windows.Forms.TextBox();
             this.lblTexto = new System.Windows.Forms.Label();
             this.dgvContactos = new System.Windows.Forms.DataGridView();
+            this.pnlBotonera = new System.Windows.Forms.Panel();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.grbEmpleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactos)).BeginInit();
@@ -50,8 +52,9 @@
             this.pnlCabercera.BackColor = System.Drawing.Color.LightBlue;
             this.pnlCabercera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabercera.Location = new System.Drawing.Point(0, 0);
+            this.pnlCabercera.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlCabercera.Name = "pnlCabercera";
-            this.pnlCabercera.Size = new System.Drawing.Size(1224, 50);
+            this.pnlCabercera.Size = new System.Drawing.Size(2025, 92);
             this.pnlCabercera.TabIndex = 0;
             // 
             // pnlLateral
@@ -61,9 +64,10 @@
             this.pnlLateral.Controls.Add(this.btnEliminarEmpleado);
             this.pnlLateral.Controls.Add(this.btnModificar);
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(0, 50);
+            this.pnlLateral.Location = new System.Drawing.Point(0, 92);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(185, 651);
+            this.pnlLateral.Size = new System.Drawing.Size(339, 1070);
             this.pnlLateral.TabIndex = 1;
             // 
             // btnNuevo
@@ -74,9 +78,10 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(12, 259);
+            this.btnNuevo.Location = new System.Drawing.Point(22, 472);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(161, 39);
+            this.btnNuevo.Size = new System.Drawing.Size(295, 72);
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -90,9 +95,10 @@
             this.btnEliminarEmpleado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarEmpleado.Image")));
             this.btnEliminarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarEmpleado.Location = new System.Drawing.Point(12, 349);
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(22, 638);
+            this.btnEliminarEmpleado.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
-            this.btnEliminarEmpleado.Size = new System.Drawing.Size(161, 39);
+            this.btnEliminarEmpleado.Size = new System.Drawing.Size(295, 72);
             this.btnEliminarEmpleado.TabIndex = 2;
             this.btnEliminarEmpleado.Text = "ELIMINAR";
             this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
@@ -106,9 +112,10 @@
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(12, 304);
+            this.btnModificar.Location = new System.Drawing.Point(22, 555);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(161, 39);
+            this.btnModificar.Size = new System.Drawing.Size(295, 72);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -118,14 +125,17 @@
             // 
             this.grbEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbEmpleados.Controls.Add(this.btnLimpiarFiltros);
             this.grbEmpleados.Controls.Add(this.cmbClientes);
             this.grbEmpleados.Controls.Add(this.lblCliente);
             this.grbEmpleados.Controls.Add(this.txtIntroduzcaTexto);
             this.grbEmpleados.Controls.Add(this.lblTexto);
             this.grbEmpleados.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbEmpleados.Location = new System.Drawing.Point(191, 56);
+            this.grbEmpleados.Location = new System.Drawing.Point(350, 103);
+            this.grbEmpleados.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.grbEmpleados.Name = "grbEmpleados";
-            this.grbEmpleados.Size = new System.Drawing.Size(1025, 75);
+            this.grbEmpleados.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.grbEmpleados.Size = new System.Drawing.Size(1660, 138);
             this.grbEmpleados.TabIndex = 2;
             this.grbEmpleados.TabStop = false;
             this.grbEmpleados.Text = "Empleados";
@@ -134,9 +144,10 @@
             // 
             this.cmbClientes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(301, 39);
+            this.cmbClientes.Location = new System.Drawing.Point(538, 76);
+            this.cmbClientes.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(180, 25);
+            this.cmbClientes.Size = new System.Drawing.Size(327, 35);
             this.cmbClientes.TabIndex = 3;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             // 
@@ -144,18 +155,20 @@
             // 
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCliente.Location = new System.Drawing.Point(298, 23);
+            this.lblCliente.Location = new System.Drawing.Point(532, 46);
+            this.lblCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(46, 16);
+            this.lblCliente.Size = new System.Drawing.Size(79, 23);
             this.lblCliente.TabIndex = 2;
             this.lblCliente.Text = "Cliente";
             // 
             // txtIntroduzcaTexto
             // 
             this.txtIntroduzcaTexto.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(33, 41);
+            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(61, 77);
+            this.txtIntroduzcaTexto.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
-            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(256, 23);
+            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(466, 35);
             this.txtIntroduzcaTexto.TabIndex = 1;
             this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
             // 
@@ -163,9 +176,10 @@
             // 
             this.lblTexto.AutoSize = true;
             this.lblTexto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTexto.Location = new System.Drawing.Point(36, 23);
+            this.lblTexto.Location = new System.Drawing.Point(66, 43);
+            this.lblTexto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTexto.Name = "lblTexto";
-            this.lblTexto.Size = new System.Drawing.Size(115, 16);
+            this.lblTexto.Size = new System.Drawing.Size(201, 23);
             this.lblTexto.TabIndex = 0;
             this.lblTexto.Text = "Introduzca un texto";
             // 
@@ -178,25 +192,55 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvContactos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContactos.Location = new System.Drawing.Point(191, 137);
+            this.dgvContactos.Location = new System.Drawing.Point(350, 227);
+            this.dgvContactos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvContactos.Name = "dgvContactos";
             this.dgvContactos.ReadOnly = true;
+            this.dgvContactos.RowHeadersWidth = 72;
             this.dgvContactos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContactos.Size = new System.Drawing.Size(1025, 552);
+            this.dgvContactos.Size = new System.Drawing.Size(1660, 769);
             this.dgvContactos.TabIndex = 3;
             this.dgvContactos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContactos_CellContentDoubleClick);
             this.dgvContactos.CurrentCellChanged += new System.EventHandler(this.dgvContactos_CurrentCellChanged);
             // 
+            // pnlBotonera
+            // 
+            this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotonera.Location = new System.Drawing.Point(339, 1005);
+            this.pnlBotonera.Name = "pnlBotonera";
+            this.pnlBotonera.Size = new System.Drawing.Size(1686, 157);
+            this.pnlBotonera.TabIndex = 4;
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.LightBlue;
+            this.btnLimpiarFiltros.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.Image")));
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(874, 76);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.TabIndex = 7;
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            // 
             // FrmContactos2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1224, 701);
+            this.ClientSize = new System.Drawing.Size(2025, 1162);
+            this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.dgvContactos);
             this.Controls.Add(this.grbEmpleados);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabercera);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FrmContactos2";
             this.Text = "Contactos2";
             this.Load += new System.EventHandler(this.FrmContactos2_Load);
@@ -221,5 +265,7 @@
         private System.Windows.Forms.Label lblTexto;
         private System.Windows.Forms.DataGridView dgvContactos;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Panel pnlBotonera;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }

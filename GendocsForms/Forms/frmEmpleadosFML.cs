@@ -45,6 +45,20 @@ namespace GendocsForms.Forms
             }
         }
 
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                txtIntroduzcaTexto.Focus();
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
 
         private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -95,13 +109,13 @@ namespace GendocsForms.Forms
 
 
                 ////Modificar el ancho de una columna
-                this.dgvEmpleados.Columns["Nombre"].Width = 130;
-                this.dgvEmpleados.Columns["Apellidos"].Width = 160;
-                this.dgvEmpleados.Columns["NIF"].Width = 100;
-                this.dgvEmpleados.Columns["Telefono"].Width = 150;
-                this.dgvEmpleados.Columns["Email"].Width = 150;
-                this.dgvEmpleados.Columns["Etiquetas"].Width = 270;
-                this.dgvEmpleados.Columns["TrelloIdMember"].Width = 190;
+                this.dgvEmpleados.Columns["Nombre"].Width = 250;
+                this.dgvEmpleados.Columns["Apellidos"].Width = 250;
+                this.dgvEmpleados.Columns["NIF"].Width = 150;
+                this.dgvEmpleados.Columns["Telefono"].Width = 350;
+                this.dgvEmpleados.Columns["Email"].Width = 300;
+                this.dgvEmpleados.Columns["Etiquetas"].Width = 500;
+                this.dgvEmpleados.Columns["TrelloIdMember"].Width = 600;
 
 
                 ////Alinear las columnas 
