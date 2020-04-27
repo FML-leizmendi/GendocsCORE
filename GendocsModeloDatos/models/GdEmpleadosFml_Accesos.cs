@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GendocsModeloDatos
 {
-    public class GD_EmpleadosFML_Accesos
+    public partial class GD_EmpleadosFML_Accesos
     {
         public int IdAcceso { get; set; }
 
