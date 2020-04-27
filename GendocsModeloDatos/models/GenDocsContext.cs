@@ -23,6 +23,7 @@ namespace GendocsModeloDatos.models
         public virtual DbSet<GdCargos> GdCargos { get; set; }
         public virtual DbSet<GdClienteCodigosRecurso> GdClienteCodigosRecurso { get; set; }
         public virtual DbSet<GdClientes> GdClientes { get; set; }
+        public virtual DbSet<GD_EmpleadosFML_Accesos> GD_EmpleadosFML_Accesos { get; set; }
         public virtual DbSet<GdClientesCodificacionRecursos> GdClientesCodificacionRecursos { get; set; }
         public virtual DbSet<GdContratas> GdContratas { get; set; }
         public virtual DbSet<GdDoc> GdDoc { get; set; }
@@ -71,13 +72,33 @@ namespace GendocsModeloDatos.models
             if (!optionsBuilder.IsConfigured)
             {
                // To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;User ID=Alex;Password=1327Alex;database=GenDocs;");
-                //optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;Initial Catalog=GenDocs;Integrated Security=True;");
+                //optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;User ID=Alex;Password=1327Alex;database=GenDocs;");
+                optionsBuilder.UseSqlServer("Server=PC-ALEXMOTA;Initial Catalog=GenDocs;Integrated Security=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<GD_EmpleadosFML_Accesos>(entity =>
+            {
+                entity.HasKey(e => e.IdAcceso)
+                    .HasName("IdAcceso");
+
+                entity.ToTable("GD_EmpleadosFML_Accesos");
+
+                entity.HasIndex(e => e.IdEmpleadoFML)
+                    .HasName("IdEmpleadoFML");
+
+                entity.HasIndex(e => e.Acceso)
+                    .HasName("Acceso");
+
+                entity.HasIndex(e => e.Usuario)
+                   .HasName("Usuario");
+
+                entity.HasIndex(e => e.Password)
+                   .HasName("Password");
+            });
+
             modelBuilder.Entity<CatApoyoCuerpos>(entity =>
             {
                 entity.HasKey(e => e.Mid)

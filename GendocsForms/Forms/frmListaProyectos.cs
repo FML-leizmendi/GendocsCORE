@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace GendocsForms
 {
@@ -23,6 +24,7 @@ namespace GendocsForms
             CargarComboEstadosProyectos();
             CargarGrid();
             FormatearGrid();
+            lnklMetaframe.Links.Add(0, lnklMetaframe.Text.Length, "https://www5.iberdrola.com/logon/LogonPoint/tmindex.html");
         }
         private void btnCerrarForm_Click(object sender, EventArgs e)
         {
@@ -45,7 +47,7 @@ namespace GendocsForms
                 this.dgvProyectos.Columns["Gestor"].Width = 425;
                 this.dgvProyectos.Columns["Responsable"].Width = 325;
                 this.dgvProyectos.Columns["ProyectoEstado"].Width = 275;
-                
+
                 //Alinear las columnas 
                 dgvProyectos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvProyectos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -65,7 +67,7 @@ namespace GendocsForms
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 var lst = (from d in db.GdProyectos
                            join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
-                           where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) || 
+                           where (d.TipoProyecto.Contains(TipoProyecto) & (d.CodigoProyecto.Contains(TextoIntroducido) ||
                                   d.TipoProyecto.Contains(TipoProyecto) & (d.Alias.Contains(TextoIntroducido)) ||
                                   d.TipoProyecto.Contains(TipoProyecto) & (d.IdProyectoEstado == EstadoProyecto)))
                            select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
@@ -77,7 +79,7 @@ namespace GendocsForms
                     var lstFiltrada = (from d in db.GdProyectos
                                        join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
                                        where (d.TipoProyecto.Contains(TipoProyecto) & ((d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido))) & (d.IdProyectoEstado == EstadoProyecto)))
-                                       select new {d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                                       select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
                                         ).ToList();
 
                     dgvProyectos.DataSource = lstFiltrada;
@@ -94,6 +96,38 @@ namespace GendocsForms
 
 
         private void CargarComboEstadosProyectos()
+        {
+            try
+            {
+                List<GendocsModeloDatos.models.GdProyectoEstados> lista = new List<GendocsModeloDatos.models.GdProyectoEstados>();
+                lista.Add(new GendocsModeloDatos.models.GdProyectoEstados()
+                {
+                    IdProyectoEstado = 0,
+                    ProyectoEstado = "Todos"
+                });
+
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                List<GendocsModeloDatos.models.GdProyectoEstados> lstEstadoProyectos;
+                lstEstadoProyectos = db.GdProyectoEstados.Select(e => new GendocsModeloDatos.models.GdProyectoEstados()
+                {
+                    IdProyectoEstado = e.IdProyectoEstado,
+                    ProyectoEstado = e.ProyectoEstado
+                }
+                ).ToList();
+
+                lista.AddRange(lstEstadoProyectos);
+
+                cmbEstadoProyecto.DisplayMember = "ProyectoEstado";
+                cmbEstadoProyecto.ValueMember = "IdProyectoEstado";
+                cmbEstadoProyecto.DataSource = lista;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void CargarComboUsuarios()
         {
             try
             {
@@ -205,7 +239,7 @@ namespace GendocsForms
                 if (dgvProyectos.CurrentRow != null)
                 {
                     clsProyectos clsProy = new clsProyectos();
-                    clsProy.IdProyecto  = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["IdProyecto"].Value);
+                    clsProy.IdProyecto = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["IdProyecto"].Value);
                     clsProy.CargarFrmExpedientes();
                 }
                 else
@@ -232,6 +266,47 @@ namespace GendocsForms
             {
                 string mensaje = ex.Message;
             }
+        }
+
+        private void dgvProyectos_CurrentCellChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvProyectos.CurrentRow != null)
+                {
+                    txtCodProyecto.Text = dgvProyectos.CurrentRow.Cells["CodigoProyecto"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void SeleccionarTextoTextBox(object sender, System.EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtCodProyecto.Text))
+            {
+                txtCodProyecto.SelectionStart = 0;
+                txtCodProyecto.SelectionLength = txtCodProyecto.Text.Length;
+            }
+        }
+
+        private void lnklMetaframe_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                // Navigate to a URL.
+                // System.Diagnostics.Process.Start("https://www5.iberdrola.com/logon/LogonPoint/tmindex.html");
+                //lnklMetaframe.LinkVisited = true;
+                ProcessStartInfo sinfo = new ProcessStartInfo(e.Link.LinkData.ToString());
+                Process.Start("chrome.exe");
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+
         }
     }
 }
