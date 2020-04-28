@@ -79,26 +79,6 @@ namespace GendocsModeloDatos.models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GD_EmpleadosFML_Accesos>(entity =>
-            {
-                entity.HasKey(e => e.IdAcceso)
-                    .HasName("IdAcceso");
-
-                entity.ToTable("GD_EmpleadosFML_Accesos");
-
-                entity.HasIndex(e => e.IdEmpleadoFML)
-                    .HasName("IdEmpleadoFML");
-
-                entity.HasIndex(e => e.Acceso)
-                    .HasName("Acceso");
-
-                entity.HasIndex(e => e.Usuario)
-                   .HasName("Usuario");
-
-                entity.HasIndex(e => e.Password)
-                   .HasName("Password");
-            });
-
             modelBuilder.Entity<CatApoyoCuerpos>(entity =>
             {
                 entity.HasKey(e => e.Mid)
@@ -468,6 +448,26 @@ namespace GendocsModeloDatos.models
                 entity.Property(e => e.IdEmpleado).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.IdEtiqueta).HasDefaultValueSql("((0))");
+            });
+
+            modelBuilder.Entity<GD_EmpleadosFML_Accesos>(entity =>
+            {
+                entity.HasKey(e => e.IdAcceso)
+                    .HasName("IdAcceso");
+
+                entity.ToTable("GD_EmpleadosFML_Accesos");
+
+                entity.HasIndex(e => e.IdEmpleadoFML)
+                    .HasName("IdEmpleadoFML");
+
+                entity.HasIndex(e => e.Acceso)
+                    .HasName("Acceso");
+
+                entity.HasIndex(e => e.Usuario)
+                   .HasName("Usuario");
+
+                entity.HasIndex(e => e.Password)
+                   .HasName("Password");
             });
 
             modelBuilder.Entity<GdEmpleadosFml>(entity =>
