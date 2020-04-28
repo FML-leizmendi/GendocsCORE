@@ -24,6 +24,8 @@ namespace GendocsForms
             CargarComboEstadosProyectos();
             CargarGrid();
             FormatearGrid();
+            CargarComboAccesos();
+            CargarComboUsuarios();
             lnklMetaframe.Links.Add(0, lnklMetaframe.Text.Length, "https://www5.iberdrola.com/logon/LogonPoint/tmindex.html");
         }
         private void btnCerrarForm_Click(object sender, EventArgs e)
@@ -121,9 +123,9 @@ namespace GendocsForms
                 cmbEstadoProyecto.ValueMember = "IdProyectoEstado";
                 cmbEstadoProyecto.DataSource = lista;
             }
-            catch
+            catch (Exception ex)
             {
-
+                string mensaje = ex.Message;
             }
         }
 
@@ -131,31 +133,49 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdProyectoEstados> lista = new List<GendocsModeloDatos.models.GdProyectoEstados>();
-                lista.Add(new GendocsModeloDatos.models.GdProyectoEstados()
-                {
-                    IdProyectoEstado = 0,
-                    ProyectoEstado = "Todos"
-                });
-
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                List<GendocsModeloDatos.models.GdProyectoEstados> lstEstadoProyectos;
-                lstEstadoProyectos = db.GdProyectoEstados.Select(e => new GendocsModeloDatos.models.GdProyectoEstados()
-                {
-                    IdProyectoEstado = e.IdProyectoEstado,
-                    ProyectoEstado = e.ProyectoEstado
-                }
-                ).ToList();
+                var lst = (from a in db.GdEmpleadosFml
+                           join b in db.GD_EmpleadosFML_Accesos on a.IdEmpleadoFml equals b.IdEmpleadoFML
+                           let NombreCompleto = a.Nombre + " | " + b.Usuario
+                           orderby a.IdEmpleadoFml
+                           select new { a.IdEmpleadoFml, NombreCompleto }
+                           ).Distinct().ToList();
+                
+                //foreach (var elemento in lst)
+                //{
+                //    cmbUsuarios.Items.Add(elemento);
+                //}
 
-                lista.AddRange(lstEstadoProyectos);
-
-                cmbEstadoProyecto.DisplayMember = "ProyectoEstado";
-                cmbEstadoProyecto.ValueMember = "IdProyectoEstado";
-                cmbEstadoProyecto.DataSource = lista;
+                cmbUsuarios.DisplayMember = "NombreCompleto";
+                cmbUsuarios.ValueMember = "IdEmpleadoFML";
+                cmbUsuarios.DataSource = lst;
             }
-            catch
+            catch (Exception ex)
             {
+                string mensaje = ex.Message;
+            }
+        }
 
+        private void CargarComboAccesos(int IdEmpleadoFML = 0)
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+
+                var lst = (from a in db.GD_EmpleadosFML_Accesos
+                           where a.IdEmpleadoFML == IdEmpleadoFML && IdEmpleadoFML != 0
+                           select new { a.Acceso }).ToList();
+
+                var lstFiltrada = (from c in lst
+                           select new { c.Acceso }).Distinct().ToList();
+
+                cmbAccesos.DisplayMember = "Acceso";
+                cmbAccesos.ValueMember = "IdAcceso";
+                cmbAccesos.DataSource = lstFiltrada;
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
             }
         }
 
@@ -307,6 +327,88 @@ namespace GendocsForms
                 string mensaje = ex.Message;
             }
 
+        }
+
+        private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
+                CargarComboAccesos(IdEmpleadoFML);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+
+        }
+
+        private void cmbAccesos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+
+                string Acceso = cmbAccesos.Text.Replace(" ", string.Empty);
+                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
+
+                var lst = (from a in db.GD_EmpleadosFML_Accesos
+                           where a.IdEmpleadoFML == IdEmpleadoFML && a.Acceso.Contains(Acceso)
+                           select new { a.Usuario, a.Password }).ToList();
+
+                if (lst.Count() != 0)
+                {
+                    foreach (var item in lst)
+                    {
+                        if (item.Usuario != null)
+                        {
+                            txtUsuario.Text = item.Usuario.Replace(" ", string.Empty);
+                        }
+                        else
+                            txtUsuario.Text = string.Empty;
+                        if (item.Password != null)
+                        {
+                            txtContraseña.Text = item.Password.Replace(" ", string.Empty);
+                        }
+                        else
+                            txtContraseña.Text = string.Empty;
+                        
+                    }
+                }
+                txtUsuario.Focus();
+                
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+
+        }
+
+        private void txtUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtUsuario.SelectionStart = 0;
+                txtUsuario.SelectionLength = txtUsuario.Text.Length;
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void txtContraseña_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtContraseña.SelectionStart = 0;
+                txtContraseña.SelectionLength = txtContraseña.Text.Length;
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
         }
     }
 }

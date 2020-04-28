@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GendocsModeloDatos
+namespace GendocsModeloDatos.models
 {
     public partial class GD_EmpleadosFML_Accesos
     {
