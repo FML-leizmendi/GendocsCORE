@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Windows;
 
 namespace GendocsForms
 {
@@ -140,7 +141,7 @@ namespace GendocsForms
                            orderby a.IdEmpleadoFml
                            select new { a.IdEmpleadoFml, NombreCompleto }
                            ).Distinct().ToList();
-                
+
                 //foreach (var elemento in lst)
                 //{
                 //    cmbUsuarios.Items.Add(elemento);
@@ -167,7 +168,7 @@ namespace GendocsForms
                            select new { a.Acceso }).ToList();
 
                 var lstFiltrada = (from c in lst
-                           select new { c.Acceso }).Distinct().ToList();
+                                   select new { c.Acceso }).Distinct().ToList();
 
                 cmbAccesos.DisplayMember = "Acceso";
                 cmbAccesos.ValueMember = "IdAcceso";
@@ -315,12 +316,8 @@ namespace GendocsForms
         private void lnklMetaframe_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
         {
             try
-            {
-                // Navigate to a URL.
-                // System.Diagnostics.Process.Start("https://www5.iberdrola.com/logon/LogonPoint/tmindex.html");
-                //lnklMetaframe.LinkVisited = true;
-                ProcessStartInfo sinfo = new ProcessStartInfo(e.Link.LinkData.ToString());
-                Process.Start("chrome.exe");
+            { 
+                Utiles.AbrirArchivo("https://www5.iberdrola.com/logon/LogonPoint/tmindex.html");
             }
             catch (Exception ex)
             {
@@ -372,11 +369,11 @@ namespace GendocsForms
                         }
                         else
                             txtContraseña.Text = string.Empty;
-                        
+
                     }
                 }
                 txtUsuario.Focus();
-                
+
             }
             catch (Exception ex)
             {
@@ -408,6 +405,38 @@ namespace GendocsForms
             catch (Exception ex)
             {
                 string mensaje = ex.Message;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = string.Empty;
+            OpenFileDialog buscar = new OpenFileDialog();
+            if (buscar.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = buscar.FileName;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+         
+           Utiles.AbrirArchivo(textBox1.Text);
+
+        }
+
+        private void dgvProyectos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string Filtro = string.Empty;
+            switch (dgvProyectos.CurrentCell.ColumnIndex)
+            {
+                case 0:
+                    //Filtro = dgvProyectos.CurrentCell.na;
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
             }
         }
     }

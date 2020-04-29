@@ -58,6 +58,9 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.lblUsuarios = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlLateral.SuspendLayout();
             this.grbProyectos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
@@ -198,6 +201,9 @@
             // 
             this.grbProyectos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbProyectos.Controls.Add(this.textBox1);
+            this.grbProyectos.Controls.Add(this.button2);
+            this.grbProyectos.Controls.Add(this.button1);
             this.grbProyectos.Controls.Add(this.txtCodProyecto);
             this.grbProyectos.Controls.Add(this.lblCodProyecto);
             this.grbProyectos.Controls.Add(this.btnLimpiarFiltros);
@@ -297,6 +303,8 @@
             // 
             // dgvProyectos
             // 
+            this.dgvProyectos.AllowUserToAddRows = false;
+            this.dgvProyectos.AllowUserToDeleteRows = false;
             this.dgvProyectos.AllowUserToOrderColumns = true;
             this.dgvProyectos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -309,6 +317,7 @@
             this.dgvProyectos.Size = new System.Drawing.Size(2124, 1099);
             this.dgvProyectos.TabIndex = 3;
             this.dgvProyectos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellContentDoubleClick);
+            this.dgvProyectos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProyectos_ColumnHeaderMouseClick);
             this.dgvProyectos.CurrentCellChanged += new System.EventHandler(this.dgvProyectos_CurrentCellChanged);
             // 
             // pnlBotonera
@@ -458,6 +467,35 @@
             this.lblUsuarios.TabIndex = 4;
             this.lblUsuarios.Text = "Usuarios";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1448, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 40);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Examinar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1593, 72);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(139, 40);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Abrir ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.textBox1.Location = new System.Drawing.Point(1329, 28);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(588, 35);
+            this.textBox1.TabIndex = 8;
+            // 
             // FrmListaProyectos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -516,5 +554,8 @@
         private System.Windows.Forms.Label lblCodProyecto;
         private System.Windows.Forms.Label lblAccesos;
         private System.Windows.Forms.ComboBox cmbAccesos;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
