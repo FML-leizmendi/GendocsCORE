@@ -27,7 +27,6 @@ namespace GendocsForms
             FormatearGrid();
             CargarComboAccesos();
             CargarComboUsuarios();
-            lnklMetaframe.Links.Add(0, lnklMetaframe.Text.Length, "https://www5.iberdrola.com/logon/LogonPoint/tmindex.html");
         }
         private void btnCerrarForm_Click(object sender, EventArgs e)
         {
@@ -408,22 +407,22 @@ namespace GendocsForms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = string.Empty;
-            OpenFileDialog buscar = new OpenFileDialog();
-            if (buscar.ShowDialog() == DialogResult.OK)
-            {
-                textBox1.Text = buscar.FileName;
-            }
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    textBox1.Text = string.Empty;
+        //    OpenFileDialog buscar = new OpenFileDialog();
+        //    if (buscar.ShowDialog() == DialogResult.OK)
+        //    {
+        //        textBox1.Text = buscar.FileName;
+        //    }
+        //}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+        //private void button2_Click(object sender, EventArgs e)
+        //{
          
-           Utiles.AbrirArchivo(textBox1.Text);
+        //   Utiles.AbrirArchivo(textBox1.Text);
 
-        }
+        //}
 
         private void dgvProyectos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
