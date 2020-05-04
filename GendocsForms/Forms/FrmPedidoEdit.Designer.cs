@@ -33,16 +33,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblIdPedidoCab = new System.Windows.Forms.Label();
-            this.txtPedidoCab = new System.Windows.Forms.TextBox();
-            this.txtNumContrato = new System.Windows.Forms.TextBox();
-            this.lblNumContrato = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
+            this.txtNumObra = new System.Windows.Forms.TextBox();
+            this.lblNumObra = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -53,6 +47,16 @@
             this.lblCliente = new System.Windows.Forms.Label();
             this.txtNumRef = new System.Windows.Forms.TextBox();
             this.lblNumRef = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNumContrato = new System.Windows.Forms.TextBox();
+            this.lblNumContrato = new System.Windows.Forms.Label();
+            this.txtPedidoCab = new System.Windows.Forms.TextBox();
+            this.lblIdPedidoCab = new System.Windows.Forms.Label();
             this.dgvProyectos = new System.Windows.Forms.DataGridView();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,10 +68,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.txtNumObra = new System.Windows.Forms.TextBox();
-            this.lblNumObra = new System.Windows.Forms.Label();
-            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
             this.SuspendLayout();
@@ -133,90 +133,41 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // lblIdPedidoCab
+            // label2
             // 
-            this.lblIdPedidoCab.AutoSize = true;
-            this.lblIdPedidoCab.Location = new System.Drawing.Point(212, 16);
-            this.lblIdPedidoCab.Name = "lblIdPedidoCab";
-            this.lblIdPedidoCab.Size = new System.Drawing.Size(77, 13);
-            this.lblIdPedidoCab.TabIndex = 0;
-            this.lblIdPedidoCab.Text = "Id Pedido Cab.";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(652, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Num. Obra";
             // 
-            // txtPedidoCab
+            // cmbUsuarios
             // 
-            this.txtPedidoCab.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtPedidoCab.Location = new System.Drawing.Point(212, 32);
-            this.txtPedidoCab.Name = "txtPedidoCab";
-            this.txtPedidoCab.Size = new System.Drawing.Size(77, 20);
-            this.txtPedidoCab.TabIndex = 1;
+            this.cmbUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUsuarios.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbUsuarios.FormattingEnabled = true;
+            this.cmbUsuarios.Location = new System.Drawing.Point(655, 73);
+            this.cmbUsuarios.Name = "cmbUsuarios";
+            this.cmbUsuarios.Size = new System.Drawing.Size(405, 25);
+            this.cmbUsuarios.TabIndex = 24;
             // 
-            // txtNumContrato
+            // txtNumObra
             // 
-            this.txtNumContrato.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumContrato.Location = new System.Drawing.Point(431, 32);
-            this.txtNumContrato.Name = "txtNumContrato";
-            this.txtNumContrato.Size = new System.Drawing.Size(186, 20);
-            this.txtNumContrato.TabIndex = 3;
+            this.txtNumObra.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtNumObra.Location = new System.Drawing.Point(20, 78);
+            this.txtNumObra.Name = "txtNumObra";
+            this.txtNumObra.Size = new System.Drawing.Size(186, 20);
+            this.txtNumObra.TabIndex = 23;
             // 
-            // lblNumContrato
+            // lblNumObra
             // 
-            this.lblNumContrato.AutoSize = true;
-            this.lblNumContrato.Location = new System.Drawing.Point(428, 15);
-            this.lblNumContrato.Name = "lblNumContrato";
-            this.lblNumContrato.Size = new System.Drawing.Size(75, 13);
-            this.lblNumContrato.TabIndex = 2;
-            this.lblNumContrato.Text = "Num. Contrato";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(20, 122);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(186, 20);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox4.Location = new System.Drawing.Point(212, 122);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 20);
-            this.textBox4.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(209, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "label4";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox6.Location = new System.Drawing.Point(212, 78);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(437, 20);
-            this.textBox6.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(209, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "label6";
+            this.lblNumObra.AutoSize = true;
+            this.lblNumObra.Location = new System.Drawing.Point(17, 61);
+            this.lblNumObra.Name = "lblNumObra";
+            this.lblNumObra.Size = new System.Drawing.Size(58, 13);
+            this.lblNumObra.TabIndex = 22;
+            this.lblNumObra.Text = "Num. Obra";
             // 
             // textBox8
             // 
@@ -302,6 +253,91 @@
             this.lblNumRef.Size = new System.Drawing.Size(52, 13);
             this.lblNumRef.TabIndex = 12;
             this.lblNumRef.Text = "Num Ref.";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox6.Location = new System.Drawing.Point(212, 78);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(437, 20);
+            this.textBox6.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(209, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "label6";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox4.Location = new System.Drawing.Point(212, 122);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(160, 20);
+            this.textBox4.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(209, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "label4";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox3.Location = new System.Drawing.Point(20, 122);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(186, 20);
+            this.textBox3.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "label3";
+            // 
+            // txtNumContrato
+            // 
+            this.txtNumContrato.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtNumContrato.Location = new System.Drawing.Point(431, 32);
+            this.txtNumContrato.Name = "txtNumContrato";
+            this.txtNumContrato.Size = new System.Drawing.Size(186, 20);
+            this.txtNumContrato.TabIndex = 3;
+            // 
+            // lblNumContrato
+            // 
+            this.lblNumContrato.AutoSize = true;
+            this.lblNumContrato.Location = new System.Drawing.Point(428, 15);
+            this.lblNumContrato.Name = "lblNumContrato";
+            this.lblNumContrato.Size = new System.Drawing.Size(75, 13);
+            this.lblNumContrato.TabIndex = 2;
+            this.lblNumContrato.Text = "Num. Contrato";
+            // 
+            // txtPedidoCab
+            // 
+            this.txtPedidoCab.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtPedidoCab.Location = new System.Drawing.Point(212, 32);
+            this.txtPedidoCab.Name = "txtPedidoCab";
+            this.txtPedidoCab.Size = new System.Drawing.Size(77, 20);
+            this.txtPedidoCab.TabIndex = 1;
+            // 
+            // lblIdPedidoCab
+            // 
+            this.lblIdPedidoCab.AutoSize = true;
+            this.lblIdPedidoCab.Location = new System.Drawing.Point(212, 16);
+            this.lblIdPedidoCab.Name = "lblIdPedidoCab";
+            this.lblIdPedidoCab.Size = new System.Drawing.Size(77, 13);
+            this.lblIdPedidoCab.TabIndex = 0;
+            this.lblIdPedidoCab.Text = "Id Pedido Cab.";
             // 
             // dgvProyectos
             // 
@@ -461,42 +497,6 @@
             this.button8.Tag = "AT";
             this.button8.Text = "ALTA TENSIÓN";
             this.button8.UseVisualStyleBackColor = false;
-            // 
-            // txtNumObra
-            // 
-            this.txtNumObra.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumObra.Location = new System.Drawing.Point(20, 78);
-            this.txtNumObra.Name = "txtNumObra";
-            this.txtNumObra.Size = new System.Drawing.Size(186, 20);
-            this.txtNumObra.TabIndex = 23;
-            // 
-            // lblNumObra
-            // 
-            this.lblNumObra.AutoSize = true;
-            this.lblNumObra.Location = new System.Drawing.Point(17, 61);
-            this.lblNumObra.Name = "lblNumObra";
-            this.lblNumObra.Size = new System.Drawing.Size(58, 13);
-            this.lblNumObra.TabIndex = 22;
-            this.lblNumObra.Text = "Num. Obra";
-            // 
-            // cmbUsuarios
-            // 
-            this.cmbUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUsuarios.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cmbUsuarios.FormattingEnabled = true;
-            this.cmbUsuarios.Location = new System.Drawing.Point(655, 73);
-            this.cmbUsuarios.Name = "cmbUsuarios";
-            this.cmbUsuarios.Size = new System.Drawing.Size(405, 25);
-            this.cmbUsuarios.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(652, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Num. Obra";
             // 
             // FrmPedidoEdit
             // 
