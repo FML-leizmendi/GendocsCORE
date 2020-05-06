@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GendocsForms
 {
-    public class clsPedidos
+    public partial class clsPedidos
     {
         public int IdPedidoCab { get; set; }
         public string NumRef { get; set; }
@@ -35,11 +35,12 @@ namespace GendocsForms
 
         public bool EsAlta = false;
 
+        public int Cantidad;
+
         public void CargarFrmPedidos()
         {
             FrmPedidos frm = new FrmPedidos(this);
-            //frm.WindowState = FormWindowState.Maximized;
-            IdPedidoCab = lstId[0];
+           // IdPedidoCab = lstId[0];
             frm.ShowDialog();
         }
     }

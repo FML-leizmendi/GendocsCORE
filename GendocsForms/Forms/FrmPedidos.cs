@@ -26,6 +26,8 @@ namespace GendocsForms
         #region "Eventos Privados"
         private void FrmPedidos_Load(object sender, EventArgs e)
         {
+            //this.WindowState = FormWindowState.Maximized;
+            //this.MdiParent = MdiParent.MdiParent;
             CargarGrid();
             FormatearGrid();
             txtIntroduzcaTexto.Focus();
@@ -79,10 +81,10 @@ namespace GendocsForms
                     var lst = (
                         from a in db.GdProyectos
                         join b in db.GdPedidosCab on a.IdProyecto equals b.IdProyecto
-                        where ((b.NumRef.Contains(TextoIntroducido)  && b.NumRef != null)|| (b.Gestor.Contains(TextoIntroducido) && b.NumRef != null)|| (b.NumObra.Contains(TextoIntroducido) && b.NumRef != null) || (b.DescripcionObra.Contains(TextoIntroducido) && b.NumRef != null) 
-                        || (b.Actuacion.Contains(TextoIntroducido) && b.NumRef != null)  || (b.Poblacion.Contains(TextoIntroducido) && b.NumRef != null))
+                        where ((b.NumRef.Contains(TextoIntroducido) && b.NumRef != null) || (b.Gestor.Contains(TextoIntroducido) && b.NumRef != null) || (b.NumObra.Contains(TextoIntroducido) && b.NumRef != null) || (b.DescripcionObra.Contains(TextoIntroducido) && b.NumRef != null)
+                        || (b.Actuacion.Contains(TextoIntroducido) && b.NumRef != null) || (b.Poblacion.Contains(TextoIntroducido) && b.NumRef != null))
                         orderby b.IdPedidoCab descending
-                        select new {b.IdPedidoCab, b.NumRef, b.Gestor, b.NumObra, b.FechaPedido, b.DescripcionObra, b.Actuacion, b.Poblacion}
+                        select new { b.IdPedidoCab, b.NumRef, b.Gestor, b.NumObra, b.FechaPedido, b.DescripcionObra, b.Actuacion, b.Poblacion }
 
                         ).ToList();
 
@@ -119,6 +121,25 @@ namespace GendocsForms
         }
 
         #endregion
+
+        private void dgvPedidos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgvPedidos.CurrentCell != null) // Se valida que la fila actual no esté vacía
+                {
+                    int IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    clsPedidoCab clsPedCab = new clsPedidoCab();
+                    clsPedCab.IdPedidoCab = IdPedidoCab;
+                    clsPedCab.CargarFrmPedidoCab();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
     }
 }
 

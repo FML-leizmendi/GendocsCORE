@@ -41,6 +41,7 @@
             this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnRecursos = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.pnlCabecera.BackColor = System.Drawing.Color.LightBlue;
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
-            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(6);
             this.pnlCabecera.Name = "pnlCabecera";
             this.pnlCabecera.Size = new System.Drawing.Size(1753, 65);
             this.pnlCabecera.TabIndex = 0;
@@ -59,7 +60,7 @@
             this.pnlLateral.BackColor = System.Drawing.Color.DarkGray;
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLateral.Location = new System.Drawing.Point(0, 65);
-            this.pnlLateral.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(6);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(270, 913);
             this.pnlLateral.TabIndex = 1;
@@ -73,7 +74,7 @@
             this.btnExpedientes.Image = ((System.Drawing.Image)(resources.GetObject("btnExpedientes.Image")));
             this.btnExpedientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExpedientes.Location = new System.Drawing.Point(433, 404);
-            this.btnExpedientes.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnExpedientes.Margin = new System.Windows.Forms.Padding(6);
             this.btnExpedientes.Name = "btnExpedientes";
             this.btnExpedientes.Size = new System.Drawing.Size(488, 79);
             this.btnExpedientes.TabIndex = 2;
@@ -90,7 +91,7 @@
             this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPedidos.Location = new System.Drawing.Point(433, 522);
-            this.btnPedidos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnPedidos.Margin = new System.Windows.Forms.Padding(6);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(488, 79);
             this.btnPedidos.TabIndex = 3;
@@ -107,7 +108,7 @@
             this.btnDocumentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDocumentos.Image")));
             this.btnDocumentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDocumentos.Location = new System.Drawing.Point(433, 641);
-            this.btnDocumentos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDocumentos.Margin = new System.Windows.Forms.Padding(6);
             this.btnDocumentos.Name = "btnDocumentos";
             this.btnDocumentos.Size = new System.Drawing.Size(488, 79);
             this.btnDocumentos.TabIndex = 4;
@@ -123,7 +124,7 @@
             this.btnAgenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAgenda.Image")));
             this.btnAgenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgenda.Location = new System.Drawing.Point(970, 404);
-            this.btnAgenda.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAgenda.Margin = new System.Windows.Forms.Padding(6);
             this.btnAgenda.Name = "btnAgenda";
             this.btnAgenda.Size = new System.Drawing.Size(488, 79);
             this.btnAgenda.TabIndex = 5;
@@ -140,7 +141,7 @@
             this.btnContactos.Image = ((System.Drawing.Image)(resources.GetObject("btnContactos.Image")));
             this.btnContactos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnContactos.Location = new System.Drawing.Point(970, 522);
-            this.btnContactos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnContactos.Margin = new System.Windows.Forms.Padding(6);
             this.btnContactos.Name = "btnContactos";
             this.btnContactos.Size = new System.Drawing.Size(488, 79);
             this.btnContactos.TabIndex = 6;
@@ -157,7 +158,7 @@
             this.btnFmlStaff.Image = ((System.Drawing.Image)(resources.GetObject("btnFmlStaff.Image")));
             this.btnFmlStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFmlStaff.Location = new System.Drawing.Point(433, 757);
-            this.btnFmlStaff.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnFmlStaff.Margin = new System.Windows.Forms.Padding(6);
             this.btnFmlStaff.Name = "btnFmlStaff";
             this.btnFmlStaff.Size = new System.Drawing.Size(488, 79);
             this.btnFmlStaff.TabIndex = 7;
@@ -170,7 +171,7 @@
             this.pnlBotonera.BackColor = System.Drawing.Color.LightBlue;
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotonera.Location = new System.Drawing.Point(270, 895);
-            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(6);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(1483, 83);
             this.pnlBotonera.TabIndex = 8;
@@ -180,7 +181,7 @@
             this.pcbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcbLogo.Image")));
             this.pcbLogo.Location = new System.Drawing.Point(787, 166);
-            this.pcbLogo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pcbLogo.Margin = new System.Windows.Forms.Padding(6);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(194, 89);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -195,7 +196,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(970, 641);
-            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(488, 79);
             this.button1.TabIndex = 9;
@@ -211,7 +212,7 @@
             this.btnRecursos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRecursos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecursos.Location = new System.Drawing.Point(970, 757);
-            this.btnRecursos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnRecursos.Margin = new System.Windows.Forms.Padding(6);
             this.btnRecursos.Name = "btnRecursos";
             this.btnRecursos.Size = new System.Drawing.Size(488, 79);
             this.btnRecursos.TabIndex = 10;
@@ -219,12 +220,29 @@
             this.btnRecursos.UseVisualStyleBackColor = false;
             this.btnRecursos.Click += new System.EventHandler(this.btnRecursos_Click);
             // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.Color.Navy;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(970, 313);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(488, 79);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Unidades Contructivas";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1753, 978);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnRecursos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pcbLogo);
@@ -238,7 +256,7 @@
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMenu";
@@ -266,5 +284,6 @@
         private System.Windows.Forms.PictureBox pcbLogo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRecursos;
+        private System.Windows.Forms.Button button2;
     }
 }

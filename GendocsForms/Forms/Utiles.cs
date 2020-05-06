@@ -38,5 +38,28 @@ namespace GendocsForms
                 string mensaje = ex.Message;
             }
         }
+
+        // Función para validar que solo se puede introducir números en un textbox
+
+        public static void SoloNumeros(KeyPressEventArgs pE)
+        {
+            try
+            {
+                if (char.IsDigit(pE.KeyChar))
+                {
+                    pE.Handled = false;
+                }
+                else if (char.IsControl(pE.KeyChar))
+                {
+                    pE.Handled = false;
+                }
+                else
+                    pE.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
     }
 }

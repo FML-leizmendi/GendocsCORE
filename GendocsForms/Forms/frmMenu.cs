@@ -32,10 +32,13 @@ namespace GendocsForms
             //frmPoblaciones frm = new frmPoblaciones();
             //frm.Show();
             //IdAcceso();
-            FrmPedidos frm = new FrmPedidos();
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
+            //FrmPedidos frm = new FrmPedidos();
+            //frm.MdiParent = this.MdiParent;
+            //frm.WindowState = FormWindowState.Maximized;
+            //frm.Show();
+
+            clsPedidos clsPedido = new clsPedidos();
+            clsPedido.CargarFrmPedidos();
 
         }
 
@@ -97,6 +100,12 @@ namespace GendocsForms
         private void btnAgenda_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Process.Start("https://trello.com");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmUnidadesConstructivas frm = new FrmUnidadesConstructivas();
+            frm.ShowDialog();
         }
     }
 }

@@ -47,6 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GendocsForms\Forms\FrmAyuda.cs">
+      <Link>FrmAyuda.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmAyuda.designer.cs">
+      <Link>FrmAyuda.designer.cs</Link>
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmCantidadRecursos.cs">
+      <Link>FrmCantidadRecursos.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmCantidadRecursos.designer.cs">
+      <Link>FrmCantidadRecursos.designer.cs</Link>
+      <DependentUpon>FrmCantidadRecursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmContactos.cs">
       <Link>FrmContactos.cs</Link>
       <SubType>Form</SubType>
@@ -209,6 +225,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmAyuda.resx">
+      <Link>FrmAyuda.resx</Link>
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmCantidadRecursos.resx">
+      <Link>FrmCantidadRecursos.resx</Link>
+      <DependentUpon>FrmCantidadRecursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmContactos.resx">
       <Link>FrmContactos.resx</Link>
       <DependentUpon>FrmContactos.cs</DependentUpon>
