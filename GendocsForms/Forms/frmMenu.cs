@@ -32,13 +32,13 @@ namespace GendocsForms
             //frmPoblaciones frm = new frmPoblaciones();
             //frm.Show();
             //IdAcceso();
-            //FrmPedidos frm = new FrmPedidos();
-            //frm.MdiParent = this.MdiParent;
-            //frm.WindowState = FormWindowState.Maximized;
-            //frm.Show();
+            FrmPedidos frm = new FrmPedidos();
+            frm.MdiParent = this.MdiParent;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
 
-            clsPedidos clsPedido = new clsPedidos();
-            clsPedido.CargarFrmPedidos();
+            //clsPedidos clsPedido = new clsPedidos();
+            //clsPedido.CargarFrmPedidos();
 
         }
 

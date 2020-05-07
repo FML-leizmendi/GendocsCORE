@@ -47,29 +47,29 @@
             this.pnlCabecera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
-            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(2554, 100);
+            this.pnlCabecera.Size = new System.Drawing.Size(1393, 55);
             this.pnlCabecera.TabIndex = 0;
             // 
             // pnlLateral
             // 
             this.pnlLateral.BackColor = System.Drawing.Color.Gray;
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(0, 100);
-            this.pnlLateral.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlLateral.Location = new System.Drawing.Point(0, 55);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(383, 1059);
+            this.pnlLateral.Size = new System.Drawing.Size(209, 520);
             this.pnlLateral.TabIndex = 1;
             // 
             // pnlBotonera
             // 
             this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotonera.Location = new System.Drawing.Point(383, 1077);
-            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlBotonera.Location = new System.Drawing.Point(209, 529);
+            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(2171, 82);
+            this.pnlBotonera.Size = new System.Drawing.Size(1184, 46);
             this.pnlBotonera.TabIndex = 4;
             // 
             // grbPedidos
@@ -79,11 +79,11 @@
             this.grbPedidos.Controls.Add(this.btnLimpiarFiltros);
             this.grbPedidos.Controls.Add(this.txtIntroduzcaTexto);
             this.grbPedidos.Controls.Add(this.lblTexto);
-            this.grbPedidos.Location = new System.Drawing.Point(389, 105);
-            this.grbPedidos.Margin = new System.Windows.Forms.Padding(4);
+            this.grbPedidos.Location = new System.Drawing.Point(212, 57);
+            this.grbPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grbPedidos.Name = "grbPedidos";
-            this.grbPedidos.Padding = new System.Windows.Forms.Padding(4);
-            this.grbPedidos.Size = new System.Drawing.Size(2152, 135);
+            this.grbPedidos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbPedidos.Size = new System.Drawing.Size(1174, 73);
             this.grbPedidos.TabIndex = 2;
             this.grbPedidos.TabStop = false;
             // 
@@ -94,12 +94,12 @@
             this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarFiltros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.Image")));
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(552, 68);
-            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(92, 35);
-            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(301, 37);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(50, 19);
+            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(92, 35);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.TabIndex = 2;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
@@ -107,10 +107,10 @@
             // txtIntroduzcaTexto
             // 
             this.txtIntroduzcaTexto.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(75, 66);
-            this.txtIntroduzcaTexto.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtIntroduzcaTexto.Location = new System.Drawing.Point(41, 36);
+            this.txtIntroduzcaTexto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
-            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(466, 35);
+            this.txtIntroduzcaTexto.Size = new System.Drawing.Size(256, 23);
             this.txtIntroduzcaTexto.TabIndex = 1;
             this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
             // 
@@ -118,10 +118,10 @@
             // 
             this.lblTexto.AutoSize = true;
             this.lblTexto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTexto.Location = new System.Drawing.Point(83, 33);
-            this.lblTexto.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblTexto.Location = new System.Drawing.Point(45, 18);
+            this.lblTexto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTexto.Name = "lblTexto";
-            this.lblTexto.Size = new System.Drawing.Size(201, 23);
+            this.lblTexto.Size = new System.Drawing.Size(115, 16);
             this.lblTexto.TabIndex = 0;
             this.lblTexto.Text = "Introduzca un texto";
             // 
@@ -134,28 +134,28 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidos.Location = new System.Drawing.Point(389, 249);
-            this.dgvPedidos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.dgvPedidos.Location = new System.Drawing.Point(212, 135);
+            this.dgvPedidos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.RowHeadersWidth = 72;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(2152, 816);
+            this.dgvPedidos.Size = new System.Drawing.Size(1174, 389);
             this.dgvPedidos.TabIndex = 3;
             this.dgvPedidos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellContentDoubleClick);
             // 
             // FrmPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(2554, 1159);
+            this.ClientSize = new System.Drawing.Size(1393, 575);
             this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.grbPedidos);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabecera);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmPedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pedidos Entrantes";

@@ -183,6 +183,14 @@
       <Link>frmMenu.designer.cs</Link>
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmPantallaConfPedidos.cs">
+      <Link>FrmPantallaConfPedidos.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmPantallaConfPedidos.designer.cs">
+      <Link>FrmPantallaConfPedidos.designer.cs</Link>
+      <DependentUpon>FrmPantallaConfPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmPedidoEdit.cs">
       <Link>FrmPedidoEdit.cs</Link>
       <SubType>Form</SubType>
@@ -292,6 +300,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\frmMenu.resx">
       <Link>frmMenu.resx</Link>
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmPantallaConfPedidos.resx">
+      <Link>FrmPantallaConfPedidos.resx</Link>
+      <DependentUpon>FrmPantallaConfPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmPedidoEdit.resx">
       <Link>FrmPedidoEdit.resx</Link>
