@@ -59,17 +59,17 @@
             this.pnlLateral.Location = new System.Drawing.Point(0, 100);
             this.pnlLateral.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(383, 1059);
+            this.pnlLateral.Size = new System.Drawing.Size(298, 1059);
             this.pnlLateral.TabIndex = 1;
             // 
             // pnlBotonera
             // 
             this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotonera.Location = new System.Drawing.Point(383, 1077);
+            this.pnlBotonera.Location = new System.Drawing.Point(298, 1077);
             this.pnlBotonera.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(2171, 82);
+            this.pnlBotonera.Size = new System.Drawing.Size(2256, 82);
             this.pnlBotonera.TabIndex = 4;
             // 
             // grbPedidos
@@ -79,11 +79,11 @@
             this.grbPedidos.Controls.Add(this.btnLimpiarFiltros);
             this.grbPedidos.Controls.Add(this.txtIntroduzcaTexto);
             this.grbPedidos.Controls.Add(this.lblTexto);
-            this.grbPedidos.Location = new System.Drawing.Point(389, 105);
+            this.grbPedidos.Location = new System.Drawing.Point(306, 105);
             this.grbPedidos.Margin = new System.Windows.Forms.Padding(4);
             this.grbPedidos.Name = "grbPedidos";
             this.grbPedidos.Padding = new System.Windows.Forms.Padding(4);
-            this.grbPedidos.Size = new System.Drawing.Size(2152, 135);
+            this.grbPedidos.Size = new System.Drawing.Size(2235, 135);
             this.grbPedidos.TabIndex = 2;
             this.grbPedidos.TabStop = false;
             // 
@@ -134,13 +134,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidos.Location = new System.Drawing.Point(389, 249);
+            this.dgvPedidos.Location = new System.Drawing.Point(306, 249);
             this.dgvPedidos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.RowHeadersWidth = 72;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(2152, 816);
+            this.dgvPedidos.Size = new System.Drawing.Size(2235, 816);
             this.dgvPedidos.TabIndex = 3;
             this.dgvPedidos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellContentDoubleClick);
             // 
