@@ -53,7 +53,7 @@
             this.pnlCabecera.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
-            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCabecera.Name = "pnlCabecera";
             this.pnlCabecera.Size = new System.Drawing.Size(1173, 54);
             this.pnlCabecera.TabIndex = 0;
@@ -65,7 +65,7 @@
             this.pnlLateral.Controls.Add(this.btnAceptar);
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLateral.Location = new System.Drawing.Point(0, 54);
-            this.pnlLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(191, 504);
             this.pnlLateral.TabIndex = 1;
@@ -105,7 +105,7 @@
             this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotonera.Location = new System.Drawing.Point(191, 502);
-            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(982, 56);
             this.pnlBotonera.TabIndex = 2;
@@ -123,9 +123,9 @@
             this.grbUnidadesContructivas.Controls.Add(this.lblCliente);
             this.grbUnidadesContructivas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.grbUnidadesContructivas.Location = new System.Drawing.Point(194, 57);
-            this.grbUnidadesContructivas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbUnidadesContructivas.Margin = new System.Windows.Forms.Padding(2);
             this.grbUnidadesContructivas.Name = "grbUnidadesContructivas";
-            this.grbUnidadesContructivas.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbUnidadesContructivas.Padding = new System.Windows.Forms.Padding(2);
             this.grbUnidadesContructivas.Size = new System.Drawing.Size(973, 83);
             this.grbUnidadesContructivas.TabIndex = 3;
             this.grbUnidadesContructivas.TabStop = false;
@@ -160,7 +160,7 @@
             this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarFiltros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.Image")));
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(637, 51);
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(638, 51);
             this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(50, 19);
@@ -243,7 +243,7 @@
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabecera);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1194, 611);
             this.MinimizeBox = false;
