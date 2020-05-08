@@ -178,4 +178,30 @@
         BScXqMQbNfFSAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="cmsMenuColumnas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="tsmOrdenarAsc.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAFRJREFUOE9j
+        GPRAHYrJAhpAfAOKQWySgBoQbwbiZCBOBOKNQKwFxEQBmGYhIA6CYn4gJtqQfCAGaQABmAEgABIDyZEE
+        kA0gC4waQAUDpKF40AIGBgAMcgzuMqBtHQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="tsmOrdenarDesc.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAFlJREFUOE9j
+        GPRACohlIUzyQBAUkw1GDSDTgGwg5ocwUQwAieVDmPiBKhBvBmIhIIYZANK8EYi1gJgooAbEIENSgDgR
+        iEnSDAMaQHwDikFssoA6FA9awMAAAFa8DOvNqTRBAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="tsmConfigurarGrid.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAANdJREFUOE+1
+        kj8OAUEYxSfRoKBSaZ1AoXMKrmCvIHECZ1CiUIrSSYiOC8gmeu+XfCOzs4YV2Zf8krff9+bfzrg6NRJz
+        A/+zVuJg4L+qKSaiJYbiKlgZ8NTokSFb0kLcxF2cBMGGgadGjwzZgvoiFwPRE10jE7Pgmx4Zsox5qS32
+        4mie8EVsDDw1emTI4gtiqw/REay8Fl5Mwk7okSFbUjwBg7y24uMEqSMwEPwRuIW3R0j9RFat9BNReI1n
+        EV7j1GrJa0R/P6RYPN+dUekpxxqLpYGvQ849AagYODSF7xZ9AAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

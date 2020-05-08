@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedidoEdit));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtCoefPrecio = new System.Windows.Forms.TextBox();
+            this.lblImporteTotal = new System.Windows.Forms.Label();
+            this.txtImporteTotal = new System.Windows.Forms.TextBox();
+            this.lblCoefFacturacion = new System.Windows.Forms.Label();
+            this.txtCoefFacturacion = new System.Windows.Forms.TextBox();
+            this.lblCoefPrecio = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtProvincia = new System.Windows.Forms.TextBox();
             this.lblProvincia = new System.Windows.Forms.Label();
@@ -66,20 +73,19 @@
             this.txtPedidoCab = new System.Windows.Forms.TextBox();
             this.lblIdPedidoCab = new System.Windows.Forms.Label();
             this.dgvPedidosEdit = new System.Windows.Forms.DataGridView();
-            this.txtImporteTotal = new System.Windows.Forms.TextBox();
-            this.lblImporteTotal = new System.Windows.Forms.Label();
-            this.txtCoefFacturacion = new System.Windows.Forms.TextBox();
-            this.lblCoefFacturacion = new System.Windows.Forms.Label();
-            this.txtCoefPrecio = new System.Windows.Forms.TextBox();
-            this.lblCoefPrecio = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregarRecurso = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBajar = new System.Windows.Forms.Button();
             this.btnSubir = new System.Windows.Forms.Button();
+            this.cmsMenuColumnas = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmOrdenarAsc = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmOrdenarDesc = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmConfigurarGrid = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidosEdit)).BeginInit();
+            this.cmsMenuColumnas.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,6 +120,56 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1180, 64);
             this.panel3.TabIndex = 2;
+            // 
+            // txtCoefPrecio
+            // 
+            this.txtCoefPrecio.Enabled = false;
+            this.txtCoefPrecio.Location = new System.Drawing.Point(658, 4);
+            this.txtCoefPrecio.Name = "txtCoefPrecio";
+            this.txtCoefPrecio.Size = new System.Drawing.Size(38, 20);
+            this.txtCoefPrecio.TabIndex = 26;
+            // 
+            // lblImporteTotal
+            // 
+            this.lblImporteTotal.AutoSize = true;
+            this.lblImporteTotal.Location = new System.Drawing.Point(868, 4);
+            this.lblImporteTotal.Name = "lblImporteTotal";
+            this.lblImporteTotal.Size = new System.Drawing.Size(69, 13);
+            this.lblImporteTotal.TabIndex = 13;
+            this.lblImporteTotal.Text = "Importe Total";
+            // 
+            // txtImporteTotal
+            // 
+            this.txtImporteTotal.Location = new System.Drawing.Point(941, 3);
+            this.txtImporteTotal.Name = "txtImporteTotal";
+            this.txtImporteTotal.Size = new System.Drawing.Size(186, 20);
+            this.txtImporteTotal.TabIndex = 14;
+            // 
+            // lblCoefFacturacion
+            // 
+            this.lblCoefFacturacion.AutoSize = true;
+            this.lblCoefFacturacion.Location = new System.Drawing.Point(701, 6);
+            this.lblCoefFacturacion.Name = "lblCoefFacturacion";
+            this.lblCoefFacturacion.Size = new System.Drawing.Size(119, 13);
+            this.lblCoefFacturacion.TabIndex = 23;
+            this.lblCoefFacturacion.Text = "Coeficiente Facturación";
+            // 
+            // txtCoefFacturacion
+            // 
+            this.txtCoefFacturacion.Enabled = false;
+            this.txtCoefFacturacion.Location = new System.Drawing.Point(826, 5);
+            this.txtCoefFacturacion.Name = "txtCoefFacturacion";
+            this.txtCoefFacturacion.Size = new System.Drawing.Size(38, 20);
+            this.txtCoefFacturacion.TabIndex = 24;
+            // 
+            // lblCoefPrecio
+            // 
+            this.lblCoefPrecio.AutoSize = true;
+            this.lblCoefPrecio.Location = new System.Drawing.Point(559, 5);
+            this.lblCoefPrecio.Name = "lblCoefPrecio";
+            this.lblCoefPrecio.Size = new System.Drawing.Size(93, 13);
+            this.lblCoefPrecio.TabIndex = 25;
+            this.lblCoefPrecio.Text = "Coeficiente Precio";
             // 
             // groupBox1
             // 
@@ -481,56 +537,7 @@
             this.dgvPedidosEdit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedidosEdit.Size = new System.Drawing.Size(1117, 319);
             this.dgvPedidosEdit.TabIndex = 4;
-            // 
-            // txtImporteTotal
-            // 
-            this.txtImporteTotal.Location = new System.Drawing.Point(941, 3);
-            this.txtImporteTotal.Name = "txtImporteTotal";
-            this.txtImporteTotal.Size = new System.Drawing.Size(186, 20);
-            this.txtImporteTotal.TabIndex = 14;
-            // 
-            // lblImporteTotal
-            // 
-            this.lblImporteTotal.AutoSize = true;
-            this.lblImporteTotal.Location = new System.Drawing.Point(868, 4);
-            this.lblImporteTotal.Name = "lblImporteTotal";
-            this.lblImporteTotal.Size = new System.Drawing.Size(69, 13);
-            this.lblImporteTotal.TabIndex = 13;
-            this.lblImporteTotal.Text = "Importe Total";
-            // 
-            // txtCoefFacturacion
-            // 
-            this.txtCoefFacturacion.Enabled = false;
-            this.txtCoefFacturacion.Location = new System.Drawing.Point(826, 5);
-            this.txtCoefFacturacion.Name = "txtCoefFacturacion";
-            this.txtCoefFacturacion.Size = new System.Drawing.Size(38, 20);
-            this.txtCoefFacturacion.TabIndex = 24;
-            // 
-            // lblCoefFacturacion
-            // 
-            this.lblCoefFacturacion.AutoSize = true;
-            this.lblCoefFacturacion.Location = new System.Drawing.Point(701, 6);
-            this.lblCoefFacturacion.Name = "lblCoefFacturacion";
-            this.lblCoefFacturacion.Size = new System.Drawing.Size(119, 13);
-            this.lblCoefFacturacion.TabIndex = 23;
-            this.lblCoefFacturacion.Text = "Coeficiente Facturación";
-            // 
-            // txtCoefPrecio
-            // 
-            this.txtCoefPrecio.Enabled = false;
-            this.txtCoefPrecio.Location = new System.Drawing.Point(658, 4);
-            this.txtCoefPrecio.Name = "txtCoefPrecio";
-            this.txtCoefPrecio.Size = new System.Drawing.Size(38, 20);
-            this.txtCoefPrecio.TabIndex = 26;
-            // 
-            // lblCoefPrecio
-            // 
-            this.lblCoefPrecio.AutoSize = true;
-            this.lblCoefPrecio.Location = new System.Drawing.Point(559, 5);
-            this.lblCoefPrecio.Name = "lblCoefPrecio";
-            this.lblCoefPrecio.Size = new System.Drawing.Size(93, 13);
-            this.lblCoefPrecio.TabIndex = 25;
-            this.lblCoefPrecio.Text = "Coeficiente Precio";
+            this.dgvPedidosEdit.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPedidosEdit_ColumnHeaderMouseClick);
             // 
             // btnEditar
             // 
@@ -605,6 +612,37 @@
             this.btnSubir.UseVisualStyleBackColor = false;
             this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
             // 
+            // cmsMenuColumnas
+            // 
+            this.cmsMenuColumnas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmOrdenarAsc,
+            this.tsmOrdenarDesc,
+            this.tsmConfigurarGrid});
+            this.cmsMenuColumnas.Name = "cmsMenuColumnas";
+            this.cmsMenuColumnas.Size = new System.Drawing.Size(181, 92);
+            // 
+            // tsmOrdenarAsc
+            // 
+            this.tsmOrdenarAsc.Image = ((System.Drawing.Image)(resources.GetObject("tsmOrdenarAsc.Image")));
+            this.tsmOrdenarAsc.Name = "tsmOrdenarAsc";
+            this.tsmOrdenarAsc.Size = new System.Drawing.Size(180, 22);
+            this.tsmOrdenarAsc.Text = "Ordenar Asc";
+            // 
+            // tsmOrdenarDesc
+            // 
+            this.tsmOrdenarDesc.Image = ((System.Drawing.Image)(resources.GetObject("tsmOrdenarDesc.Image")));
+            this.tsmOrdenarDesc.Name = "tsmOrdenarDesc";
+            this.tsmOrdenarDesc.Size = new System.Drawing.Size(180, 22);
+            this.tsmOrdenarDesc.Text = "Ordenar Desc";
+            // 
+            // tsmConfigurarGrid
+            // 
+            this.tsmConfigurarGrid.Image = ((System.Drawing.Image)(resources.GetObject("tsmConfigurarGrid.Image")));
+            this.tsmConfigurarGrid.Name = "tsmConfigurarGrid";
+            this.tsmConfigurarGrid.Size = new System.Drawing.Size(180, 22);
+            this.tsmConfigurarGrid.Text = "Congifurar Grid";
+            this.tsmConfigurarGrid.Click += new System.EventHandler(this.tsmConfigurarGrid_Click);
+            // 
             // FrmPedidoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,6 +667,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidosEdit)).EndInit();
+            this.cmsMenuColumnas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -683,5 +722,9 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBajar;
         private System.Windows.Forms.Button btnSubir;
+        private System.Windows.Forms.ContextMenuStrip cmsMenuColumnas;
+        private System.Windows.Forms.ToolStripMenuItem tsmOrdenarAsc;
+        private System.Windows.Forms.ToolStripMenuItem tsmOrdenarDesc;
+        private System.Windows.Forms.ToolStripMenuItem tsmConfigurarGrid;
     }
 }
