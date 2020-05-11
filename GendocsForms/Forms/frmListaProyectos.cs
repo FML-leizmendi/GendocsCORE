@@ -258,7 +258,7 @@ namespace GendocsForms
             {
                 if (dgvProyectos.CurrentRow != null)
                 {
-                    clsProyectos clsProy = new clsProyectos();
+                    clsProyecto clsProy = new clsProyecto();
                     clsProy.IdProyecto = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["IdProyecto"].Value);
                     clsProy.CargarFrmExpedientes();
                 }
@@ -426,16 +426,19 @@ namespace GendocsForms
 
         private void dgvProyectos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string Filtro = string.Empty;
-            switch (dgvProyectos.CurrentCell.ColumnIndex)
+            try
             {
-                case 0:
-                    //Filtro = dgvProyectos.CurrentCell.na;
-                    break;
-                case 1:
-                    break;
-                default:
-                    break;
+                ContextMenuStrip contexMenuuu = new ContextMenuStrip();
+
+                //contexMenuuu.Items.Add("Ordenar Asc");
+                contexMenuuu.Items.Add("Ordenar Desc");
+                contexMenuuu.Items.Add("Configurar Grid");
+
+                cmsMenuColumnas.Show(Cursor.Position.X, Cursor.Position.Y);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
             }
         }
     }

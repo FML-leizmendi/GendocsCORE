@@ -16,7 +16,7 @@ using GendocsForms.Forms;
 
 namespace GendocsForms
 {
-    public partial class clsProyectos
+    public partial class clsProyecto
     {
         public int IdProyecto { get; set; }
         public string CodigoProyecto { get; set; }

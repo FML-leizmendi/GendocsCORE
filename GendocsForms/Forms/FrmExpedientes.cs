@@ -9,11 +9,11 @@ namespace GendocsForms
 {
     public partial class FrmExpedientes : Form
     {
-        public clsProyectos cProy { get; set; }
+        public clsProyecto cProy { get; set; }
 
         public static string RutaGlobal { get; set; } = @"C:\Gendocs\Proyectos";
 
-        public FrmExpedientes(clsProyectos cpro)
+        public FrmExpedientes(clsProyecto cpro)
         {
             cProy = cpro;
             InitializeComponent();

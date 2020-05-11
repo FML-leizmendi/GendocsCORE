@@ -240,5 +240,30 @@ namespace GendocsForms
                 string mensaje = ex.Message;
             }
         }
+
+        private void dgvPedidosEdit_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                cmsMenuColumnas.Show(Cursor.Position.X, Cursor.Position.Y);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void tsmConfigurarGrid_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmPantallaConfPedidos frm = new FrmPantallaConfPedidos();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
     }
 }

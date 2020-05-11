@@ -30,6 +30,8 @@ namespace GendocsModeloDatos.models
         public virtual DbSet<GdDocCampos> GdDocCampos { get; set; }
         public virtual DbSet<GdEmpleados> GdEmpleados { get; set; }
         public virtual DbSet<GdEmpleadosEtiquetas> GdEmpleadosEtiquetas { get; set; }
+        public virtual DbSet<GdColumnasC>GdColumnasC { get; set; } // TODO se agrega una nueva Tabla a DbContext SEGUNDO PASO
+        public virtual DbSet<GdColumnasD> GdColumnasD { get; set; }
         public virtual DbSet<GdEmpleadosFml> GdEmpleadosFml { get; set; }
         public virtual DbSet<GdEmpleadosFmlEtiquetas> GdEmpleadosFmlEtiquetas { get; set; }
         public virtual DbSet<GdEmpleadosFmlTiposTrabajo> GdEmpleadosFmlTiposTrabajo { get; set; }
@@ -72,8 +74,8 @@ namespace GendocsModeloDatos.models
             if (!optionsBuilder.IsConfigured)
             {
                // To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                //optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;User ID=Alex;Password=123456;database=GenDocs;");
-                optionsBuilder.UseSqlServer("Server=PC-ALEXMOTA;Initial Catalog=GenDocs;Integrated Security=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;User ID=Alex;Password=123456;database=GenDocs;");
+                //optionsBuilder.UseSqlServer("Server=PC-ALEXMOTA;Initial Catalog=GenDocs;Integrated Security=True;");
             }
         }
 
@@ -449,6 +451,28 @@ namespace GendocsModeloDatos.models
 
                 entity.Property(e => e.IdEtiqueta).HasDefaultValueSql("((0))");
             });
+
+
+            // TODO se agrega el campo clave de la Tabla a DbContext TERCER PASO
+
+            modelBuilder.Entity<GdColumnasC>(entity =>
+            {
+                entity.ToTable("SysColumnasC");
+
+                entity.HasKey(e => e.IdColumnaC)
+                  .HasName("IdColumnaC");
+
+            });
+
+            modelBuilder.Entity<GdColumnasD>(entity =>
+            {
+                entity.ToTable("SysColumnasD");
+
+                entity.HasKey(e => e.IdColumnaD)
+                  .HasName("IdColumnaD");
+
+            });
+
 
             modelBuilder.Entity<GD_EmpleadosFML_Accesos>(entity =>
             {
