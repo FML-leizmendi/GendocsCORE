@@ -138,49 +138,52 @@ namespace GendocsForms
                     using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                         if (EsAlta)
                         {
-                            var lst = (from a in db.GdUnidadesConstructivas
-                                       where a.IdUc == this.IdUC
-                                         select a).FirstOrDefault();
+                            if (this.IdUC != 0)
+                            {
+                                var lst = (from a in db.GdUnidadesConstructivas
+                                           where a.IdUc == this.IdUC
+                                           select a).FirstOrDefault();
 
-                            GdPedidosDet PedDet = new GdPedidosDet();
-                            PedDet.IdPedidoCab = IdPedidoCab;
-                            PedDet.CodigoUc = lst.CodigoUc;
-                            PedDet.DescripcionUc = lst.DescripcionUc;
-                            PedDet.Cantidad = Cantidad;
-                            PedDet.Unidad = lst.Ud;
-                            PedDet.Precio = lst.PrecioUnidad;
-                            PedDet.Importe = PedDet.Cantidad * PedDet.Precio;
-                            PedDet.PlazoEntrega = DateTime.UtcNow.Date;
-                            PedDet.IdUc = lst.IdUc;
-                            PedDet.IdResponsableFml = 11;
-                            PedDet.IdEstadoTrabajo = 1;
+                                GdPedidosDet PedDet = new GdPedidosDet();
+                                PedDet.IdPedidoCab = IdPedidoCab;
+                                PedDet.CodigoUc = lst.CodigoUc;
+                                PedDet.DescripcionUc = lst.DescripcionUc;
+                                PedDet.Cantidad = Cantidad;
+                                PedDet.Unidad = lst.Ud;
+                                PedDet.Precio = lst.PrecioUnidad;
+                                PedDet.Importe = PedDet.Cantidad * PedDet.Precio;
+                                PedDet.PlazoEntrega = DateTime.UtcNow.Date;
+                                PedDet.IdUc = lst.IdUc;
+                                PedDet.IdResponsableFml = 11;
+                                PedDet.IdEstadoTrabajo = 1;
 
-                            db.GdPedidosDet.Add(PedDet);
-                            db.SaveChanges();
-                        }
-                        else
-                        {
-                            //{
-                            //    var query = (from a in db.GdEmpleados
-                            //                 where a.IdEmpleado == IdEmpleado
-                            //                 select a).FirstOrDefault();
+                                db.GdPedidosDet.Add(PedDet);
+                                db.SaveChanges();
+                            }
+                            else
+                            {
+                                //{
+                                //    var query = (from a in db.GdEmpleados
+                                //                 where a.IdEmpleado == IdEmpleado
+                                //                 select a).FirstOrDefault();
 
-                            //    query.IdEmpleado = IdEmpleado;
-                            //    query.Empleado = Empleado;
-                            //    query.IdCargo = IdCargo;
-                            //    query.IdCliente = IdCliente;
-                            //    query.IdEmpleadoSuperior = IdEmpleadoSuperior;
-                            //    query.IdCliente = IdCliente;
-                            //    query.Telefono = Telefono;
-                            //    query.Email = Email;
-                            //    query.Etiquetas = Etiquetas;
+                                //    query.IdEmpleado = IdEmpleado;
+                                //    query.Empleado = Empleado;
+                                //    query.IdCargo = IdCargo;
+                                //    query.IdCliente = IdCliente;
+                                //    query.IdEmpleadoSuperior = IdEmpleadoSuperior;
+                                //    query.IdCliente = IdCliente;
+                                //    query.Telefono = Telefono;
+                                //    query.Email = Email;
+                                //    query.Etiquetas = Etiquetas;
 
-                            //    db.SaveChanges();
+                                //    db.SaveChanges();
 
-                            //    MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            //}
-                        }
-                    CargarPedido();
+                                //    MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //}
+                            }
+                            CargarPedido();
+                        }       
                 }
             }
             catch (Exception ex)

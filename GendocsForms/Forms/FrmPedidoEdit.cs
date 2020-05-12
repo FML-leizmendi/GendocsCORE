@@ -53,7 +53,7 @@ namespace GendocsForms
                         ImporteTotal += Convert.ToDouble(dgvPedidosEdit.Rows[i].Cells["Importe"].Value);
                     }
                 }
-                txtImporteTotal.Text = ImporteTotal.ToString() + "€";
+                txtImporteTotal.Text = (Convert.ToDouble (ImporteTotal)).ToString() + "€";
             }
             catch (Exception ex)
             {
@@ -71,7 +71,12 @@ namespace GendocsForms
         {
             try
             {
-                dgvPedidosEdit.Columns["CodigoUC"].SortMode = DataGridViewColumnSortMode.Automatic;
+                foreach (DataGridViewColumn dgvCol in dgvPedidosEdit.Columns)
+                {
+                   dgvCol.SortMode = DataGridViewColumnSortMode.Automatic;
+                    //dgvPedidosEdit.Columns["CodigoUC"].SortMode = DataGridViewColumnSortMode.Automatic;
+                }
+                
                 //Ocultar una columna de un datagridview 
                 this.dgvPedidosEdit.Columns["IdPedidoDet"].Visible = false;
                 this.dgvPedidosEdit.Columns["IdPedidoCab"].Visible = false;
@@ -112,32 +117,30 @@ namespace GendocsForms
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 if (cPedCab.IdPedidoCab != 0)
                 {
+                    var lst = (from a in db.GdPedidosDet
+                               join b in db.GdEmpleadosFml on a.IdResponsableFml equals b.IdEmpleadoFml
+                               join c in db.GdTrabajoEstados on a.IdEstadoTrabajo equals c.IdEstadoTrabajo
+                               let NombreCompleto = b.Nombre + " " + b.Apellidos
+                               where a.IdPedidoCab == cPedCab.IdPedidoCab
+                               select new
+                               {
+                                   a.IdPedidoDet,
+                                   a.IdPedidoCab,
+                                   a.CodigoUc,
+                                   a.DescripcionUc,
+                                   a.Cantidad,
+                                   a.Unidad,
+                                   a.Precio,
+                                   a.Importe,
+                                   a.PlazoEntrega,
+                                   NombreCompleto,
+                                   c.EstadoTrabajo
+                               }).ToList();
+
+
                     //List<GdPedidosDet> lst = (from a in db.GdPedidosDet
-                    //           join b in db.GdEmpleadosFml on a.IdResponsableFml equals b.IdEmpleadoFml
-                    //           join c in db.GdTrabajoEstados on a.IdEstadoTrabajo equals c.IdEstadoTrabajo
-                    //           let NombreCompleto = b.Nombre + " " + b.Apellidos
-                    //           select new
-                    //           {
-                    //               a.IdPedidoDet,
-                    //               a.IdPedidoCab,
-                    //               a.CodigoUc,
-                    //               a.DescripcionUc,
-                    //               a.Cantidad,
-                    //               a.Unidad,
-                    //               a.Precio,
-                    //               a.Importe,
-                    //               a.PlazoEntrega,
-                    //              // NombreCompleto,
-                    //               c.EstadoTrabajo
-                    //           }).ToList();
-
-            
-
-                    
-
-                    List<GdPedidosDet> lst = (from a in db.GdPedidosDet
-                                              where a.IdPedidoCab == cPedCab.IdPedidoCab
-                                              select a).ToList();
+                    //                          where a.IdPedidoCab == IdPedidoCab
+                    //                          select a).ToList();
 
                     DataTable dt = Utiles.ToDataTable(lst);
 
