@@ -167,7 +167,7 @@ namespace GendocsForms
                            select new { a.Acceso }).ToList();
 
                 var lstFiltrada = (from c in lst
-                                   select new { c.Acceso }).Distinct().ToList();
+                                   select new { c.Acceso }).Distinct().ToList(); // TODO DISTINCT
 
                 cmbAccesos.DisplayMember = "Acceso";
                 cmbAccesos.ValueMember = "IdAcceso";

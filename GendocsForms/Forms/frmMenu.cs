@@ -104,7 +104,10 @@ namespace GendocsForms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmUnidadesConstructivas frm = new FrmUnidadesConstructivas();
+            //FrmUnidadesConstructivas frm = new FrmUnidadesConstructivas();
+            //frm.ShowDialog();
+
+            frmPoblaciones frm = new frmPoblaciones();
             frm.ShowDialog();
         }
     }

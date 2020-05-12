@@ -27,6 +27,9 @@ namespace GendocsForms
             dgvPoblaciones.Rows.Add(arrayBarcelona);
             dgvPoblaciones.Rows.Add(arrayValencia);
             dgvPoblaciones.Rows.Add(arraySevilla);
+
+            dgvPoblaciones.Columns["Ciudad"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //dgvPoblaciones.Columns["Provincia"].SortMode = DataGridViewColumnSortMode.Automatic;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

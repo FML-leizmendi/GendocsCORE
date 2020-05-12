@@ -1,8 +1,13 @@
-﻿using System;
+﻿using GendocsModeloDatos.models;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace GendocsForms
@@ -10,6 +15,9 @@ namespace GendocsForms
     public partial class FrmPedidoEdit : Form
     {
         public int IdPedidoCab;
+        public string cadena = "Server=PC-ALEXMOTA;Initial Catalog =GenDocs;Integrated Security=True;";
+        public SqlConnection sqlConnection = new SqlConnection();
+        //private List<GdPedidosDet> detallePedido;
 
         public clsPedidoCab cPedCab { get; set; }
 
@@ -53,10 +61,18 @@ namespace GendocsForms
             }
         }
 
+        public void ConectarBD()
+        {
+            sqlConnection.ConnectionString = cadena;
+            sqlConnection.Open();
+        }
+
         private void FormatearGrid()
         {
             try
-            {   //Ocultar una columna de un datagridview 
+            {
+                dgvPedidosEdit.Columns["CodigoUC"].SortMode = DataGridViewColumnSortMode.Automatic;
+                //Ocultar una columna de un datagridview 
                 this.dgvPedidosEdit.Columns["IdPedidoDet"].Visible = false;
                 this.dgvPedidosEdit.Columns["IdPedidoCab"].Visible = false;
                 //this.dgvPedidosEdit.Columns["IdUC"].Visible = false;
@@ -70,8 +86,9 @@ namespace GendocsForms
                 this.dgvPedidosEdit.Columns["Precio"].Width = 150;
                 this.dgvPedidosEdit.Columns["Importe"].Width = 150;
                 this.dgvPedidosEdit.Columns["PlazoEntrega"].Width = 200;
-                this.dgvPedidosEdit.Columns["NombreCompleto"].Width = 250;
-                this.dgvPedidosEdit.Columns["EstadoTrabajo"].Width = 200;
+                //this.dgvPedidosEdit.Columns["NombreCompleto"].Width = 250;
+                //this.dgvPedidosEdit.Columns["EstadoTrabajo"].Width = 200;
+
 
                 //Alinear las columnas 
                 dgvPedidosEdit.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -80,43 +97,51 @@ namespace GendocsForms
                 dgvPedidosEdit.Columns["Importe"].DefaultCellStyle.Format = "C2";
                 dgvPedidosEdit.Columns["Precio"].DefaultCellStyle.Format = "C2";
                 dgvPedidosEdit.Columns["Cantidad"].DefaultCellStyle.Format = "c";
-
             }
             catch (Exception ex)
             {
                 string mensaje = ex.Message;
             }
         }
+        
 
-        private void CargarGrid()
+        private void CargarGrid(string ColumnaOrden = "")
         {
             try
             {
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 if (cPedCab.IdPedidoCab != 0)
                 {
-                    var lst = (from a in db.GdPedidosDet
-                               join b in db.GdEmpleadosFml on a.IdResponsableFml equals b.IdEmpleadoFml
-                               join c in db.GdTrabajoEstados on a.IdEstadoTrabajo equals c.IdEstadoTrabajo
-                               let NombreCompleto = b.Nombre + " " + b.Apellidos
-                               select new
-                               {
-                                   a.IdPedidoDet,
-                                   a.IdPedidoCab,
-                                   a.CodigoUc,
-                                   a.DescripcionUc,
-                                   a.Cantidad,
-                                   a.Unidad,
-                                   a.Precio,
-                                   a.Importe,
-                                   a.PlazoEntrega,
-                                   NombreCompleto,
-                                   c.EstadoTrabajo
-                               }).ToList();
+                    //List<GdPedidosDet> lst = (from a in db.GdPedidosDet
+                    //           join b in db.GdEmpleadosFml on a.IdResponsableFml equals b.IdEmpleadoFml
+                    //           join c in db.GdTrabajoEstados on a.IdEstadoTrabajo equals c.IdEstadoTrabajo
+                    //           let NombreCompleto = b.Nombre + " " + b.Apellidos
+                    //           select new
+                    //           {
+                    //               a.IdPedidoDet,
+                    //               a.IdPedidoCab,
+                    //               a.CodigoUc,
+                    //               a.DescripcionUc,
+                    //               a.Cantidad,
+                    //               a.Unidad,
+                    //               a.Precio,
+                    //               a.Importe,
+                    //               a.PlazoEntrega,
+                    //              // NombreCompleto,
+                    //               c.EstadoTrabajo
+                    //           }).ToList();
 
-                    var lstFiltrada = lst.Where(i => i.IdPedidoCab == cPedCab.IdPedidoCab).ToList();
+            
 
-                    dgvPedidosEdit.DataSource = lstFiltrada;
+                    
+
+                    List<GdPedidosDet> lst = (from a in db.GdPedidosDet
+                                              where a.IdPedidoCab == cPedCab.IdPedidoCab
+                                              select a).ToList();
+
+                    DataTable dt = Utiles.ToDataTable(lst);
+
+                    dgvPedidosEdit.DataSource = dt;
                 }
             }
             catch (Exception ex)
@@ -124,6 +149,46 @@ namespace GendocsForms
                 string mensaje = ex.Message;
             }
         }
+
+        //private class RowComparer : System.Collections.IComparer
+        //{
+        //    private static int sortOrderModifier = 1;
+
+        //    public RowComparer(SortOrder sortOrder)
+        //    {
+        //        if (sortOrder == SortOrder.Descending)
+        //        {
+        //            sortOrderModifier = -1;
+        //        }
+        //        else if (sortOrder == SortOrder.Ascending)
+        //        {
+        //            sortOrderModifier = 1;
+        //        }
+        //    }
+
+        //    public int Compare(object x, object y)
+        //    {
+        //        DataGridViewRow DataGridViewRow1 = (DataGridViewRow)x;
+        //        DataGridViewRow DataGridViewRow2 = (DataGridViewRow)y;
+
+        //        // Try to sort based on the Last Name column.
+        //        int CompareResult = System.String.Compare(
+        //            DataGridViewRow1.Cells[1].Value.ToString(),
+        //            DataGridViewRow2.Cells[1].Value.ToString());
+
+        //        // If the Last Names are equal, sort based on the First Name.
+        //        if (CompareResult == 0)
+        //        {
+        //            CompareResult = System.String.Compare(
+        //                DataGridViewRow1.Cells[0].Value.ToString(),
+        //                DataGridViewRow2.Cells[0].Value.ToString());
+        //        }
+        //        return CompareResult * sortOrderModifier;
+        //    }
+
+        //}
+
+
         public void CargarForm()
         {
             try
@@ -183,6 +248,12 @@ namespace GendocsForms
                 cmbClientes.DisplayMember = "Cliente";
                 cmbClientes.ValueMember = "IdCliente";
                 cmbClientes.DataSource = lista;
+
+                foreach (DataGridViewColumn column in dgvPedidosEdit.Columns)
+                {
+
+                    column.SortMode = DataGridViewColumnSortMode.Automatic;
+                }
             }
             catch (Exception ex)
             {
@@ -245,7 +316,10 @@ namespace GendocsForms
         {
             try
             {
-                cmsMenuColumnas.Show(Cursor.Position.X, Cursor.Position.Y);
+                if (e.Button == MouseButtons.Right)
+                {
+                    cmsMenuColumnas.Show(Cursor.Position.X, Cursor.Position.Y);
+                }
             }
             catch (Exception ex)
             {
@@ -259,6 +333,29 @@ namespace GendocsForms
             {
                 FrmPantallaConfPedidos frm = new FrmPantallaConfPedidos();
                 frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void tsmOrdenarAsc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //detallePedido = (List<GdPedidosDet>)lst.OrderBy(i => i.IdPedidoDet);
+
+
+                //dgvPedidosEdit.DataSource = detallePedido;
+
+                //dgvPedidosEdit.Sort(new RowComparer(SortOrder.Ascending));
+
+                DataGridViewColumn gridViewColumn = new DataGridViewColumn();
+
+
+
+                dgvPedidosEdit.Sort(gridViewColumn, ListSortDirection.Ascending);
             }
             catch (Exception ex)
             {

@@ -16,7 +16,12 @@ namespace GendocsModeloDatos.models
         public DateTime? PlazoEntrega { get; set; }
         public int? IdUc { get; set; }
         public int? IdResponsableFml { get; set; }
+
         public int? IdEstadoTrabajo { get; set; }
+
+       //public string NombreCompleto { get; set; }
+
+        //public string EstadoTrabajo { get; set; }
 
         public virtual GdPedidosCab IdPedidoCabNavigation { get; set; }
     }
