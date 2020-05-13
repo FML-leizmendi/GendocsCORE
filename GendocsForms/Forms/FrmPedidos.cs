@@ -30,6 +30,8 @@ namespace GendocsForms
             //this.MdiParent = MdiParent.MdiParent;
             CargarGrid();
             FormatearGrid();
+            CargarComboAccesos();
+            CargarComboUsuarios();
             txtIntroduzcaTexto.Focus();
             //HabilitarBotonera();
         }
@@ -56,7 +58,7 @@ namespace GendocsForms
                 this.dgvPedidos.Columns["DescripcionObra"].HeaderText = "Descrip. Obra";
                 this.dgvPedidos.Columns["Actuacion"].Width = 450;
                 this.dgvPedidos.Columns["Actuacion"].HeaderText = "Alias(Actuación)";
-                this.dgvPedidos.Columns["Poblacion"].Width = 225;
+                this.dgvPedidos.Columns["Poblacion"].Width = 275;
 
                 ////Alinear las columnas 
                 dgvPedidos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -64,6 +66,11 @@ namespace GendocsForms
                 dgvPedidos.Columns["DescripcionObra"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 dgvPedidos.Columns["Gestor"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 dgvPedidos.Columns["Actuacion"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+                foreach (DataGridViewColumn dgvCol in dgvPedidos.Columns)
+                {
+                    dgvCol.SortMode = DataGridViewColumnSortMode.Automatic;
+                }
             }
             catch (Exception ex)
             {
@@ -88,9 +95,61 @@ namespace GendocsForms
 
                         ).ToList();
 
+                    DataTable dt = Utiles.ToDataTable(lst);
+
                     dgvPedidos.DataSource = null;
-                    dgvPedidos.DataSource = lst;
+                    dgvPedidos.DataSource = dt;
                 }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void CargarComboAccesos(int IdEmpleadoFML = 0)
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+
+                var lst = (from a in db.GD_EmpleadosFML_Accesos
+                           where a.IdEmpleadoFML == IdEmpleadoFML && IdEmpleadoFML != 0
+                           select new { a.Acceso }).ToList();
+
+                var lstFiltrada = (from c in lst
+                                   select new { c.Acceso }).Distinct().ToList(); // TODO DISTINCT
+
+                cmbAccesos.DisplayMember = "Acceso";
+                cmbAccesos.ValueMember = "IdAcceso";
+                cmbAccesos.DataSource = lstFiltrada;
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void CargarComboUsuarios()
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from a in db.GdEmpleadosFml
+                           join b in db.GD_EmpleadosFML_Accesos on a.IdEmpleadoFml equals b.IdEmpleadoFML
+                           let NombreCompleto = a.Nombre + " | " + b.Usuario
+                           orderby a.IdEmpleadoFml
+                           select new { a.IdEmpleadoFml, NombreCompleto }
+                           ).Distinct().ToList();
+
+                //foreach (var elemento in lst)
+                //{
+                //    cmbUsuarios.Items.Add(elemento);
+                //}
+
+                cmbUsuarios.DisplayMember = "NombreCompleto";
+                cmbUsuarios.ValueMember = "IdEmpleadoFML";
+                cmbUsuarios.DataSource = lst;
             }
             catch (Exception ex)
             {
@@ -128,10 +187,15 @@ namespace GendocsForms
             {
                 if (dgvPedidos.CurrentCell != null) // Se valida que la fila actual no esté vacía
                 {
-                    int IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    clsPedidoCab clsPedCab = new clsPedidoCab();
-                    clsPedCab.IdPedidoCab = IdPedidoCab;
-                    clsPedCab.CargarFrmPedidoCab();
+                    //int IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    //clsPedidoCab clsPedCab = new clsPedidoCab();
+                    //clsPedCab.IdPedidoCab = IdPedidoCab;
+                    FrmPedidoEdit frm = new FrmPedidoEdit();
+                    frm.MdiParent = this.MdiParent;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    frm.Show();
+                    //clsPedCab.CargarFrmPedidoCab();
                 }
                
             }
@@ -139,6 +203,83 @@ namespace GendocsForms
             {
                 string mensaje = ex.Message;
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData) // TODO cerrar el formulario con el boton ESCAPE
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
+        }
+
+        private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
+                CargarComboAccesos(IdEmpleadoFML);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+        }
+
+        private void cmbAccesos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+
+                string Acceso = cmbAccesos.Text.Replace(" ", string.Empty);
+                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
+
+                var lst = (from a in db.GD_EmpleadosFML_Accesos
+                           where a.IdEmpleadoFML == IdEmpleadoFML && a.Acceso.Contains(Acceso)
+                           select new { a.Usuario, a.Password }).ToList();
+
+                if (lst.Count() != 0)
+                {
+                    foreach (var item in lst)
+                    {
+                        if (item.Usuario != null)
+                        {
+                            txtUsuario.Text = item.Usuario.Replace(" ", string.Empty);
+                        }
+                        else
+                            txtUsuario.Text = string.Empty;
+                        if (item.Password != null)
+                        {
+                            txtContraseña.Text = item.Password.Replace(" ", string.Empty);
+                        }
+                        else
+                            txtContraseña.Text = string.Empty;
+
+                    }
+                }
+                txtUsuario.Focus();
+
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+
         }
     }
 }

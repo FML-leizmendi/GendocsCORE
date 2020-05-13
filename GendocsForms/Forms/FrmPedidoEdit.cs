@@ -1,13 +1,8 @@
-﻿using GendocsModeloDatos.models;
-using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace GendocsForms
@@ -15,10 +10,7 @@ namespace GendocsForms
     public partial class FrmPedidoEdit : Form
     {
         public int IdPedidoCab;
-        public string cadena = "Server=PC-ALEXMOTA;Initial Catalog =GenDocs;Integrated Security=True;";
-        public SqlConnection sqlConnection = new SqlConnection();
-        //private List<GdPedidosDet> detallePedido;
-
+       
         public clsPedidoCab cPedCab { get; set; }
 
         public FrmPedidoEdit(clsPedidoCab cpcab)
@@ -35,8 +27,8 @@ namespace GendocsForms
         private void FrmPedidoEdit_Load(object sender, EventArgs e)
         {
             CargarComboClientes();
-            CargarForm();
             CargarGrid();
+            CargarForm();
             FormatearGrid();
             RealizarSuma();
         }
@@ -61,16 +53,11 @@ namespace GendocsForms
             }
         }
 
-        public void ConectarBD()
-        {
-            sqlConnection.ConnectionString = cadena;
-            sqlConnection.Open();
-        }
-
         private void FormatearGrid()
         {
             try
             {
+                // TODO Asignar la opción de ordenación automática a cada una de las columnas de un grid
                 foreach (DataGridViewColumn dgvCol in dgvPedidosEdit.Columns)
                 {
                    dgvCol.SortMode = DataGridViewColumnSortMode.Automatic;
@@ -85,14 +72,14 @@ namespace GendocsForms
 
                 //Modificar el ancho de una columna
                 this.dgvPedidosEdit.Columns["CodigoUC"].Width = 350;
-                this.dgvPedidosEdit.Columns["DescripcionUC"].Width = 600;
+                this.dgvPedidosEdit.Columns["DescripcionUC"].Width = 650;
                 this.dgvPedidosEdit.Columns["Cantidad"].Width = 150;
-                this.dgvPedidosEdit.Columns["Unidad"].Width = 100;
-                this.dgvPedidosEdit.Columns["Precio"].Width = 150;
-                this.dgvPedidosEdit.Columns["Importe"].Width = 150;
+                this.dgvPedidosEdit.Columns["Unidad"].Width = 125;
+                this.dgvPedidosEdit.Columns["Precio"].Width = 175;
+                this.dgvPedidosEdit.Columns["Importe"].Width = 175;
                 this.dgvPedidosEdit.Columns["PlazoEntrega"].Width = 200;
-                //this.dgvPedidosEdit.Columns["NombreCompleto"].Width = 250;
-                //this.dgvPedidosEdit.Columns["EstadoTrabajo"].Width = 200;
+                this.dgvPedidosEdit.Columns["NombreCompleto"].Width = 300;
+                this.dgvPedidosEdit.Columns["EstadoTrabajo"].Width = 225;
 
 
                 //Alinear las columnas 
@@ -110,18 +97,18 @@ namespace GendocsForms
         }
         
 
-        private void CargarGrid(string ColumnaOrden = "")
+        private void CargarGrid()
         {
             try
             {
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                if (cPedCab.IdPedidoCab != 0)
+                if (IdPedidoCab != 0)
                 {
                     var lst = (from a in db.GdPedidosDet
                                join b in db.GdEmpleadosFml on a.IdResponsableFml equals b.IdEmpleadoFml
                                join c in db.GdTrabajoEstados on a.IdEstadoTrabajo equals c.IdEstadoTrabajo
                                let NombreCompleto = b.Nombre + " " + b.Apellidos
-                               where a.IdPedidoCab == cPedCab.IdPedidoCab
+                               where a.IdPedidoCab == IdPedidoCab
                                select new
                                {
                                    a.IdPedidoDet,
@@ -142,7 +129,7 @@ namespace GendocsForms
                     //                          where a.IdPedidoCab == IdPedidoCab
                     //                          select a).ToList();
 
-                    DataTable dt = Utiles.ToDataTable(lst);
+                    DataTable dt = Utiles.ToDataTable(lst); // TODO CARGAR EL DATASOURCE CON UN DATATABLE
 
                     dgvPedidosEdit.DataSource = dt;
                 }
@@ -153,72 +140,46 @@ namespace GendocsForms
             }
         }
 
-        //private class RowComparer : System.Collections.IComparer
-        //{
-        //    private static int sortOrderModifier = 1;
-
-        //    public RowComparer(SortOrder sortOrder)
-        //    {
-        //        if (sortOrder == SortOrder.Descending)
-        //        {
-        //            sortOrderModifier = -1;
-        //        }
-        //        else if (sortOrder == SortOrder.Ascending)
-        //        {
-        //            sortOrderModifier = 1;
-        //        }
-        //    }
-
-        //    public int Compare(object x, object y)
-        //    {
-        //        DataGridViewRow DataGridViewRow1 = (DataGridViewRow)x;
-        //        DataGridViewRow DataGridViewRow2 = (DataGridViewRow)y;
-
-        //        // Try to sort based on the Last Name column.
-        //        int CompareResult = System.String.Compare(
-        //            DataGridViewRow1.Cells[1].Value.ToString(),
-        //            DataGridViewRow2.Cells[1].Value.ToString());
-
-        //        // If the Last Names are equal, sort based on the First Name.
-        //        if (CompareResult == 0)
-        //        {
-        //            CompareResult = System.String.Compare(
-        //                DataGridViewRow1.Cells[0].Value.ToString(),
-        //                DataGridViewRow2.Cells[0].Value.ToString());
-        //        }
-        //        return CompareResult * sortOrderModifier;
-        //    }
-
-        //}
-
-
+      
         public void CargarForm()
         {
             try
             {
-                txtPedidoCab.Text = cPedCab.IdPedidoCab.ToString();
-                txtNumRef.Text = cPedCab.NumRef;
-                txtNumContrato.Text = cPedCab.NumContrato.ToString();
-                txtNumObra.Text = cPedCab.NumObra;
-                txtDescripcionUC.Text = cPedCab.DescripcionObra;
-                txtFechaPedido.Text = cPedCab.FechaPedido.ToString();
-                txtFechaEntrega.Text = cPedCab.FechaEntrega.ToString();
-                txtActuacion.Text = cPedCab.Actuacion;
-                txtIdGestor.Text = Convert.ToInt32(cPedCab.IdEmpleadoGestor).ToString();
-                txtGestor.Text = cPedCab.Gestor;
-                txtArchivoPDF.Text = cPedCab.FilePdf;
-                txtProvincia.Text = cPedCab.Provincia;
-                txtPoblacion.Text = cPedCab.Poblacion;
-                txtDireccion.Text = cPedCab.Direccion;
-                txtCoefFacturacion.Text = cPedCab.CoeficienteFacturacion.ToString();
-                txtCoefPrecio.Text = cPedCab.CoeficientePrecio.ToString();
-                if (cPedCab.IdCliente == null)
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                if (IdPedidoCab != 0)
                 {
-                    cmbClientes.SelectedValue = 0;
-                }
-                else
-                    cmbClientes.SelectedValue = Convert.ToInt32(cPedCab.IdCliente);
 
+                    var query = (from a in db.GdPedidosCab
+                                 where a.IdPedidoCab == this.IdPedidoCab
+                                 select a).FirstOrDefault();
+
+                    if (query != null)
+                    {
+                        txtPedidoCab.Text = query.IdPedidoCab.ToString();
+                        txtNumRef.Text = query.NumRef;
+                        txtNumContrato.Text = query.NumContrato.ToString();
+                        txtNumObra.Text = query.NumObra;
+                        txtDescripcionUC.Text = query.DescripcionObra;
+                        txtFechaPedido.Text = query.FechaPedido.ToString();
+                        txtFechaEntrega.Text = query.FechaEntrega.ToString();
+                        txtActuacion.Text = query.Actuacion;
+                        txtIdGestor.Text = Convert.ToInt32(query.IdEmpleadoGestor).ToString();
+                        txtGestor.Text = query.Gestor;
+                        txtArchivoPDF.Text = query.FilePdf;
+                        txtProvincia.Text = query.Provincia;
+                        txtPoblacion.Text = query.Poblacion;
+                        txtDireccion.Text = query.Direccion;
+                        txtCoefFacturacion.Text = query.CoeficienteFacturacion.ToString();
+                        txtCoefPrecio.Text = query.CoeficientePrecio.ToString();
+
+                        if (query.IdCliente == null)
+                        {
+                            cmbClientes.SelectedValue = 0;
+                        }
+                        else
+                            cmbClientes.SelectedValue = Convert.ToInt32(query.IdCliente);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -270,10 +231,10 @@ namespace GendocsForms
             {
                 clsUnidadesContructivas clsUnds = new clsUnidadesContructivas();
                 clsUnds.CargarFrmUnidadesContructivas();
-                cPedCab.IdUC = clsUnds.IdUc;
-                cPedCab.Cantidad = clsUnds.Cantidad;
-                cPedCab.EsAlta = true;
-                cPedCab.GuardarUnidadContructiva();
+                //cPedCab.IdUC = clsUnds.IdUc;
+                //cPedCab.Cantidad = clsUnds.Cantidad;
+                //cPedCab.EsAlta = true;
+                //cPedCab.GuardarUnidadContructiva();
             }
             catch (Exception ex)
             {
@@ -364,6 +325,16 @@ namespace GendocsForms
             {
                 string mensaje = ex.Message;
             }
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
         }
     }
 }

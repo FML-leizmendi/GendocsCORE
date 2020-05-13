@@ -48,26 +48,29 @@
             this.pnlCabecera.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
+            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(1137, 70);
+            this.pnlCabecera.Size = new System.Drawing.Size(2085, 129);
             this.pnlCabecera.TabIndex = 0;
             // 
             // pnlLateral
             // 
             this.pnlLateral.BackColor = System.Drawing.Color.Gray;
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(0, 70);
+            this.pnlLateral.Location = new System.Drawing.Point(0, 129);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(154, 514);
+            this.pnlLateral.Size = new System.Drawing.Size(282, 949);
             this.pnlLateral.TabIndex = 1;
             // 
             // pnlBotonera
             // 
             this.pnlBotonera.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotonera.Location = new System.Drawing.Point(154, 519);
+            this.pnlBotonera.Location = new System.Drawing.Point(282, 958);
+            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(983, 65);
+            this.pnlBotonera.Size = new System.Drawing.Size(1803, 120);
             this.pnlBotonera.TabIndex = 2;
             // 
             // lstvAsignadas
@@ -78,9 +81,10 @@
             this.IdEmpleadoFML});
             this.lstvAsignadas.FullRowSelect = true;
             this.lstvAsignadas.HideSelection = false;
-            this.lstvAsignadas.Location = new System.Drawing.Point(743, 76);
+            this.lstvAsignadas.Location = new System.Drawing.Point(1362, 140);
+            this.lstvAsignadas.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstvAsignadas.Name = "lstvAsignadas";
-            this.lstvAsignadas.Size = new System.Drawing.Size(387, 437);
+            this.lstvAsignadas.Size = new System.Drawing.Size(706, 803);
             this.lstvAsignadas.TabIndex = 9;
             this.lstvAsignadas.UseCompatibleStateImageBehavior = false;
             this.lstvAsignadas.View = System.Windows.Forms.View.Details;
@@ -109,12 +113,13 @@
             this.dEtiquetaFML});
             this.lstvDisponibles.FullRowSelect = true;
             this.lstvDisponibles.HideSelection = false;
-            this.lstvDisponibles.Location = new System.Drawing.Point(169, 76);
+            this.lstvDisponibles.Location = new System.Drawing.Point(310, 140);
+            this.lstvDisponibles.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstvDisponibles.Name = "lstvDisponibles";
-            this.lstvDisponibles.Size = new System.Drawing.Size(387, 437);
+            this.lstvDisponibles.Size = new System.Drawing.Size(706, 803);
             this.lstvDisponibles.TabIndex = 6;
             this.lstvDisponibles.UseCompatibleStateImageBehavior = false;
-            this.lstvDisponibles.View = System.Windows.Forms.View.Details;
+            this.lstvDisponibles.View = System.Windows.Forms.View.List;
             // 
             // IdEtiqueta
             // 
@@ -132,9 +137,10 @@
             this.btnAnadir.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.btnAnadir.Image = ((System.Drawing.Image)(resources.GetObject("btnAnadir.Image")));
             this.btnAnadir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAnadir.Location = new System.Drawing.Point(562, 260);
+            this.btnAnadir.Location = new System.Drawing.Point(1030, 480);
+            this.btnAnadir.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAnadir.Name = "btnAnadir";
-            this.btnAnadir.Size = new System.Drawing.Size(175, 35);
+            this.btnAnadir.Size = new System.Drawing.Size(321, 65);
             this.btnAnadir.TabIndex = 7;
             this.btnAnadir.Text = "Añadir";
             this.btnAnadir.UseVisualStyleBackColor = false;
@@ -146,19 +152,21 @@
             this.btnQuitar.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
             this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(562, 302);
+            this.btnQuitar.Location = new System.Drawing.Point(1030, 558);
+            this.btnQuitar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(175, 35);
+            this.btnQuitar.Size = new System.Drawing.Size(321, 65);
             this.btnQuitar.TabIndex = 8;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // FrmPantallaConfPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1137, 584);
+            this.ClientSize = new System.Drawing.Size(2085, 1078);
             this.Controls.Add(this.lstvAsignadas);
             this.Controls.Add(this.lstvDisponibles);
             this.Controls.Add(this.btnAnadir);
@@ -166,6 +174,7 @@
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabecera);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPantallaConfPedidos";

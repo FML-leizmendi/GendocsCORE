@@ -79,13 +79,17 @@
             this.btnBajar = new System.Windows.Forms.Button();
             this.btnSubir = new System.Windows.Forms.Button();
             this.cmsMenuColumnas = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmOrdenarAsc = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmOrdenarDesc = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmConfigurarGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.lblTitulo2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTituloFormulario = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidosEdit)).BeginInit();
             this.cmsMenuColumnas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -101,11 +105,15 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkGray;
+            this.panel2.Controls.Add(this.btnSalir);
+            this.panel2.Controls.Add(this.lblTitulo2);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lblTituloFormulario);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 114);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(275, 984);
+            this.panel2.Size = new System.Drawing.Size(350, 984);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -118,10 +126,10 @@
             this.panel3.Controls.Add(this.txtCoefFacturacion);
             this.panel3.Controls.Add(this.lblCoefPrecio);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(275, 980);
+            this.panel3.Location = new System.Drawing.Point(350, 980);
             this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2163, 118);
+            this.panel3.Size = new System.Drawing.Size(2088, 118);
             this.panel3.TabIndex = 2;
             // 
             // txtCoefPrecio
@@ -216,22 +224,24 @@
             this.groupBox1.Controls.Add(this.lblNumContrato);
             this.groupBox1.Controls.Add(this.txtPedidoCab);
             this.groupBox1.Controls.Add(this.lblIdPedidoCab);
-            this.groupBox1.Location = new System.Drawing.Point(290, 126);
+            this.groupBox1.Location = new System.Drawing.Point(362, 126);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(2136, 249);
+            this.groupBox1.Size = new System.Drawing.Size(2064, 249);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
             // txtProvincia
             // 
+            this.txtProvincia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProvincia.BackColor = System.Drawing.Color.Gainsboro;
             this.txtProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProvincia.Location = new System.Drawing.Point(1742, 207);
             this.txtProvincia.Margin = new System.Windows.Forms.Padding(6);
             this.txtProvincia.Name = "txtProvincia";
-            this.txtProvincia.Size = new System.Drawing.Size(362, 29);
+            this.txtProvincia.Size = new System.Drawing.Size(290, 29);
             this.txtProvincia.TabIndex = 38;
             // 
             // lblProvincia
@@ -268,12 +278,14 @@
             // 
             // txtArchivoPDF
             // 
+            this.txtArchivoPDF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtArchivoPDF.BackColor = System.Drawing.Color.Gainsboro;
             this.txtArchivoPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtArchivoPDF.Location = new System.Drawing.Point(1353, 135);
             this.txtArchivoPDF.Margin = new System.Windows.Forms.Padding(6);
             this.txtArchivoPDF.Name = "txtArchivoPDF";
-            this.txtArchivoPDF.Size = new System.Drawing.Size(748, 29);
+            this.txtArchivoPDF.Size = new System.Drawing.Size(676, 29);
             this.txtArchivoPDF.TabIndex = 34;
             // 
             // lblArchivoPDF
@@ -481,12 +493,14 @@
             // 
             // txtFechaEntrega
             // 
+            this.txtFechaEntrega.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFechaEntrega.BackColor = System.Drawing.Color.Gainsboro;
             this.txtFechaEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFechaEntrega.Location = new System.Drawing.Point(1887, 54);
             this.txtFechaEntrega.Margin = new System.Windows.Forms.Padding(6);
             this.txtFechaEntrega.Name = "txtFechaEntrega";
-            this.txtFechaEntrega.Size = new System.Drawing.Size(215, 29);
+            this.txtFechaEntrega.Size = new System.Drawing.Size(143, 29);
             this.txtFechaEntrega.TabIndex = 7;
             // 
             // lblFechaEntrega
@@ -572,18 +586,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPedidosEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidosEdit.Location = new System.Drawing.Point(290, 388);
+            this.dgvPedidosEdit.Location = new System.Drawing.Point(362, 388);
             this.dgvPedidosEdit.Margin = new System.Windows.Forms.Padding(6);
             this.dgvPedidosEdit.MultiSelect = false;
             this.dgvPedidosEdit.Name = "dgvPedidosEdit";
             this.dgvPedidosEdit.RowHeadersWidth = 82;
             this.dgvPedidosEdit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidosEdit.Size = new System.Drawing.Size(2048, 580);
+            this.dgvPedidosEdit.Size = new System.Drawing.Size(1976, 580);
             this.dgvPedidosEdit.TabIndex = 4;
             this.dgvPedidosEdit.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPedidosEdit_ColumnHeaderMouseClick);
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEditar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -599,6 +614,7 @@
             // 
             // btnAgregarRecurso
             // 
+            this.btnAgregarRecurso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarRecurso.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnAgregarRecurso.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAgregarRecurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -615,6 +631,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEliminar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -631,6 +648,7 @@
             // 
             // btnBajar
             // 
+            this.btnBajar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBajar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnBajar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnBajar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -646,6 +664,7 @@
             // 
             // btnSubir
             // 
+            this.btnSubir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubir.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSubir.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -664,26 +683,9 @@
             // 
             this.cmsMenuColumnas.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.cmsMenuColumnas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmOrdenarAsc,
-            this.tsmOrdenarDesc,
             this.tsmConfigurarGrid});
             this.cmsMenuColumnas.Name = "cmsMenuColumnas";
-            this.cmsMenuColumnas.Size = new System.Drawing.Size(241, 112);
-            // 
-            // tsmOrdenarAsc
-            // 
-            this.tsmOrdenarAsc.Image = ((System.Drawing.Image)(resources.GetObject("tsmOrdenarAsc.Image")));
-            this.tsmOrdenarAsc.Name = "tsmOrdenarAsc";
-            this.tsmOrdenarAsc.Size = new System.Drawing.Size(240, 36);
-            this.tsmOrdenarAsc.Text = "Ordenar Asc";
-            this.tsmOrdenarAsc.Click += new System.EventHandler(this.tsmOrdenarAsc_Click);
-            // 
-            // tsmOrdenarDesc
-            // 
-            this.tsmOrdenarDesc.Image = ((System.Drawing.Image)(resources.GetObject("tsmOrdenarDesc.Image")));
-            this.tsmOrdenarDesc.Name = "tsmOrdenarDesc";
-            this.tsmOrdenarDesc.Size = new System.Drawing.Size(240, 36);
-            this.tsmOrdenarDesc.Text = "Ordenar Desc";
+            this.cmsMenuColumnas.Size = new System.Drawing.Size(241, 40);
             // 
             // tsmConfigurarGrid
             // 
@@ -692,6 +694,55 @@
             this.tsmConfigurarGrid.Size = new System.Drawing.Size(240, 36);
             this.tsmConfigurarGrid.Text = "Congifurar Grid";
             this.tsmConfigurarGrid.Click += new System.EventHandler(this.tsmConfigurarGrid_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.IndianRed;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(28, 568);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(295, 72);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Tag = "AT";
+            this.btnSalir.Text = "&SALIR";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            // 
+            // lblTitulo2
+            // 
+            this.lblTitulo2.AutoSize = true;
+            this.lblTitulo2.Font = new System.Drawing.Font("Perpetua Titling MT", 15.85714F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTitulo2.Location = new System.Drawing.Point(94, 473);
+            this.lblTitulo2.Name = "lblTitulo2";
+            this.lblTitulo2.Size = new System.Drawing.Size(160, 44);
+            this.lblTitulo2.TabIndex = 6;
+            this.lblTitulo2.Text = "PEDIDO";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(123, 344);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(102, 70);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblTituloFormulario
+            // 
+            this.lblTituloFormulario.AutoSize = true;
+            this.lblTituloFormulario.Font = new System.Drawing.Font("Perpetua Titling MT", 15.85714F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloFormulario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTituloFormulario.Location = new System.Drawing.Point(94, 429);
+            this.lblTituloFormulario.Name = "lblTituloFormulario";
+            this.lblTituloFormulario.Size = new System.Drawing.Size(175, 44);
+            this.lblTituloFormulario.TabIndex = 5;
+            this.lblTituloFormulario.Text = "DETALLE";
             // 
             // FrmPedidoEdit
             // 
@@ -713,12 +764,15 @@
             this.Name = "FrmPedidoEdit";
             this.Text = "Pedidos";
             this.Load += new System.EventHandler(this.FrmPedidoEdit_Load);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidosEdit)).EndInit();
             this.cmsMenuColumnas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -774,8 +828,10 @@
         private System.Windows.Forms.Button btnBajar;
         private System.Windows.Forms.Button btnSubir;
         private System.Windows.Forms.ContextMenuStrip cmsMenuColumnas;
-        private System.Windows.Forms.ToolStripMenuItem tsmOrdenarAsc;
-        private System.Windows.Forms.ToolStripMenuItem tsmOrdenarDesc;
         private System.Windows.Forms.ToolStripMenuItem tsmConfigurarGrid;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lblTitulo2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblTituloFormulario;
     }
 }
