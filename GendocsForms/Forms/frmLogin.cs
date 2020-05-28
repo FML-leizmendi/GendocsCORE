@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GendocsController;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -33,8 +34,8 @@ namespace GendocsForms
             {
                 if (ValidarAcceso())
                 {
-                    Utiles.IdEmpleadoFML = CargarIdEmpleadoFML();
-                    Utiles.User = txtUsuario.Text;
+                    G3.IdEmpleadoFML_Logged = CargarIdEmpleadoFML();
+                    G3.UserLogged = txtUsuario.Text;
                     this.Close();
                 }
                 else

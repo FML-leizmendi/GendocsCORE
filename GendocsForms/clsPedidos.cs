@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GendocsForms
 {
-    public partial class clsPedidos
+    public partial class ClsPedidos
     {
         public int IdPedidoCab { get; set; }
         public string NumRef { get; set; }
@@ -42,6 +42,22 @@ namespace GendocsForms
             FrmPedidos frm = new FrmPedidos(this);
            // IdPedidoCab = lstId[0];
             frm.ShowDialog();
+        }
+
+        public void ProcesaTxt(String Texto)
+        {
+            try
+            {
+                FrmPedidosEntrantes frm = new FrmPedidosEntrantes();
+                if (frm.BuscaTXT(Texto, 1, "IBERDROLA DISTRIBUCION ELECTRICA, S.A.U.", 0, ""))
+                {
+                    IdCliente = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
         }
     }
 }

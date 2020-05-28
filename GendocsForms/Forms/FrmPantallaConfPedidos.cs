@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Windows;
+using GendocsController;
 
 namespace GendocsForms
 {
@@ -21,8 +22,8 @@ namespace GendocsForms
         #region "Eventos Privados"
         private void FrmPantallaConfPedidos_Load(object sender, EventArgs e)
         {
-            CargarListaDisponibles(Utiles.DimeIdColumnaC(Utiles.IdEmpleadoFML, NombreGrid));
-            CargarListaAsignadas(Utiles.DimeIdColumnaC(Utiles.IdEmpleadoFML, NombreGrid));
+            CargarListaDisponibles(G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid));
+            CargarListaAsignadas(G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid));
         }
 
 
@@ -51,8 +52,8 @@ namespace GendocsForms
                         db.SaveChanges();
                     }
 
-                    CargarListaDisponibles(Utiles.DimeIdColumnaC(Utiles.IdEmpleadoFML, NombreGrid));
-                    CargarListaAsignadas(Utiles.DimeIdColumnaC(Utiles.IdEmpleadoFML, NombreGrid));
+                    CargarListaDisponibles(G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid));
+                    CargarListaAsignadas(G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid));
                 }
             }
             catch (Exception ex)
@@ -84,8 +85,8 @@ namespace GendocsForms
                     db.SaveChanges();
                 }
 
-                CargarListaDisponibles(Utiles.DimeIdColumnaC(Utiles.IdEmpleadoFML, NombreGrid));
-                CargarListaAsignadas(Utiles.DimeIdColumnaC(Utiles.IdEmpleadoFML, NombreGrid));
+                CargarListaDisponibles(G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid));
+                CargarListaAsignadas(G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid));
             }
         }
 

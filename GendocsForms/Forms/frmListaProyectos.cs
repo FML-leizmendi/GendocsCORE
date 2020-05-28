@@ -1,4 +1,5 @@
-﻿using GendocsModeloDatos.models;
+﻿using GendocsController;
+using GendocsModeloDatos.models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,7 +41,7 @@ namespace GendocsForms
             {
                 if (dgvProyectos.CurrentRow != null)
                 {
-                    ClsProyecto clsProy = new ClsProyecto
+                    clsProyecto clsProy = new clsProyecto
                     {
                         IdProyecto = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["IdProyecto"].Value)
                     };
@@ -243,7 +244,7 @@ namespace GendocsForms
                 foreach (DataGridViewColumn itemCol in dgvProyectos.Columns)
                 {
                     var query = (from a in db.GdColumnasD
-                                 where a.IdColumnaC == Utiles.DimeIdColumnaC(Utiles.IdEmpleadoFML, NombreGrid) && a.NameField.Equals(itemCol.Name)
+                                 where a.IdColumnaC == G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid) && a.NameField.Equals(itemCol.Name)
                                  select a).ToList();
 
                     if (query.Count() > 0)
@@ -288,7 +289,7 @@ namespace GendocsForms
             List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
             try
             {
-                int numColC = Utiles.DimeIdColumnaC(IdEmpFML, NombreGrid);
+                int numColC = G3.DimeIdColumnaC(IdEmpFML, NombreGrid);
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 0, NameField = "IdProyectoEstado", Ancho = 0, OrderBy = "A", Visible = false });
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 1, NameField = "CodigoProyecto", Ancho = 145, OrderBy = "A", Visible = true });
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 2, NameField = "Alias", Ancho = 235, OrderBy = "A", Visible = true });
@@ -313,11 +314,11 @@ namespace GendocsForms
             try
             {
                 NombreGrid = this.dgvProyectos.Name;
-                IdEmpFML = Utiles.IdEmpleadoFML;
+                IdEmpFML = G3.IdEmpleadoFML_Logged;
                 List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
                 // Comprobamos si el usuario tiene registros guardados en la tabla ColumnaC, en caso de que no los guardamos
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                if (Utiles.DimeIdColumnaC(IdEmpFML, NombreGrid) == 0)
+                if (G3.DimeIdColumnaC(IdEmpFML, NombreGrid) == 0)
                 {
                     GdColumnasC colC = new GdColumnasC
                     {
@@ -370,10 +371,10 @@ namespace GendocsForms
                 else
                 {
                     var lstFiltro = (from a in db.GdColumnasD
-                                     where a.IdColumnaC == Utiles.DimeIdColumnaC(IdEmpFML, NombreGrid)
+                                     where a.IdColumnaC == G3.DimeIdColumnaC(IdEmpFML, NombreGrid)
                                      select a).ToList();
 
-                    if (lstFiltro.Count != 0)
+                    if (lstFiltro.Count() != 0)
                     {
                         foreach (var item in lstFiltro)
                         {
@@ -436,13 +437,13 @@ namespace GendocsForms
                                        select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
                                         ).ToList();
 
-                    DataTable dtFilrado = Utiles.ToDataTable(lstFiltrada);
+                    DataTable dtFilrado = FormUtiles.ToDataTable(lstFiltrada);
 
                     dgvProyectos.DataSource = dtFilrado;
                 }
                 else
                 {
-                    DataTable dt = Utiles.ToDataTable(lst);
+                    DataTable dt = FormUtiles.ToDataTable(lst);
                     dgvProyectos.DataSource = dt;
                 }
 

@@ -36,7 +36,7 @@ namespace GendocsForms
         {
             try
             {
-                clsPedidos clsPed = new clsPedidos();
+                ClsPedidos clsPed = new ClsPedidos();
                 List<int> miLista = new List<int>();
                 clsPed.lstId = miLista;
                 FrmCantidadRecursos frm = new FrmCantidadRecursos();

@@ -58,8 +58,7 @@ namespace GendocsForms
                     {
                         var param = prefijo + ctl.Name;
                         var esUser = Strings.InStr(ctl.Tag.ToString(), "paramUS") > 0;
-                        Boolean ok;
-                        var p = G3.GetParam(param, esUser, out ok);
+                        var p = G3.GetParam(param, esUser, out bool ok);
                         if (ok == false && esUser == true)
                         {
                             p = G3.GetParam(param, false, out ok);

@@ -27,7 +27,7 @@ namespace GendocsForms
         {
             try
             {
-                ClsEmp cEmp = new ClsEmp();
+                clsEmp cEmp = new clsEmp();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     var lst = (from d in db.GdEmpleados
@@ -37,7 +37,7 @@ namespace GendocsForms
 
                            ).ToList();
 
-                    cEmp.LstId = lst;
+                    cEmp.lstId = lst;
                     cEmp.CargarFrmEmpleados();
                 }
                 cmbClientes.SelectedIndex = -1;
@@ -61,16 +61,16 @@ namespace GendocsForms
                 //txtIntroduzcaTexto.Focus();
                 //CargarGrid();
 
-                ClsEmp cEmp = new ClsEmp
+                clsEmp cEmp = new clsEmp
                 {
                     EsAlta = true,
-                    EsNuevo = true
+                    esNuevo = true
                 };
                 cEmp.CargarFrmEmpleados2();
                 cmbClientes.SelectedIndex = -1;
                 txtIntroduzcaTexto.Text = string.Empty;
                 txtIntroduzcaTexto.Focus();
-                cEmp.EsNuevo = false;
+                cEmp.esNuevo = false;
                 CargarGrid();
             }
             catch (Exception ex)
@@ -83,7 +83,7 @@ namespace GendocsForms
         {
             try
             {
-                ClsEmp cEmp = new ClsEmp();
+                clsEmp cEmp = new clsEmp();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     List<int> miLista = new List<int>();
@@ -91,7 +91,7 @@ namespace GendocsForms
                     {
                         miLista.Add(Convert.ToInt32(dgvContactos.SelectedRows[i].Cells[0].Value.ToString()));
                     }
-                    cEmp.LstId = miLista.ToList();
+                    cEmp.lstId = miLista.ToList();
                     //int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
                     //if (IdCliente != 0)
                     //{
@@ -113,7 +113,7 @@ namespace GendocsForms
                     //     ).ToList();
                     //    cEmp.lstId = lst;
                     //}
-                    cEmp.EsNuevo = false;
+                    cEmp.esNuevo = false;
                     cEmp.CargarFrmEmpleados2();
                 }
                 cmbClientes.SelectedIndex = 0;
@@ -131,7 +131,7 @@ namespace GendocsForms
         {
             try
             {
-                ClsEmp cEmp = new ClsEmp();
+                clsEmp cEmp = new clsEmp();
                 DialogResult result = MessageBox.Show("¿Desea eliminar los contactos seleccionados?", "Contactos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
@@ -182,7 +182,7 @@ namespace GendocsForms
         {
             try
             {
-                ClsEmp cEmp = new ClsEmp();
+                clsEmp cEmp = new clsEmp();
                 using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 var lst = (from d in db.GdEmpleados
                            where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
@@ -190,7 +190,7 @@ namespace GendocsForms
 
                        ).ToList();
 
-                cEmp.LstId = lst;
+                cEmp.lstId = lst;
                 cEmp.CargarFrmEmpleados();
             }
             catch (Exception ex)

@@ -25,7 +25,7 @@ namespace GendocsForms.Forms
         {
             try
             {
-                ClsEmpFml cEmp = new ClsEmpFml();
+                clsEmpFml cEmp = new clsEmpFml();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     var lst = (from d in db.GdEmpleadosFml
@@ -34,7 +34,7 @@ namespace GendocsForms.Forms
 
                            ).ToList();
 
-                    cEmp.LstId = lst;
+                    cEmp.lstId = lst;
                     cEmp.CargarFrmEmpleadosFML();
                 }
                 CargarGrid();
@@ -64,7 +64,7 @@ namespace GendocsForms.Forms
         {
             try
             {
-                ClsEmpFml cEmp = new ClsEmpFml();
+                clsEmpFml cEmp = new clsEmpFml();
                 using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 var lst = (from d in db.GdEmpleadosFml
                            where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
@@ -72,7 +72,7 @@ namespace GendocsForms.Forms
 
                        ).ToList();
 
-                cEmp.LstId = lst;
+                cEmp.lstId = lst;
                 cEmp.CargarFrmEmpleadosFML();
             }
             catch (Exception ex)

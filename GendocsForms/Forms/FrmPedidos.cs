@@ -10,9 +10,9 @@ namespace GendocsForms
 {
     public partial class FrmPedidos : Form
     {
-        public clsPedidos CPed { get; set; }
+        public ClsPedidos CPed { get; set; }
 
-        public FrmPedidos(clsPedidos cped)
+        public FrmPedidos(ClsPedidos cped)
         {
             CPed = cped;
             InitializeComponent();
@@ -185,7 +185,7 @@ namespace GendocsForms
 
                     ).ToList();
 
-                DataTable dt = Utiles.ToDataTable(lst);
+                DataTable dt = FormUtiles.ToDataTable(lst);
 
                 dgvPedidos.DataSource = null;
                 dgvPedidos.DataSource = dt;
