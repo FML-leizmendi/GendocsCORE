@@ -25,7 +25,10 @@ namespace GendocsModeloDatos.models
                 //optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;User ID=Alex;Password=123456;database=GenDocs;");
                 //optionsBuilder.UseSqlServer("Server=PC-ALEXMOTA;Initial Catalog=GenDocs;Integrated Security=True;");
                 //optionsBuilder.UseSqlServer("Server=ZUBIXILEKO-PC\\SQLEXPRESS;database=GenDocs;Integrated Security=True;");
-                optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;Integrated Security=True;;database=GenDocs;");
+                //optionsBuilder.UseSqlServer("Server=DESKTOP-BGE7NFO;Integrated Security=True;database=GenDocs;");
+                string g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION",EnvironmentVariableTarget.User);
+                optionsBuilder.UseSqlServer(g3_connection);
+
 
             }
         }
