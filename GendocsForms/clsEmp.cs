@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace GendocsForms
 {
-    public class clsEmp
+    public class ClsEmp
     {
         public int IdEmpleado { get; set; }
         public string Empleado { get; set; }
@@ -18,14 +18,14 @@ namespace GendocsForms
         public string Telefono { get; set; }
         public string Email { get; set; }
         public string Etiquetas { get; set; }
-        public List<int> lstId { get; set; }
-        public bool esNuevo { get; set; } = false;
+        public List<int> LstId { get; set; }
+        public bool EsNuevo { get; set; } = false;
         public bool EsAlta { get; set; } = false;
 
         public void CargarFrmEmpleados()
         {
-            frmMantenimientoEmpleados frm = new frmMantenimientoEmpleados(this);
-            IdEmpleado = lstId[0];
+            FrmMantenimientoEmpleados frm = new FrmMantenimientoEmpleados(this);
+            IdEmpleado = LstId[0];
             CargarEmpleado();
             frm.ShowDialog();
         }
@@ -33,14 +33,14 @@ namespace GendocsForms
         public void CargarFrmEmpleados2()
         {
             FrmMantenimientoEmpleados2 frm = new FrmMantenimientoEmpleados2(this);
-            if (esNuevo)
+            if (EsNuevo)
             {
                 IdEmpleado = 0;
                 EsAlta = true;
             }
             else
             {
-                IdEmpleado = lstId[0];
+                IdEmpleado = LstId[0];
                 CargarEmpleado();
             }
             frm.ShowDialog();
@@ -57,40 +57,37 @@ namespace GendocsForms
 
         public void CargarEmpleado()
         {
-            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+            using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+            var lst = (from d in db.GdEmpleados
+                       where (d.IdEmpleado == this.IdEmpleado)
+                       select d
+
+                   ).ToList();
+
+            if (lst.Count() != 0)
             {
-                var lst = (from d in db.GdEmpleados
-                           where (d.IdEmpleado == this.IdEmpleado)
-                           select d
-
-                       ).ToList();
-
-                if (lst.Count() != 0)
+                foreach (var item in lst)
                 {
-                    foreach (var item in lst)
-                    {
-                        Empleado = item.Empleado;
-                        IdCliente = item.IdCliente;
-                        IdCargo = item.IdCargo;
-                        CodigoPersona = item.CodigoPersona;
-                        IdEmpleadoSuperior = item.IdEmpleadoSuperior;
-                        Telefono = item.Telefono;
-                        Email = item.Email;
-                        Etiquetas = item.Etiquetas;
-                    }
+                    Empleado = item.Empleado;
+                    IdCliente = item.IdCliente;
+                    IdCargo = item.IdCargo;
+                    CodigoPersona = item.CodigoPersona;
+                    IdEmpleadoSuperior = item.IdEmpleadoSuperior;
+                    Telefono = item.Telefono;
+                    Email = item.Email;
+                    Etiquetas = item.Etiquetas;
                 }
-                else
-                {
-                    Empleado = String.Empty;
-                    IdCliente = 0;
-                    IdCargo = 0;
-                    CodigoPersona = 0;
-                    IdEmpleadoSuperior = 0;
-                    Etiquetas = string.Empty;
-                    Email = string.Empty;
-                    Telefono = string.Empty;
-                }
-
+            }
+            else
+            {
+                Empleado = String.Empty;
+                IdCliente = 0;
+                IdCargo = 0;
+                CodigoPersona = 0;
+                IdEmpleadoSuperior = 0;
+                Etiquetas = string.Empty;
+                Email = string.Empty;
+                Telefono = string.Empty;
             }
         }
 
@@ -98,14 +95,12 @@ namespace GendocsForms
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    var lst = (from d in db.GdEmpleados
-                               where (d.IdEmpleado == this.IdEmpleado)
-                               select d.Etiquetas
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from d in db.GdEmpleados
+                           where (d.IdEmpleado == this.IdEmpleado)
+                           select d.Etiquetas
 
-                           ).ToList();
-                }
+                       ).ToList();
             }
             catch (Exception ex)
             {
@@ -118,13 +113,11 @@ namespace GendocsForms
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    var lst = (from d in db.GdEmpleados
-                               select d.Etiquetas
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from d in db.GdEmpleados
+                           select d.Etiquetas
 
-                           ).ToList();
-                }
+                       ).ToList();
             }
             catch (Exception ex)
             {
@@ -137,24 +130,22 @@ namespace GendocsForms
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                Etiquetas = string.Empty;
+
+                var lst = (from d in db.GdEmpleadosEtiquetas
+                           join f in db.GdEtiquetas
+                           on d.IdEtiqueta equals f.IdEtiqueta
+                           where d.IdEmpleado == IdEmpleado
+                           select new { f.Etiqueta }
+
+                              ).ToList();
+
+                foreach (var list in lst)
                 {
-                    Etiquetas = string.Empty;
-
-                    var lst = (from d in db.GdEmpleadosEtiquetas
-                               join f in db.GdEtiquetas
-                               on d.IdEtiqueta equals f.IdEtiqueta
-                               where d.IdEmpleado == IdEmpleado
-                               select new { f.Etiqueta }
-
-                                  ).ToList();
-
-                    foreach (var list in lst)
-                    {
-                        Etiquetas += list.Etiqueta + "~";
-                    }
-                    GuardarUsuario();
+                    Etiquetas += list.Etiqueta + "~";
                 }
+                GuardarUsuario();
             }
             catch (Exception ex)
             {
@@ -164,35 +155,35 @@ namespace GendocsForms
 
         public void IrSiguiente()
         {
-            int i = lstId.IndexOf(IdEmpleado);
+            int i = LstId.IndexOf(IdEmpleado);
 
-            if (i != -1 && i + 1 < lstId.Count())
+            if (i != -1 && i + 1 < LstId.Count())
             {
-                IdEmpleado = lstId[i + 1];
+                IdEmpleado = LstId[i + 1];
                 CargarEmpleado();
             }
         }
 
         public void IrAnterior()
         {
-            int i = lstId.IndexOf(IdEmpleado);
+            int i = LstId.IndexOf(IdEmpleado);
 
             if (i != -1 && i > 0)
             {
-                IdEmpleado = lstId[i - 1];
+                IdEmpleado = LstId[i - 1];
                 CargarEmpleado();
             }
         }
 
         public void IrPrimero()
         {
-            IdEmpleado = lstId[0];
+            IdEmpleado = LstId[0];
             CargarEmpleado();
         }
 
         public void IrUltimo()
         {
-            IdEmpleado = lstId[lstId.Count() - 1];
+            IdEmpleado = LstId.Count() - 1;
             CargarEmpleado();
         }
 
@@ -209,7 +200,7 @@ namespace GendocsForms
                                   select x;
 
                     db.GdEmpleados.RemoveRange(cSelect);
-                    lstId.Remove(IdEmpleado);
+                    LstId.Remove(IdEmpleado);
                     db.SaveChanges();
                 }
                 CargarEmpleado();
@@ -237,15 +228,17 @@ namespace GendocsForms
                     using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                         if (EsAlta)
                         {
-                            GdEmpleados Emp = new GdEmpleados();
-                            Emp.Empleado = Empleado;
-                            Emp.IdCliente = IdCliente;
-                            Emp.IdCargo = IdCargo;
-                            //Emp.CodigoPersona = CodigoPersona;
-                            Emp.IdEmpleadoSuperior = IdEmpleadoSuperior;
-                            Emp.Telefono = Telefono;
-                            Emp.Email = Email;
-                            Emp.Etiquetas = Etiquetas;
+                            GdEmpleados Emp = new GdEmpleados
+                            {
+                                Empleado = Empleado,
+                                IdCliente = IdCliente,
+                                IdCargo = IdCargo,
+                                //Emp.CodigoPersona = CodigoPersona;
+                                IdEmpleadoSuperior = IdEmpleadoSuperior,
+                                Telefono = Telefono,
+                                Email = Email,
+                                Etiquetas = Etiquetas
+                            };
 
                             db.GdEmpleados.Add(Emp);
                             db.SaveChanges();

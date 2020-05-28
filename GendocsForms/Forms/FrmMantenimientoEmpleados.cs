@@ -8,12 +8,12 @@ namespace GendocsForms
 {
     public partial class FrmMantenimientoEmpleados : Form
     {
-        public clsEmp CEmp { get; set; }
+        public ClsEmp CEmp { get; set; }
 
         public bool HanModificado = false;
 
         public 
-            FrmMantenimientoEmpleados(clsEmp cemp)
+            FrmMantenimientoEmpleados(ClsEmp cemp)
         {
             CEmp = cemp;
             InitializeComponent();
@@ -304,7 +304,7 @@ namespace GendocsForms
 
         private void BtnEtiquetas_Click(object sender, EventArgs e)
         {
-            clsEmp CEmp = new clsEmp
+            ClsEmp CEmp = new ClsEmp
             {
                 IdEmpleado = Int32.Parse(txtIdEmpleado.Text)
             };

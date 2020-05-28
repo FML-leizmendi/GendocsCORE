@@ -9,9 +9,9 @@ namespace GendocsForms
 {
     public partial class FrmEtiquetarEmpleado : Form
     {
-        public clsEmp CEmp { get; set; }
+        public ClsEmp CEmp { get; set; }
 
-        public FrmEtiquetarEmpleado(clsEmp cemp)
+        public FrmEtiquetarEmpleado(ClsEmp cemp)
         {
             CEmp = cemp;
             InitializeComponent();
