@@ -30,7 +30,8 @@ namespace GendocsForms
             }
             */
             //string text = System.IO.File.ReadAllText(@"C:\Users\Lorenzo\Desktop\basProcedures.txt");
-            //var i = GendocsController.G3.SetParam("Param Memo", false, text, 12) ;
+            bool ok;
+            var i = GendocsController.G3.GetParam("xxxxx", false,out ok  ) ;
             
             //Console.WriteLine();
             //Console.WriteLine("GetEnvironmentVariables: ");
@@ -42,7 +43,7 @@ namespace GendocsForms
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (Gdf.Login())
+            if (G3Forms.Login())
             {
                 //MessageBox.Show("OK!","Acceso correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 FrmMDIGd frmMDI = new FrmMDIGd();

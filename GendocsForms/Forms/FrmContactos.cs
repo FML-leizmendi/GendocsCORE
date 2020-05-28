@@ -21,7 +21,7 @@ namespace GendocsForms.Forms
             CargarComboClientes();
             CargarGrid();
             FormatearGrid();
-            G3Forms.CargarParam(this, this.Name);
+            G3Forms.CargarParam(this , this.Name);
             txtIntroduzcaTexto.Focus();
         }
 

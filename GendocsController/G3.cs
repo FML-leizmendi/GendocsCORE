@@ -18,7 +18,8 @@ namespace GendocsController
         public static object GetParam(string paramName, bool isUserParam, out bool ok, bool isSystemUserParam = false, int tipoDato=10)
         {
             if (isUserParam) paramName = paramName + "_" + UserLogged;
-            if (isSystemUserParam) paramName = paramName + "_" + Environment.GetEnvironmentVariable("USERNAME");
+            //if (isSystemUserParam) paramName = paramName + "_" + Environment.GetEnvironmentVariable("MACHINENAME") + "_" + Environment.GetEnvironmentVariable("USERNAME");
+            if (isSystemUserParam) paramName = paramName + "_" + Environment.MachineName + "_" + Environment.UserName;
             try
             {
                 using G3ParamContext db = new G3ParamContext();
@@ -40,6 +41,7 @@ namespace GendocsController
             catch (Exception ex)
             {
                 string mensaje = ex.Message;
+                System.Diagnostics.Debug.WriteLine(mensaje);
             }
             ok = false;
             return tipoDato switch
@@ -53,12 +55,10 @@ namespace GendocsController
                 _ => "",
             };
         }
-        public static bool SetParam(string paramName, bool isUserParam, object valorParam, int ?tipoDato = 10)
+        public static bool SetParam(string paramName, bool isUserParam, object valorParam, bool isSystemUserParam = false, int tipoDato = 10)
         {
-            if (isUserParam)
-            {
-                paramName = paramName + "_" + UserLogged;
-            }
+            if (isUserParam) paramName = paramName + "_" + UserLogged;
+            if (isSystemUserParam) paramName = paramName + "_" + Environment.MachineName + "_" + Environment.UserName;
             try
             {
                 
@@ -109,6 +109,7 @@ namespace GendocsController
             catch (Exception ex)
             {
                 string mensaje = ex.Message;
+                Console.WriteLine(mensaje);
             }
             return false;
         }

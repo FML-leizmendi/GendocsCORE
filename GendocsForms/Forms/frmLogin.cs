@@ -70,10 +70,17 @@ namespace GendocsForms
         private void frmLogin_Load(object sender, EventArgs e)
         {
             bool ok;
+            this.chkRecordarUsuario.Checked = (bool)G3.GetParam("frmLogin_chkRecordarUsuario", false, out ok,  true, 1);
             this.txtUsuario.Text = G3.GetParam("frmLogin_txtUsuario", false, out ok, true).ToString();
             this.txtContraseña.Text = G3.GetParam("frmLogin_txtContraseña", false, out ok, true).ToString();
             User = this.txtUsuario.Text;
             Pass = this.txtContraseña.Text;
+        }
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            G3.SetParam("frmLogin_txtUsuario", false, this.chkRecordarUsuario.Checked ? this.txtUsuario.Text : "", true, 10);
+            G3.SetParam("frmLogin_txtContraseña", false, this.chkRecordarUsuario.Checked ? this.txtContraseña.Text : "", true, 10);
+            G3.SetParam("frmLogin_chkRecordarUsuario", false, this.chkRecordarUsuario.Checked, true, 1);
         }
     }
 }
