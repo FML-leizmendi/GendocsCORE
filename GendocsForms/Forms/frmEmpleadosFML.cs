@@ -14,18 +14,18 @@ namespace GendocsForms.Forms
         }
 
         #region "Eventos Privados"
-        private void frmEmpleadosFML_Load(object sender, EventArgs e)
+        private void FrmEmpleadosFML_Load(object sender, EventArgs e)
         {
             CargarGrid();
             FormatearGrid();
             txtIntroduzcaTexto.Focus();
         }
 
-        private void btnEditarEmpleado_Click(object sender, EventArgs e)
+        private void BtnEditarEmpleado_Click(object sender, EventArgs e)
         {
             try
             {
-                clsEmpFml cEmp = new clsEmpFml();
+                ClsEmpFml cEmp = new ClsEmpFml();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     var lst = (from d in db.GdEmpleadosFml
@@ -34,18 +34,18 @@ namespace GendocsForms.Forms
 
                            ).ToList();
 
-                    cEmp.lstId = lst;
+                    cEmp.LstId = lst;
                     cEmp.CargarFrmEmpleadosFML();
                 }
                 CargarGrid();
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
         {
             try
             {
@@ -56,34 +56,32 @@ namespace GendocsForms.Forms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                clsEmpFml cEmp = new clsEmpFml();
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    var lst = (from d in db.GdEmpleadosFml
-                               where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
-                               select d.IdEmpleadoFml
+                ClsEmpFml cEmp = new ClsEmpFml();
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from d in db.GdEmpleadosFml
+                           where (d.Nombre.Contains(txtIntroduzcaTexto.Text) || d.Apellidos.Contains(txtIntroduzcaTexto.Text))
+                           select d.IdEmpleadoFml
 
-                           ).ToList();
+                       ).ToList();
 
-                    cEmp.lstId = lst;
-                    cEmp.CargarFrmEmpleadosFML();
-                }
+                cEmp.LstId = lst;
+                cEmp.CargarFrmEmpleadosFML();
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void dgvEmpleados_CurrentCellChanged(object sender, EventArgs e)
+        private void DgvEmpleados_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgvEmpleados.CurrentRow != null)
             {
@@ -125,7 +123,7 @@ namespace GendocsForms.Forms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -134,27 +132,25 @@ namespace GendocsForms.Forms
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    var lst = (from a in db.GdEmpleadosFml
-                               where (a.Nombre.Contains(TextoIntroducido) || a.Apellidos.Contains(TextoIntroducido))
-                               select a
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from a in db.GdEmpleadosFml
+                           where (a.Nombre.Contains(TextoIntroducido) || a.Apellidos.Contains(TextoIntroducido))
+                           select a
 
-                           ).ToList();
+                       ).ToList();
 
-                    dgvEmpleados.DataSource = lst;
-                }
+                dgvEmpleados.DataSource = lst;
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
         #endregion
 
         #region "Control de evenetos"
-        private void txtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
+        private void TxtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
         {
             CargarGrid(txtIntroduzcaTexto.Text);
         }

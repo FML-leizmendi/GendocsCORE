@@ -97,7 +97,7 @@
             this.btnUltimo.Size = new System.Drawing.Size(35, 35);
             this.btnUltimo.TabIndex = 7;
             this.btnUltimo.UseVisualStyleBackColor = false;
-            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
+            this.btnUltimo.Click += new System.EventHandler(this.BtnUltimo_Click);
             // 
             // btnSiguiente
             // 
@@ -113,7 +113,7 @@
             this.btnSiguiente.Size = new System.Drawing.Size(35, 35);
             this.btnSiguiente.TabIndex = 6;
             this.btnSiguiente.UseVisualStyleBackColor = false;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            this.btnSiguiente.Click += new System.EventHandler(this.BtnSiguiente_Click);
             // 
             // btnAnterior
             // 
@@ -129,7 +129,7 @@
             this.btnAnterior.Size = new System.Drawing.Size(35, 35);
             this.btnAnterior.TabIndex = 5;
             this.btnAnterior.UseVisualStyleBackColor = false;
-            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            this.btnAnterior.Click += new System.EventHandler(this.BtnAnterior_Click);
             // 
             // btnPrimero
             // 
@@ -145,7 +145,7 @@
             this.btnPrimero.Size = new System.Drawing.Size(35, 35);
             this.btnPrimero.TabIndex = 4;
             this.btnPrimero.UseVisualStyleBackColor = false;
-            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
+            this.btnPrimero.Click += new System.EventHandler(this.BtnPrimero_Click);
             // 
             // flpBotonera
             // 
@@ -172,7 +172,7 @@
             this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnSalir
             // 
@@ -187,7 +187,7 @@
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // grbEmpleadoFML
             // 
@@ -231,7 +231,7 @@
             this.cmbJefes.Name = "cmbJefes";
             this.cmbJefes.Size = new System.Drawing.Size(283, 25);
             this.cmbJefes.TabIndex = 10;
-            this.cmbJefes.SelectedIndexChanged += new System.EventHandler(this.cmbJefes_SelectedIndexChanged);
+            this.cmbJefes.SelectedIndexChanged += new System.EventHandler(this.CmbJefes_SelectedIndexChanged);
             // 
             // lblCargo
             // 
@@ -259,7 +259,7 @@
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(198, 25);
             this.cmbClientes.TabIndex = 6;
-            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.CmbClientes_SelectedIndexChanged);
             // 
             // cmbCargo
             // 
@@ -269,7 +269,7 @@
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(265, 25);
             this.cmbCargo.TabIndex = 8;
-            this.cmbCargo.SelectedIndexChanged += new System.EventHandler(this.cmbCargo_SelectedIndexChanged);
+            this.cmbCargo.SelectedIndexChanged += new System.EventHandler(this.CmbCargo_SelectedIndexChanged);
             // 
             // btnEtiquetas
             // 
@@ -279,7 +279,7 @@
             this.btnEtiquetas.Size = new System.Drawing.Size(37, 20);
             this.btnEtiquetas.TabIndex = 15;
             this.btnEtiquetas.UseVisualStyleBackColor = true;
-            this.btnEtiquetas.Click += new System.EventHandler(this.btnEtiquetas_Click);
+            this.btnEtiquetas.Click += new System.EventHandler(this.BtnEtiquetas_Click);
             // 
             // txtIdEmpleado
             // 
@@ -312,7 +312,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(313, 20);
             this.txtEmail.TabIndex = 12;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.TextChanged += new System.EventHandler(this.TxtEmail_TextChanged);
             // 
             // lblEmail
             // 
@@ -329,7 +329,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(313, 20);
             this.txtTelefono.TabIndex = 4;
-            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.TextChanged += new System.EventHandler(this.TxtTelefono_TextChanged);
             // 
             // lblTelefono
             // 
@@ -346,7 +346,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(435, 20);
             this.txtNombre.TabIndex = 2;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.TextChanged += new System.EventHandler(this.TxtNombre_TextChanged);
             // 
             // lblNombre
             // 

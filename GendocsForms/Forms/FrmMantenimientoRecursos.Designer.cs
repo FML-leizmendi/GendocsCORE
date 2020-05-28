@@ -86,7 +86,7 @@
             this.btnUltimo.Size = new System.Drawing.Size(32, 36);
             this.btnUltimo.TabIndex = 3;
             this.btnUltimo.UseVisualStyleBackColor = false;
-            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click_1);
+            this.btnUltimo.Click += new System.EventHandler(this.BtnUltimo_Click_1);
             // 
             // btnSiguiente
             // 
@@ -103,7 +103,7 @@
             this.btnSiguiente.Size = new System.Drawing.Size(32, 36);
             this.btnSiguiente.TabIndex = 2;
             this.btnSiguiente.UseVisualStyleBackColor = false;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click_1);
+            this.btnSiguiente.Click += new System.EventHandler(this.BtnSiguiente_Click_1);
             // 
             // btnAnterior
             // 
@@ -120,7 +120,7 @@
             this.btnAnterior.Size = new System.Drawing.Size(32, 36);
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.UseVisualStyleBackColor = false;
-            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click_1);
+            this.btnAnterior.Click += new System.EventHandler(this.BtnAnterior_Click_1);
             // 
             // flpBotonera
             // 
@@ -149,7 +149,7 @@
             this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnSalir
             // 
@@ -165,7 +165,7 @@
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // btnPrimero
             // 
@@ -182,7 +182,7 @@
             this.btnPrimero.Size = new System.Drawing.Size(32, 36);
             this.btnPrimero.TabIndex = 0;
             this.btnPrimero.UseVisualStyleBackColor = false;
-            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click_1);
+            this.btnPrimero.Click += new System.EventHandler(this.BtnPrimero_Click_1);
             // 
             // lblCodRecurso
             // 
@@ -202,7 +202,7 @@
             this.txtCodRecurso.Name = "txtCodRecurso";
             this.txtCodRecurso.Size = new System.Drawing.Size(166, 20);
             this.txtCodRecurso.TabIndex = 1;
-            this.txtCodRecurso.TextChanged += new System.EventHandler(this.txtCodRecurso_TextChanged);
+            this.txtCodRecurso.TextChanged += new System.EventHandler(this.TxtCodRecurso_TextChanged);
             // 
             // cmbProhibido
             // 
@@ -213,7 +213,7 @@
             this.cmbProhibido.Name = "cmbProhibido";
             this.cmbProhibido.Size = new System.Drawing.Size(77, 25);
             this.cmbProhibido.TabIndex = 13;
-            this.cmbProhibido.SelectedIndexChanged += new System.EventHandler(this.cmbProhibido_SelectedIndexChanged);
+            this.cmbProhibido.SelectedIndexChanged += new System.EventHandler(this.CmbProhibido_SelectedIndexChanged);
             // 
             // lblProhibido
             // 
@@ -244,7 +244,7 @@
             this.txtRecContratacion.Name = "txtRecContratacion";
             this.txtRecContratacion.Size = new System.Drawing.Size(336, 20);
             this.txtRecContratacion.TabIndex = 3;
-            this.txtRecContratacion.TextChanged += new System.EventHandler(this.txtRecContratacion_TextChanged);
+            this.txtRecContratacion.TextChanged += new System.EventHandler(this.TxtRecContratacion_TextChanged);
             // 
             // grbRecursos
             // 
@@ -280,7 +280,7 @@
             this.cmbUnidad.Name = "cmbUnidad";
             this.cmbUnidad.Size = new System.Drawing.Size(77, 25);
             this.cmbUnidad.TabIndex = 5;
-            this.cmbUnidad.SelectedIndexChanged += new System.EventHandler(this.cmbUnidad_SelectedIndexChanged);
+            this.cmbUnidad.SelectedIndexChanged += new System.EventHandler(this.CmbUnidad_SelectedIndexChanged);
             // 
             // txtCosteTotal
             // 
@@ -289,7 +289,7 @@
             this.txtCosteTotal.Name = "txtCosteTotal";
             this.txtCosteTotal.Size = new System.Drawing.Size(166, 20);
             this.txtCosteTotal.TabIndex = 11;
-            this.txtCosteTotal.TextChanged += new System.EventHandler(this.txtCosteTotal_TextChanged);
+            this.txtCosteTotal.TextChanged += new System.EventHandler(this.TxtCosteTotal_TextChanged);
             // 
             // lblCosteTotal
             // 
@@ -309,8 +309,8 @@
             this.txtCosteMateriales.Name = "txtCosteMateriales";
             this.txtCosteMateriales.Size = new System.Drawing.Size(166, 20);
             this.txtCosteMateriales.TabIndex = 9;
-            this.txtCosteMateriales.TextChanged += new System.EventHandler(this.txtCosteMateriales_TextChanged);
-            this.txtCosteMateriales.Leave += new System.EventHandler(this.txtCosteMateriales_Leave);
+            this.txtCosteMateriales.TextChanged += new System.EventHandler(this.TxtCosteMateriales_TextChanged);
+            this.txtCosteMateriales.Leave += new System.EventHandler(this.TxtCosteMateriales_Leave);
             // 
             // lblCosteMateriales
             // 
@@ -330,7 +330,7 @@
             this.txtCosteManoObra.Name = "txtCosteManoObra";
             this.txtCosteManoObra.Size = new System.Drawing.Size(166, 20);
             this.txtCosteManoObra.TabIndex = 7;
-            this.txtCosteManoObra.TextChanged += new System.EventHandler(this.txtCosteManoObra_TextChanged);
+            this.txtCosteManoObra.TextChanged += new System.EventHandler(this.TxtCosteManoObra_TextChanged);
             // 
             // lblCosteManoDeObra
             // 

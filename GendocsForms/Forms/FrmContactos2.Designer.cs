@@ -82,7 +82,7 @@
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // btnEliminarEmpleado
             // 
@@ -98,7 +98,7 @@
             this.btnEliminarEmpleado.TabIndex = 2;
             this.btnEliminarEmpleado.Text = "ELIMINAR";
             this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
-            this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
+            this.btnEliminarEmpleado.Click += new System.EventHandler(this.BtnEliminarEmpleado_Click);
             // 
             // btnModificar
             // 
@@ -114,7 +114,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // grbEmpleados
             // 
@@ -148,7 +148,7 @@
             this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.TabIndex = 7;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
             // 
             // cmbClientes
             // 
@@ -158,7 +158,7 @@
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(180, 25);
             this.cmbClientes.TabIndex = 3;
-            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.CmbClientes_SelectedIndexChanged);
             // 
             // lblCliente
             // 
@@ -177,7 +177,7 @@
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
             this.txtIntroduzcaTexto.Size = new System.Drawing.Size(256, 23);
             this.txtIntroduzcaTexto.TabIndex = 1;
-            this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
+            this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.TxtIntroduzcaTexto_TextChanged);
             // 
             // lblTexto
             // 
@@ -205,8 +205,8 @@
             this.dgvContactos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContactos.Size = new System.Drawing.Size(905, 428);
             this.dgvContactos.TabIndex = 3;
-            this.dgvContactos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContactos_CellContentDoubleClick);
-            this.dgvContactos.CurrentCellChanged += new System.EventHandler(this.dgvContactos_CurrentCellChanged);
+            this.dgvContactos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvContactos_CellContentDoubleClick);
+            this.dgvContactos.CurrentCellChanged += new System.EventHandler(this.DgvContactos_CurrentCellChanged);
             // 
             // pnlBotonera
             // 

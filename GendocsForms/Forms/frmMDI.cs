@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace GendocsForms
 {
-    public partial class frmMDI : Form
+    public partial class FrmMDI : Form
     {
-        public frmMDI()
+        public FrmMDI()
         {
             InitializeComponent();
         }
 
-        private void frmMDI_Load(object sender, EventArgs e)
+        private void FrmMDI_Load(object sender, EventArgs e)
         {
             frmLogin frm = new frmLogin();
             frm.ShowDialog();

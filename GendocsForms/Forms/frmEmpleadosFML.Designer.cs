@@ -81,7 +81,7 @@
             this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.TabIndex = 7;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
             // 
             // txtIntroduzcaTexto
             // 
@@ -90,7 +90,7 @@
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
             this.txtIntroduzcaTexto.Size = new System.Drawing.Size(287, 23);
             this.txtIntroduzcaTexto.TabIndex = 1;
-            this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
+            this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.TxtIntroduzcaTexto_TextChanged);
             // 
             // lblTexto
             // 
@@ -117,8 +117,8 @@
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(998, 589);
             this.dgvEmpleados.TabIndex = 3;
-            this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
-            this.dgvEmpleados.CurrentCellChanged += new System.EventHandler(this.dgvEmpleados_CurrentCellChanged);
+            this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmpleados_CellDoubleClick);
+            this.dgvEmpleados.CurrentCellChanged += new System.EventHandler(this.DgvEmpleados_CurrentCellChanged);
             // 
             // btnEditarEmpleado
             // 
@@ -134,7 +134,7 @@
             this.btnEditarEmpleado.TabIndex = 0;
             this.btnEditarEmpleado.Text = "EDITAR";
             this.btnEditarEmpleado.UseVisualStyleBackColor = false;
-            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
+            this.btnEditarEmpleado.Click += new System.EventHandler(this.BtnEditarEmpleado_Click);
             // 
             // btnConsultarEmpleado
             // 
@@ -174,7 +174,7 @@
             this.Controls.Add(this.pnlCabercera);
             this.Name = "frmEmpleadosFML";
             this.Text = "Empleados FML";
-            this.Load += new System.EventHandler(this.frmEmpleadosFML_Load);
+            this.Load += new System.EventHandler(this.FrmEmpleadosFML_Load);
             this.grbEmpleados.ResumeLayout(false);
             this.grbEmpleados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();

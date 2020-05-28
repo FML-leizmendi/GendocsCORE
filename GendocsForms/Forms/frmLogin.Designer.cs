@@ -87,23 +87,24 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(354, 20);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
+            this.txtUsuario.Text = "amota";
+            this.txtUsuario.TextChanged += new System.EventHandler(this.TxtUsuario_TextChanged);
             // 
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(92, 126);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(354, 20);
             this.txtContraseña.TabIndex = 4;
-            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
+            this.txtContraseña.Text = "123456";
+            this.txtContraseña.TextChanged += new System.EventHandler(this.TxtContraseña_TextChanged);
             // 
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(92, 199);
             this.btnAceptar.Name = "btnAceptar";
@@ -111,12 +112,12 @@
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // chkRecordarUsuario
             // 
             this.chkRecordarUsuario.AutoSize = true;
-            this.chkRecordarUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.chkRecordarUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkRecordarUsuario.ForeColor = System.Drawing.Color.Black;
             this.chkRecordarUsuario.Location = new System.Drawing.Point(92, 155);
             this.chkRecordarUsuario.Name = "chkRecordarUsuario";
@@ -124,7 +125,7 @@
             this.chkRecordarUsuario.TabIndex = 5;
             this.chkRecordarUsuario.Text = "Recordar Usuario";
             this.chkRecordarUsuario.UseVisualStyleBackColor = true;
-            this.chkRecordarUsuario.CheckedChanged += new System.EventHandler(this.chkRecordarUsuario_CheckedChanged);
+            this.chkRecordarUsuario.CheckedChanged += new System.EventHandler(this.ChkRecordarUsuario_CheckedChanged);
             // 
             // panel1
             // 
@@ -151,7 +152,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.Gray;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(271, 199);
             this.btnCancelar.Name = "btnCancelar";
@@ -159,7 +160,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // frmLogin
             // 
@@ -183,8 +184,6 @@
             this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

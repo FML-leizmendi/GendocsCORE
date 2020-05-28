@@ -21,12 +21,12 @@ namespace GendocsForms
            
         }
  
-        private void txtCantidadRecursos_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtCantidadRecursos_KeyPress(object sender, KeyPressEventArgs e)
         {
-           FormUtiles.SoloNumeros(e);
+           Utiles.SoloNumeros(e);
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void BtnAceptar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
     }

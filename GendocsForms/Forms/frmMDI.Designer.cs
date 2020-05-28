@@ -1,6 +1,6 @@
 ﻿namespace GendocsForms
 {
-    partial class frmMDI
+    partial class FrmMDI
     {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,7 @@
             this.Name = "frmMDI";
             this.Text = "frmMDI";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmMDI_Load);
+            this.Load += new System.EventHandler(this.FrmMDI_Load);
             this.ResumeLayout(false);
 
         }

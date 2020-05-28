@@ -78,7 +78,7 @@
             this.txtCantidadRecursos.Name = "txtCantidadRecursos";
             this.txtCantidadRecursos.Size = new System.Drawing.Size(182, 29);
             this.txtCantidadRecursos.TabIndex = 3;
-            this.txtCantidadRecursos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadRecursos_KeyPress);
+            this.txtCantidadRecursos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadRecursos_KeyPress);
             // 
             // btnAceptar
             // 
@@ -94,7 +94,7 @@
             this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // FrmCantidadRecursos
             // 

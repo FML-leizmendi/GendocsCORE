@@ -12,46 +12,35 @@ namespace GendocsForms
             InitializeComponent();
         }
 
-        private void btnCerrarForm_Click(object sender, EventArgs e)
+        private void BtnCerrarForm_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnExpedientes_Click(object sender, EventArgs e)
+        private void BtnExpedientes_Click(object sender, EventArgs e)
         {
             FrmListaProyectos frm = new FrmListaProyectos();
-            FrmMDIGd frmMDI = new FrmMDIGd();
+            _ = new FrmMDIGd();
             frm.MdiParent = this.MdiParent;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
             // this.Hide();
         }
 
-        private void btnPedidos_Click(object sender, EventArgs e)
+        private void BtnPedidos_Click(object sender, EventArgs e)
         {
             //frmPoblaciones frm = new frmPoblaciones();
             //frm.Show();
             //IdAcceso();
-            FrmPedidos frm = new FrmPedidos();
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
+            FrmPedidos frm = new FrmPedidos
+            {
+                MdiParent = this.MdiParent,
+                WindowState = FormWindowState.Maximized
+            };
             frm.Show();
 
             //clsPedidos clsPedido = new clsPedidos();
             //clsPedido.CargarFrmPedidos();
-
-        }
-
-        private void IdAcceso()
-        {
-            int IdPoblacion = 0;
-            frmPoblaciones frm = new frmPoblaciones();
-            frm.ShowDialog();
-            IdPoblacion = frm.IdPoblacion;
-            frm.Dispose();
-            MessageBox.Show("El idPoblacion dentro del acceso es :" + IdPoblacion);
-
-            //return IdPoblacion;
 
         }
 
@@ -63,52 +52,65 @@ namespace GendocsForms
             //}
         }
 
-        private void btnFmlStaff_Click(object sender, EventArgs e)
+        private void BtnFmlStaff_Click(object sender, EventArgs e)
         {
-            frmEmpleadosFML frm = new frmEmpleadosFML();
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
+            frmEmpleadosFML frm = new frmEmpleadosFML
+            {
+                MdiParent = this.MdiParent,
+                WindowState = FormWindowState.Maximized
+            };
             frm.Show();
         }
 
-        private void btnContactos_Click(object sender, EventArgs e)
+        private void BtnContactos_Click(object sender, EventArgs e)
         {
-            FrmContactos frm = new FrmContactos();
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
+            FrmContactos frm = new FrmContactos
+            {
+                MdiParent = this.MdiParent,
+                WindowState = FormWindowState.Maximized
+            };
             frm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            FrmContactos2 frm = new FrmContactos2();
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
+            FrmContactos2 frm = new FrmContactos2
+            {
+                MdiParent = this.MdiParent,
+                WindowState = FormWindowState.Maximized
+            };
             frm.Show();
         }
 
-        private void btnRecursos_Click(object sender, EventArgs e)
+        private void BtnRecursos_Click(object sender, EventArgs e)
         {
-            FrmRecursos frm = new FrmRecursos();
-           // frm.EsEdicion = true;
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
+            FrmRecursos frm = new FrmRecursos
+            {
+                // frm.EsEdicion = true;
+                MdiParent = this.MdiParent,
+                WindowState = FormWindowState.Maximized
+            };
             frm.Show();
         }
 
      
-        private void btnAgenda_Click(object sender, EventArgs e)
+        private void BtnAgenda_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Process.Start("https://trello.com");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnLeerPedidos_Click(object sender, EventArgs e)
         {
-            //FrmUnidadesConstructivas frm = new FrmUnidadesConstructivas();
-            //frm.ShowDialog();
+            try
+            {
+                FrmPedidosEntrantes frm = new FrmPedidosEntrantes();
+                frm.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                _ = ex.Message;
+            }
 
-            frmPoblaciones frm = new frmPoblaciones();
-            frm.ShowDialog();
         }
     }
 }
