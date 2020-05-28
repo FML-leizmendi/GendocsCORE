@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GendocsController;
+using System.Collections;
 
 namespace GendocsForms
 {
@@ -27,6 +29,16 @@ namespace GendocsForms
                 }
             }
             */
+            //string text = System.IO.File.ReadAllText(@"C:\Users\Lorenzo\Desktop\basProcedures.txt");
+            //var i = GendocsController.G3.SetParam("Param Memo", false, text, 12) ;
+            
+            //Console.WriteLine();
+            //Console.WriteLine("GetEnvironmentVariables: ");
+            //foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+            //    Console.WriteLine("  {0} = {1}", de.Key, de.Value);
+            //Console.ReadLine();
+            //return;
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

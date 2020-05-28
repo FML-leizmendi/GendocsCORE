@@ -21,6 +21,7 @@ namespace GendocsForms.Forms
             CargarComboClientes();
             CargarGrid();
             FormatearGrid();
+            G3Forms.CargarParam(this, this.Name);
             txtIntroduzcaTexto.Focus();
         }
 
@@ -213,6 +214,11 @@ namespace GendocsForms.Forms
         private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
+        }
+
+        private void FrmContactos_Leave(object sender, EventArgs e)
+        {
+            G3Forms.GrabarParam(this, this.Name);
         }
     }
 }

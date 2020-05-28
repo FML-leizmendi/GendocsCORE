@@ -23,7 +23,7 @@ namespace GendocsForms
  
         private void txtCantidadRecursos_KeyPress(object sender, KeyPressEventArgs e)
         {
-           Utiles.SoloNumeros(e);
+           FormUtiles.SoloNumeros(e);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

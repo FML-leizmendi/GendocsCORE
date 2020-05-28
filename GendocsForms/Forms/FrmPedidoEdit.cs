@@ -129,7 +129,7 @@ namespace GendocsForms
                     //                          where a.IdPedidoCab == IdPedidoCab
                     //                          select a).ToList();
 
-                    DataTable dt = Utiles.ToDataTable(lst); // TODO CARGAR EL DATASOURCE CON UN DATATABLE
+                    DataTable dt = FormUtiles.ToDataTable(lst); // TODO CARGAR EL DATASOURCE CON UN DATATABLE
 
                     dgvPedidosEdit.DataSource = dt;
                 }

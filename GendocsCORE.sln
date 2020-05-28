@@ -15,10 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		WindowsFormsApp1\WindowsFormsApp1.csproj = WindowsFormsApp1\WindowsFormsApp1.csproj
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GendocsConexionADONET", "GendocsADONET\GendocsConexionADONET.csproj", "{1DCFA762-76FA-4435-A644-94DDE3CBAAE1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{CF266B66-9EF7-42CE-B7EE-CC0CDA4CB634}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,14 +33,6 @@ Global
 		{E87F060E-70DC-40D8-8108-33A540E2BFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E87F060E-70DC-40D8-8108-33A540E2BFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E87F060E-70DC-40D8-8108-33A540E2BFAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DCFA762-76FA-4435-A644-94DDE3CBAAE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DCFA762-76FA-4435-A644-94DDE3CBAAE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DCFA762-76FA-4435-A644-94DDE3CBAAE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DCFA762-76FA-4435-A644-94DDE3CBAAE1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF266B66-9EF7-42CE-B7EE-CC0CDA4CB634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF266B66-9EF7-42CE-B7EE-CC0CDA4CB634}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF266B66-9EF7-42CE-B7EE-CC0CDA4CB634}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF266B66-9EF7-42CE-B7EE-CC0CDA4CB634}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

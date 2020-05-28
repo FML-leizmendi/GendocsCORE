@@ -95,7 +95,7 @@ namespace GendocsForms
 
                         ).ToList();
 
-                    DataTable dt = Utiles.ToDataTable(lst);
+                    DataTable dt = FormUtiles.ToDataTable(lst);
 
                     dgvPedidos.DataSource = null;
                     dgvPedidos.DataSource = dt;

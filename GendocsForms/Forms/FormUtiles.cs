@@ -1,23 +1,17 @@
-﻿using GendocsModeloDatos.models;
-using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Windows.Forms;
 
 namespace GendocsForms
 {
-
-   static public class Utiles
+    static public class FormUtiles
     {
-
-        //función
         public static bool IsOpenForm(string frmName)
         {
             if (Application.OpenForms[frmName] != null)
@@ -25,24 +19,6 @@ namespace GendocsForms
                 return true;
             }
             return false;
-        }
-
-        // Funcion que abre cualquier tipo de archivo, pasándole la ruta en la que se encuentre
-        public static void AbrirArchivo(String ruta)
-        {
-            try
-            {
-                var p = new Process();
-                p.StartInfo = new ProcessStartInfo(ruta)
-                {
-                    UseShellExecute = true
-                };
-                p.Start();
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
         }
 
         // Función para validar que solo se puede introducir números en un textbox
@@ -64,10 +40,9 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
-
         public static DataTable ToDataTable<T>(this IList<T> data)
         {
             PropertyDescriptorCollection properties =
@@ -84,5 +59,6 @@ namespace GendocsForms
             }
             return table;
         }
+
     }
 }

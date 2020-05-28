@@ -8,14 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GendocsController;
 
 namespace GendocsForms
 {
     public partial class frmLogin : Form
     {
-        public string pass { get; set; }
+        public string Pass { get; set; }
 
-        public string user { get; set; }
+        public string User { get; set; }
+        public bool Recordar { get; set; }
         public frmLogin()
         {
             InitializeComponent();
@@ -35,10 +37,7 @@ namespace GendocsForms
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-          
-            this.Close();
-            //FrmMDIGd frm = new FrmMDIGd();
-            //frm.Show();
+            this.Visible=false;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -48,39 +47,33 @@ namespace GendocsForms
         private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
             txtContraseña.PasswordChar = '*';
-            if (txtContraseña.Text is null)
-            {
-                pass = "";
-            }
-            else
-            {
-                pass = txtContraseña.Text;
-            }
-
+            Pass = txtContraseña.Text == null? "": txtContraseña.Text;
         }
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
-            if (txtUsuario.Text is null)
-            {
-                user = "";
-            }
-            else
-            {
-                user = txtUsuario.Text;
-            }
+            User = txtUsuario.Text == null ? "" : txtUsuario.Text;
         }
 
         private void chkRecordarUsuario_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkRecordarUsuario.Checked)
-            {
-                user = txtUsuario.Text;
-            }
-            else 
-            {
-                pass = txtContraseña.Text;
-            }
+            //if (chkRecordarUsuario.Checked)
+            //{
+            //    user = txtUsuario.Text;
+            //}
+            //else 
+            //{
+            //    pass = txtContraseña.Text;
+            //}
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            bool ok;
+            this.txtUsuario.Text = G3.GetParam("frmLogin_txtUsuario", false, out ok, true).ToString();
+            this.txtContraseña.Text = G3.GetParam("frmLogin_txtContraseña", false, out ok, true).ToString();
+            User = this.txtUsuario.Text;
+            Pass = this.txtContraseña.Text;
         }
     }
 }
