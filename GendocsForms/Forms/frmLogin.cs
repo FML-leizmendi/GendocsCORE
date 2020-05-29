@@ -1,7 +1,14 @@
-﻿using GendocsController;
-using System;
+﻿using System;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using GendocsController;
 
 namespace GendocsForms
 {
@@ -10,139 +17,70 @@ namespace GendocsForms
         public string Pass { get; set; }
 
         public string User { get; set; }
+        public bool Recordar { get; set; }
         public frmLogin()
         {
             InitializeComponent();
         }
 
-        #region "Eventos Privados"
-        private void BtnCerrar_Click(object sender, EventArgs e)
+        #region "Form Behavior"
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void PbMinimizarForm_Click(object sender, EventArgs e)
+        private void pbMinimizarForm_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
         #endregion
 
-        #region "Métodos Privados"
-        private void BtnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (ValidarAcceso())
-                {
-                    G3.IdEmpleadoFML_Logged = CargarIdEmpleadoFML();
-                    G3.UserLogged = txtUsuario.Text;
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
+            this.Visible=false;
         }
-
-        private bool ValidarAcceso()
-        {
-            bool TieneAcceso = false;
-            try
-            {
-                if (txtUsuario.Text.Equals(string.Empty))
-                {
-                    MessageBox.Show("Debe introducir el usuario para continuar", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    TieneAcceso = false;
-                }
-                else if (txtUsuario.Text.Equals(string.Empty))
-                {
-                    MessageBox.Show("Debe introducir la contraseña para continuar", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    TieneAcceso = false;
-                }
-                else
-                    TieneAcceso = true;
-            }
-
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
-            return TieneAcceso;
-        }
-
-        private int CargarIdEmpleadoFML()
-        {
-            int IdEmpleadoFML = 0;
-            try
-            {
-                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                var lst = (from a in db.GdEmpleadosFml
-                           where a.User.Equals(txtUsuario.Text)
-                           select a.IdEmpleadoFml).ToList();
-
-                IdEmpleadoFML = Convert.ToInt32(lst[0]);
-
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
-            return IdEmpleadoFML;
-        }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void TxtContraseña_TextChanged(object sender, EventArgs e)
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
             txtContraseña.PasswordChar = '*';
-            if (txtContraseña.Text is null)
-            {
-                Pass = "";
-            }
-            else
-            {
-                Pass = txtContraseña.Text;
-            }
-
+            Pass = txtContraseña.Text == null? "": txtContraseña.Text;
         }
 
-        private void TxtUsuario_TextChanged(object sender, EventArgs e)
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
-            if (txtUsuario.Text is null)
-            {
-                User = "";
-            }
-            else
-            {
-                User = txtUsuario.Text;
-            }
+            User = txtUsuario.Text == null ? "" : txtUsuario.Text;
         }
 
-        private void ChkRecordarUsuario_CheckedChanged(object sender, EventArgs e)
+        private void chkRecordarUsuario_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkRecordarUsuario.Checked)
-            {
-                User = txtUsuario.Text;
-            }
-            else
-            {
-                Pass = txtContraseña.Text;
-            }
+            //if (chkRecordarUsuario.Checked)
+            //{
+            //    user = txtUsuario.Text;
+            //}
+            //else 
+            //{
+            //    pass = txtContraseña.Text;
+            //}
         }
-        #endregion
 
-        #region "Control de Eventos"
-
-        #endregion
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            bool ok;
+            this.chkRecordarUsuario.Checked = (bool)G3.GetParam("frmLogin_chkRecordarUsuario", false, out ok,  true, 1);
+            this.txtUsuario.Text = G3.GetParam("frmLogin_txtUsuario", false, out ok, true).ToString();
+            this.txtContraseña.Text = G3.GetParam("frmLogin_txtContraseña", false, out ok, true).ToString();
+            User = this.txtUsuario.Text;
+            Pass = this.txtContraseña.Text;
+        }
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            G3.SetParam("frmLogin_txtUsuario", false, this.chkRecordarUsuario.Checked ? this.txtUsuario.Text : "", true, 10);
+            G3.SetParam("frmLogin_txtContraseña", false, this.chkRecordarUsuario.Checked ? this.txtContraseña.Text : "", true, 10);
+            G3.SetParam("frmLogin_chkRecordarUsuario", false, this.chkRecordarUsuario.Checked, true, 1);
+        }
     }
 }
