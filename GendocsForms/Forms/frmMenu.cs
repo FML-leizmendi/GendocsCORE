@@ -103,14 +103,26 @@ namespace GendocsForms
         {
             try
             {
-                FrmPedidosEntrantes frm = new FrmPedidosEntrantes();
-                frm.ShowDialog();
+                
             }
             catch(Exception ex)
             {
                 _ = ex.Message;
             }
 
+        }
+
+        private void BtnUnidadesContructivas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmUnidadesConstructivas frm = new FrmUnidadesConstructivas();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
         }
     }
 }
