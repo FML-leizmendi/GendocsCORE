@@ -45,7 +45,7 @@ namespace GendocsForms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User);
-            if (g3_connection == null || g3_connection == "" || args[0]=="db")
+            if (g3_connection == null || g3_connection == "")
             {
                 InputBoxValidation validation = delegate (string val)
                 {

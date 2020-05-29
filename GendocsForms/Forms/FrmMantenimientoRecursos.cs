@@ -10,13 +10,13 @@ namespace GendocsForms
 {
     public partial class FrmMantenimientoRecursos : Form
     {
-        public clsRecursos cRec { get; set; }
+        public clsRecursos CRec { get; set; }
 
         public bool HanModificado = false;
 
         public FrmMantenimientoRecursos(clsRecursos crecu)
         {
-            cRec = crecu;
+            CRec = crecu;
             InitializeComponent();
         } 
 
@@ -31,11 +31,11 @@ namespace GendocsForms
         {
             //CargarComboUnidad();
             //CargarComboProhibido();
-            if (cRec.esNuevo == true)
+            if (CRec.esNuevo == true)
             {
                 OcultarBotonesNavegacion();
             }
-            if (cRec.EsAlta)
+            if (CRec.EsAlta)
             {
                 LimpiarControles();
             }
@@ -45,7 +45,7 @@ namespace GendocsForms
             HanModificado = false;
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -75,7 +75,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -83,33 +83,33 @@ namespace GendocsForms
         {
             try
             {
-                txtCodRecurso.Text = cRec.CodRecurso;
-                txtRecContratacion.Text = cRec.RecursoContratacion.ToString();
-                txtCosteManoObra.Text = cRec.CosteManodeObra.ToString();
-                txtCosteMateriales.Text = cRec.CosteMateriales.ToString();
-                txtCosteTotal.Text = cRec.CosteTotal.ToString();
+                txtCodRecurso.Text = CRec.CodRecurso;
+                txtRecContratacion.Text = CRec.RecursoContratacion.ToString();
+                txtCosteManoObra.Text = CRec.CosteManodeObra.ToString();
+                txtCosteMateriales.Text = CRec.CosteMateriales.ToString();
+                txtCosteTotal.Text = CRec.CosteTotal.ToString();
                 //TODO
-                //if (cRec.Unidad == null)
+                //if (CRec.Unidad == null)
                 //{
                 //    cmbUnidad.SelectedValue = 0;
                 //}
                 //else
-                //    cmbUnidad.SelectedValue = Convert.ToInt32(cRec.Unidad);
-                //if (cRec.Prohibido == null)
+                //    cmbUnidad.SelectedValue = Convert.ToInt32(CRec.Unidad);
+                //if (CRec.Prohibido == null)
                 //{
                 //    cmbProhibido.SelectedValue = 0;
                 //}
                 //else
-                //    cmbProhibido.SelectedValue = Convert.ToInt32(cRec.Prohibido);
+                //    cmbProhibido.SelectedValue = Convert.ToInt32(CRec.Prohibido);
                 HanModificado = false;
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        bool validarControles()
+        bool ValidarControles()
         {
             bool EsValido = true;
             string cadena = "Faltan los siguientes campos obligatorios:" + Environment.NewLine;
@@ -165,7 +165,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
             return EsValido;
         }
@@ -200,7 +200,7 @@ namespace GendocsForms
         //    }
         //    catch (Exception ex)
         //    {
-        //        string mensaje = ex.Message;
+        //        _ = ex.Message;
         //    }
         //}
 
@@ -233,31 +233,31 @@ namespace GendocsForms
         //    }
         //    catch (Exception ex)
         //    {
-        //        string mensaje = ex.Message;
+        //        _ = ex.Message;
         //    }
         //}
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (HanModificado)
             {
-                if (validarControles())
+                if (ValidarControles())
                 {
-                    cRec.CodRecurso = txtCodRecurso.Text;
-                    cRec.RecursoContratacion = txtRecContratacion.Text;
-                    cRec.CosteManodeObra = Convert.ToDecimal(txtCosteManoObra.Text);
-                    cRec.CosteMateriales = Convert.ToDecimal(txtCosteMateriales.Text);
-                    cRec.CosteTotal = Convert.ToDecimal(txtCosteTotal.Text);
-                    //cRec.Unidad = cmbUnidad.SelectedValue.ToString();
+                    CRec.CodRecurso = txtCodRecurso.Text;
+                    CRec.RecursoContratacion = txtRecContratacion.Text;
+                    CRec.CosteManodeObra = Convert.ToDecimal(txtCosteManoObra.Text);
+                    CRec.CosteMateriales = Convert.ToDecimal(txtCosteMateriales.Text);
+                    CRec.CosteTotal = Convert.ToDecimal(txtCosteTotal.Text);
+                    //CRec.Unidad = cmbUnidad.SelectedValue.ToString();
                     // TODO 
                     //if (cmbProhibido.SelectedValue.ToString = 0)
                     //{
-                    //    cRec.Prohibido = false;
+                    //    CRec.Prohibido = false;
                     //}
                     //else
-                    //    cRec.Prohibido = true;
-                    //cRec.EsAlta = false;
-                    cRec.GuardarUsuario();
+                    //    CRec.Prohibido = true;
+                    //CRec.EsAlta = false;
+                    CRec.GuardarUsuario();
                 }
             }
         }
@@ -265,74 +265,74 @@ namespace GendocsForms
 
         #region "Control de Eventos"
 
-        private void txtCodRecurso_TextChanged(object sender, EventArgs e)
+        private void TxtCodRecurso_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void txtRecContratacion_TextChanged(object sender, EventArgs e)
+        private void TxtRecContratacion_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void txtCosteManoObra_TextChanged(object sender, EventArgs e)
+        private void TxtCosteManoObra_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void txtCosteMateriales_TextChanged(object sender, EventArgs e)
+        private void TxtCosteMateriales_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void txtCosteTotal_TextChanged(object sender, EventArgs e)
+        private void TxtCosteTotal_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void cmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void cmbProhibido_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbProhibido_SelectedIndexChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        #endregion
 
-        private void btnPrimero_Click_1(object sender, EventArgs e)
+        private void BtnPrimero_Click_1(object sender, EventArgs e)
         {
-            cRec.IrPrimero();
+            CRec.IrPrimero();
             CargarForm();
         }
 
-        private void btnAnterior_Click_1(object sender, EventArgs e)
+        private void BtnAnterior_Click_1(object sender, EventArgs e)
         {
-            cRec.IrAnterior();
+            CRec.IrAnterior();
             CargarForm();
         }
 
-        private void btnSiguiente_Click_1(object sender, EventArgs e)
+        private void BtnSiguiente_Click_1(object sender, EventArgs e)
         {
-            cRec.IrSiguiente();
+            CRec.IrSiguiente();
             CargarForm();
         }
 
-        private void btnUltimo_Click_1(object sender, EventArgs e)
+        private void BtnUltimo_Click_1(object sender, EventArgs e)
         {
-            cRec.IrUltimo();
+            CRec.IrUltimo();
             CargarForm();
         }
 
-        private void txtCosteMateriales_Leave(object sender, EventArgs e)
+        private void TxtCosteMateriales_Leave(object sender, EventArgs e)
         {
             int i = Convert.ToInt32(txtCosteMateriales.Text);
             int x = Convert.ToInt32(txtCosteManoObra.Text);
             int z = i + x;
             txtCosteTotal.Text = z.ToString();
         }
+        #endregion
     }
 }
 

@@ -9,13 +9,13 @@ namespace GendocsForms
 {
     public partial class FrmExpedientes : Form
     {
-        public clsProyecto cProy { get; set; }
+        public clsProyecto CProy { get; set; }
 
         public static string RutaGlobal { get; set; } = @"C:\Gendocs\Proyectos";
 
         public FrmExpedientes(clsProyecto cpro)
         {
-            cProy = cpro;
+            CProy = cpro;
             InitializeComponent();
         }
 
@@ -54,40 +54,28 @@ namespace GendocsForms
         {
             try
             {
-                txtCodExpediente.Text = cProy.CodigoProyecto.ToString();
+                txtCodExpediente.Text = CProy.CodigoProyecto.ToString();
                 txtCarpeta.Text = RutaGlobal;
-                txtCarpetaBase.Text = cProy.CarpetaBase;
-                txtTituloCorto.Text = cProy.TituloCorto;
-                txtTitulo.Text = cProy.Titulo;
-                txtAlias.Text = cProy.Alias;
-                txtProvincia.Text = cProy.Provincia;
-                txtTerminoMunicipal.Text = cProy.TerminoMunicipal;
-                cmbEstadoProyecto.SelectedValue = Convert.ToInt32(cProy.IdProyectoEstado);
-                switch (cProy.TipoProyecto.ToString())
+                txtCarpetaBase.Text = CProy.CarpetaBase;
+                txtTituloCorto.Text = CProy.TituloCorto;
+                txtTitulo.Text = CProy.Titulo;
+                txtAlias.Text = CProy.Alias;
+                txtProvincia.Text = CProy.Provincia;
+                txtTerminoMunicipal.Text = CProy.TerminoMunicipal;
+                cmbEstadoProyecto.SelectedValue = Convert.ToInt32(CProy.IdProyectoEstado);
+                cmbTipoExpediente.SelectedValue = (CProy.TipoProyecto.ToString()) switch
                 {
-                    case "BT":
-                        cmbTipoExpediente.SelectedValue = 1;
-                        break;
-                    case "MT":
-                        cmbTipoExpediente.SelectedValue = 2;
-                        break;
-                    case "AT":
-                        cmbTipoExpediente.SelectedValue = 3;
-                        break;
-                    case "Ca":
-                        cmbTipoExpediente.SelectedValue = 4;
-                        break;
-                    case "Ot":
-                        cmbTipoExpediente.SelectedValue = 5;
-                        break;
-                    default:
-                        cmbTipoExpediente.SelectedValue = 0;
-                        break;
-                }
+                    "BT" => 1,
+                    "MT" => 2,
+                    "AT" => 3,
+                    "Ca" => 4,
+                    "Ot" => 5,
+                    _ => 0,
+                };
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -95,12 +83,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdProyectoEstados> lista = new List<GendocsModeloDatos.models.GdProyectoEstados>();
-                lista.Add(new GendocsModeloDatos.models.GdProyectoEstados()
+                List<GendocsModeloDatos.models.GdProyectoEstados> lista = new List<GendocsModeloDatos.models.GdProyectoEstados>
                 {
-                    IdProyectoEstado = 0,
-                    ProyectoEstado = "Todos"
-                });
+                    new GendocsModeloDatos.models.GdProyectoEstados()
+                    {
+                        IdProyectoEstado = 0,
+                        ProyectoEstado = "Todos"
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdProyectoEstados> lstEstadoProyectos;
@@ -119,7 +109,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -142,63 +132,14 @@ namespace GendocsForms
             }
             catch(Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }    
         }
     }
+
+    #endregion
+
+        #region "Control de Eventos"
+
+    #endregion
 }
-
-
-
-//bool validarControles()
-//{
-//    bool EsValido = true;
-//    string cadena = "Faltan los siguientes campos obligatorios:" + Environment.NewLine;
-//    try
-//    {
-//        if (txtNIF.Text == string.Empty)
-//        {
-//            cadena += "NIF " + Environment.NewLine;
-//            txtNIF.Focus();
-//            EsValido = false;
-//        }
-//        if (txtNombre.Text == string.Empty)
-//        {
-//            cadena += "Nombre " + Environment.NewLine;
-//            txtNombre.Focus();
-//            EsValido = false;
-//        }
-//        if (txtApellidos.Text == string.Empty)
-//        {
-//            cadena += "Apellidos " + Environment.NewLine;
-//            txtApellidos.Focus();
-//            EsValido = false;
-//        }
-//        if (txtTelefono.Text == string.Empty)
-//        {
-//            cadena += "Teléfono " + Environment.NewLine;
-//            txtTelefono.Focus();
-//            EsValido = false;
-//        }
-//        if (txtEmail.Text == string.Empty)
-//        {
-//            cadena += "Email " + Environment.NewLine;
-//            txtEmail.Focus();
-//            EsValido = false;
-//        }
-//        if (!EsValido)
-//        {
-//            MessageBox.Show(cadena, "Empleados FML", MessageBoxButtons.OK, MessageBoxIcon.Information);
-//        }
-//    }
-//    catch (Exception ex)
-//    {
-//        string mensaje = ex.Message;
-//    }
-//    return EsValido;
-//}
-#endregion
-
-#region "Control de Eventos"
-
-#endregion

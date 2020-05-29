@@ -23,11 +23,11 @@ namespace GendocsForms
             txtIntroduzcaTexto.Focus();
         }
 
-        private void btnEditarEmpleado_Click(object sender, EventArgs e)
+        private void BtnEditarEmpleado_Click(object sender, EventArgs e)
         {
             try
             {
-                clsEmp cEmp = new clsEmp();
+                ClsEmp cEmp = new ClsEmp();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     var lst = (from d in db.GdEmpleados
@@ -37,7 +37,7 @@ namespace GendocsForms
 
                            ).ToList();
 
-                    cEmp.lstId = lst;
+                    cEmp.LstId = lst;
                     cEmp.CargarFrmEmpleados();
                 }
                 cmbClientes.SelectedIndex = -1;
@@ -47,34 +47,159 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void dgvContactos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             try
             {
-                clsEmp cEmp = new clsEmp();
+                //FrmMantenimientoEmpleados2 frm = new FrmMantenimientoEmpleados2();
+                //frm.ShowDialog();
+                //txtIntroduzcaTexto.Text = string.Empty;
+                //txtIntroduzcaTexto.Focus();
+                //CargarGrid();
+
+                ClsEmp cEmp = new ClsEmp
+                {
+                    EsAlta = true,
+                    EsNuevo = true
+                };
+                cEmp.CargarFrmEmpleados2();
+                cmbClientes.SelectedIndex = -1;
+                txtIntroduzcaTexto.Text = string.Empty;
+                txtIntroduzcaTexto.Focus();
+                cEmp.EsNuevo = false;
+                CargarGrid();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClsEmp cEmp = new ClsEmp();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
-                    var lst = (from d in db.GdEmpleados
-                               where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
-                               select d.IdEmpleado
+                    List<int> miLista = new List<int>();
+                    for (int i = 0; i < dgvContactos.SelectedRows.Count; i++)
+                    {
+                        miLista.Add(Convert.ToInt32(dgvContactos.SelectedRows[i].Cells[0].Value.ToString()));
+                    }
+                    cEmp.LstId = miLista.ToList();
+                    //int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    //if (IdCliente != 0)
+                    //{
+                    //    var lst = (from d in db.GdEmpleados
+                    //               where (d.Empleado.Contains(txtIntroduzcaTexto.Text) & (d.IdCliente == IdCliente))
+                    //               orderby d.IdEmpleado
+                    //               select d.IdEmpleado
 
-                           ).ToList();
+                    //      ).ToList();
+                    //    cEmp.lstId = lst;
+                    //}
+                    //else
+                    //{
+                    //    var lst = (from d in db.GdEmpleados
+                    //               where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
+                    //               orderby d.IdEmpleado
+                    //               select d.IdEmpleado
 
-                    cEmp.lstId = lst;
-                    cEmp.CargarFrmEmpleados();
+                    //     ).ToList();
+                    //    cEmp.lstId = lst;
+                    //}
+                    cEmp.EsNuevo = false;
+                    cEmp.CargarFrmEmpleados2();
+                }
+                cmbClientes.SelectedIndex = 0;
+                txtIntroduzcaTexto.Text = string.Empty;
+                txtIntroduzcaTexto.Focus();
+                CargarGrid();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void BtnEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClsEmp cEmp = new ClsEmp();
+                DialogResult result = MessageBox.Show("¿Desea eliminar los contactos seleccionados?", "Contactos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (dgvContactos.SelectedRows.Count > 0)
+                    {
+                        DataGridViewSelectedRowCollection Seleccionados = dgvContactos.SelectedRows;
+
+                        foreach (DataGridViewRow item in Seleccionados)
+                        {
+                            Type type = item.DataBoundItem.GetType();
+                            cEmp.IdEmpleado = (int)type.GetProperty("IdEmpleado")
+                                                    .GetValue(item.DataBoundItem, null);
+
+                            cEmp.EliminarEmpleado();
+                        }
+                        CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay contactos seleccionado", "Contactos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void dgvContactos_CurrentCellChanged(object sender, EventArgs e)
+        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                txtIntroduzcaTexto.Focus();
+                cmbClientes.SelectedIndex = 0;
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void DgvContactos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                ClsEmp cEmp = new ClsEmp();
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from d in db.GdEmpleados
+                           where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
+                           select d.IdEmpleado
+
+                       ).ToList();
+
+                cEmp.LstId = lst;
+                cEmp.CargarFrmEmpleados();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void DgvContactos_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgvContactos.CurrentRow != null)
             {
@@ -110,7 +235,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
 
         }
@@ -119,39 +244,37 @@ namespace GendocsForms
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                if (IdCliente != 0)
                 {
-                    if (IdCliente != 0)
-                    {
-                        var lstFiltrada = (from a in db.GdEmpleados
-                                           join b in db.GdCargos on a.IdCargo equals b.IdCargo
-                                           join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
-                                           from result in joinedT.DefaultIfEmpty()
-                                           where (a.Empleado.Contains(TextoIntroducido) & (a.IdCliente == IdCliente))
-                                           select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
+                    var lstFiltrada = (from a in db.GdEmpleados
+                                       join b in db.GdCargos on a.IdCargo equals b.IdCargo
+                                       join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
+                                       from result in joinedT.DefaultIfEmpty()
+                                       where (a.Empleado.Contains(TextoIntroducido) & (a.IdCliente == IdCliente))
+                                       select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
 
-                                            ).ToList();
+                                        ).ToList();
 
-                        dgvContactos.DataSource = lstFiltrada;
-                    }
-                    else
-                    {
-                        var lst = (from a in db.GdEmpleados
-                                   join b in db.GdCargos on a.IdCargo equals b.IdCargo
-                                   join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
-                                   from result in joinedT.DefaultIfEmpty()
-                                   where (a.Empleado.Contains(TextoIntroducido))
-                                   select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
+                    dgvContactos.DataSource = lstFiltrada;
+                }
+                else
+                {
+                    var lst = (from a in db.GdEmpleados
+                               join b in db.GdCargos on a.IdCargo equals b.IdCargo
+                               join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
+                               from result in joinedT.DefaultIfEmpty()
+                               where (a.Empleado.Contains(TextoIntroducido))
+                               select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
 
-                          ).ToList();
+                      ).ToList();
 
-                        dgvContactos.DataSource = lst;
-                    }
+                    dgvContactos.DataSource = lst;
                 }
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -159,12 +282,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>();
-                lista.Add(new GendocsModeloDatos.models.GdClientes()
+                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>
                 {
-                    IdCliente = 0,
-                    Cliente = "Todos"
-                });
+                    new GendocsModeloDatos.models.GdClientes()
+                    {
+                        IdCliente = 0,
+                        Cliente = "Todos"
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdClientes> lstClientes;
@@ -189,141 +314,17 @@ namespace GendocsForms
         #endregion
 
         #region "Control de evenetos"
-        private void txtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
+        private void TxtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
         {
             CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
         }
 
-        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
         }
 
         #endregion
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //FrmMantenimientoEmpleados2 frm = new FrmMantenimientoEmpleados2();
-                //frm.ShowDialog();
-                //txtIntroduzcaTexto.Text = string.Empty;
-                //txtIntroduzcaTexto.Focus();
-                //CargarGrid();
-
-                clsEmp cEmp = new clsEmp();
-                cEmp.EsAlta = true;
-                cEmp.esNuevo = true;
-                cEmp.CargarFrmEmpleados2();
-                cmbClientes.SelectedIndex = -1;
-                txtIntroduzcaTexto.Text = string.Empty;
-                txtIntroduzcaTexto.Focus();
-                cEmp.esNuevo = false;
-                CargarGrid();
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                clsEmp cEmp = new clsEmp();
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    List<int> miLista = new List<int>();
-                    for (int i = 0; i < dgvContactos.SelectedRows.Count; i++)
-                    {
-                        miLista.Add(Convert.ToInt32(dgvContactos.SelectedRows[i].Cells[0].Value.ToString()));
-                    }
-                    cEmp.lstId = miLista.ToList();
-                    //int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    //if (IdCliente != 0)
-                    //{
-                    //    var lst = (from d in db.GdEmpleados
-                    //               where (d.Empleado.Contains(txtIntroduzcaTexto.Text) & (d.IdCliente == IdCliente))
-                    //               orderby d.IdEmpleado
-                    //               select d.IdEmpleado
-
-                    //      ).ToList();
-                    //    cEmp.lstId = lst;
-                    //}
-                    //else
-                    //{
-                    //    var lst = (from d in db.GdEmpleados
-                    //               where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
-                    //               orderby d.IdEmpleado
-                    //               select d.IdEmpleado
-
-                    //     ).ToList();
-                    //    cEmp.lstId = lst;
-                    //}
-                    cEmp.esNuevo = false;
-                    cEmp.CargarFrmEmpleados2();
-                }
-                cmbClientes.SelectedIndex = 0;
-                txtIntroduzcaTexto.Text = string.Empty;
-                txtIntroduzcaTexto.Focus();
-                CargarGrid();
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        private void btnEliminarEmpleado_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                clsEmp cEmp = new clsEmp();
-                DialogResult result = MessageBox.Show("¿Desea eliminar los contactos seleccionados?", "Contactos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    if (dgvContactos.SelectedRows.Count > 0)
-                    {
-                        DataGridViewSelectedRowCollection Seleccionados = dgvContactos.SelectedRows;
-
-                        foreach (DataGridViewRow item in Seleccionados)
-                        {
-                            Type type = item.DataBoundItem.GetType();
-                            cEmp.IdEmpleado = (int)type.GetProperty("IdEmpleado")
-                                                    .GetValue(item.DataBoundItem, null);
-
-                            cEmp.EliminarEmpleado();
-                        }
-                        CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay contactos seleccionado", "Contactos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                txtIntroduzcaTexto.Text = string.Empty;
-                txtIntroduzcaTexto.Focus();
-                cmbClientes.SelectedIndex = 0;
-                CargarGrid(txtIntroduzcaTexto.Text);
-                FormatearGrid();
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
     }
 }

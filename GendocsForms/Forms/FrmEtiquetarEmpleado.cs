@@ -9,9 +9,9 @@ namespace GendocsForms
 {
     public partial class FrmEtiquetarEmpleado : Form
     {
-        public clsEmp CEmp { get; set; }
+        public ClsEmp CEmp { get; set; }
 
-        public FrmEtiquetarEmpleado(clsEmp cemp)
+        public FrmEtiquetarEmpleado(ClsEmp cemp)
         {
             CEmp = cemp;
             InitializeComponent();
@@ -23,86 +23,8 @@ namespace GendocsForms
         }
 
         #region "Eventos Privados"
-         public void CargarListaDisponibles()
-        {
-            try
-            {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    lstvDisponibles.Items.Clear();
 
-                    var lst = (from d in db.GdEtiquetas
-                               join f in (from e in db.GdEmpleadosEtiquetas
-                                          where e.IdEmpleado == CEmp.IdEmpleado
-                                          select e)
-                               on d.IdEtiqueta equals f.IdEtiqueta into joinedT
-                               from result in joinedT.DefaultIfEmpty()
-                               where result.Id == null
-                               //orderby d.IdEtiqueta
-                               select new
-                               {
-                                   d.IdEtiqueta,
-                                   d.Etiqueta
-                               }
-
-                           ).ToList();
-
-                    foreach (var etiqueta in lst)
-                    {
-                        ListViewItem item = new ListViewItem();
-                        item = lstvDisponibles.Items.Add(etiqueta.IdEtiqueta.ToString());
-                        item.SubItems.Add(etiqueta.Etiqueta);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-
-        }
-
-        public void CargarListaAsignadas(int IdEmp)
-        {
-            try
-            {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    lstvAsignadas.Items.Clear();
-
-                    var lst = (from d in db.GdEtiquetas
-                               join x in db.GdEmpleadosEtiquetas
-                               on d.IdEtiqueta equals x.IdEtiqueta
-                               where x.IdEmpleado == IdEmp
-                               orderby d.IdEtiqueta
-                               select new { x.Id , d.IdEtiqueta, d.Etiqueta}
-
-                           ).ToList();
-
-                    foreach (var etiqueta in lst)
-                    {
-                        ListViewItem item = new ListViewItem();
-                        item = lstvAsignadas.Items.Add(etiqueta.Id.ToString());
-                        item.SubItems.Add(etiqueta.Etiqueta);
-                        //item.SubItems.Add(etiqueta.IdEtiqueta);
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-
-        }
-        #endregion
-
-        #region "Métodos Privados"
-
-        #endregion
-
-        #region "Control de Eventos"
-        private void btnAnadir_Click(object sender, EventArgs e)
+        private void BtnAnadir_Click(object sender, EventArgs e)
         {
             try
             {
@@ -112,46 +34,16 @@ namespace GendocsForms
                 }
                 else
                 {
-                    using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                    using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                    foreach (ListViewItem itemRow in lstvDisponibles.SelectedItems)
                     {
-                        foreach (ListViewItem itemRow in lstvDisponibles.SelectedItems)
+                        GdEmpleadosEtiquetas Eti = new GdEmpleadosEtiquetas
                         {
-                            GdEmpleadosEtiquetas Eti = new GdEmpleadosEtiquetas();
+                            IdEmpleado = CEmp.IdEmpleado,
+                            IdEtiqueta = Convert.ToInt32(itemRow.SubItems[0].Text)
+                        };
 
-                            Eti.IdEmpleado = CEmp.IdEmpleado;
-                            Eti.IdEtiqueta = Convert.ToInt32(itemRow.SubItems[0].Text);
-
-                            db.GdEmpleadosEtiquetas.Add(Eti);
-                            db.SaveChanges();
-
-                            Eti = null;
-                        }
-
-                        CargarListaDisponibles();
-                        CargarListaAsignadas(CEmp.IdEmpleado);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        private void btnQuitar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    foreach (ListViewItem itemRow in lstvAsignadas.SelectedItems)
-                    {
-
-                        GdEmpleadosEtiquetas Eti = new GdEmpleadosEtiquetas();
-                        Eti.IdEmpleado = CEmp.IdEmpleado;
-                        Eti.Id = Convert.ToInt32(itemRow.SubItems[0].Text);
-
-                        db.GdEmpleadosEtiquetas.Remove(Eti);
+                        db.GdEmpleadosEtiquetas.Add(Eti);
                         db.SaveChanges();
 
                         Eti = null;
@@ -163,21 +55,50 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void lstvDisponibles_DoubleClick(object sender, EventArgs e)
+        private void BtnQuitar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                foreach (ListViewItem itemRow in lstvAsignadas.SelectedItems)
+                {
+
+                    GdEmpleadosEtiquetas Eti = new GdEmpleadosEtiquetas
+                    {
+                        IdEmpleado = CEmp.IdEmpleado,
+                        Id = Convert.ToInt32(itemRow.SubItems[0].Text)
+                    };
+
+                    db.GdEmpleadosEtiquetas.Remove(Eti);
+                    db.SaveChanges();
+
+                    Eti = null;
+                }
+
+                CargarListaDisponibles();
+                CargarListaAsignadas(CEmp.IdEmpleado);
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void LstvDisponibles_DoubleClick(object sender, EventArgs e)
         {
             btnAnadir.PerformClick();
         }
 
-        private void lstvAsignadas_DoubleClick(object sender, EventArgs e)
+        private void LstvAsignadas_DoubleClick(object sender, EventArgs e)
         {
             btnQuitar.PerformClick();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             try
             {
@@ -189,9 +110,84 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
+        #endregion
+
+        #region "Métodos Privados"
+        public void CargarListaDisponibles()
+        {
+            try
+            {
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                lstvDisponibles.Items.Clear();
+
+                var lst = (from d in db.GdEtiquetas
+                           join f in (from e in db.GdEmpleadosEtiquetas
+                                      where e.IdEmpleado == CEmp.IdEmpleado
+                                      select e)
+                           on d.IdEtiqueta equals f.IdEtiqueta into joinedT
+                           from result in joinedT.DefaultIfEmpty()
+                           where result.Id == null
+                           //orderby d.IdEtiqueta
+                           select new
+                           {
+                               d.IdEtiqueta,
+                               d.Etiqueta
+                           }
+
+                       ).ToList();
+
+                foreach (var etiqueta in lst)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item = lstvDisponibles.Items.Add(etiqueta.IdEtiqueta.ToString());
+                    item.SubItems.Add(etiqueta.Etiqueta);
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+
+        }
+
+        public void CargarListaAsignadas(int IdEmp)
+        {
+            try
+            {
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                lstvAsignadas.Items.Clear();
+
+                var lst = (from d in db.GdEtiquetas
+                           join x in db.GdEmpleadosEtiquetas
+                           on d.IdEtiqueta equals x.IdEtiqueta
+                           where x.IdEmpleado == IdEmp
+                           orderby d.IdEtiqueta
+                           select new { x.Id, d.IdEtiqueta, d.Etiqueta }
+
+                       ).ToList();
+
+                foreach (var etiqueta in lst)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item = lstvAsignadas.Items.Add(etiqueta.Id.ToString());
+                    item.SubItems.Add(etiqueta.Etiqueta);
+                    //item.SubItems.Add(etiqueta.IdEtiqueta);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+
+        }
+
+        #endregion
+
+        #region "Control de Eventos"
 
         #endregion
 

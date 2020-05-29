@@ -6,26 +6,27 @@ using System.Windows.Forms;
 
 namespace GendocsForms
 {
-    public partial class frmMantenimientoEmpleados : Form
+    public partial class FrmMantenimientoEmpleados : Form
     {
-        public clsEmp cEmp { get; set; }
+        public ClsEmp CEmp { get; set; }
 
         public bool HanModificado = false;
 
-        public frmMantenimientoEmpleados(clsEmp cemp)
+        public 
+            FrmMantenimientoEmpleados(ClsEmp cemp)
         {
-            cEmp = cemp;
+            CEmp = cemp;
             InitializeComponent();
         }
 
-        public frmMantenimientoEmpleados()
+        public FrmMantenimientoEmpleados()
         {
             InitializeComponent();
         }
 
         #region "Eventos Privados"
 
-        private void frmMantenimientoEmpleados_Load(object sender, EventArgs e)
+        private void FrmMantenimientoEmpleados_Load(object sender, EventArgs e)
         {
             CargarComboJefes();
             CargarComboClientes();
@@ -34,7 +35,7 @@ namespace GendocsForms
             HanModificado = false;
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -54,39 +55,39 @@ namespace GendocsForms
         {
             try
             {
-                txtIdEmpleado.Text = cEmp.IdEmpleado.ToString();
-                txtNombre.Text = cEmp.Empleado;
-                txtTelefono.Text = cEmp.Telefono;
-                txtEmail.Text = cEmp.Email;
-                if (cEmp.IdCliente == null)
+                txtIdEmpleado.Text = CEmp.IdEmpleado.ToString();
+                txtNombre.Text = CEmp.Empleado;
+                txtTelefono.Text = CEmp.Telefono;
+                txtEmail.Text = CEmp.Email;
+                if (CEmp.IdCliente == null)
                 {
                     cmbClientes.SelectedValue = 0;
                 }
                 else
-                    cmbClientes.SelectedValue = Convert.ToInt32(cEmp.IdCliente);
-                if (cEmp.IdCargo == null)
+                    cmbClientes.SelectedValue = Convert.ToInt32(CEmp.IdCliente);
+                if (CEmp.IdCargo == null)
                 {
                     cmbCargo.SelectedValue = 0;
                 }
                 else
-                    cmbCargo.SelectedValue = Convert.ToInt32(cEmp.IdCargo);
-                if (cEmp.IdEmpleadoSuperior == null)
+                    cmbCargo.SelectedValue = Convert.ToInt32(CEmp.IdCargo);
+                if (CEmp.IdEmpleadoSuperior == null)
                 {
                     cmbJefes.SelectedValue = 0;
                 }
                 else
-                cmbJefes.SelectedValue = Convert.ToInt32(cEmp.IdEmpleadoSuperior);
-                txtEtiquetas.Text = cEmp.Etiquetas;
+                cmbJefes.SelectedValue = Convert.ToInt32(CEmp.IdEmpleadoSuperior);
+                txtEtiquetas.Text = CEmp.Etiquetas;
                 HanModificado = false;
                 btnGuardar.Visible = false;
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        bool validarControles()
+        bool ValidarControles()
         {
             bool EsValido = true;
             string cadena = "Faltan los siguientes campos obligatorios:" + Environment.NewLine;
@@ -136,7 +137,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
             return EsValido;
         }
@@ -159,7 +160,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -167,12 +168,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>();
-                lista.Add(new GendocsModeloDatos.models.GdClientes()
+                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>
                 {
-                    IdCliente = 0,
-                    Cliente = "Otros"
-                });
+                    new GendocsModeloDatos.models.GdClientes()
+                    {
+                        IdCliente = 0,
+                        Cliente = "Otros"
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdClientes> lstCargos;
@@ -191,7 +194,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -199,12 +202,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdCargos> lista = new List<GendocsModeloDatos.models.GdCargos>();
-                lista.Add(new GendocsModeloDatos.models.GdCargos()
+                List<GendocsModeloDatos.models.GdCargos> lista = new List<GendocsModeloDatos.models.GdCargos>
                 {
-                    IdCargo = 0,
-                    Cargo = "Otros"
-                });
+                    new GendocsModeloDatos.models.GdCargos()
+                    {
+                        IdCargo = 0,
+                        Cargo = "Otros"
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdCargos> lstCargos;
@@ -223,7 +228,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -231,173 +236,172 @@ namespace GendocsForms
         #endregion
 
         #region "Control de Eventos"
-        private void btnPrimero_Click(object sender, EventArgs e)
+        private void BtnPrimero_Click(object sender, EventArgs e)
         {
-            cEmp.IrPrimero();
+            CEmp.IrPrimero();
             CargarForm();
         }
 
-        private void btnAnterior_Click(object sender, EventArgs e)
+        private void BtnAnterior_Click(object sender, EventArgs e)
         {
-            cEmp.IrAnterior();
+            CEmp.IrAnterior();
             CargarForm();
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
+        private void BtnSiguiente_Click(object sender, EventArgs e)
         {
-            cEmp.IrSiguiente();
+            CEmp.IrSiguiente();
             CargarForm();
         }
 
-        private void btnUltimo_Click(object sender, EventArgs e)
+        private void BtnUltimo_Click(object sender, EventArgs e)
         {
-            cEmp.IrUltimo();
+            CEmp.IrUltimo();
             CargarForm();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            cEmp.EliminarUsuario();
+            CEmp.EliminarUsuario();
             CargarForm();
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarControles();
             txtNombre.Focus();  
             cmbCargo.SelectedIndex = -1;
             cmbClientes.SelectedIndex = -1;
             cmbJefes.SelectedIndex = -1;
-            cEmp.EsAlta = true;
+            CEmp.EsAlta = true;
             btnEliminar.Visible = false;
             btnGuardar.Visible = true;
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (HanModificado)
             {
-                if (validarControles())
+                if (ValidarControles())
                 {
                     //cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
                     //cEmp.IdEmpleado = txtIdEmpleado.Text;
-                    cEmp.Empleado = txtNombre.Text;
-                    cEmp.Telefono = txtTelefono.Text;
-                    cEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
-                    cEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    cEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
-                    cEmp.Email = txtEmail.Text;
-                    cEmp.Etiquetas = txtEtiquetas.Text;
-                    cEmp.GuardarUsuario();
-                    cEmp.EsAlta = false;
+                    CEmp.Empleado = txtNombre.Text;
+                    CEmp.Telefono = txtTelefono.Text;
+                    CEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
+                    CEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    CEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
+                    CEmp.Email = txtEmail.Text;
+                    CEmp.Etiquetas = txtEtiquetas.Text;
+                    CEmp.GuardarUsuario();
+                    CEmp.EsAlta = false;
                     // txtIdEmpleado.Visible = false;
                     btnEliminar.Visible = false;
                     btnGuardar.Visible = false;
-
                 }
             }
         }
 
-        private void btnEtiquetas_Click(object sender, EventArgs e)
+        private void BtnEtiquetas_Click(object sender, EventArgs e)
         {
-            clsEmp cEmp = new clsEmp();
-            cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-            cEmp.AsignarEtiquetasFML();
+            ClsEmp CEmp = new ClsEmp
+            {
+                IdEmpleado = Int32.Parse(txtIdEmpleado.Text)
+            };
+            CEmp.AsignarEtiquetasFML();
             //CargarForm();
-            txtEtiquetas.Text = cEmp.Etiquetas;
+            txtEtiquetas.Text = CEmp.Etiquetas;
         }
 
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
 
+        private void TxtNombre_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void TxtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void TxtTelefono_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void CmbClientes_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void CmbCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void CmbCargo_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void CmbJefes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void CmbJefes_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+        private void TxtEmail_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void TxtEmail_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
+
+        private void TxtEtiquetas_TextChanged(object sender, EventArgs e)
+        {
+            HanModificado = true;
+        }
+
+        private void TxtEtiquetas_Leave(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                btnGuardar.Visible = true;
+            }
+        }
         #endregion
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            HanModificado = true;
-        }
-
-        private void txtNombre_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-            HanModificado = true;
-        }
-
-        private void txtTelefono_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-
-        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HanModificado = true;
-        }
-
-        private void cmbClientes_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-
-        private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HanModificado = true;
-        }
-
-        private void cmbCargo_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-
-        private void cmbJefes_SelectedIndexChanged(object sender, EventArgs e)
-            {
-            HanModificado = true;
-        }
-
-        private void cmbJefes_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-            HanModificado = true;
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-
-        private void txtEtiquetas_TextChanged(object sender, EventArgs e)
-        {
-            HanModificado = true;
-        }
-
-        private void txtEtiquetas_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
     }
 }

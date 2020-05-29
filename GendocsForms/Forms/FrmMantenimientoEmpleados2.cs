@@ -8,16 +8,15 @@ namespace GendocsForms
 {
     public partial class FrmMantenimientoEmpleados2 : Form
     {
-        public clsEmp cEmp { get; set; }
+        public ClsEmp CEmp { get; set; }
 
         public bool HanModificado = false;
 
-        public FrmMantenimientoEmpleados2(clsEmp cemp)
+        public FrmMantenimientoEmpleados2(ClsEmp Cemp)
         {
-            cEmp = cemp;
+            CEmp = Cemp;
             InitializeComponent();
         }
-
 
         public FrmMantenimientoEmpleados2()
         {
@@ -33,27 +32,19 @@ namespace GendocsForms
             CargarComboCargos();
             CargarForm();
 
-            if (cEmp.esNuevo == true)
+            if (CEmp.EsNuevo == true)
             {
                 OcultarBotonesNavegacion();
             }
             txtNombre.Focus();
-            cEmp.EsAlta = true;
+            CEmp.EsAlta = true;
             HanModificado = false;
             txtNombre.Focus();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void LimpiarControles()
-        {
-            txtEmail.Text = string.Empty;
-            txtEtiquetas.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
         }
         #endregion
 
@@ -70,7 +61,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -78,39 +69,39 @@ namespace GendocsForms
         {
             try
             {
-                txtIdEmpleado.Text = cEmp.IdEmpleado.ToString();
-                txtNombre.Text = cEmp.Empleado;
-                txtTelefono.Text = cEmp.Telefono;
-                txtEmail.Text = cEmp.Email;
-                if (cEmp.IdCliente == null)
+                txtIdEmpleado.Text = CEmp.IdEmpleado.ToString();
+                txtNombre.Text = CEmp.Empleado;
+                txtTelefono.Text = CEmp.Telefono;
+                txtEmail.Text = CEmp.Email;
+                if (CEmp.IdCliente == null)
                 {
                     cmbClientes.SelectedValue = 0;
                 }
                 else
-                    cmbClientes.SelectedValue = Convert.ToInt32(cEmp.IdCliente);
-                if (cEmp.IdCargo == null)
+                    cmbClientes.SelectedValue = Convert.ToInt32(CEmp.IdCliente);
+                if (CEmp.IdCargo == null)
                 {
                     cmbCargo.SelectedValue = 0;
                 }
                 else
-                    cmbCargo.SelectedValue = Convert.ToInt32(cEmp.IdCargo);
-                if (cEmp.IdEmpleadoSuperior == null)
+                    cmbCargo.SelectedValue = Convert.ToInt32(CEmp.IdCargo);
+                if (CEmp.IdEmpleadoSuperior == null)
                 {
                     cmbJefes.SelectedValue = 0;
                 }
                 else
-                    cmbJefes.SelectedValue = Convert.ToInt32(cEmp.IdEmpleadoSuperior);
-                txtEtiquetas.Text = cEmp.Etiquetas;
+                    cmbJefes.SelectedValue = Convert.ToInt32(CEmp.IdEmpleadoSuperior);
+                txtEtiquetas.Text = CEmp.Etiquetas;
                 HanModificado = false;
                 //btnGuardar.Visible = false;
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        bool validarControles()
+        bool ValidarControles()
         {
             bool EsValido = true;
             string cadena = "Faltan los siguientes campos obligatorios:" + Environment.NewLine;
@@ -160,7 +151,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
             return EsValido;
         }
@@ -170,12 +161,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdEmpleados> lista = new List<GendocsModeloDatos.models.GdEmpleados>();
-                lista.Add(new GendocsModeloDatos.models.GdEmpleados()
+                List<GendocsModeloDatos.models.GdEmpleados> lista = new List<GendocsModeloDatos.models.GdEmpleados>
                 {
-                    IdEmpleado = 0,
-                    Empleado = ""
-                });
+                    new GendocsModeloDatos.models.GdEmpleados()
+                    {
+                        IdEmpleado = 0,
+                        Empleado = ""
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdEmpleados> lstEmpleados;
@@ -195,7 +188,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -203,12 +196,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>();
-                lista.Add(new GendocsModeloDatos.models.GdClientes()
+                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>
                 {
-                    IdCliente = 0,
-                    Cliente = ""
-                });
+                    new GendocsModeloDatos.models.GdClientes()
+                    {
+                        IdCliente = 0,
+                        Cliente = ""
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdClientes> lstCargos;
@@ -228,7 +223,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -236,12 +231,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdCargos> lista = new List<GendocsModeloDatos.models.GdCargos>();
-                lista.Add(new GendocsModeloDatos.models.GdCargos()
+                List<GendocsModeloDatos.models.GdCargos> lista = new List<GendocsModeloDatos.models.GdCargos>
                 {
-                    IdCargo = 0,
-                    Cargo = ""
-                });
+                    new GendocsModeloDatos.models.GdCargos()
+                    {
+                        IdCargo = 0,
+                        Cargo = ""
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdCargos> lstCargos;
@@ -260,27 +257,27 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (HanModificado)
             {
-                if (validarControles())
+                if (ValidarControles())
                 {
-                    //cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-                    //cEmp.IdEmpleado = txtIdEmpleado.Text;
-                    cEmp.Empleado = txtNombre.Text;
-                    cEmp.Telefono = txtTelefono.Text;
-                    cEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
-                    cEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    cEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
-                    cEmp.Email = txtEmail.Text;
-                    cEmp.Etiquetas = txtEtiquetas.Text;
-                    cEmp.EsAlta = true;
-                    cEmp.GuardarUsuario();
+                    //CEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
+                    //CEmp.IdEmpleado = txtIdEmpleado.Text;
+                    CEmp.Empleado = txtNombre.Text;
+                    CEmp.Telefono = txtTelefono.Text;
+                    CEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
+                    CEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    CEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
+                    CEmp.Email = txtEmail.Text;
+                    CEmp.Etiquetas = txtEtiquetas.Text;
+                    CEmp.EsAlta = true;
+                    CEmp.GuardarUsuario();
                     this.Close();
                     //btnEliminar.Visible = false;
                     //btnGuardar.Visible = false;
@@ -289,68 +286,70 @@ namespace GendocsForms
             }
         }
 
-        private void btnEtiquetas_Click(object sender, EventArgs e)
+        private void BtnEtiquetas_Click(object sender, EventArgs e)
         {
-            clsEmp cEmp = new clsEmp();
-            cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-            cEmp.AsignarEtiquetasFML();
+            ClsEmp CEmp = new ClsEmp
+            {
+                IdEmpleado = Int32.Parse(txtIdEmpleado.Text)
+            };
+            CEmp.AsignarEtiquetasFML();
             //CargarForm();
-            txtEtiquetas.Text = cEmp.Etiquetas;
+            txtEtiquetas.Text = CEmp.Etiquetas;
         }
         #endregion
 
         #region "Control de Eventos"
-        private void txtNombre_TextChanged(object sender, EventArgs e)
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        private void TxtTelefono_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void cmbJefes_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbJefes_SelectedIndexChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void TxtEmail_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
+        private void BtnSiguiente_Click(object sender, EventArgs e)
         {
-            cEmp.IrSiguiente();
+            CEmp.IrSiguiente();
             CargarForm();
         }
 
-        private void btnAnterior_Click(object sender, EventArgs e)
+        private void BtnAnterior_Click(object sender, EventArgs e)
         {
-            cEmp.IrAnterior();
+            CEmp.IrAnterior();
             CargarForm();
         }
 
-        private void btnPrimero_Click(object sender, EventArgs e)
+        private void BtnPrimero_Click(object sender, EventArgs e)
         {
-            cEmp.IrPrimero();
+            CEmp.IrPrimero();
             CargarForm();
         }
 
-        private void btnUltimo_Click(object sender, EventArgs e)
+        private void BtnUltimo_Click(object sender, EventArgs e)
         {
-            cEmp.IrUltimo();
+            CEmp.IrUltimo();
             CargarForm();
         }
         #endregion

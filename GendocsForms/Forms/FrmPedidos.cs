@@ -10,11 +10,11 @@ namespace GendocsForms
 {
     public partial class FrmPedidos : Form
     {
-        public clsPedidos cPed { get; set; }
+        public ClsPedidos CPed { get; set; }
 
-        public FrmPedidos(clsPedidos cped)
+        public FrmPedidos(ClsPedidos cped)
         {
-            cPed = cped;
+            CPed = cped;
             InitializeComponent();
         }
 
@@ -34,6 +34,97 @@ namespace GendocsForms
             CargarComboUsuarios();
             txtIntroduzcaTexto.Focus();
             //HabilitarBotonera();
+        }
+
+        private void DgvPedidos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgvPedidos.CurrentCell != null) // Se valida que la fila actual no esté vacía
+                {
+                    //int IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    //clsPedidoCab clsPedCab = new clsPedidoCab();
+                    //clsPedCab.IdPedidoCab = IdPedidoCab;
+                    FrmPedidoEdit frm = new FrmPedidoEdit
+                    {
+                        MdiParent = this.MdiParent,
+                        WindowState = FormWindowState.Maximized,
+                        IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString())
+                    };
+                    frm.Show();
+                    //clsPedCab.CargarFrmPedidoCab();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void CmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
+                CargarComboAccesos(IdEmpleadoFML);
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void CmbAccesos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+
+                string Acceso = cmbAccesos.Text.Replace(" ", string.Empty);
+                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
+
+                var lst = (from a in db.GD_EmpleadosFML_Accesos
+                           where a.IdEmpleadoFML == IdEmpleadoFML && a.Acceso.Contains(Acceso)
+                           select new { a.Usuario, a.Password }).ToList();
+
+                if (lst.Count() != 0)
+                {
+                    foreach (var item in lst)
+                    {
+                        if (item.Usuario != null)
+                        {
+                            txtUsuario.Text = item.Usuario.Replace(" ", string.Empty);
+                        }
+                        else
+                            txtUsuario.Text = string.Empty;
+                        if (item.Password != null)
+                        {
+                            txtContraseña.Text = item.Password.Replace(" ", string.Empty);
+                        }
+                        else
+                            txtContraseña.Text = string.Empty;
+
+                    }
+                }
+                txtUsuario.Focus();
+
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData) // TODO cerrar el formulario con el boton ESCAPE
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
         }
 
         #endregion
@@ -74,36 +165,34 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+               _ = ex.Message;
             }
         }
 
 
-        private void CargarGrid(String TextoIntroducido = "", bool EsProhibido = false)
+        private void CargarGrid(String TextoIntroducido = "")
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    var lst = (
-                        from a in db.GdProyectos
-                        join b in db.GdPedidosCab on a.IdProyecto equals b.IdProyecto
-                        where ((b.NumRef.Contains(TextoIntroducido) && b.NumRef != null) || (b.Gestor.Contains(TextoIntroducido) && b.NumRef != null) || (b.NumObra.Contains(TextoIntroducido) && b.NumRef != null) || (b.DescripcionObra.Contains(TextoIntroducido) && b.NumRef != null)
-                        || (b.Actuacion.Contains(TextoIntroducido) && b.NumRef != null) || (b.Poblacion.Contains(TextoIntroducido) && b.NumRef != null))
-                        orderby b.IdPedidoCab descending
-                        select new { b.IdPedidoCab, b.NumRef, b.Gestor, b.NumObra, b.FechaPedido, b.DescripcionObra, b.Actuacion, b.Poblacion }
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (
+                    from a in db.GdProyectos
+                    join b in db.GdPedidosCab on a.IdProyecto equals b.IdProyecto
+                    where ((b.NumRef.Contains(TextoIntroducido) && b.NumRef != null) || (b.Gestor.Contains(TextoIntroducido) && b.NumRef != null) || (b.NumObra.Contains(TextoIntroducido) && b.NumRef != null) || (b.DescripcionObra.Contains(TextoIntroducido) && b.NumRef != null)
+                    || (b.Actuacion.Contains(TextoIntroducido) && b.NumRef != null) || (b.Poblacion.Contains(TextoIntroducido) && b.NumRef != null))
+                    orderby b.IdPedidoCab descending
+                    select new { b.IdPedidoCab, b.NumRef, b.Gestor, b.NumObra, b.FechaPedido, b.DescripcionObra, b.Actuacion, b.Poblacion }
 
-                        ).ToList();
+                    ).ToList();
 
-                    DataTable dt = FormUtiles.ToDataTable(lst);
+                DataTable dt = FormUtiles.ToDataTable(lst);
 
-                    dgvPedidos.DataSource = null;
-                    dgvPedidos.DataSource = dt;
-                }
+                dgvPedidos.DataSource = null;
+                dgvPedidos.DataSource = dt;
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -126,7 +215,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -153,134 +242,45 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
         #endregion
 
         #region "Control de Eventos"
-        private void txtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
+        private void TxtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
         {
             CargarGrid(txtIntroduzcaTexto.Text);
             FormatearGrid();
         }
 
-        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
         {
             try
             {
                 txtIntroduzcaTexto.Text = String.Empty;
                 txtIntroduzcaTexto.Focus();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                string mensaje = Ex.Message;
+                _ = ex.Message;
+            }
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
             }
         }
 
         #endregion
-
-        private void dgvPedidos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (dgvPedidos.CurrentCell != null) // Se valida que la fila actual no esté vacía
-                {
-                    //int IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    //clsPedidoCab clsPedCab = new clsPedidoCab();
-                    //clsPedCab.IdPedidoCab = IdPedidoCab;
-                    FrmPedidoEdit frm = new FrmPedidoEdit();
-                    frm.MdiParent = this.MdiParent;
-                    frm.WindowState = FormWindowState.Maximized;
-                    frm.IdPedidoCab = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    frm.Show();
-                    //clsPedCab.CargarFrmPedidoCab();
-                }
-               
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        protected override bool ProcessDialogKey(Keys keyData) // TODO cerrar el formulario con el boton ESCAPE
-        {
-            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
-            {
-                this.Close();
-                return true;
-            }
-            return base.ProcessDialogKey(keyData);
-        }
-
-        private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
-                CargarComboAccesos(IdEmpleadoFML);
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        private void cmbAccesos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-
-                string Acceso = cmbAccesos.Text.Replace(" ", string.Empty);
-                int IdEmpleadoFML = Convert.ToInt32(cmbUsuarios.SelectedValue);
-
-                var lst = (from a in db.GD_EmpleadosFML_Accesos
-                           where a.IdEmpleadoFML == IdEmpleadoFML && a.Acceso.Contains(Acceso)
-                           select new { a.Usuario, a.Password }).ToList();
-
-                if (lst.Count() != 0)
-                {
-                    foreach (var item in lst)
-                    {
-                        if (item.Usuario != null)
-                        {
-                            txtUsuario.Text = item.Usuario.Replace(" ", string.Empty);
-                        }
-                        else
-                            txtUsuario.Text = string.Empty;
-                        if (item.Password != null)
-                        {
-                            txtContraseña.Text = item.Password.Replace(" ", string.Empty);
-                        }
-                        else
-                            txtContraseña.Text = string.Empty;
-
-                    }
-                }
-                txtUsuario.Focus();
-
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-
-        }
     }
 }
 

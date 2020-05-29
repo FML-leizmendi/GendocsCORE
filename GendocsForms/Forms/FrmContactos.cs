@@ -21,15 +21,14 @@ namespace GendocsForms.Forms
             CargarComboClientes();
             CargarGrid();
             FormatearGrid();
-            G3Forms.CargarParam(this , this.Name);
             txtIntroduzcaTexto.Focus();
         }
 
-        private void btnEditarEmpleado_Click(object sender, EventArgs e)
+        private void BtnEditarEmpleado_Click(object sender, EventArgs e)
         {
             try
             {
-                clsEmp cEmp = new clsEmp();
+                ClsEmp cEmp = new ClsEmp();
                 using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
                 {
                     int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
@@ -41,7 +40,7 @@ namespace GendocsForms.Forms
                                    select d.IdEmpleado
 
                           ).ToList();
-                        cEmp.lstId = lst;
+                        cEmp.LstId = lst;
                     }
                     else
                     {
@@ -51,7 +50,7 @@ namespace GendocsForms.Forms
                                    select d.IdEmpleado
 
                          ).ToList();
-                        cEmp.lstId = lst;
+                        cEmp.LstId = lst;
                     }
                     cEmp.CargarFrmEmpleados();
                 }
@@ -62,34 +61,38 @@ namespace GendocsForms.Forms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void dgvContactos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
+        }
+
+
+        private void DgvContactos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                clsEmp cEmp = new clsEmp();
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    var lst = (from d in db.GdEmpleados
-                               where (d.Empleado .Contains(txtIntroduzcaTexto.Text))
-                               select d.IdEmpleado
+                ClsEmp cEmp = new ClsEmp();
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from d in db.GdEmpleados
+                           where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
+                           select d.IdEmpleado
 
-                           ).ToList();
+                       ).ToList();
 
-                    cEmp.lstId = lst;
-                    cEmp.CargarFrmEmpleados();
-                }
+                cEmp.LstId = lst;
+                cEmp.CargarFrmEmpleados();
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void dgvContactos_CurrentCellChanged(object sender, EventArgs e)
+        private void DgvContactos_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgvContactos.CurrentRow != null)
             {
@@ -126,7 +129,7 @@ namespace GendocsForms.Forms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -135,39 +138,37 @@ namespace GendocsForms.Forms
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                if (IdCliente != 0)
                 {
-                    if (IdCliente != 0)
-                    {
-                        var lstFiltrada = (from a in db.GdEmpleados
-                                           join b in db.GdCargos on a.IdCargo equals b.IdCargo
-                                           join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
-                                           from result in joinedT.DefaultIfEmpty()
-                                           where (a.Empleado.Contains(TextoIntroducido) & (a.IdCliente == IdCliente))
-                                           select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
+                    var lstFiltrada = (from a in db.GdEmpleados
+                                       join b in db.GdCargos on a.IdCargo equals b.IdCargo
+                                       join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
+                                       from result in joinedT.DefaultIfEmpty()
+                                       where (a.Empleado.Contains(TextoIntroducido) & (a.IdCliente == IdCliente))
+                                       select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
 
-                                            ).ToList();
+                                        ).ToList();
 
-                        dgvContactos.DataSource = lstFiltrada;
-                    }
-                    else
-                    {
-                        var lst = (from a in db.GdEmpleados
-                                   join b in db.GdCargos on a.IdCargo equals b.IdCargo
-                                   join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
-                                   from result in joinedT.DefaultIfEmpty()
-                                   where (a.Empleado.Contains(TextoIntroducido))
-                                   select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
+                    dgvContactos.DataSource = lstFiltrada;
+                }
+                else
+                {
+                    var lst = (from a in db.GdEmpleados
+                               join b in db.GdCargos on a.IdCargo equals b.IdCargo
+                               join c in db.GdClientes on a.IdCliente equals c.IdCliente into joinedT
+                               from result in joinedT.DefaultIfEmpty()
+                               where (a.Empleado.Contains(TextoIntroducido))
+                               select new { a.IdEmpleado, a.Empleado, result.Cliente, b.Cargo, a.Telefono, a.Email, a.Etiquetas }
 
-                          ).ToList();
+                      ).ToList();
 
-                        dgvContactos.DataSource = lst;
-                    }         
+                    dgvContactos.DataSource = lst;
                 }
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -175,12 +176,14 @@ namespace GendocsForms.Forms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>();
-                lista.Add(new GendocsModeloDatos.models.GdClientes()
+                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>
                 {
-                    IdCliente = 0,
-                    Cliente = "Todos"
-                });
+                    new GendocsModeloDatos.models.GdClientes()
+                    {
+                        IdCliente = 0,
+                        Cliente = "Todos"
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdClientes> lstClientes;
@@ -205,20 +208,11 @@ namespace GendocsForms.Forms
         #endregion
 
         #region "Control de evenetos"
-        private void txtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
+        private void TxtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
         {
             CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
         }
         #endregion
 
-        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CargarGrid(txtIntroduzcaTexto.Text, Convert.ToInt32(cmbClientes.SelectedValue));
-        }
-
-        private void FrmContactos_Leave(object sender, EventArgs e)
-        {
-            G3Forms.GrabarParam(this, this.Name);
-        }
     }
 }

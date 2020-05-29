@@ -6,11 +6,11 @@ namespace GendocsForms
 {
     public partial class frmMantenimientoEmpleadosFML : Form
     {
-        public clsEmpFml cEmp { get; set; }
+        public clsEmpFml CEmp { get; set; }
 
         public frmMantenimientoEmpleadosFML(clsEmpFml cemp)
         {
-            cEmp = cemp;
+            CEmp = cemp;
             InitializeComponent();
         }
 
@@ -21,12 +21,12 @@ namespace GendocsForms
         }
 
         #region "Eventos Privados"
-        private void frmMantenimientoEmpleadosFML_Load(object sender, EventArgs e)
+        private void FrmMantenimientoEmpleadosFML_Load(object sender, EventArgs e)
         {
             CargarForm();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -50,21 +50,21 @@ namespace GendocsForms
         {
             try
             {
-                txtIdEmpleado.Text = cEmp.IdEmpleado.ToString();
-                txtNIF.Text = cEmp.Nif;
-                txtNombre.Text = cEmp.Nombre;
-                txtApellidos.Text = cEmp.Apellidos;
-                txtTelefono.Text = cEmp.Telefono;
-                txtEmail.Text = cEmp.Email;
-                txtEtiquetas.Text = cEmp.Etiquetas;
+                txtIdEmpleado.Text = CEmp.IdEmpleado.ToString();
+                txtNIF.Text = CEmp.Nif;
+                txtNombre.Text = CEmp.Nombre;
+                txtApellidos.Text = CEmp.Apellidos;
+                txtTelefono.Text = CEmp.Telefono;
+                txtEmail.Text = CEmp.Email;
+                txtEtiquetas.Text = CEmp.Etiquetas;
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        bool validarControles()
+        bool ValidarControles()
         {
             bool EsValido = true;
             string cadena = "Faltan los siguientes campos obligatorios:" + Environment.NewLine;
@@ -107,7 +107,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
             return EsValido;
         }
@@ -115,70 +115,72 @@ namespace GendocsForms
         #endregion
 
         #region "Control de Eventos"
-        private void btnPrimero_Click(object sender, EventArgs e)
+        private void BtnPrimero_Click(object sender, EventArgs e)
         {
-            cEmp.IrPrimero();
+            CEmp.IrPrimero();
             CargarForm();
         }
 
-        private void btnAnterior_Click(object sender, EventArgs e)
+        private void BtnAnterior_Click(object sender, EventArgs e)
         {
-            cEmp.IrAnterior();
+            CEmp.IrAnterior();
             CargarForm();
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
+        private void BtnSiguiente_Click(object sender, EventArgs e)
         {
-            cEmp.IrSiguiente();
+            CEmp.IrSiguiente();
             CargarForm();
         }
 
-        private void btnUltimo_Click(object sender, EventArgs e)
+        private void BtnUltimo_Click(object sender, EventArgs e)
         {
-            cEmp.IrUltimo();
+            CEmp.IrUltimo();
             CargarForm();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            cEmp.EliminarUsuario();
+            CEmp.EliminarUsuario();
             CargarForm();
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarControles();
             txtNIF.Focus();
             // txtIdEmpleado.Visible = true;
-            cEmp.EsAlta = true;
+            CEmp.EsAlta = true;
             btnEliminar.Visible = false;
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarControles())
+            if (ValidarControles())
             {
-                //cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-                cEmp.Nif = txtNIF.Text;
-                cEmp.Nombre = txtNombre.Text;
-                cEmp.Apellidos = txtApellidos.Text;
-                cEmp.Telefono = txtTelefono.Text;
-                cEmp.Email = txtEmail.Text;
-                cEmp.Etiquetas = txtEtiquetas.Text;
-                cEmp.GuardarUsuario();
-                cEmp.EsAlta = false;
+                //CEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
+                CEmp.Nif = txtNIF.Text;
+                CEmp.Nombre = txtNombre.Text;
+                CEmp.Apellidos = txtApellidos.Text;
+                CEmp.Telefono = txtTelefono.Text;
+                CEmp.Email = txtEmail.Text;
+                CEmp.Etiquetas = txtEtiquetas.Text;
+                CEmp.GuardarUsuario();
+                CEmp.EsAlta = false;
                 // txtIdEmpleado.Visible = false;
                 //btnEliminar.Visible = true;
             }
         }
 
-        private void btnEtiquetas_Click(object sender, EventArgs e)
+        private void BtnEtiquetas_Click(object sender, EventArgs e)
         {
-            clsEmpFml cEmp = new clsEmpFml();
-            cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-            cEmp.AsignarEtiquetasFML();
+            clsEmpFml CEmp = new clsEmpFml
+            {
+                IdEmpleado = Int32.Parse(txtIdEmpleado.Text)
+            };
+            CEmp.AsignarEtiquetasFML();
             //CargarForm();
-            txtEtiquetas.Text = cEmp.Etiquetas;
+            txtEtiquetas.Text = CEmp.Etiquetas;
 
         }
         #endregion

@@ -97,7 +97,7 @@
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // pnlBotonera
             // 
@@ -140,7 +140,7 @@
             this.cmbTipoTrabajo.Name = "cmbTipoTrabajo";
             this.cmbTipoTrabajo.Size = new System.Drawing.Size(165, 25);
             this.cmbTipoTrabajo.TabIndex = 14;
-            this.cmbTipoTrabajo.SelectedIndexChanged += new System.EventHandler(this.cmbTipoTrabajo_SelectedIndexChanged);
+            this.cmbTipoTrabajo.SelectedIndexChanged += new System.EventHandler(this.CmbTipoTrabajo_SelectedIndexChanged);
             // 
             // lblTipoTrabajo
             // 
@@ -168,7 +168,7 @@
             this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
             this.btnLimpiarFiltros.TabIndex = 12;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
             // 
             // txtIntroduzcaTexto
             // 
@@ -178,7 +178,7 @@
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
             this.txtIntroduzcaTexto.Size = new System.Drawing.Size(256, 23);
             this.txtIntroduzcaTexto.TabIndex = 11;
-            this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.txtIntroduzcaTexto_TextChanged);
+            this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.TxtIntroduzcaTexto_TextChanged);
             // 
             // lblTexto
             // 
@@ -200,7 +200,7 @@
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(165, 25);
             this.cmbClientes.TabIndex = 9;
-            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.CmbClientes_SelectedIndexChanged);
             // 
             // lblCliente
             // 

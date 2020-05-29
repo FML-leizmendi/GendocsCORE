@@ -10,11 +10,11 @@ namespace GendocsForms
     public partial class FrmUnidadesConstructivas : Form
     {
         public bool EsEdicion = false;
-        public clsUnidadesContructivas cUnds { get; set; }
+        public clsUnidadesContructivas CUnds { get; set; }
 
         public FrmUnidadesConstructivas(clsUnidadesContructivas cund)
         {
-            cUnds = cund;
+            CUnds = cund;
             InitializeComponent();
         }
 
@@ -32,7 +32,32 @@ namespace GendocsForms
             FormatearGrid();
         }
 
-        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        private void BtnAceptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClsPedidos clsPed = new ClsPedidos();
+                List<int> miLista = new List<int>();
+                clsPed.lstId = miLista;
+                FrmCantidadRecursos frm = new FrmCantidadRecursos();
+                frm.ShowDialog();
+                CUnds.Cantidad = frm.Cantidad;
+                CUnds.IdUc = Convert.ToInt32(dgvUndsContructivas.SelectedRows[0].Cells["IdUc"].Value.ToString());
+                frm.Close();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
         {
             try
             {
@@ -41,7 +66,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
         #endregion
@@ -76,7 +101,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -85,29 +110,27 @@ namespace GendocsForms
         {
             try
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    int IdTipoTrabajo = Convert.ToInt32(cmbTipoTrabajo.SelectedValue);
-                    var lst = (
-                        from a in db.GdUnidadesConstructivas
-                        join b in db.GdTiposTrabajo on a.IdTipoTrabajo equals b.IdTipoTrabajo
-                        join c in db.GdClientes on a.IdCliente equals c.IdCliente
-                        where (b.TipoTrabajo.Contains(TextoIntroducido) || a.CodigoUc.Contains(TextoIntroducido) || a.DescripcionUc.Contains(TextoIntroducido))
-                        orderby a.IdUc
-                        select new { a.IdUc, c.Cliente, b.TipoTrabajo, a.CodigoUc, a.DescripcionUc, a.Ud, a.PrecioUnidad, a.IdCliente, b.IdTipoTrabajo }
-                        ).ToList();
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                int IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                int IdTipoTrabajo = Convert.ToInt32(cmbTipoTrabajo.SelectedValue);
+                var lst = (
+                    from a in db.GdUnidadesConstructivas
+                    join b in db.GdTiposTrabajo on a.IdTipoTrabajo equals b.IdTipoTrabajo
+                    join c in db.GdClientes on a.IdCliente equals c.IdCliente
+                    where (b.TipoTrabajo.Contains(TextoIntroducido) || a.CodigoUc.Contains(TextoIntroducido) || a.DescripcionUc.Contains(TextoIntroducido))
+                    orderby a.IdUc
+                    select new { a.IdUc, c.Cliente, b.TipoTrabajo, a.CodigoUc, a.DescripcionUc, a.Ud, a.PrecioUnidad, a.IdCliente, b.IdTipoTrabajo }
+                    ).ToList();
 
-                    var listaFiltrada = lst.Where(i => (IdCliente != 0 && IdCliente == i.IdCliente) || IdCliente == 0)
-                                            .Where(i => (IdTipoTrabajo != 0 && IdTipoTrabajo == i.IdTipoTrabajo) || IdTipoTrabajo == 0).ToList();
+                var listaFiltrada = lst.Where(i => (IdCliente != 0 && IdCliente == i.IdCliente) || IdCliente == 0)
+                                        .Where(i => (IdTipoTrabajo != 0 && IdTipoTrabajo == i.IdTipoTrabajo) || IdTipoTrabajo == 0).ToList();
 
-                    dgvUndsContructivas.DataSource = null;
-                    dgvUndsContructivas.DataSource = listaFiltrada;
-                }
+                dgvUndsContructivas.DataSource = null;
+                dgvUndsContructivas.DataSource = listaFiltrada;
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -115,12 +138,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>();
-                lista.Add(new GendocsModeloDatos.models.GdClientes()
+                List<GendocsModeloDatos.models.GdClientes> lista = new List<GendocsModeloDatos.models.GdClientes>
                 {
-                    IdCliente = 0,
-                    Cliente = "Todos"
-                });
+                    new GendocsModeloDatos.models.GdClientes()
+                    {
+                        IdCliente = 0,
+                        Cliente = "Todos"
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdClientes> lstClientes;
@@ -139,7 +164,7 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
@@ -147,12 +172,14 @@ namespace GendocsForms
         {
             try
             {
-                List<GendocsModeloDatos.models.GdTiposTrabajo> lista = new List<GendocsModeloDatos.models.GdTiposTrabajo>();
-                lista.Add(new GendocsModeloDatos.models.GdTiposTrabajo()
+                List<GendocsModeloDatos.models.GdTiposTrabajo> lista = new List<GendocsModeloDatos.models.GdTiposTrabajo>
                 {
-                    IdTipoTrabajo = 0,
-                    TipoTrabajo = "Todos"
-                });
+                    new GendocsModeloDatos.models.GdTiposTrabajo()
+                    {
+                        IdTipoTrabajo = 0,
+                        TipoTrabajo = "Todos"
+                    }
+                };
 
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdTiposTrabajo> lstTiposTrabajo;
@@ -171,14 +198,14 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
         #endregion
 
         #region "Control de Eventos"
-        private void txtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
+        private void TxtIntroduzcaTexto_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -187,11 +214,11 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -200,11 +227,11 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
-        private void cmbTipoTrabajo_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbTipoTrabajo_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -213,36 +240,11 @@ namespace GendocsForms
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                _ = ex.Message;
             }
         }
 
 
         #endregion
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                clsPedidos clsPed = new clsPedidos();
-                List<int> miLista = new List<int>();
-                clsPed.lstId = miLista;
-                FrmCantidadRecursos frm = new FrmCantidadRecursos();
-                frm.ShowDialog();
-                cUnds.Cantidad = frm.Cantidad;
-                cUnds.IdUc = Convert.ToInt32(dgvUndsContructivas.SelectedRows[0].Cells["IdUc"].Value.ToString());
-                frm.Close();
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }
