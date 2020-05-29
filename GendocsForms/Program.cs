@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GendocsController;
 using System.Collections;
+using Microsoft.VisualBasic;
 
 namespace GendocsForms
 {
@@ -14,7 +15,7 @@ namespace GendocsForms
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             /*
              * using(GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
@@ -43,6 +44,24 @@ namespace GendocsForms
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            var g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User);
+            if (g3_connection == null || g3_connection == "" || args[0]=="db")
+            {
+                InputBoxValidation validation = delegate (string val)
+                {
+                    if (val == "")
+                        return "Value cannot be empty.";
+                    return "";
+                };
+
+                string value = "";
+                if (InputBox.Show("Cadena de conexión a base de datos G3", "G3 database:", ref value, validation) == DialogResult.OK)
+                {
+                    MessageBox.Show(value);
+                    Environment.SetEnvironmentVariable("G3_CONNECTION", value, EnvironmentVariableTarget.User);
+                }
+                g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User);
+            }
             if (G3Forms.Login())
             {
                 //MessageBox.Show("OK!","Acceso correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
