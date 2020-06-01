@@ -103,7 +103,8 @@ namespace GendocsForms
         {
             try
             {
-                
+                FrmRedimensionarImagenes frm = new FrmRedimensionarImagenes();
+                frm.ShowDialog();
             }
             catch(Exception ex)
             {
