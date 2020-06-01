@@ -21,6 +21,11 @@ namespace GendocsForms
             InitializeComponent();
         }
 
+        private void FrmRedimensionarImagenes_Load(object sender, EventArgs e)
+        {
+            txtRutaOrigen.Focus();
+        }
+
         private void BtnCarpetaOrigen_Click(object sender, EventArgs e)
         {
             try
@@ -53,6 +58,18 @@ namespace GendocsForms
         {
             try
             {
+                RedimensionarImagenes();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void RedimensionarImagenes()
+        {
+            try
+            {
                 if (Redimensionar)
                 {
                     string[] files = Directory.GetFiles(txtRutaOrigen.Text);
@@ -71,12 +88,16 @@ namespace GendocsForms
                             pbProgreso.Value = (100 * i + 1) / (files.Length);
                         }
                     }
+                    if (pbProgreso.Value <= 100)
+                    {
+                        pbProgreso.Value = 0;
+                        MessageBox.Show("Todas las imágenes has sido redimensiodadas correctamente", "Redimensionar Imágenes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Process.Start(txtRutaDestino.Text);
+                    }
                 }
-                if (pbProgreso.Value <= 100)
+                else
                 {
-                    pbProgreso.Value = 0;
-                    MessageBox.Show("Todas las imágenes has sido redimensiodadas correctamente","Redimensionar Imágenes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Process.Start(txtRutaDestino.Text);
+                    MessageBox.Show("No ha seleccionado imágenes para redimensionar", "Redimensionar Imágenes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

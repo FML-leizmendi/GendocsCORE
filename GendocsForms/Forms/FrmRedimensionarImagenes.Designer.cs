@@ -73,6 +73,7 @@
             // 
             // pbProgreso
             // 
+            this.pbProgreso.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.pbProgreso.Location = new System.Drawing.Point(31, 175);
             this.pbProgreso.Name = "pbProgreso";
             this.pbProgreso.Size = new System.Drawing.Size(413, 23);
@@ -211,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(496, 270);
             this.Controls.Add(this.btnRedimensionar);
             this.Controls.Add(this.grbImagenes);
@@ -220,6 +221,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmRedimensionarImagenes";
             this.Text = "Redimensionar Imágenes";
+            this.Load += new System.EventHandler(this.FrmRedimensionarImagenes_Load);
             this.grbImagenes.ResumeLayout(false);
             this.grbImagenes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAlto)).EndInit();
