@@ -103,7 +103,7 @@ namespace GendocsForms
         {
             try
             {
-                FrmPedidosEntrantes frm = new FrmPedidosEntrantes();
+                FrmRedimensionarImagenes frm = new FrmRedimensionarImagenes();
                 frm.ShowDialog();
             }
             catch(Exception ex)
@@ -111,6 +111,19 @@ namespace GendocsForms
                 _ = ex.Message;
             }
 
+        }
+
+        private void BtnUnidadesContructivas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmUnidadesConstructivas frm = new FrmUnidadesConstructivas();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
         }
     }
 }
