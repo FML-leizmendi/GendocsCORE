@@ -1,12 +1,12 @@
 ﻿using GendocsController;
 using GendocsModeloDatos.models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 
 namespace GendocsForms
 {
@@ -581,6 +581,11 @@ namespace GendocsForms
             BotonTipoProyecto(this.btnOtros);
         }
 
+        private void BtnTodos_Click(object sender, EventArgs e)
+        {
+            BotonTipoProyecto(this.btnTodos);
+        }
+
         private void CmbEstadoProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
@@ -606,9 +611,20 @@ namespace GendocsForms
 
         #endregion
 
-        private void BtnTodos_Click(object sender, EventArgs e)
+        private void PbCarpeta_Click(object sender, EventArgs e)
         {
-            BotonTipoProyecto(this.btnTodos);
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                if (txtCodProyecto.Text != string.Empty)
+                {
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
         }
     }
 }

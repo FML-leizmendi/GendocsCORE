@@ -191,6 +191,14 @@
       <Link>FrmPantallaConfPedidos.designer.cs</Link>
       <DependentUpon>FrmPantallaConfPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmParametros.cs">
+      <Link>FrmParametros.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmParametros.designer.cs">
+      <Link>FrmParametros.designer.cs</Link>
+      <DependentUpon>FrmParametros.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmPedidoEdit.cs">
       <Link>FrmPedidoEdit.cs</Link>
       <SubType>Form</SubType>
@@ -222,6 +230,14 @@
     <Compile Include="..\GendocsForms\Forms\FrmRecursos.designer.cs">
       <Link>FrmRecursos.designer.cs</Link>
       <DependentUpon>FrmRecursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmRedimensionarImagenes.cs">
+      <Link>FrmRedimensionarImagenes.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmRedimensionarImagenes.designer.cs">
+      <Link>FrmRedimensionarImagenes.designer.cs</Link>
+      <DependentUpon>FrmRedimensionarImagenes.cs</DependentUpon>
     </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmUnidadesConstructivas.cs">
       <Link>FrmUnidadesConstructivas.cs</Link>
@@ -305,6 +321,10 @@
       <Link>FrmPantallaConfPedidos.resx</Link>
       <DependentUpon>FrmPantallaConfPedidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmParametros.resx">
+      <Link>FrmParametros.resx</Link>
+      <DependentUpon>FrmParametros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmPedidoEdit.resx">
       <Link>FrmPedidoEdit.resx</Link>
       <DependentUpon>FrmPedidoEdit.cs</DependentUpon>
@@ -320,6 +340,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmRecursos.resx">
       <Link>FrmRecursos.resx</Link>
       <DependentUpon>FrmRecursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmRedimensionarImagenes.resx">
+      <Link>FrmRedimensionarImagenes.resx</Link>
+      <DependentUpon>FrmRedimensionarImagenes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmUnidadesConstructivas.resx">
       <Link>FrmUnidadesConstructivas.resx</Link>

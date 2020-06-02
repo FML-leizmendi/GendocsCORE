@@ -125,5 +125,18 @@ namespace GendocsForms
                 _ = ex.Message;
             }
         }
+
+        private void btnParametros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmParametros frm = new FrmParametros();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
     }
 }
