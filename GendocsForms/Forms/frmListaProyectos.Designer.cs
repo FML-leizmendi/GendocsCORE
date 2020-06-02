@@ -137,7 +137,7 @@
             this.btnTodos.Name = "btnTodos";
             this.btnTodos.Size = new System.Drawing.Size(188, 45);
             this.btnTodos.TabIndex = 0;
-            this.btnTodos.Tag = "Td";
+            this.btnTodos.Tag = "btn_Td";
             this.btnTodos.Text = "TODOS";
             this.btnTodos.UseVisualStyleBackColor = false;
             this.btnTodos.Click += new System.EventHandler(this.BtnTodos_Click);
@@ -153,7 +153,7 @@
             this.btnOtros.Name = "btnOtros";
             this.btnOtros.Size = new System.Drawing.Size(188, 45);
             this.btnOtros.TabIndex = 5;
-            this.btnOtros.Tag = "Ot";
+            this.btnOtros.Tag = "btn_Ot";
             this.btnOtros.Text = "OTROS";
             this.btnOtros.UseVisualStyleBackColor = false;
             this.btnOtros.Click += new System.EventHandler(this.BtnOtros_Click);
@@ -171,7 +171,7 @@
             this.btnCartografia.Name = "btnCartografia";
             this.btnCartografia.Size = new System.Drawing.Size(188, 45);
             this.btnCartografia.TabIndex = 4;
-            this.btnCartografia.Tag = "Ca";
+            this.btnCartografia.Tag = "btn_Ca";
             this.btnCartografia.Text = "CARTROGRAFÍA";
             this.btnCartografia.UseVisualStyleBackColor = false;
             this.btnCartografia.Click += new System.EventHandler(this.BtnCartografia_Click);
@@ -189,7 +189,7 @@
             this.btnBajaTension.Name = "btnBajaTension";
             this.btnBajaTension.Size = new System.Drawing.Size(188, 45);
             this.btnBajaTension.TabIndex = 3;
-            this.btnBajaTension.Tag = "BT";
+            this.btnBajaTension.Tag = "btn_BT";
             this.btnBajaTension.Text = "BAJA TENSIÓN";
             this.btnBajaTension.UseVisualStyleBackColor = false;
             this.btnBajaTension.Click += new System.EventHandler(this.BtnBajaTension_Click);
@@ -207,7 +207,7 @@
             this.btnMediaTension.Name = "btnMediaTension";
             this.btnMediaTension.Size = new System.Drawing.Size(188, 45);
             this.btnMediaTension.TabIndex = 2;
-            this.btnMediaTension.Tag = "MT";
+            this.btnMediaTension.Tag = "btn_MT";
             this.btnMediaTension.Text = "MEDIA TENSIÓN";
             this.btnMediaTension.UseVisualStyleBackColor = false;
             this.btnMediaTension.Click += new System.EventHandler(this.BtnMediaTension_Click);
@@ -225,7 +225,7 @@
             this.btnAT.Name = "btnAT";
             this.btnAT.Size = new System.Drawing.Size(188, 45);
             this.btnAT.TabIndex = 1;
-            this.btnAT.Tag = "AT";
+            this.btnAT.Tag = "btn_AT";
             this.btnAT.Text = "ALTA TENSIÓN";
             this.btnAT.UseVisualStyleBackColor = false;
             this.btnAT.Click += new System.EventHandler(this.BtnAT_Click);
@@ -269,6 +269,7 @@
             this.txtCodProyecto.Name = "txtCodProyecto";
             this.txtCodProyecto.Size = new System.Drawing.Size(208, 23);
             this.txtCodProyecto.TabIndex = 1;
+            this.txtCodProyecto.Tag = "";
             // 
             // lblCodProyecto
             // 
@@ -307,6 +308,7 @@
             this.cmbEstadoProyecto.Name = "cmbEstadoProyecto";
             this.cmbEstadoProyecto.Size = new System.Drawing.Size(190, 25);
             this.cmbEstadoProyecto.TabIndex = 5;
+            this.cmbEstadoProyecto.Tag = "paramUS004";
             this.cmbEstadoProyecto.SelectedIndexChanged += new System.EventHandler(this.CmbEstadoProyecto_SelectedIndexChanged);
             // 
             // lblEstadoProyecto
@@ -328,6 +330,7 @@
             this.txtIntroduzcaTexto.Name = "txtIntroduzcaTexto";
             this.txtIntroduzcaTexto.Size = new System.Drawing.Size(376, 23);
             this.txtIntroduzcaTexto.TabIndex = 3;
+            this.txtIntroduzcaTexto.Tag = "paramUS012";
             this.txtIntroduzcaTexto.TextChanged += new System.EventHandler(this.TxtIntroduzcaTexto_TextChanged);
             // 
             // lblTexto

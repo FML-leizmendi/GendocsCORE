@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace GendocsForms
 {
@@ -24,11 +25,15 @@ namespace GendocsForms
         private void FrmListaProyectos_Load(object sender, EventArgs e)
         {
             txtIntroduzcaTexto.Focus();
-            CargarGrid();
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
             FormatearGrid();
             CargarComboEstadosProyectos();
             CargarComboAccesos();
             CargarComboUsuarios();
+            G3Forms.CargarParam(this, this.Name + "_");
+            TipoProyecto = (String)G3.GetParam(this.Name + "_TipoProyecto", true, out _, false, 10);
+            CambiarColorBotonSeleccionado(TipoProyecto);
+
         }
         private void BtnCerrarForm_Click(object sender, EventArgs e)
         {
@@ -64,7 +69,8 @@ namespace GendocsForms
                 cmbEstadoProyecto.SelectedIndex = 0;
                 CargarGrid(txtIntroduzcaTexto.Text);
                 FormatearGrid();
-                CambiarColorBotonSeleccionado(btnTodos);
+                TipoProyecto = "";
+                CambiarColorBotonSeleccionado(TipoProyecto);
                 txtIntroduzcaTexto.Focus();
             }
             catch (Exception ex)
@@ -257,22 +263,8 @@ namespace GendocsForms
 
                         db.SaveChanges();
                     }
-                    //else
-                    //{
-                    //    GdColumnasD colD = new GdColumnasD
-                    //    {
-                    //        IdColumnaC = Utiles.NumColumna(IdEmpFML, NombreGrid),                           
-                    //        NumCol =5,
-                    //        NameField = itemCol.Name,
-                    //        Ancho = itemCol.Width,
-                    //        OrderBy = "A",
-                    //        Visible = itemCol.Visible
-                    //    };
 
-                    //    db.GdColumnasD.Add(colD);
-                    //    db.SaveChanges();
-                    //}
-
+                    G3Forms.GrabarParam(this, this.Name + "_");
                 }
             }
             catch (Exception ex)
@@ -540,21 +532,22 @@ namespace GendocsForms
             }
         }
 
-        private void CambiarColorBotonSeleccionado(Button button)
+        private void CambiarColorBotonSeleccionado(String TipoProyecto)
         {
             foreach (Control cnt in this.pnlLateral.Controls)
             {
-                if (cnt is Button && cnt == button)
+                if (cnt.Tag != null && cnt.Tag.ToString().Contains("btn_"))
                 {
-                    cnt.BackColor = Color.Yellow;
-                }
-                else if (cnt is Label || cnt is PictureBox)
-                {
-
-                }
-                else
-                {
-                    cnt.BackColor = Color.LightBlue;
+                    String tp = TipoProyecto;
+                    if (tp == "") tp = "Td";
+                    if (cnt.Tag.ToString().Equals("btn_" + tp))
+                    {
+                        cnt.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        cnt.BackColor = Color.LightBlue;
+                    }
                 }
             }
         }
@@ -564,44 +557,28 @@ namespace GendocsForms
         #region "Control de evenetos"
         private void BtnAT_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnAT);
-            TipoProyecto = "AT";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnAT);
         }
 
         private void BtnMediaTension_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnMediaTension);
-            TipoProyecto = "MT";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnMediaTension);
         }
 
         private void BtnBajaTension_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnBajaTension);
-            TipoProyecto = "BT";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+
+            BotonTipoProyecto(this.btnBajaTension);
         }
 
         private void BtnCartografia_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnCartografia);
-            TipoProyecto = "Ca";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnCartografia);
         }
 
         private void BtnOtros_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnOtros);
-            TipoProyecto = "Ot";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
-        }
-
-        private void BtnTodos_Click(object sender, EventArgs e)
-        {
-            CambiarColorBotonSeleccionado(btnTodos);
-            TipoProyecto = "";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnOtros);
         }
 
         private void CmbEstadoProyecto_SelectedIndexChanged(object sender, EventArgs e)
@@ -615,7 +592,23 @@ namespace GendocsForms
         }
 
 
+        private void BotonTipoProyecto(Control sender)
+        {
+            TipoProyecto = Strings.Mid(sender.Tag.ToString(), 5);
+            if (TipoProyecto == "Td")
+            {
+                TipoProyecto = "";
+            }
+            CambiarColorBotonSeleccionado(TipoProyecto);
+            G3.SetParam(this.Name + "_TipoProyecto", true, TipoProyecto, false, 10);
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+        }
+
         #endregion
 
+        private void BtnTodos_Click(object sender, EventArgs e)
+        {
+            BotonTipoProyecto(this.btnTodos);
+        }
     }
 }
