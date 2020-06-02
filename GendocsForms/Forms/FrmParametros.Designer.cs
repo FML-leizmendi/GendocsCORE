@@ -107,7 +107,7 @@
             // 
             this.pbCarpetaGen3.BackColor = System.Drawing.Color.LightBlue;
             this.pbCarpetaGen3.Image = ((System.Drawing.Image)(resources.GetObject("pbCarpetaGen3.Image")));
-            this.pbCarpetaGen3.Location = new System.Drawing.Point(425, 118);
+            this.pbCarpetaGen3.Location = new System.Drawing.Point(426, 118);
             this.pbCarpetaGen3.Name = "pbCarpetaGen3";
             this.pbCarpetaGen3.Size = new System.Drawing.Size(34, 25);
             this.pbCarpetaGen3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
