@@ -87,7 +87,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(354, 20);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
+            this.txtUsuario.TextChanged += new System.EventHandler(this.TxtUsuario_TextChanged);
             // 
             // txtContraseña
             // 
@@ -96,7 +96,7 @@
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(354, 20);
             this.txtContraseña.TabIndex = 4;
-            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
+            this.txtContraseña.TextChanged += new System.EventHandler(this.TxtContraseña_TextChanged);
             // 
             // btnAceptar
             // 
@@ -111,7 +111,7 @@
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // chkRecordarUsuario
             // 
@@ -124,7 +124,7 @@
             this.chkRecordarUsuario.TabIndex = 5;
             this.chkRecordarUsuario.Text = "Recordar Usuario";
             this.chkRecordarUsuario.UseVisualStyleBackColor = true;
-            this.chkRecordarUsuario.CheckedChanged += new System.EventHandler(this.chkRecordarUsuario_CheckedChanged);
+            this.chkRecordarUsuario.CheckedChanged += new System.EventHandler(this.ChkRecordarUsuario_CheckedChanged);
             // 
             // panel1
             // 
@@ -159,7 +159,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // frmLogin
             // 
@@ -183,8 +183,8 @@
             this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
-            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
