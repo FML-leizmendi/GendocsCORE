@@ -52,7 +52,7 @@ namespace GendocsForms
             {
                 foreach (Control ctl in frm.Controls)
                 {
-                    if (ctl.GetType()== typeof(GroupBox))
+                    if (ctl.GetType() == typeof(GroupBox) || ctl.GetType() == typeof(TabControl) || ctl.GetType() == typeof(TabPage))
                     {
                         CargarParam (ctl , prefijo);
                     }
@@ -93,7 +93,7 @@ namespace GendocsForms
             {
                 foreach(Control ctl in frm.Controls)
                 {
-                    if (ctl.GetType() == typeof(GroupBox))
+                    if (ctl.GetType() == typeof(GroupBox) || ctl.GetType() == typeof(TabControl) || ctl.GetType() == typeof(TabPage))
                     {
                         GrabarParam(ctl, prefijo);
                     }
@@ -176,7 +176,7 @@ public class InputBox
             buttonCancel.SetBounds(309, 72, 75, 23);
 
             label.AutoSize = true;
-            textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+            textBox.Anchor |= AnchorStyles.Right;
             buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 
