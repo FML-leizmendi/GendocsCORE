@@ -63,6 +63,14 @@
       <Link>FrmCantidadRecursos.designer.cs</Link>
       <DependentUpon>FrmCantidadRecursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmClientes.cs">
+      <Link>FrmClientes.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmClientes.designer.cs">
+      <Link>FrmClientes.designer.cs</Link>
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmContactos.cs">
       <Link>FrmContactos.cs</Link>
       <SubType>Form</SubType>
@@ -81,7 +89,6 @@
     </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmDatosUsuario.cs">
       <Link>FrmDatosUsuario.cs</Link>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmDatosUsuario.designer.cs">
       <Link>FrmDatosUsuario.designer.cs</Link>
@@ -217,7 +224,6 @@
     </Compile>
     <Compile Include="..\GendocsForms\Forms\frmPoblaciones.cs">
       <Link>frmPoblaciones.cs</Link>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="..\GendocsForms\Forms\frmPoblaciones.designer.cs">
       <Link>frmPoblaciones.designer.cs</Link>
@@ -256,6 +262,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmCantidadRecursos.resx">
       <Link>FrmCantidadRecursos.resx</Link>
       <DependentUpon>FrmCantidadRecursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmClientes.resx">
+      <Link>FrmClientes.resx</Link>
+      <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmContactos.resx">
       <Link>FrmContactos.resx</Link>

@@ -138,5 +138,18 @@ namespace GendocsForms
                 _ = ex.Message;
             }
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmClientes frm = new FrmClientes();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
     }
 }

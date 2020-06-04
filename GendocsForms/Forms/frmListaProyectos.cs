@@ -15,6 +15,7 @@ namespace GendocsForms
         public static string TipoProyecto { get; set; } = string.Empty;
         public string NombreGrid = string.Empty;
         public int IdEmpFML = 0;
+        public static String CarpetaBase;
 
         public FrmListaProyectos()
         {
@@ -86,6 +87,7 @@ namespace GendocsForms
                 if (dgvProyectos.CurrentRow != null)
                 {
                     txtCodProyecto.Text = dgvProyectos.CurrentRow.Cells["CodigoProyecto"].Value.ToString();
+                    CarpetaBase = dgvProyectos.CurrentRow.Cells["CarpetaBase"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -344,6 +346,7 @@ namespace GendocsForms
                     this.dgvProyectos.Columns["IdProyecto"].Visible = false;
                     this.dgvProyectos.Columns["EmailResponsable"].Visible = false;
 
+
                     //DataGridViewImageColumn columna = new DataGridViewImageColumn();
                     //columna.Name = "Imagen";
                     //dgvProyectos.Columns.Add(columna);
@@ -394,6 +397,8 @@ namespace GendocsForms
                     }
                 }
 
+                this.dgvProyectos.Columns["CarpetaBase"].Visible = false;
+
                 //Alinear las columnas 
                 dgvProyectos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvProyectos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -417,7 +422,7 @@ namespace GendocsForms
                                   d.TipoProyecto.Contains(TipoProyecto) & (d.Alias.Contains(TextoIntroducido)) ||
                                   d.TipoProyecto.Contains(TipoProyecto) & (d.IdProyectoEstado == EstadoProyecto)))
 
-                           select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, d.Provincia, d.EmailResponsable, p.ProyectoEstado }
+                           select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, d.Provincia, d.EmailResponsable, p.ProyectoEstado , d.CarpetaBase}
 
                            ).ToList();
 
@@ -426,7 +431,7 @@ namespace GendocsForms
                     var lstFiltrada = (from d in db.GdProyectos
                                        join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
                                        where (d.TipoProyecto.Contains(TipoProyecto) & ((d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido))) & (d.IdProyectoEstado == EstadoProyecto)))
-                                       select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                                       select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado , d.CarpetaBase}
                                         ).ToList();
 
                     DataTable dtFilrado = FormUtiles.ToDataTable(lstFiltrada);
@@ -618,7 +623,10 @@ namespace GendocsForms
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 if (txtCodProyecto.Text != string.Empty)
                 {
-                   
+                    String ruta = G3.GetParam("CarpetaBaseProyectos", true, out bool ok, false, 10).ToString() + "\\";
+                    ruta += CarpetaBase;
+                    //System.Diagnostics.Process.Start("explorer.exe", ruta);
+                    Utiles.AbrirArchivo(ruta);
                 }
             }
             catch (Exception ex)
