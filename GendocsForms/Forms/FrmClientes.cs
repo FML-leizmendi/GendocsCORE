@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using GendocsForms.Properties;
 
 namespace GendocsForms.Forms
 {
@@ -202,8 +199,7 @@ namespace GendocsForms.Forms
             {
                 if (i == 1)
                 {
-                    string imagePath = Path.Combine(Application.StartupPath, @"Imágenes\Movimientos\Rey.jpg");
-                    PbExpandirContraer.Image = Image.FromFile(imagePath);
+                    //PbExpandirContraer.Image = Resources.;
                     i = 0;
                 }
                 else
