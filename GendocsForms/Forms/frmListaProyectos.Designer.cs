@@ -258,7 +258,7 @@
             // 
             this.pbCarpeta.BackColor = System.Drawing.Color.LightBlue;
             this.pbCarpeta.Image = ((System.Drawing.Image)(resources.GetObject("pbCarpeta.Image")));
-            this.pbCarpeta.Location = new System.Drawing.Point(249, 32);
+            this.pbCarpeta.Location = new System.Drawing.Point(249, 31);
             this.pbCarpeta.Name = "pbCarpeta";
             this.pbCarpeta.Size = new System.Drawing.Size(34, 25);
             this.pbCarpeta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

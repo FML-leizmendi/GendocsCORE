@@ -45,6 +45,7 @@
             this.btnLeerPedidos = new System.Windows.Forms.Button();
             this.btnRedimensionarImagenes = new System.Windows.Forms.Button();
             this.btnParametros = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(956, 35);
+            this.pnlCabecera.Size = new System.Drawing.Size(1173, 35);
             this.pnlCabecera.TabIndex = 0;
             // 
             // pnlLateral
@@ -74,7 +75,7 @@
             this.btnExpedientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnExpedientes.Image = ((System.Drawing.Image)(resources.GetObject("btnExpedientes.Image")));
             this.btnExpedientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpedientes.Location = new System.Drawing.Point(236, 192);
+            this.btnExpedientes.Location = new System.Drawing.Point(282, 200);
             this.btnExpedientes.Name = "btnExpedientes";
             this.btnExpedientes.Size = new System.Drawing.Size(266, 43);
             this.btnExpedientes.TabIndex = 2;
@@ -90,7 +91,7 @@
             this.btnPedidos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.Location = new System.Drawing.Point(236, 241);
+            this.btnPedidos.Location = new System.Drawing.Point(282, 249);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(266, 43);
             this.btnPedidos.TabIndex = 3;
@@ -106,7 +107,7 @@
             this.btnDocumentos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDocumentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDocumentos.Image")));
             this.btnDocumentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDocumentos.Location = new System.Drawing.Point(236, 290);
+            this.btnDocumentos.Location = new System.Drawing.Point(282, 298);
             this.btnDocumentos.Name = "btnDocumentos";
             this.btnDocumentos.Size = new System.Drawing.Size(266, 43);
             this.btnDocumentos.TabIndex = 4;
@@ -121,7 +122,7 @@
             this.btnAgenda.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAgenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAgenda.Image")));
             this.btnAgenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgenda.Location = new System.Drawing.Point(529, 192);
+            this.btnAgenda.Location = new System.Drawing.Point(575, 200);
             this.btnAgenda.Name = "btnAgenda";
             this.btnAgenda.Size = new System.Drawing.Size(266, 43);
             this.btnAgenda.TabIndex = 5;
@@ -137,7 +138,7 @@
             this.btnContactos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnContactos.Image = ((System.Drawing.Image)(resources.GetObject("btnContactos.Image")));
             this.btnContactos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContactos.Location = new System.Drawing.Point(529, 241);
+            this.btnContactos.Location = new System.Drawing.Point(575, 249);
             this.btnContactos.Name = "btnContactos";
             this.btnContactos.Size = new System.Drawing.Size(266, 43);
             this.btnContactos.TabIndex = 6;
@@ -153,7 +154,7 @@
             this.btnFmlStaff.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnFmlStaff.Image = ((System.Drawing.Image)(resources.GetObject("btnFmlStaff.Image")));
             this.btnFmlStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFmlStaff.Location = new System.Drawing.Point(236, 339);
+            this.btnFmlStaff.Location = new System.Drawing.Point(282, 347);
             this.btnFmlStaff.Name = "btnFmlStaff";
             this.btnFmlStaff.Size = new System.Drawing.Size(266, 43);
             this.btnFmlStaff.TabIndex = 7;
@@ -167,14 +168,14 @@
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotonera.Location = new System.Drawing.Point(147, 513);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(809, 45);
+            this.pnlBotonera.Size = new System.Drawing.Size(1026, 45);
             this.pnlBotonera.TabIndex = 8;
             // 
             // pcbLogo
             // 
             this.pcbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcbLogo.Image")));
-            this.pcbLogo.Location = new System.Drawing.Point(426, 88);
+            this.pcbLogo.Location = new System.Drawing.Point(534, 88);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(194, 89);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -188,7 +189,7 @@
             this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(529, 290);
+            this.button1.Location = new System.Drawing.Point(575, 298);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(266, 43);
             this.button1.TabIndex = 9;
@@ -203,7 +204,7 @@
             this.btnRecursos.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnRecursos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRecursos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecursos.Location = new System.Drawing.Point(529, 339);
+            this.btnRecursos.Location = new System.Drawing.Point(575, 347);
             this.btnRecursos.Name = "btnRecursos";
             this.btnRecursos.Size = new System.Drawing.Size(266, 43);
             this.btnRecursos.TabIndex = 10;
@@ -218,7 +219,7 @@
             this.BtnUnidadesContructivas.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.BtnUnidadesContructivas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnUnidadesContructivas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUnidadesContructivas.Location = new System.Drawing.Point(529, 388);
+            this.BtnUnidadesContructivas.Location = new System.Drawing.Point(575, 396);
             this.BtnUnidadesContructivas.Name = "BtnUnidadesContructivas";
             this.BtnUnidadesContructivas.Size = new System.Drawing.Size(266, 43);
             this.BtnUnidadesContructivas.TabIndex = 11;
@@ -233,7 +234,7 @@
             this.btnLeerPedidos.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnLeerPedidos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLeerPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLeerPedidos.Location = new System.Drawing.Point(236, 388);
+            this.btnLeerPedidos.Location = new System.Drawing.Point(282, 396);
             this.btnLeerPedidos.Name = "btnLeerPedidos";
             this.btnLeerPedidos.Size = new System.Drawing.Size(266, 43);
             this.btnLeerPedidos.TabIndex = 12;
@@ -248,7 +249,7 @@
             this.btnRedimensionarImagenes.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnRedimensionarImagenes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRedimensionarImagenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRedimensionarImagenes.Location = new System.Drawing.Point(236, 437);
+            this.btnRedimensionarImagenes.Location = new System.Drawing.Point(282, 445);
             this.btnRedimensionarImagenes.Name = "btnRedimensionarImagenes";
             this.btnRedimensionarImagenes.Size = new System.Drawing.Size(266, 43);
             this.btnRedimensionarImagenes.TabIndex = 12;
@@ -263,7 +264,7 @@
             this.btnParametros.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnParametros.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnParametros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnParametros.Location = new System.Drawing.Point(529, 437);
+            this.btnParametros.Location = new System.Drawing.Point(575, 445);
             this.btnParametros.Name = "btnParametros";
             this.btnParametros.Size = new System.Drawing.Size(266, 43);
             this.btnParametros.TabIndex = 13;
@@ -271,12 +272,28 @@
             this.btnParametros.UseVisualStyleBackColor = false;
             this.btnParametros.Click += new System.EventHandler(this.btnParametros_Click);
             // 
+            // btnClientes
+            // 
+            this.btnClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClientes.BackColor = System.Drawing.Color.Navy;
+            this.btnClientes.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btnClientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.Location = new System.Drawing.Point(873, 200);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(266, 43);
+            this.btnClientes.TabIndex = 14;
+            this.btnClientes.Text = "CLIENTES";
+            this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(956, 558);
+            this.ClientSize = new System.Drawing.Size(1173, 558);
+            this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnParametros);
             this.Controls.Add(this.btnRedimensionarImagenes);
             this.Controls.Add(this.btnLeerPedidos);
@@ -325,5 +342,6 @@
         private System.Windows.Forms.Button btnLeerPedidos;
         private System.Windows.Forms.Button btnRedimensionarImagenes;
         private System.Windows.Forms.Button btnParametros;
+        private System.Windows.Forms.Button btnClientes;
     }
 }
