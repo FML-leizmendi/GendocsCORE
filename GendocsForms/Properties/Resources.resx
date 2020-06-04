@@ -139,4 +139,166 @@
   <data name="fml_ingenieria_logo_194x89" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fml_ingenieria_logo_194x89.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fml_ingenieria_logo_194x891" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fml_ingenieria_logo_194x89.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_abajo_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-abajo-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_abajo_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-abajo-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_abrir_carpeta_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-abrir-carpeta-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_ajustes_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-ajustes-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_arriba_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-arriba-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_arriba_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-arriba-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_añadir_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-añadir-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_calendario_32_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-calendario-32-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_cancelar_2_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-cancelar-2-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_cancelar_32__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-cancelar-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_carpeta_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-carpeta-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_cerrar_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-cerrar-ventana-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_cerrar_ventana_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-cerrar-ventana-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_comprobado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-comprobado-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_contactos_32_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-contactos-32-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_derecha_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-derecha-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_doble_derecha_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-doble-derecha-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_doble_derecha_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-doble-derecha-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_doble_izquierda_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-doble-izquierda-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_documento_32_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-documento-32-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_edición_de_mapas_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-edición-de-mapas-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_editar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-editar-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_editar_archivo_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-editar-archivo-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_editar_archivo_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-editar-archivo-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_editar_informe_gráfico_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-editar-informe-gráfico-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_editar_informe_gráfico_32_informe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-editar-informe-gráfico-32-informe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_editar_informe_gráfico_32_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-editar-informe-gráfico-32-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_editar_propiedad_96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-editar-propiedad-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_eliminar_archivo_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-eliminar-archivo-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_encuesta_32_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-encuesta-32-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_escoba_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-escoba-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_escoba_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-escoba-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_etiquetas_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-etiquetas-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_flecha_ampliar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-flecha-ampliar-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_flecha_contraer_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-flecha-contraer-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_guardar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-guardar-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_guardar_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-guardar-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_información_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-información-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_lista_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-lista-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_lista_96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-lista-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_maximizar_la_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-maximizar-la-ventana-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_maximizar_la_ventana_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-maximizar-la-ventana-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_menos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-menos-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_minimizar_la_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-minimizar-la-ventana-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_minimizar_la_ventana_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-minimizar-la-ventana-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_ocultar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-ocultar-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_ocultar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-ocultar-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_por_nueva_copia_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-por-nueva-copia-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_salida_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-salida-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_tarjeta_de_empleado_32_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-tarjeta-de-empleado-32-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_visible_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-visible-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_visible_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-visible-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_Blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
