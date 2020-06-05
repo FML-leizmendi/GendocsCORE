@@ -127,12 +127,25 @@
         MPE+x7kAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="pbEditarUsuario.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAARVJREFUSEvt
+        lT1qAkEYhhdiHcgVbL2GR0jtFVKYIsYmBPQQ6fKfO6Q3WHkATaoQsNAcQESf1ziw7g7O9xkr8YGH3Znd
+        ed9ld2Gyg6SB7waf8RTd3OACY6HBT9Q9PXSXhIJthHtm6C7xFJyju8RTUMe79bm5xFNQtI1JLAVV1NPn
+        1RqtTWIpiHEsSKI1t9jFMfaxhiX+U/C7Pj7hN35giV0KTlBrZFMT8II/f6ebeAsUfo/58CvUuLMaFfAU
+        5MNbmoBL1PgVdb2EtSAffq0JCOFvWNFEDEuBwh/QHS5SBQp/xJ3CRSiIbTRygLquDynCB9WvGX3nRVJb
+        5gS/UIRwbZ+mcAsjnKJK9h5+hnMcot73BW4Jz7IlIg1+Qxbpyz8AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="PbExpandirContraer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACaSURBVEhL7ZNBCoMwEEUD9iwqPYMeSg/RXS9h6aI7PZTiLfR/mYEuStSMdDUPHiQj/p+ABsf5
-        Kxl8wKesL4WBL7iIH3iDl8DwN2TwJHLNmfkm3yef4R3mcJSZ6Sa/whVzSSxcSS5heAdj4crpkjPhyuGS
-        lHBlt8QSrkRLWsgH/MZLDhLhu/qfNBwoNexhse1sMGOA1bZzHCMhrMcXNqjSSKjoAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAJpJREFUSEvt
+        k0EKgzAQRQP2LCo9gx5KD9FdL2Hpojs9lOIt9H+ZgS5K1Ix0NQ8eJCP+n4AGx/krGXzAp6wvhYEvuIgf
+        eIOXwPA3ZPAkcs2Z+SbfJ5/hHeZwlJnpJr/CFXNJLFxJLmF4B2PhyumSM+HK4ZKUcGW3xBKuREtayAf8
+        xksOEuG7+p80HCg17GGx7WwwY4DVtnMcIyGsxxc2qNJIqOgAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
