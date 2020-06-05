@@ -163,6 +163,7 @@
             // 
             // pbEditarUsuario
             // 
+            this.pbEditarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbEditarUsuario.BackColor = System.Drawing.Color.LightBlue;
             this.pbEditarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbEditarUsuario.Image")));
             this.pbEditarUsuario.Location = new System.Drawing.Point(829, 81);
@@ -176,7 +177,9 @@
             // 
             // PbAgregarUsuario
             // 
+            this.PbAgregarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PbAgregarUsuario.BackColor = System.Drawing.Color.LightBlue;
+            this.PbAgregarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("PbAgregarUsuario.Image")));
             this.PbAgregarUsuario.Location = new System.Drawing.Point(829, 19);
             this.PbAgregarUsuario.Name = "PbAgregarUsuario";
             this.PbAgregarUsuario.Size = new System.Drawing.Size(34, 25);
@@ -188,7 +191,9 @@
             // 
             // PbEliminarUsuario
             // 
+            this.PbEliminarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PbEliminarUsuario.BackColor = System.Drawing.Color.LightBlue;
+            this.PbEliminarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("PbEliminarUsuario.Image")));
             this.PbEliminarUsuario.Location = new System.Drawing.Point(829, 50);
             this.PbEliminarUsuario.Name = "PbEliminarUsuario";
             this.PbEliminarUsuario.Size = new System.Drawing.Size(34, 25);
@@ -200,6 +205,7 @@
             // 
             // PbExpandirContraer
             // 
+            this.PbExpandirContraer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.PbExpandirContraer.BackColor = System.Drawing.Color.LightBlue;
             this.PbExpandirContraer.Image = ((System.Drawing.Image)(resources.GetObject("PbExpandirContraer.Image")));
             this.PbExpandirContraer.Location = new System.Drawing.Point(829, 378);
@@ -213,6 +219,9 @@
             // 
             // tvClientes
             // 
+            this.tvClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tvClientes.Location = new System.Drawing.Point(15, 19);
             this.tvClientes.Name = "tvClientes";
             this.tvClientes.Size = new System.Drawing.Size(808, 384);
@@ -246,13 +255,12 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(12, 302);
+            this.btnEliminar.Location = new System.Drawing.Point(12, 308);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(151, 39);
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // btnAñadir
             // 
@@ -261,13 +269,12 @@
             this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAñadir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadir.ForeColor = System.Drawing.Color.White;
-            this.btnAñadir.Location = new System.Drawing.Point(12, 257);
+            this.btnAñadir.Location = new System.Drawing.Point(12, 263);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(151, 39);
             this.btnAñadir.TabIndex = 8;
             this.btnAñadir.Text = "&Agregar";
             this.btnAñadir.UseVisualStyleBackColor = false;
-            this.btnAñadir.Click += new System.EventHandler(this.BtnAñadir_Click);
             // 
             // panel3
             // 

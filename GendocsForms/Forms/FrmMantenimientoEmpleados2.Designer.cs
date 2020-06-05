@@ -71,16 +71,16 @@
             // 
             // pnlBotonera
             // 
-            this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBotonera.Controls.Add(this.btnUltimo);
             this.pnlBotonera.Controls.Add(this.btnSiguiente);
             this.pnlBotonera.Controls.Add(this.btnAnterior);
             this.pnlBotonera.Controls.Add(this.btnPrimero);
             this.pnlBotonera.Controls.Add(this.flpBotonera);
             this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotonera.Location = new System.Drawing.Point(0, 206);
+            this.pnlBotonera.Location = new System.Drawing.Point(0, 211);
             this.pnlBotonera.Name = "pnlBotonera";
-            this.pnlBotonera.Size = new System.Drawing.Size(909, 52);
+            this.pnlBotonera.Size = new System.Drawing.Size(909, 56);
             this.pnlBotonera.TabIndex = 0;
             // 
             // btnUltimo
@@ -153,39 +153,38 @@
             this.flpBotonera.Controls.Add(this.btnGuardar);
             this.flpBotonera.Controls.Add(this.btnSalir);
             this.flpBotonera.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpBotonera.Location = new System.Drawing.Point(658, 4);
+            this.flpBotonera.Location = new System.Drawing.Point(578, 3);
             this.flpBotonera.Name = "flpBotonera";
-            this.flpBotonera.Size = new System.Drawing.Size(243, 42);
+            this.flpBotonera.Size = new System.Drawing.Size(325, 46);
             this.flpBotonera.TabIndex = 0;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(131, 3);
+            this.btnGuardar.Location = new System.Drawing.Point(171, 3);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(109, 33);
-            this.btnGuardar.TabIndex = 1;
-            this.btnGuardar.Text = "GUARDAR";
+            this.btnGuardar.Size = new System.Drawing.Size(151, 39);
+            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(16, 3);
+            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSalir.Location = new System.Drawing.Point(14, 3);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(109, 33);
-            this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "SALIR";
+            this.btnSalir.Size = new System.Drawing.Size(151, 39);
+            this.btnSalir.TabIndex = 10;
+            this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
@@ -274,7 +273,7 @@
             // btnEtiquetas
             // 
             this.btnEtiquetas.Image = ((System.Drawing.Image)(resources.GetObject("btnEtiquetas.Image")));
-            this.btnEtiquetas.Location = new System.Drawing.Point(838, 125);
+            this.btnEtiquetas.Location = new System.Drawing.Point(839, 124);
             this.btnEtiquetas.Name = "btnEtiquetas";
             this.btnEtiquetas.Size = new System.Drawing.Size(37, 20);
             this.btnEtiquetas.TabIndex = 15;
@@ -361,10 +360,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 258);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(909, 267);
             this.Controls.Add(this.grbEmpleadoFML);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.pnlCabecera);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmMantenimientoEmpleados2";
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.FrmMantenimientoEmpleados2_Load);
@@ -381,8 +383,6 @@
         private System.Windows.Forms.Panel pnlCabecera;
         private System.Windows.Forms.Panel pnlBotonera;
         private System.Windows.Forms.FlowLayoutPanel flpBotonera;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox grbEmpleadoFML;
         private System.Windows.Forms.Label lblJefe;
         private System.Windows.Forms.ComboBox cmbJefes;
@@ -404,5 +404,7 @@
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimero;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

@@ -1,11 +1,11 @@
 ﻿using GendocsForms.Properties;
+using GendocsModeloDatos.models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
-using GendocsModeloDatos.models;
 
 namespace GendocsForms.Forms
 {
@@ -26,8 +26,6 @@ namespace GendocsForms.Forms
             {
                 G3Forms.CargarParam(this, "");
                 CargarComboClientes();
-                //TvEmpleadosCargarNodo(null, null);
-
             }
             catch (Exception ex)
             {
@@ -35,6 +33,15 @@ namespace GendocsForms.Forms
             }
         }
 
+        protected override bool ProcessDialogKey(Keys keyData) // cerrar formulario con ESCAPE
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
+        }
 
         private void PbCarpeta_Click(object sender, EventArgs e)
         {
@@ -53,7 +60,6 @@ namespace GendocsForms.Forms
         }
 
         private void FrmClientes_FormClosing(object sender, FormClosingEventArgs e)
-
         {
             try
             {
@@ -64,7 +70,6 @@ namespace GendocsForms.Forms
                 _ = ex.Message;
             }
         }
-
 
         private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -83,24 +88,6 @@ namespace GendocsForms.Forms
             catch
             {
 
-            }
-        }
-        private void BtnAñadir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (tvClientes.SelectedNode.Nodes.Count > 0)
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione el Usuario al que quiera agregar un nuevo elemento", "Jerarquía de Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
             }
         }
         #endregion
@@ -183,18 +170,6 @@ namespace GendocsForms.Forms
 
         #endregion
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
         private void PbExpandirContraer_Click(object sender, EventArgs e)
         {
             try
@@ -246,8 +221,8 @@ namespace GendocsForms.Forms
                                 GdEmpleados Emp = new GdEmpleados
                                 {
                                     Empleado = NombreEmpleado,
-                                    IdCliente = 1,
-                                    IdEmpleadoSuperior = (int)Interaction.IIf(lst[0].IdEmpleadoSuperior != null, lst[0].IdEmpleadoSuperior != null, null)
+                                    IdCliente = (int)Interaction.IIf(cmbClientes.SelectedIndex == 0, 1, 2),
+                                    IdEmpleadoSuperior = (int)Interaction.IIf(lst[0].IdEmpleado != null, lst[0].IdEmpleado, null)
                                 };
 
                                 db.GdEmpleados.Add(Emp);
@@ -274,7 +249,28 @@ namespace GendocsForms.Forms
         {
             try
             {
+                DialogResult result = MessageBox.Show("¿Desea eliminar el empleado seleccionado?", "Empleados", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    if (NodoPadreSeleccionado != string.Empty)
+                    {
+                        using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                        var cSelect = from x in db.GdEmpleados
+                                      where x.Empleado.Equals(NodoPadreSeleccionado)
+                                      select x;
+
+                        if (cSelect.Count() > 0)
+                        {
+                            db.GdEmpleados.RemoveRange(cSelect);
+                            db.SaveChanges();
+                        }
+                    }
+                    else
+                        MessageBox.Show("No ha seleccionado empleado que desea eliminar", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                tvClientes.Nodes.Clear();
+                TvEmpleadosCargarNodo(null, null);
             }
             catch (Exception ex)
             {
@@ -286,7 +282,19 @@ namespace GendocsForms.Forms
         {
             try
             {
+                if (NodoPadreSeleccionado != string.Empty)
+                {
+                    ClsEmp cEmp = new ClsEmp();
+                    using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                    var lst = (from d in db.GdEmpleados
+                               where (d.Empleado.Contains(NodoPadreSeleccionado))
+                               select d.IdEmpleado
 
+                           ).ToList();
+
+                    cEmp.LstId = lst;
+                    cEmp.CargarFrmEmpleados2();
+                }
             }
             catch (Exception ex)
             {

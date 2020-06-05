@@ -143,8 +143,12 @@ namespace GendocsForms
         {
             try
             {
-                FrmClientes frm = new FrmClientes();
-                frm.ShowDialog();
+                FrmClientes frm = new FrmClientes
+                {
+                    MdiParent = this.MdiParent,
+                    WindowState = FormWindowState.Maximized
+                };
+                frm.Show();
             }
             catch (Exception ex)
             {
