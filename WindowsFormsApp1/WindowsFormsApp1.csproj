@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -384,6 +385,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fml_ingenieria_logo_194x89.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eliminar-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-añadir-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

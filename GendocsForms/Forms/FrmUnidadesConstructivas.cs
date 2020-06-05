@@ -39,7 +39,7 @@ namespace GendocsForms
                 ClsPedidos clsPed = new ClsPedidos();
                 List<int> miLista = new List<int>();
                 clsPed.lstId = miLista;
-                FrmCantidadRecursos frm = new FrmCantidadRecursos();
+                FrmInputBox frm = new FrmInputBox();
                 frm.ShowDialog();
                 CUnds.Cantidad = frm.Cantidad;
                 CUnds.IdUc = Convert.ToInt32(dgvUndsContructivas.SelectedRows[0].Cells["IdUc"].Value.ToString());

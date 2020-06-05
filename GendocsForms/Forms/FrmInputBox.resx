@@ -117,23 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnCarpetaDestino.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMFJREFUOE+t
-        krEJAkEQRdfEAowNBZswNzY2tAYRRNBI7MHMEkw1NLEEMTWSCwQL0DfjnYy3O8cGPnhw++fvBMuFfzLA
-        WabSjVjhBW/4Kr3jDjfGE0o3QsJq0MMJnrFetr0fUoPcTMktpzIlp9zGA071VCO1YInbz6ciF2WBLIpI
-        LejiFcd6Sne+eEObex3FG9rc6yje0OZeR/GGNvc6yhwL3OMCh9hBuVD92qK7QJBXH+Eaj/jAJzZeaqKF
-        /dIEIbwBkAo4tYx7P80AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnCarpetaOrigen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMFJREFUOE+t
-        krEJAkEQRdfEAowNBZswNzY2tAYRRNBI7MHMEkw1NLEEMTWSCwQL0DfjnYy3O8cGPnhw++fvBMuFfzLA
-        WabSjVjhBW/4Kr3jDjfGE0o3QsJq0MMJnrFetr0fUoPcTMktpzIlp9zGA071VCO1YInbz6ciF2WBLIpI
-        LejiFcd6Sne+eEObex3FG9rc6yje0OZeR/GGNvc6yhwL3OMCh9hBuVD92qK7QJBXH+Eaj/jAJzZeaqKF
-        /dIEIbwBkAo4tYx7P80AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

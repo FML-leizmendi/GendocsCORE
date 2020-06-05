@@ -39,6 +39,9 @@
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.grbDetalleCliente = new System.Windows.Forms.GroupBox();
+            this.pbEditarUsuario = new System.Windows.Forms.PictureBox();
+            this.PbAgregarUsuario = new System.Windows.Forms.PictureBox();
+            this.PbEliminarUsuario = new System.Windows.Forms.PictureBox();
             this.PbExpandirContraer = new System.Windows.Forms.PictureBox();
             this.tvClientes = new System.Windows.Forms.TreeView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,6 +53,9 @@
             this.grbClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarpeta)).BeginInit();
             this.grbDetalleCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditarUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbAgregarUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbEliminarUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExpandirContraer)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +89,7 @@
             this.pbCarpeta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbCarpeta.TabIndex = 11;
             this.pbCarpeta.TabStop = false;
-            this.pbCarpeta.Click += new System.EventHandler(this.pbCarpeta_Click);
+            this.pbCarpeta.Click += new System.EventHandler(this.PbCarpeta_Click);
             // 
             // txtProyecto
             // 
@@ -127,7 +133,7 @@
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(180, 25);
             this.cmbClientes.TabIndex = 6;
-            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.CmbClientes_SelectedIndexChanged);
             // 
             // lblCliente
             // 
@@ -144,6 +150,9 @@
             this.grbDetalleCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbDetalleCliente.Controls.Add(this.pbEditarUsuario);
+            this.grbDetalleCliente.Controls.Add(this.PbAgregarUsuario);
+            this.grbDetalleCliente.Controls.Add(this.PbEliminarUsuario);
             this.grbDetalleCliente.Controls.Add(this.PbExpandirContraer);
             this.grbDetalleCliente.Controls.Add(this.tvClientes);
             this.grbDetalleCliente.Location = new System.Drawing.Point(181, 177);
@@ -151,6 +160,43 @@
             this.grbDetalleCliente.Size = new System.Drawing.Size(873, 409);
             this.grbDetalleCliente.TabIndex = 0;
             this.grbDetalleCliente.TabStop = false;
+            // 
+            // pbEditarUsuario
+            // 
+            this.pbEditarUsuario.BackColor = System.Drawing.Color.LightBlue;
+            this.pbEditarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbEditarUsuario.Image")));
+            this.pbEditarUsuario.Location = new System.Drawing.Point(829, 81);
+            this.pbEditarUsuario.Name = "pbEditarUsuario";
+            this.pbEditarUsuario.Size = new System.Drawing.Size(34, 25);
+            this.pbEditarUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbEditarUsuario.TabIndex = 15;
+            this.pbEditarUsuario.TabStop = false;
+            this.toolTip1.SetToolTip(this.pbEditarUsuario, "Expandir / Contraer Arbol ");
+            this.pbEditarUsuario.Click += new System.EventHandler(this.PbEditarUsuario_Click);
+            // 
+            // PbAgregarUsuario
+            // 
+            this.PbAgregarUsuario.BackColor = System.Drawing.Color.LightBlue;
+            this.PbAgregarUsuario.Location = new System.Drawing.Point(829, 19);
+            this.PbAgregarUsuario.Name = "PbAgregarUsuario";
+            this.PbAgregarUsuario.Size = new System.Drawing.Size(34, 25);
+            this.PbAgregarUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PbAgregarUsuario.TabIndex = 14;
+            this.PbAgregarUsuario.TabStop = false;
+            this.toolTip1.SetToolTip(this.PbAgregarUsuario, "Expandir / Contraer Arbol ");
+            this.PbAgregarUsuario.Click += new System.EventHandler(this.PbAgregarUsuario_Click);
+            // 
+            // PbEliminarUsuario
+            // 
+            this.PbEliminarUsuario.BackColor = System.Drawing.Color.LightBlue;
+            this.PbEliminarUsuario.Location = new System.Drawing.Point(829, 50);
+            this.PbEliminarUsuario.Name = "PbEliminarUsuario";
+            this.PbEliminarUsuario.Size = new System.Drawing.Size(34, 25);
+            this.PbEliminarUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PbEliminarUsuario.TabIndex = 13;
+            this.PbEliminarUsuario.TabStop = false;
+            this.toolTip1.SetToolTip(this.PbEliminarUsuario, "Expandir / Contraer Arbol ");
+            this.PbEliminarUsuario.Click += new System.EventHandler(this.PbEliminarUsuario_Click);
             // 
             // PbExpandirContraer
             // 
@@ -171,6 +217,7 @@
             this.tvClientes.Name = "tvClientes";
             this.tvClientes.Size = new System.Drawing.Size(808, 384);
             this.tvClientes.TabIndex = 0;
+            this.tvClientes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TvClientes_AfterSelect);
             // 
             // panel1
             // 
@@ -205,7 +252,7 @@
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // btnAñadir
             // 
@@ -220,7 +267,7 @@
             this.btnAñadir.TabIndex = 8;
             this.btnAñadir.Text = "&Agregar";
             this.btnAñadir.UseVisualStyleBackColor = false;
-            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
+            this.btnAñadir.Click += new System.EventHandler(this.BtnAñadir_Click);
             // 
             // panel3
             // 
@@ -250,6 +297,9 @@
             this.grbClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarpeta)).EndInit();
             this.grbDetalleCliente.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditarUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbAgregarUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbEliminarUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExpandirContraer)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -275,5 +325,8 @@
         private System.Windows.Forms.Button btnAñadir;
         private System.Windows.Forms.PictureBox PbExpandirContraer;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox PbAgregarUsuario;
+        private System.Windows.Forms.PictureBox PbEliminarUsuario;
+        private System.Windows.Forms.PictureBox pbEditarUsuario;
     }
 }

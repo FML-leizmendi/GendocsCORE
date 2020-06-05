@@ -1,15 +1,18 @@
-﻿using System;
+﻿using GendocsForms.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using GendocsForms.Properties;
 
 namespace GendocsForms.Forms
 {
     public partial class FrmClientes : Form
     {
         public static int IdEmpleadoSuperior;
+        public static int ExpandirContraer = 1;
+        public static String NodoPadreSeleccionado;
+        public static String NodoHijoSeleccionado;
         public FrmClientes()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace GendocsForms.Forms
         }
 
 
-        private void pbCarpeta_Click(object sender, EventArgs e)
+        private void PbCarpeta_Click(object sender, EventArgs e)
         {
             try
             {
@@ -62,7 +65,7 @@ namespace GendocsForms.Forms
         }
 
 
-        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -70,6 +73,8 @@ namespace GendocsForms.Forms
                 {
                     tvClientes.Nodes.Clear();
                     TvEmpleadosCargarNodo(null, null);
+
+
                     
                 }
                 else
@@ -82,7 +87,7 @@ namespace GendocsForms.Forms
 
             }
         }
-        private void btnAñadir_Click(object sender, EventArgs e)
+        private void BtnAñadir_Click(object sender, EventArgs e)
         {
             try
             {
@@ -180,7 +185,7 @@ namespace GendocsForms.Forms
 
         #endregion
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -194,17 +199,20 @@ namespace GendocsForms.Forms
 
         private void PbExpandirContraer_Click(object sender, EventArgs e)
         {
-            int i = 1;
             try
             {
-                if (i == 1)
+                if (ExpandirContraer == 1)
                 {
-                    //PbExpandirContraer.Image = Resources.;
-                    i = 0;
+                    PbExpandirContraer.Image = Resources.icons8_flecha_contraer_24;
+                    ExpandirContraer = 0;
+                    tvClientes.ExpandAll();
                 }
                 else
                 {
-                    i = 1;
+                    
+                    PbExpandirContraer.Image = Resources.icons8_flecha_ampliar_24;
+                    ExpandirContraer = 1;
+                    tvClientes.CollapseAll();
                 }
             }
             catch (Exception ex)
@@ -212,6 +220,85 @@ namespace GendocsForms.Forms
                 _ = ex.Message;
             }
 
+        }
+
+        private void PbAgregarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("¿Desea añadir un nuevo empleado?", "Empleados", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (NodoPadreSeleccionado != string.Empty)
+                    {
+                        var db = new GendocsModeloDatos.models.GenDocsContext();
+                        {
+                           var lst = (from a in db.GdEmpleados
+                                   where a.Empleado.Equals(NodoPadreSeleccionado)
+                                   select a).ToList();
+
+                            if (lst.Count > 0 && lst[0].IdEmpleadoSuperior == null)
+                            {
+                          
+                               // string input = Interaction. InputBox("Datos del nuevo empleado", "Nuevo Empleado","Introduzca el nombre del empleado");
+                                //tvClientes.Nodes.Add("");
+                                //string value = "Document 1";
+                              
+
+                            }
+                            else
+                            { 
+
+                            }
+                        }
+                    }
+                   
+                    // MessageBox.Show("El padre seleccionado es:" + NodoPadreSeleccionado + "\r\n" + "El hijo seleccionado es:" + NodoHijoSeleccionado);             
+                }
+            }
+            catch(Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void PbEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void PbEditarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void TvClientes_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            try
+            {
+                NodoPadreSeleccionado = tvClientes.SelectedNode.Text.ToString();
+                NodoHijoSeleccionado = tvClientes.SelectedNode.ToString();
+
+            }
+            catch(Exception ex)
+            {
+                _ = ex.Message;
+            }
         }
     }
 }
