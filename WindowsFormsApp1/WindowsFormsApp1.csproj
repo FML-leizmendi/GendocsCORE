@@ -56,14 +56,6 @@
       <Link>FrmAyuda.designer.cs</Link>
       <DependentUpon>FrmAyuda.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\GendocsForms\Forms\FrmCantidadRecursos.cs">
-      <Link>FrmCantidadRecursos.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\FrmCantidadRecursos.designer.cs">
-      <Link>FrmCantidadRecursos.designer.cs</Link>
-      <DependentUpon>FrmCantidadRecursos.cs</DependentUpon>
-    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmClientes.cs">
       <Link>FrmClientes.cs</Link>
       <SubType>Form</SubType>
@@ -87,13 +79,6 @@
     <Compile Include="..\GendocsForms\Forms\FrmContactos2.designer.cs">
       <Link>FrmContactos2.designer.cs</Link>
       <DependentUpon>FrmContactos2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\FrmDatosUsuario.cs">
-      <Link>FrmDatosUsuario.cs</Link>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\FrmDatosUsuario.designer.cs">
-      <Link>FrmDatosUsuario.designer.cs</Link>
-      <DependentUpon>FrmDatosUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="..\GendocsForms\Forms\frmEmpleadosFML.cs">
       <Link>frmEmpleadosFML.cs</Link>
@@ -126,6 +111,14 @@
     <Compile Include="..\GendocsForms\Forms\FrmExpedientes.designer.cs">
       <Link>FrmExpedientes.designer.cs</Link>
       <DependentUpon>FrmExpedientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmInputBox.cs">
+      <Link>FrmInputBox.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmInputBox.designer.cs">
+      <Link>FrmInputBox.designer.cs</Link>
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
     </Compile>
     <Compile Include="..\GendocsForms\Forms\frmListaProyectos.cs">
       <Link>frmListaProyectos.cs</Link>
@@ -223,13 +216,6 @@
       <Link>FrmPedidos.designer.cs</Link>
       <DependentUpon>FrmPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmPoblaciones.cs">
-      <Link>frmPoblaciones.cs</Link>
-    </Compile>
-    <Compile Include="..\GendocsForms\Forms\frmPoblaciones.designer.cs">
-      <Link>frmPoblaciones.designer.cs</Link>
-      <DependentUpon>frmPoblaciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmRecursos.cs">
       <Link>FrmRecursos.cs</Link>
       <SubType>Form</SubType>
@@ -260,10 +246,6 @@
       <Link>FrmAyuda.resx</Link>
       <DependentUpon>FrmAyuda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\FrmCantidadRecursos.resx">
-      <Link>FrmCantidadRecursos.resx</Link>
-      <DependentUpon>FrmCantidadRecursos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmClientes.resx">
       <Link>FrmClientes.resx</Link>
       <DependentUpon>FrmClientes.cs</DependentUpon>
@@ -275,10 +257,6 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmContactos2.resx">
       <Link>FrmContactos2.resx</Link>
       <DependentUpon>FrmContactos2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\FrmDatosUsuario.resx">
-      <Link>FrmDatosUsuario.resx</Link>
-      <DependentUpon>FrmDatosUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmEmpleadosFML.resx">
       <Link>frmEmpleadosFML.resx</Link>
@@ -295,6 +273,10 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmExpedientes.resx">
       <Link>FrmExpedientes.resx</Link>
       <DependentUpon>FrmExpedientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmInputBox.resx">
+      <Link>FrmInputBox.resx</Link>
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\frmListaProyectos.resx">
       <Link>frmListaProyectos.resx</Link>
@@ -343,10 +325,6 @@
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmPedidos.resx">
       <Link>FrmPedidos.resx</Link>
       <DependentUpon>FrmPedidos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\frmPoblaciones.resx">
-      <Link>frmPoblaciones.resx</Link>
-      <DependentUpon>frmPoblaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmRecursos.resx">
       <Link>FrmRecursos.resx</Link>

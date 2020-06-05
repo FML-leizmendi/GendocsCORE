@@ -41,7 +41,7 @@ namespace GendocsForms
                 clsPed.lstId = miLista;
                 FrmInputBox frm = new FrmInputBox();
                 frm.ShowDialog();
-                CUnds.Cantidad = frm.Cantidad;
+                CUnds.Cantidad = Convert.ToInt32(frm.DatosIntroducidos);
                 CUnds.IdUc = Convert.ToInt32(dgvUndsContructivas.SelectedRows[0].Cells["IdUc"].Value.ToString());
                 frm.Close();
                 this.Close();

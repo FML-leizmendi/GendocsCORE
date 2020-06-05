@@ -10,7 +10,7 @@ namespace GendocsForms
 {
     public partial class FrmInputBox : Form
     {
-        public int Cantidad;
+        public String DatosIntroducidos;
         public FrmInputBox()
         {
             InitializeComponent();
@@ -32,10 +32,8 @@ namespace GendocsForms
             {
                 if (txtCantidadRecursos.Text != string.Empty)
                 {
-                    Cantidad = Convert.ToInt32(txtCantidadRecursos.Text);
+                    DatosIntroducidos = txtCantidadRecursos.Text;
                 }
-                else
-                    MessageBox.Show("Introduzca una cantidad para la Unidad Constructiva seleccionada", "Unidad Constructiva", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
