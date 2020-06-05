@@ -32,7 +32,7 @@ namespace GendocsForms
             CargarComboCargos();
             CargarForm();
 
-            if (CEmp.EsNuevo == true)
+            if (CEmp.EsNuevo == true || CEmp.LstId.Count() <= 1)
             {
                 OcultarBotonesNavegacion();
             }
@@ -40,6 +40,33 @@ namespace GendocsForms
             CEmp.EsAlta = true;
             HanModificado = false;
             txtNombre.Focus();
+        }
+
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                if (ValidarControles())
+                {
+                    //CEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
+                    //CEmp.IdEmpleado = txtIdEmpleado.Text;
+                    this.Close();
+                    CEmp.Empleado = txtNombre.Text;
+                    CEmp.Telefono = txtTelefono.Text;
+                    CEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
+                    CEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    CEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
+                    CEmp.Email = txtEmail.Text;
+                    CEmp.Etiquetas = txtEtiquetas.Text;
+                    CEmp.EsAlta = false;
+                    CEmp.GuardarUsuario();
+                    
+                    //btnEliminar.Visible = false;
+                    //btnGuardar.Visible = false;
+
+                }
+            }
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -63,6 +90,16 @@ namespace GendocsForms
             {
                 _ = ex.Message;
             }
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
         }
 
         public void CargarForm()
@@ -261,31 +298,6 @@ namespace GendocsForms
             }
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                if (ValidarControles())
-                {
-                    //CEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-                    //CEmp.IdEmpleado = txtIdEmpleado.Text;
-                    CEmp.Empleado = txtNombre.Text;
-                    CEmp.Telefono = txtTelefono.Text;
-                    CEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
-                    CEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    CEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
-                    CEmp.Email = txtEmail.Text;
-                    CEmp.Etiquetas = txtEtiquetas.Text;
-                    CEmp.EsAlta = true;
-                    CEmp.GuardarUsuario();
-                    this.Close();
-                    //btnEliminar.Visible = false;
-                    //btnGuardar.Visible = false;
-
-                }
-            }
-        }
-
         private void BtnEtiquetas_Click(object sender, EventArgs e)
         {
             ClsEmp CEmp = new ClsEmp
@@ -352,6 +364,7 @@ namespace GendocsForms
             CEmp.IrUltimo();
             CargarForm();
         }
+
         #endregion
     }
 }

@@ -243,7 +243,7 @@ namespace GendocsForms
                             db.GdEmpleados.Add(Emp);
                             db.SaveChanges();
 
-                            MessageBox.Show("Los cambios han sido guardados correctamente", "Guardar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show("Los cambios han sido guardados correctamente", "Guardar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -264,7 +264,7 @@ namespace GendocsForms
 
                                 db.SaveChanges();
 
-                                MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     CargarEmpleado();

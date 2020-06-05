@@ -200,7 +200,7 @@ namespace GendocsForms
             }
         }
 
-        protected override bool ProcessDialogKey(Keys keyData)
+        protected override bool ProcessDialogKey(Keys keyData) // cerrar formulario con ESCAPE
         {
             if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
             {
