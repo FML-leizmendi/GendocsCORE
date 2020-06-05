@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using GendocsModeloDatos.models;
 
 namespace GendocsForms.Forms
 {
@@ -12,7 +14,6 @@ namespace GendocsForms.Forms
         public static int IdEmpleadoSuperior;
         public static int ExpandirContraer = 1;
         public static String NodoPadreSeleccionado;
-        public static String NodoHijoSeleccionado;
         public FrmClientes()
         {
             InitializeComponent();
@@ -26,9 +27,9 @@ namespace GendocsForms.Forms
                 G3Forms.CargarParam(this, "");
                 CargarComboClientes();
                 //TvEmpleadosCargarNodo(null, null);
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _ = ex.Message;
             }
@@ -73,9 +74,6 @@ namespace GendocsForms.Forms
                 {
                     tvClientes.Nodes.Clear();
                     TvEmpleadosCargarNodo(null, null);
-
-
-                    
                 }
                 else
                 {
@@ -138,10 +136,10 @@ namespace GendocsForms.Forms
                 var db = new GendocsModeloDatos.models.GenDocsContext();
                 {
                     List<GendocsModeloDatos.models.GdEmpleados> lst;
-                    if(idEmpleadoSuperior !=null )
+                    if (idEmpleadoSuperior != null)
                     {
                         lst = (from a in db.GdEmpleados
-                               where a.IdEmpleadoSuperior ==  Convert.ToInt32( idEmpleadoSuperior)
+                               where a.IdEmpleadoSuperior == Convert.ToInt32(idEmpleadoSuperior)
                                select a).ToList();
                     }
                     else
@@ -156,7 +154,7 @@ namespace GendocsForms.Forms
                         if (treeNode == null)
                         {
                             tvClientes.Nodes.Add(e.IdEmpleado.ToString(), e.Empleado);
-                            TvEmpleadosCargarNodo(e.IdEmpleado, tvClientes.Nodes[i]);       
+                            TvEmpleadosCargarNodo(e.IdEmpleado, tvClientes.Nodes[i]);
                         }
                         else
                         {
@@ -172,7 +170,7 @@ namespace GendocsForms.Forms
                         tvClientes.ExpandAll();
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -192,7 +190,7 @@ namespace GendocsForms.Forms
 
             }
             catch (Exception)
-            { 
+            {
 
             }
         }
@@ -209,7 +207,7 @@ namespace GendocsForms.Forms
                 }
                 else
                 {
-                    
+
                     PbExpandirContraer.Image = Resources.icons8_flecha_ampliar_24;
                     ExpandirContraer = 1;
                     tvClientes.CollapseAll();
@@ -232,32 +230,41 @@ namespace GendocsForms.Forms
                 {
                     if (NodoPadreSeleccionado != string.Empty)
                     {
-                        var db = new GendocsModeloDatos.models.GenDocsContext();
-                        {
-                           var lst = (from a in db.GdEmpleados
+                        using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                        var lst = (from a in db.GdEmpleados
                                    where a.Empleado.Equals(NodoPadreSeleccionado)
                                    select a).ToList();
 
-                            if (lst.Count > 0 && lst[0].IdEmpleadoSuperior == null)
+                        if (lst.Count() > 0)
+                        {
+                            FrmInputBox frm = new FrmInputBox();
+                            frm.ShowDialog();
+                            string NombreEmpleado = frm.DatosIntroducidos;
+                            frm.Close();
+                            if (NombreEmpleado != null)
                             {
-                          
-                               // string input = Interaction. InputBox("Datos del nuevo empleado", "Nuevo Empleado","Introduzca el nombre del empleado");
-                                //tvClientes.Nodes.Add("");
-                                //string value = "Document 1";
-                              
+                                GdEmpleados Emp = new GdEmpleados
+                                {
+                                    Empleado = NombreEmpleado,
+                                    IdCliente = 1,
+                                    IdEmpleadoSuperior = (int)Interaction.IIf(lst[0].IdEmpleadoSuperior != null, lst[0].IdEmpleadoSuperior != null, null)
+                                };
 
+                                db.GdEmpleados.Add(Emp);
+                                db.SaveChanges();
                             }
                             else
-                            { 
-
-                            }
+                                MessageBox.Show("No ha introducido el nombre de un empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                   
-                    // MessageBox.Show("El padre seleccionado es:" + NodoPadreSeleccionado + "\r\n" + "El hijo seleccionado es:" + NodoHijoSeleccionado);             
+                    else
+                        MessageBox.Show("No ha seleccionado ningún empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
+                tvClientes.Nodes.Clear();
+                TvEmpleadosCargarNodo(null, null);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _ = ex.Message;
             }
@@ -292,10 +299,8 @@ namespace GendocsForms.Forms
             try
             {
                 NodoPadreSeleccionado = tvClientes.SelectedNode.Text.ToString();
-                NodoHijoSeleccionado = tvClientes.SelectedNode.ToString();
-
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _ = ex.Message;
             }
