@@ -12,6 +12,7 @@
     <Version>1.0.0</Version>
     <Authors />
     <Company />
+    <AssemblyName>Gen3Forms</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

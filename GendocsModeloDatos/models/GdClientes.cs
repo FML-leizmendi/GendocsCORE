@@ -7,6 +7,6 @@ namespace GendocsModeloDatos.models
     {
         public int IdCliente { get; set; }
         public string Cliente { get; set; }
-        public int? CódigoPersona { get; set; }
+        public int? CodigoPersona { get; set; }
     }
 }
