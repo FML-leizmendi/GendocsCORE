@@ -31,10 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientes));
             this.grbClientes = new System.Windows.Forms.GroupBox();
+            this.txtNuevoCliente = new System.Windows.Forms.TextBox();
+            this.pcEliminarCliente = new System.Windows.Forms.PictureBox();
+            this.pbAgregarCliente = new System.Windows.Forms.PictureBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.pbCarpeta = new System.Windows.Forms.PictureBox();
             this.txtProyecto = new System.Windows.Forms.TextBox();
             this.lblProyecto = new System.Windows.Forms.Label();
-            this.txtCarpeta = new System.Windows.Forms.TextBox();
+            this.CarpetaBaseProyectos = new System.Windows.Forms.TextBox();
             this.lblCarpeta = new System.Windows.Forms.Label();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
@@ -46,18 +50,17 @@
             this.tvClientes = new System.Windows.Forms.TreeView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAñadir = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.grbClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcEliminarCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgregarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarpeta)).BeginInit();
             this.grbDetalleCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditarUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAgregarUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbEliminarUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExpandirContraer)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbClientes
@@ -65,19 +68,69 @@
             this.grbClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grbClientes.BackColor = System.Drawing.SystemColors.Control;
+            this.grbClientes.Controls.Add(this.txtNuevoCliente);
+            this.grbClientes.Controls.Add(this.pcEliminarCliente);
+            this.grbClientes.Controls.Add(this.pbAgregarCliente);
+            this.grbClientes.Controls.Add(this.txtNombreCliente);
             this.grbClientes.Controls.Add(this.pbCarpeta);
             this.grbClientes.Controls.Add(this.txtProyecto);
             this.grbClientes.Controls.Add(this.lblProyecto);
-            this.grbClientes.Controls.Add(this.txtCarpeta);
+            this.grbClientes.Controls.Add(this.CarpetaBaseProyectos);
             this.grbClientes.Controls.Add(this.lblCarpeta);
             this.grbClientes.Controls.Add(this.cmbClientes);
             this.grbClientes.Controls.Add(this.lblCliente);
             this.grbClientes.Location = new System.Drawing.Point(181, 60);
             this.grbClientes.Name = "grbClientes";
             this.grbClientes.Size = new System.Drawing.Size(873, 111);
-            this.grbClientes.TabIndex = 0;
+            this.grbClientes.TabIndex = 2;
             this.grbClientes.TabStop = false;
+            this.grbClientes.Tag = "";
             this.grbClientes.Text = "Clientes";
+            // 
+            // txtNuevoCliente
+            // 
+            this.txtNuevoCliente.Location = new System.Drawing.Point(25, 40);
+            this.txtNuevoCliente.Name = "txtNuevoCliente";
+            this.txtNuevoCliente.Size = new System.Drawing.Size(180, 20);
+            this.txtNuevoCliente.TabIndex = 1;
+            this.txtNuevoCliente.Tag = "";
+            this.txtNuevoCliente.Visible = false;
+            this.txtNuevoCliente.Leave += new System.EventHandler(this.TxtNuevoCliente_Leave);
+            // 
+            // pcEliminarCliente
+            // 
+            this.pcEliminarCliente.BackColor = System.Drawing.Color.LightBlue;
+            this.pcEliminarCliente.Image = ((System.Drawing.Image)(resources.GetObject("pcEliminarCliente.Image")));
+            this.pcEliminarCliente.Location = new System.Drawing.Point(572, 34);
+            this.pcEliminarCliente.Name = "pcEliminarCliente";
+            this.pcEliminarCliente.Size = new System.Drawing.Size(34, 25);
+            this.pcEliminarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pcEliminarCliente.TabIndex = 14;
+            this.pcEliminarCliente.TabStop = false;
+            this.toolTip1.SetToolTip(this.pcEliminarCliente, "Eliminar un cliente");
+            this.pcEliminarCliente.Click += new System.EventHandler(this.PbEliminarCliente_Click);
+            // 
+            // pbAgregarCliente
+            // 
+            this.pbAgregarCliente.BackColor = System.Drawing.Color.LightBlue;
+            this.pbAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("pbAgregarCliente.Image")));
+            this.pbAgregarCliente.Location = new System.Drawing.Point(534, 34);
+            this.pbAgregarCliente.Name = "pbAgregarCliente";
+            this.pbAgregarCliente.Size = new System.Drawing.Size(34, 25);
+            this.pbAgregarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAgregarCliente.TabIndex = 13;
+            this.pbAgregarCliente.TabStop = false;
+            this.toolTip1.SetToolTip(this.pbAgregarCliente, "Añadir un nuevo cliente");
+            this.pbAgregarCliente.Click += new System.EventHandler(this.PbAgregarCliente_Click);
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Location = new System.Drawing.Point(211, 38);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(321, 20);
+            this.txtNombreCliente.TabIndex = 3;
+            this.txtNombreCliente.Tag = "paramUS010";
+            this.txtNombreCliente.Leave += new System.EventHandler(this.TxtNombreCliente_Leave);
             // 
             // pbCarpeta
             // 
@@ -96,7 +149,7 @@
             this.txtProyecto.Location = new System.Drawing.Point(211, 85);
             this.txtProyecto.Name = "txtProyecto";
             this.txtProyecto.Size = new System.Drawing.Size(612, 20);
-            this.txtProyecto.TabIndex = 10;
+            this.txtProyecto.TabIndex = 7;
             this.txtProyecto.Tag = "paramUS010";
             // 
             // lblProyecto
@@ -105,16 +158,16 @@
             this.lblProyecto.Location = new System.Drawing.Point(208, 70);
             this.lblProyecto.Name = "lblProyecto";
             this.lblProyecto.Size = new System.Drawing.Size(49, 13);
-            this.lblProyecto.TabIndex = 9;
+            this.lblProyecto.TabIndex = 6;
             this.lblProyecto.Text = "Proyecto";
             // 
-            // txtCarpeta
+            // CarpetaBaseProyectos
             // 
-            this.txtCarpeta.Location = new System.Drawing.Point(25, 85);
-            this.txtCarpeta.Name = "txtCarpeta";
-            this.txtCarpeta.Size = new System.Drawing.Size(180, 20);
-            this.txtCarpeta.TabIndex = 8;
-            this.txtCarpeta.Tag = "paramUS010";
+            this.CarpetaBaseProyectos.Location = new System.Drawing.Point(25, 85);
+            this.CarpetaBaseProyectos.Name = "CarpetaBaseProyectos";
+            this.CarpetaBaseProyectos.Size = new System.Drawing.Size(180, 20);
+            this.CarpetaBaseProyectos.TabIndex = 5;
+            this.CarpetaBaseProyectos.Tag = "paramUS010";
             // 
             // lblCarpeta
             // 
@@ -122,17 +175,18 @@
             this.lblCarpeta.Location = new System.Drawing.Point(22, 70);
             this.lblCarpeta.Name = "lblCarpeta";
             this.lblCarpeta.Size = new System.Drawing.Size(44, 13);
-            this.lblCarpeta.TabIndex = 7;
+            this.lblCarpeta.TabIndex = 4;
             this.lblCarpeta.Text = "Carpeta";
             // 
             // cmbClientes
             // 
+            this.cmbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClientes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(25, 34);
+            this.cmbClientes.Location = new System.Drawing.Point(25, 37);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(180, 25);
-            this.cmbClientes.TabIndex = 6;
+            this.cmbClientes.TabIndex = 2;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.CmbClientes_SelectedIndexChanged);
             // 
             // lblCliente
@@ -142,7 +196,7 @@
             this.lblCliente.Location = new System.Drawing.Point(22, 18);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(46, 16);
-            this.lblCliente.TabIndex = 5;
+            this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "Cliente";
             // 
             // grbDetalleCliente
@@ -158,7 +212,7 @@
             this.grbDetalleCliente.Location = new System.Drawing.Point(181, 177);
             this.grbDetalleCliente.Name = "grbDetalleCliente";
             this.grbDetalleCliente.Size = new System.Drawing.Size(873, 409);
-            this.grbDetalleCliente.TabIndex = 0;
+            this.grbDetalleCliente.TabIndex = 3;
             this.grbDetalleCliente.TabStop = false;
             // 
             // pbEditarUsuario
@@ -226,7 +280,6 @@
             this.tvClientes.Name = "tvClientes";
             this.tvClientes.Size = new System.Drawing.Size(808, 384);
             this.tvClientes.TabIndex = 0;
-            this.tvClientes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TvClientes_AfterSelect);
             // 
             // panel1
             // 
@@ -235,46 +288,16 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1066, 54);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Controls.Add(this.btnEliminar);
-            this.panel2.Controls.Add(this.btnAñadir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 54);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 597);
-            this.panel2.TabIndex = 2;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.IndianRed;
-            this.btnEliminar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(12, 308);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(151, 39);
-            this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "&Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnAñadir
-            // 
-            this.btnAñadir.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAñadir.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAñadir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadir.ForeColor = System.Drawing.Color.White;
-            this.btnAñadir.Location = new System.Drawing.Point(12, 263);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(151, 39);
-            this.btnAñadir.TabIndex = 8;
-            this.btnAñadir.Text = "&Agregar";
-            this.btnAñadir.UseVisualStyleBackColor = false;
+            this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
@@ -283,7 +306,7 @@
             this.panel3.Location = new System.Drawing.Point(175, 592);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(891, 59);
-            this.panel3.TabIndex = 3;
+            this.panel3.TabIndex = 4;
             // 
             // FrmClientes
             // 
@@ -302,13 +325,14 @@
             this.Load += new System.EventHandler(this.FrmClientes_Load);
             this.grbClientes.ResumeLayout(false);
             this.grbClientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcEliminarCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgregarCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarpeta)).EndInit();
             this.grbDetalleCliente.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbEditarUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAgregarUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbEliminarUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExpandirContraer)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -323,17 +347,19 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtProyecto;
         private System.Windows.Forms.Label lblProyecto;
-        private System.Windows.Forms.TextBox txtCarpeta;
+        private System.Windows.Forms.TextBox CarpetaBaseProyectos;
         private System.Windows.Forms.Label lblCarpeta;
         private System.Windows.Forms.PictureBox pbCarpeta;
         private System.Windows.Forms.TreeView tvClientes;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnAñadir;
         private System.Windows.Forms.PictureBox PbExpandirContraer;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox PbAgregarUsuario;
         private System.Windows.Forms.PictureBox PbEliminarUsuario;
         private System.Windows.Forms.PictureBox pbEditarUsuario;
+        private System.Windows.Forms.PictureBox pcEliminarCliente;
+        private System.Windows.Forms.PictureBox pbAgregarCliente;
+        private System.Windows.Forms.TextBox txtNombreCliente;
+        private System.Windows.Forms.TextBox txtNuevoCliente;
     }
 }

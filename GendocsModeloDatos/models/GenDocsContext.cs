@@ -269,7 +269,7 @@ namespace GendocsModeloDatos.models
 
                 entity.ToTable("GD_Clientes");
 
-                entity.HasIndex(e => e.CódigoPersona)
+                entity.HasIndex(e => e.CodigoPersona)
                     .HasName("CódigoPersona")
                     .IsUnique();
 
