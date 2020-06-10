@@ -22,17 +22,17 @@ namespace GendocsForms
         public bool EsNuevo { get; set; } = false;
         public bool EsAlta { get; set; } = false;
 
+        //public void CargarFrmEmpleados()
+        //{
+        //    FrmMantenimientoEmpleados frm = new FrmMantenimientoEmpleados(this);
+        //    IdEmpleado = LstId[0];
+        //    CargarEmpleado();
+        //    frm.ShowDialog();
+        //}
+
         public void CargarFrmEmpleados()
         {
             FrmMantenimientoEmpleados frm = new FrmMantenimientoEmpleados(this);
-            IdEmpleado = LstId[0];
-            CargarEmpleado();
-            frm.ShowDialog();
-        }
-
-        public void CargarFrmEmpleados2()
-        {
-            FrmMantenimientoEmpleados2 frm = new FrmMantenimientoEmpleados2(this);
             if (EsNuevo)
             {
                 IdEmpleado = 0;
@@ -40,6 +40,7 @@ namespace GendocsForms
             }
             else
             {
+                EsAlta = false;
                 IdEmpleado = LstId[0];
                 CargarEmpleado();
             }

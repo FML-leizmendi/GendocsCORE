@@ -13,8 +13,6 @@ namespace GendocsForms
     public partial class FrmListaProyectos : Form
     {
         public static string TipoProyecto { get; set; } = string.Empty;
-        public string NombreGrid = string.Empty;
-        public int IdEmpFML = 0;
         public static String CarpetaBase;
 
         public FrmListaProyectos()
@@ -229,11 +227,7 @@ namespace GendocsForms
         {
             try
             {
-                FrmConfigPedido frm = new FrmConfigPedido
-                {
-                    //frm.IdEmpFML = Utiles.IdEmpleadoFML;
-                    NombreGrid = this.dgvProyectos.Name
-                };
+                FrmConfigPedido frm = new FrmConfigPedido();
                 frm.ShowDialog();
                 CargarGrid();
                 FormatearGrid();
@@ -252,7 +246,7 @@ namespace GendocsForms
                 foreach (DataGridViewColumn itemCol in dgvProyectos.Columns)
                 {
                     var query = (from a in db.GdColumnasD
-                                 where a.IdColumnaC == G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid) && a.NameField.Equals(itemCol.Name)
+                                 where a.IdColumnaC == G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name) && a.NameField.Equals(itemCol.Name)
                                  select a).ToList();
 
                     if (query.Count() > 0)
@@ -283,7 +277,7 @@ namespace GendocsForms
             List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
             try
             {
-                int numColC = G3.DimeIdColumnaC(IdEmpFML, NombreGrid);
+                int numColC = G3.DimeIdColumnaC((int)G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name);
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 0, NameField = "IdProyectoEstado", Ancho = 0, OrderBy = "A", Visible = false });
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 1, NameField = "CodigoProyecto", Ancho = 145, OrderBy = "A", Visible = true });
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 2, NameField = "Alias", Ancho = 235, OrderBy = "A", Visible = true });
@@ -307,17 +301,15 @@ namespace GendocsForms
         {
             try
             {
-                NombreGrid = this.dgvProyectos.Name;
-                IdEmpFML = G3.IdEmpleadoFML_Logged;
                 List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
                 // Comprobamos si el usuario tiene registros guardados en la tabla ColumnaC, en caso de que no los guardamos
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                if (G3.DimeIdColumnaC(IdEmpFML, NombreGrid) == 0)
+                if (G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name) == 0)
                 {
                     GdColumnasC colC = new GdColumnasC
                     {
                         ListName = this.dgvProyectos.Name,
-                        IdEmpleadoFMl = this.IdEmpFML
+                        IdEmpleadoFMl = (int)G3.IdEmpleadoFML_Logged
                     };
 
                     db.GdColumnasC.Add(colC);
@@ -366,7 +358,7 @@ namespace GendocsForms
                 else
                 {
                     var lstFiltro = (from a in db.GdColumnasD
-                                     where a.IdColumnaC == G3.DimeIdColumnaC(IdEmpFML, NombreGrid)
+                                     where a.IdColumnaC == G3.DimeIdColumnaC((int)G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name)
                                      select a).ToList();
 
                     if (lstFiltro.Count() != 0)

@@ -47,7 +47,7 @@ namespace GendocsForms.Forms
         {
             try
             {
-                FolderBrowserDialog CarpetaEntrada = new FolderBrowserDialog
+                FolderBrowserDialog CarpetaEntrada = new FolderBrowserDialog // TODO subir un nivel en la carpeta ..//
                 {
                     SelectedPath = CarpetaBaseProyectos.Text + "\\"
                 };
@@ -295,7 +295,7 @@ namespace GendocsForms.Forms
                            ).ToList();
 
                     cEmp.LstId = lst;
-                    cEmp.CargarFrmEmpleados2();
+                    cEmp.CargarFrmEmpleados();
                 }
                 tvClientes.Nodes.Clear();
                 TvEmpleadosCargarNodo(null, null);
@@ -446,7 +446,7 @@ namespace GendocsForms.Forms
                             {
                                 db.GdClientes.RemoveRange(cSelect);
                                 db.SaveChanges();
-                            }                               
+                            }
                         }
                     }
                     txtNuevoCliente.Visible = false;
