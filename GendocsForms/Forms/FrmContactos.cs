@@ -212,6 +212,7 @@ namespace GendocsForms
             try
             {
                 FrmConfigPedido frm = new FrmConfigPedido();
+                frm.NombreGrid = dgvContactos.Name;
                 frm.ShowDialog();
                 CargarGrid();
                 FormatearGrid();

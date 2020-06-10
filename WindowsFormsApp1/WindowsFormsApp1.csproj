@@ -160,13 +160,13 @@
       <Link>frmMenu.designer.cs</Link>
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\GendocsForms\Forms\FrmPantallaConfPedidos.cs">
-      <Link>FrmPantallaConfPedidos.cs</Link>
+    <Compile Include="..\GendocsForms\Forms\FrmPantallaConf.cs">
+      <Link>FrmPantallaConf.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\GendocsForms\Forms\FrmPantallaConfPedidos.designer.cs">
-      <Link>FrmPantallaConfPedidos.designer.cs</Link>
-      <DependentUpon>FrmPantallaConfPedidos.cs</DependentUpon>
+    <Compile Include="..\GendocsForms\Forms\FrmPantallaConf.designer.cs">
+      <Link>FrmPantallaConf.designer.cs</Link>
+      <DependentUpon>FrmPantallaConf.cs</DependentUpon>
     </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmParametros.cs">
       <Link>FrmParametros.cs</Link>
@@ -274,9 +274,9 @@
       <Link>frmMenu.resx</Link>
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\GendocsForms\Forms\FrmPantallaConfPedidos.resx">
-      <Link>FrmPantallaConfPedidos.resx</Link>
-      <DependentUpon>FrmPantallaConfPedidos.cs</DependentUpon>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmPantallaConf.resx">
+      <Link>FrmPantallaConf.resx</Link>
+      <DependentUpon>FrmPantallaConf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmParametros.resx">
       <Link>FrmParametros.resx</Link>
