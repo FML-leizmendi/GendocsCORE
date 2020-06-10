@@ -271,6 +271,7 @@
             this.txtCodProyecto.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtCodProyecto.Location = new System.Drawing.Point(71, 33);
             this.txtCodProyecto.Name = "txtCodProyecto";
+            this.txtCodProyecto.ReadOnly = true;
             this.txtCodProyecto.Size = new System.Drawing.Size(179, 23);
             this.txtCodProyecto.TabIndex = 1;
             this.txtCodProyecto.Tag = "";

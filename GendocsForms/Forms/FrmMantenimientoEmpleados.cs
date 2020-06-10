@@ -12,10 +12,9 @@ namespace GendocsForms
 
         public bool HanModificado = false;
 
-        public 
-            FrmMantenimientoEmpleados(ClsEmp cemp)
+        public FrmMantenimientoEmpleados(ClsEmp Cemp)
         {
-            CEmp = cemp;
+            CEmp = Cemp;
             InitializeComponent();
         }
 
@@ -25,31 +24,73 @@ namespace GendocsForms
         }
 
         #region "Eventos Privados"
-
-        private void FrmMantenimientoEmpleados_Load(object sender, EventArgs e)
+        private void FrmMantenimientoEmpleados2_Load(object sender, EventArgs e)
         {
             CargarComboJefes();
             CargarComboClientes();
             CargarComboCargos();
             CargarForm();
+            OcultarBotonesNavegacion();
+            txtNombre.Focus();
+            txtNombre.Focus();
             HanModificado = false;
+        }
+
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            if (HanModificado)
+            {
+                if (ValidarControles())
+                {
+                    CEmp.Empleado = txtNombre.Text;
+                    CEmp.Telefono = txtTelefono.Text;
+                    CEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
+                    CEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    CEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
+                    CEmp.Email = txtEmail.Text;
+                    CEmp.Etiquetas = txtEtiquetas.Text;
+                    CEmp.GuardarUsuario();
+                    this.Close();
+                }
+            }
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void LimpiarControles()
-        {
-            txtEmail.Text = string.Empty;
-            txtEtiquetas.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
-        }
         #endregion
 
         #region "Métodos Privados"
+
+        public void OcultarBotonesNavegacion()
+        {
+            try
+            {
+                if (CEmp.EsNuevo == true || CEmp.LstId.Count() <= 1)
+                {
+                    btnPrimero.Visible = false;
+                    btnSiguiente.Visible = false;
+                    btnAnterior.Visible = false;
+                    btnUltimo.Visible = false;
+                } 
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
+        }
 
         public void CargarForm()
         {
@@ -76,10 +117,10 @@ namespace GendocsForms
                     cmbJefes.SelectedValue = 0;
                 }
                 else
-                cmbJefes.SelectedValue = Convert.ToInt32(CEmp.IdEmpleadoSuperior);
+                    cmbJefes.SelectedValue = Convert.ToInt32(CEmp.IdEmpleadoSuperior);
                 txtEtiquetas.Text = CEmp.Etiquetas;
                 HanModificado = false;
-                btnGuardar.Visible = false;
+                //btnGuardar.Visible = false;
             }
             catch (Exception ex)
             {
@@ -105,20 +146,20 @@ namespace GendocsForms
                     txtTelefono.Focus();
                     EsValido = false;
                 }
-                if (cmbClientes.SelectedIndex == -1)
+                if (cmbClientes.SelectedIndex == 0)
                 {
                     cadena += "Cliente " + Environment.NewLine;
                     cmbClientes.Focus();
                     EsValido = false;
                 }
-                if (cmbCargo.SelectedIndex == -1)
+                if (cmbCargo.SelectedIndex == 0)
                 {
                     cadena += "Tipo de Cargo " + Environment.NewLine;
                     cmbCargo.Focus();
                     EsValido = false;
                 }
 
-                if (cmbJefes.SelectedIndex == -1)
+                if (cmbJefes.SelectedIndex == 0)
                 {
                     cadena += "Jefe " + Environment.NewLine;
                     cmbJefes.Focus();
@@ -141,10 +182,21 @@ namespace GendocsForms
             }
             return EsValido;
         }
+
+
         private void CargarComboJefes()
         {
             try
             {
+                List<GendocsModeloDatos.models.GdEmpleados> lista = new List<GendocsModeloDatos.models.GdEmpleados>
+                {
+                    new GendocsModeloDatos.models.GdEmpleados()
+                    {
+                        IdEmpleado = 0,
+                        Empleado = ""
+                    }
+                };
+
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 List<GendocsModeloDatos.models.GdEmpleados> lstEmpleados;
                 lstEmpleados = db.GdEmpleados.Select(e => new GendocsModeloDatos.models.GdEmpleados()
@@ -154,9 +206,12 @@ namespace GendocsForms
                 }
                 ).ToList();
 
+                lista.AddRange(lstEmpleados);
+
                 cmbJefes.DisplayMember = "Empleado";
                 cmbJefes.ValueMember = "IdEmpleado";
-                cmbJefes.DataSource = lstEmpleados;
+                cmbJefes.DataSource = lista;
+
             }
             catch (Exception ex)
             {
@@ -173,7 +228,7 @@ namespace GendocsForms
                     new GendocsModeloDatos.models.GdClientes()
                     {
                         IdCliente = 0,
-                        Cliente = "Otros"
+                        Cliente = ""
                     }
                 };
 
@@ -191,6 +246,7 @@ namespace GendocsForms
                 cmbClientes.DisplayMember = "Cliente";
                 cmbClientes.ValueMember = "IdCliente";
                 cmbClientes.DataSource = lista;
+
             }
             catch (Exception ex)
             {
@@ -207,7 +263,7 @@ namespace GendocsForms
                     new GendocsModeloDatos.models.GdCargos()
                     {
                         IdCargo = 0,
-                        Cargo = "Otros"
+                        Cargo = ""
                     }
                 };
 
@@ -232,76 +288,6 @@ namespace GendocsForms
             }
         }
 
-
-        #endregion
-
-        #region "Control de Eventos"
-        private void BtnPrimero_Click(object sender, EventArgs e)
-        {
-            CEmp.IrPrimero();
-            CargarForm();
-        }
-
-        private void BtnAnterior_Click(object sender, EventArgs e)
-        {
-            CEmp.IrAnterior();
-            CargarForm();
-        }
-
-        private void BtnSiguiente_Click(object sender, EventArgs e)
-        {
-            CEmp.IrSiguiente();
-            CargarForm();
-        }
-
-        private void BtnUltimo_Click(object sender, EventArgs e)
-        {
-            CEmp.IrUltimo();
-            CargarForm();
-        }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            CEmp.EliminarUsuario();
-            CargarForm();
-        }
-
-        private void BtnNuevo_Click(object sender, EventArgs e)
-        {
-            LimpiarControles();
-            txtNombre.Focus();  
-            cmbCargo.SelectedIndex = -1;
-            cmbClientes.SelectedIndex = -1;
-            cmbJefes.SelectedIndex = -1;
-            CEmp.EsAlta = true;
-            btnEliminar.Visible = false;
-            btnGuardar.Visible = true;
-        }
-
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                if (ValidarControles())
-                {
-                    //cEmp.IdEmpleado = Int32.Parse(txtIdEmpleado.Text);
-                    //cEmp.IdEmpleado = txtIdEmpleado.Text;
-                    CEmp.Empleado = txtNombre.Text;
-                    CEmp.Telefono = txtTelefono.Text;
-                    CEmp.IdCargo = Convert.ToInt32(cmbCargo.SelectedValue);
-                    CEmp.IdCliente = Convert.ToInt32(cmbClientes.SelectedValue);
-                    CEmp.IdEmpleadoSuperior = Convert.ToInt32(cmbJefes.SelectedValue);
-                    CEmp.Email = txtEmail.Text;
-                    CEmp.Etiquetas = txtEtiquetas.Text;
-                    CEmp.GuardarUsuario();
-                    CEmp.EsAlta = false;
-                    // txtIdEmpleado.Visible = false;
-                    btnEliminar.Visible = false;
-                    btnGuardar.Visible = false;
-                }
-            }
-        }
-
         private void BtnEtiquetas_Click(object sender, EventArgs e)
         {
             ClsEmp CEmp = new ClsEmp
@@ -312,18 +298,12 @@ namespace GendocsForms
             //CargarForm();
             txtEtiquetas.Text = CEmp.Etiquetas;
         }
+        #endregion
 
+        #region "Control de Eventos"
         private void TxtNombre_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
-        }
-
-        private void TxtNombre_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
         }
 
         private void TxtTelefono_TextChanged(object sender, EventArgs e)
@@ -331,25 +311,9 @@ namespace GendocsForms
             HanModificado = true;
         }
 
-        private void TxtTelefono_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-
         private void CmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             HanModificado = true;
-        }
-
-        private void CmbClientes_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
         }
 
         private void CmbCargo_SelectedIndexChanged(object sender, EventArgs e)
@@ -357,51 +321,40 @@ namespace GendocsForms
             HanModificado = true;
         }
 
-        private void CmbCargo_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
-
         private void CmbJefes_SelectedIndexChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void CmbJefes_Leave(object sender, EventArgs e)
-        {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
-        }
         private void TxtEmail_TextChanged(object sender, EventArgs e)
         {
             HanModificado = true;
         }
 
-        private void TxtEmail_Leave(object sender, EventArgs e)
+        private void BtnSiguiente_Click(object sender, EventArgs e)
         {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
+            CEmp.IrSiguiente();
+            CargarForm();
         }
 
-        private void TxtEtiquetas_TextChanged(object sender, EventArgs e)
+        private void BtnAnterior_Click(object sender, EventArgs e)
         {
-            HanModificado = true;
+            CEmp.IrAnterior();
+            CargarForm();
         }
 
-        private void TxtEtiquetas_Leave(object sender, EventArgs e)
+        private void BtnPrimero_Click(object sender, EventArgs e)
         {
-            if (HanModificado)
-            {
-                btnGuardar.Visible = true;
-            }
+            CEmp.IrPrimero();
+            CargarForm();
         }
+
+        private void BtnUltimo_Click(object sender, EventArgs e)
+        {
+            CEmp.IrUltimo();
+            CargarForm();
+        }
+
         #endregion
     }
 }

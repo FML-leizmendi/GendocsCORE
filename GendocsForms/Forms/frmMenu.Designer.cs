@@ -35,14 +35,12 @@
             this.btnPedidos = new System.Windows.Forms.Button();
             this.btnDocumentos = new System.Windows.Forms.Button();
             this.btnAgenda = new System.Windows.Forms.Button();
-            this.btnContactos = new System.Windows.Forms.Button();
             this.btnFmlStaff = new System.Windows.Forms.Button();
             this.pnlBotonera = new System.Windows.Forms.Panel();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnContactos = new System.Windows.Forms.Button();
             this.btnRecursos = new System.Windows.Forms.Button();
             this.BtnUnidadesContructivas = new System.Windows.Forms.Button();
-            this.btnLeerPedidos = new System.Windows.Forms.Button();
             this.btnRedimensionarImagenes = new System.Windows.Forms.Button();
             this.btnParametros = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -130,22 +128,6 @@
             this.btnAgenda.UseVisualStyleBackColor = false;
             this.btnAgenda.Click += new System.EventHandler(this.BtnAgenda_Click);
             // 
-            // btnContactos
-            // 
-            this.btnContactos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnContactos.BackColor = System.Drawing.Color.Navy;
-            this.btnContactos.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.btnContactos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnContactos.Image = ((System.Drawing.Image)(resources.GetObject("btnContactos.Image")));
-            this.btnContactos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContactos.Location = new System.Drawing.Point(575, 249);
-            this.btnContactos.Name = "btnContactos";
-            this.btnContactos.Size = new System.Drawing.Size(266, 43);
-            this.btnContactos.TabIndex = 6;
-            this.btnContactos.Text = "CONTACTOS";
-            this.btnContactos.UseVisualStyleBackColor = false;
-            this.btnContactos.Click += new System.EventHandler(this.BtnContactos_Click);
-            // 
             // btnFmlStaff
             // 
             this.btnFmlStaff.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -182,20 +164,21 @@
             this.pcbLogo.TabIndex = 0;
             this.pcbLogo.TabStop = false;
             // 
-            // button1
+            // btnContactos
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.Navy;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(575, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(266, 43);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "CONTACTOS v2";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnContactos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnContactos.BackColor = System.Drawing.Color.Navy;
+            this.btnContactos.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btnContactos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnContactos.Image = ((System.Drawing.Image)(resources.GetObject("btnContactos.Image")));
+            this.btnContactos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContactos.Location = new System.Drawing.Point(575, 249);
+            this.btnContactos.Name = "btnContactos";
+            this.btnContactos.Size = new System.Drawing.Size(266, 43);
+            this.btnContactos.TabIndex = 9;
+            this.btnContactos.Text = "CONTACTOS";
+            this.btnContactos.UseVisualStyleBackColor = false;
+            this.btnContactos.Click += new System.EventHandler(this.BtnContactos_Click);
             // 
             // btnRecursos
             // 
@@ -204,7 +187,7 @@
             this.btnRecursos.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnRecursos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRecursos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecursos.Location = new System.Drawing.Point(575, 347);
+            this.btnRecursos.Location = new System.Drawing.Point(575, 298);
             this.btnRecursos.Name = "btnRecursos";
             this.btnRecursos.Size = new System.Drawing.Size(266, 43);
             this.btnRecursos.TabIndex = 10;
@@ -219,28 +202,13 @@
             this.BtnUnidadesContructivas.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.BtnUnidadesContructivas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnUnidadesContructivas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUnidadesContructivas.Location = new System.Drawing.Point(575, 396);
+            this.BtnUnidadesContructivas.Location = new System.Drawing.Point(575, 347);
             this.BtnUnidadesContructivas.Name = "BtnUnidadesContructivas";
             this.BtnUnidadesContructivas.Size = new System.Drawing.Size(266, 43);
             this.BtnUnidadesContructivas.TabIndex = 11;
-            this.BtnUnidadesContructivas.Text = "Unidades Contructivas";
+            this.BtnUnidadesContructivas.Text = "UNDS. CONSTRUCTIVAS";
             this.BtnUnidadesContructivas.UseVisualStyleBackColor = false;
             this.BtnUnidadesContructivas.Click += new System.EventHandler(this.BtnUnidadesContructivas_Click);
-            // 
-            // btnLeerPedidos
-            // 
-            this.btnLeerPedidos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLeerPedidos.BackColor = System.Drawing.Color.Navy;
-            this.btnLeerPedidos.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.btnLeerPedidos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnLeerPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLeerPedidos.Location = new System.Drawing.Point(282, 396);
-            this.btnLeerPedidos.Name = "btnLeerPedidos";
-            this.btnLeerPedidos.Size = new System.Drawing.Size(266, 43);
-            this.btnLeerPedidos.TabIndex = 12;
-            this.btnLeerPedidos.Text = "PEDIDOS ENTRANTES";
-            this.btnLeerPedidos.UseVisualStyleBackColor = false;
-            this.btnLeerPedidos.Click += new System.EventHandler(this.BtnLeerPedidos_Click);
             // 
             // btnRedimensionarImagenes
             // 
@@ -264,13 +232,13 @@
             this.btnParametros.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnParametros.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnParametros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnParametros.Location = new System.Drawing.Point(575, 445);
+            this.btnParametros.Location = new System.Drawing.Point(575, 396);
             this.btnParametros.Name = "btnParametros";
             this.btnParametros.Size = new System.Drawing.Size(266, 43);
             this.btnParametros.TabIndex = 13;
             this.btnParametros.Text = "PANEL CONFIG.";
             this.btnParametros.UseVisualStyleBackColor = false;
-            this.btnParametros.Click += new System.EventHandler(this.btnParametros_Click);
+            this.btnParametros.Click += new System.EventHandler(this.BtnParametros_Click);
             // 
             // btnClientes
             // 
@@ -279,13 +247,13 @@
             this.btnClientes.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnClientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(873, 200);
+            this.btnClientes.Location = new System.Drawing.Point(282, 396);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(266, 43);
             this.btnClientes.TabIndex = 14;
             this.btnClientes.Text = "CLIENTES";
             this.btnClientes.UseVisualStyleBackColor = false;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            this.btnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
             // 
             // FrmMenu
             // 
@@ -296,14 +264,12 @@
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnParametros);
             this.Controls.Add(this.btnRedimensionarImagenes);
-            this.Controls.Add(this.btnLeerPedidos);
             this.Controls.Add(this.BtnUnidadesContructivas);
             this.Controls.Add(this.btnRecursos);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnContactos);
             this.Controls.Add(this.pcbLogo);
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.btnFmlStaff);
-            this.Controls.Add(this.btnContactos);
             this.Controls.Add(this.btnAgenda);
             this.Controls.Add(this.btnDocumentos);
             this.Controls.Add(this.btnPedidos);
@@ -332,14 +298,12 @@
         private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Button btnDocumentos;
         private System.Windows.Forms.Button btnAgenda;
-        private System.Windows.Forms.Button btnContactos;
         private System.Windows.Forms.Button btnFmlStaff;
         private System.Windows.Forms.Panel pnlBotonera;
         private System.Windows.Forms.PictureBox pcbLogo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnContactos;
         private System.Windows.Forms.Button btnRecursos;
         private System.Windows.Forms.Button BtnUnidadesContructivas;
-        private System.Windows.Forms.Button btnLeerPedidos;
         private System.Windows.Forms.Button btnRedimensionarImagenes;
         private System.Windows.Forms.Button btnParametros;
         private System.Windows.Forms.Button btnClientes;
