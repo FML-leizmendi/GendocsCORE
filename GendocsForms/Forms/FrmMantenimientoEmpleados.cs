@@ -26,13 +26,12 @@ namespace GendocsForms
         #region "Eventos Privados"
         private void FrmMantenimientoEmpleados2_Load(object sender, EventArgs e)
         {
+            txtNombre.Focus();
             CargarComboJefes();
             CargarComboClientes();
             CargarComboCargos();
             CargarForm();
             OcultarBotonesNavegacion();
-            txtNombre.Focus();
-            txtNombre.Focus();
             HanModificado = false;
         }
 

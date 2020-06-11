@@ -172,18 +172,7 @@ namespace GendocsForms
 
         private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
         {
-            try
-            {
-                txtIntroduzcaTexto.Text = string.Empty;
-                txtIntroduzcaTexto.Focus();
-                cmbClientes.SelectedIndex = 0;
-                CargarGrid(txtIntroduzcaTexto.Text);
-                FormatearGrid();
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
+           
         }
 
         private void DgvContactos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -193,7 +182,7 @@ namespace GendocsForms
                 ClsEmp cEmp = new ClsEmp();
                 using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                 var lst = (from d in db.GdEmpleados
-                           where (d.Empleado.Contains(txtIntroduzcaTexto.Text))
+                           where (d.IdEmpleado == Convert.ToInt32(dgvContactos.Rows[e.RowIndex].Cells[0].Value))
                            select d.IdEmpleado
 
                        ).ToList();
@@ -256,7 +245,21 @@ namespace GendocsForms
             return ListaInicial;
         }
 
-
+        private void BtnLimpiarControles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                txtIntroduzcaTexto.Focus();
+                cmbClientes.SelectedIndex = 0;
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
         protected override bool ProcessDialogKey(Keys keyData) // cerrar formulario con ESCAPE
         {
             if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
@@ -449,5 +452,7 @@ namespace GendocsForms
                 _ = ex.Message;
             }
         }
+
+       
     }
 }

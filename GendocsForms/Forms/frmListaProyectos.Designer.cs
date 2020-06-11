@@ -42,10 +42,10 @@
             this.btnAT = new System.Windows.Forms.Button();
             this.pnlCabercera = new System.Windows.Forms.Panel();
             this.grbProyectos = new System.Windows.Forms.GroupBox();
-            this.pbCarpeta = new System.Windows.Forms.PictureBox();
+            this.btnCarpeta = new System.Windows.Forms.Button();
+            this.BtnLimpiarFiltros = new System.Windows.Forms.Button();
             this.txtCodProyecto = new System.Windows.Forms.TextBox();
             this.lblCodProyecto = new System.Windows.Forms.Label();
-            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.cmbEstadoProyecto = new System.Windows.Forms.ComboBox();
             this.lblEstadoProyecto = new System.Windows.Forms.Label();
             this.txtIntroduzcaTexto = new System.Windows.Forms.TextBox();
@@ -65,10 +65,10 @@
             this.pnlBotonera = new System.Windows.Forms.Panel();
             this.cmsMenuColumnas = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmConfigurarGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.grbProyectos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCarpeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
             this.pnlDatosUsuario.SuspendLayout();
             this.cmsMenuColumnas.SuspendLayout();
@@ -238,10 +238,10 @@
             // 
             this.grbProyectos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbProyectos.Controls.Add(this.pbCarpeta);
+            this.grbProyectos.Controls.Add(this.btnCarpeta);
+            this.grbProyectos.Controls.Add(this.BtnLimpiarFiltros);
             this.grbProyectos.Controls.Add(this.txtCodProyecto);
             this.grbProyectos.Controls.Add(this.lblCodProyecto);
-            this.grbProyectos.Controls.Add(this.btnLimpiarFiltros);
             this.grbProyectos.Controls.Add(this.cmbEstadoProyecto);
             this.grbProyectos.Controls.Add(this.lblEstadoProyecto);
             this.grbProyectos.Controls.Add(this.txtIntroduzcaTexto);
@@ -254,17 +254,31 @@
             this.grbProyectos.TabStop = false;
             this.grbProyectos.Text = "Proyectos";
             // 
-            // pbCarpeta
+            // btnCarpeta
             // 
-            this.pbCarpeta.BackColor = System.Drawing.Color.LightBlue;
-            this.pbCarpeta.Image = ((System.Drawing.Image)(resources.GetObject("pbCarpeta.Image")));
-            this.pbCarpeta.Location = new System.Drawing.Point(249, 31);
-            this.pbCarpeta.Name = "pbCarpeta";
-            this.pbCarpeta.Size = new System.Drawing.Size(34, 25);
-            this.pbCarpeta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbCarpeta.TabIndex = 7;
-            this.pbCarpeta.TabStop = false;
-            this.pbCarpeta.Click += new System.EventHandler(this.PbCarpeta_Click);
+            this.btnCarpeta.BackColor = System.Drawing.Color.LightBlue;
+            this.btnCarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarpeta.Image = ((System.Drawing.Image)(resources.GetObject("btnCarpeta.Image")));
+            this.btnCarpeta.Location = new System.Drawing.Point(251, 32);
+            this.btnCarpeta.Name = "btnCarpeta";
+            this.btnCarpeta.Size = new System.Drawing.Size(34, 23);
+            this.btnCarpeta.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btnCarpeta, "Acceder a la carpeta del proyecto");
+            this.btnCarpeta.UseVisualStyleBackColor = false;
+            this.btnCarpeta.Click += new System.EventHandler(this.BtnCarpeta_Click);
+            // 
+            // BtnLimpiarFiltros
+            // 
+            this.BtnLimpiarFiltros.BackColor = System.Drawing.Color.LightBlue;
+            this.BtnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("BtnLimpiarFiltros.Image")));
+            this.BtnLimpiarFiltros.Location = new System.Drawing.Point(796, 31);
+            this.BtnLimpiarFiltros.Name = "BtnLimpiarFiltros";
+            this.BtnLimpiarFiltros.Size = new System.Drawing.Size(80, 25);
+            this.BtnLimpiarFiltros.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.BtnLimpiarFiltros, "Eliminar Filtros");
+            this.BtnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.BtnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
             // 
             // txtCodProyecto
             // 
@@ -285,23 +299,6 @@
             this.lblCodProyecto.Size = new System.Drawing.Size(99, 16);
             this.lblCodProyecto.TabIndex = 0;
             this.lblCodProyecto.Text = "Código Proyecto";
-            // 
-            // btnLimpiarFiltros
-            // 
-            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.LightBlue;
-            this.btnLimpiarFiltros.FlatAppearance.BorderSize = 0;
-            this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.Image")));
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(797, 34);
-            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(50, 19);
-            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(50, 19);
-            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
-            this.btnLimpiarFiltros.TabIndex = 6;
-            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
             // 
             // cmbEstadoProyecto
             // 
@@ -542,7 +539,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.grbProyectos.ResumeLayout(false);
             this.grbProyectos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCarpeta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
             this.pnlDatosUsuario.ResumeLayout(false);
             this.pnlDatosUsuario.PerformLayout();
@@ -567,7 +563,6 @@
         private System.Windows.Forms.Label lblTexto;
         private System.Windows.Forms.DataGridView dgvProyectos;
         private System.Windows.Forms.Button btnTodos;
-        private System.Windows.Forms.Button btnLimpiarFiltros;
         private System.Windows.Forms.Panel pnlDatosUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label lblContraseña;
@@ -587,6 +582,8 @@
         private System.Windows.Forms.Label lblTituloFormulario;
         private System.Windows.Forms.ContextMenuStrip cmsMenuColumnas;
         private System.Windows.Forms.ToolStripMenuItem tsmConfigurarGrid;
-        private System.Windows.Forms.PictureBox pbCarpeta;
+        private System.Windows.Forms.Button BtnLimpiarFiltros;
+        private System.Windows.Forms.Button btnCarpeta;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

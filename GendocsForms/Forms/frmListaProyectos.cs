@@ -60,23 +60,6 @@ namespace GendocsForms
             }
         }
 
-        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                txtIntroduzcaTexto.Text = string.Empty;
-                cmbEstadoProyecto.SelectedIndex = 0;
-                CargarGrid(txtIntroduzcaTexto.Text);
-                FormatearGrid();
-                TipoProyecto = "";
-                CambiarColorBotonSeleccionado(TipoProyecto);
-                txtIntroduzcaTexto.Focus();
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
-        }
 
         private void DgvProyectos_CurrentCellChanged(object sender, EventArgs e)
         {
@@ -275,6 +258,7 @@ namespace GendocsForms
         #endregion
 
         #region "Métodos Privados"
+
         private List<GdColumnasD> CargarConfiguarcionIncial()
         {
             List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
@@ -447,6 +431,23 @@ namespace GendocsForms
             }
         }
 
+        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                cmbEstadoProyecto.SelectedIndex = 0;
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
+                TipoProyecto = "";
+                CambiarColorBotonSeleccionado(TipoProyecto);
+                txtIntroduzcaTexto.Focus();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
 
         private void CargarComboEstadosProyectos()
         {
@@ -552,6 +553,24 @@ namespace GendocsForms
             }
         }
 
+        private void BtnCarpeta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                if (txtCodProyecto.Text != string.Empty)
+                {
+                    String ruta = G3.GetParam("CarpetaBaseProyectos", true, out bool ok, false, 10).ToString() + "\\";
+                    ruta += CarpetaBase;
+                    //System.Diagnostics.Process.Start("explorer.exe", ruta);
+                    Utiles.AbrirArchivo(ruta);
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
         #endregion
 
         #region "Control de evenetos"
@@ -610,24 +629,5 @@ namespace GendocsForms
         }
 
         #endregion
-
-        private void PbCarpeta_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                if (txtCodProyecto.Text != string.Empty)
-                {
-                    String ruta = G3.GetParam("CarpetaBaseProyectos", true, out bool ok, false, 10).ToString() + "\\";
-                    ruta += CarpetaBase;
-                    //System.Diagnostics.Process.Start("explorer.exe", ruta);
-                    Utiles.AbrirArchivo(ruta);
-                }
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
-        }
     }
 }
