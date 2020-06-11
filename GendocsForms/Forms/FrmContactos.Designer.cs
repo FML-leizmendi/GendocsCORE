@@ -36,7 +36,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.grbEmpleados = new System.Windows.Forms.GroupBox();
-            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.BtnLimpiarControles = new System.Windows.Forms.Button();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.txtIntroduzcaTexto = new System.Windows.Forms.TextBox();
@@ -45,6 +45,7 @@
             this.pnlBotonera = new System.Windows.Forms.Panel();
             this.cmsMenuColumnas = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmConfigurarGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlLateral.SuspendLayout();
             this.grbEmpleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactos)).BeginInit();
@@ -127,7 +128,7 @@
             // 
             this.grbEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbEmpleados.Controls.Add(this.btnLimpiarFiltros);
+            this.grbEmpleados.Controls.Add(this.BtnLimpiarControles);
             this.grbEmpleados.Controls.Add(this.cmbClientes);
             this.grbEmpleados.Controls.Add(this.lblCliente);
             this.grbEmpleados.Controls.Add(this.txtIntroduzcaTexto);
@@ -140,22 +141,18 @@
             this.grbEmpleados.TabStop = false;
             this.grbEmpleados.Text = "Empleados";
             // 
-            // btnLimpiarFiltros
+            // BtnLimpiarControles
             // 
-            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.LightBlue;
-            this.btnLimpiarFiltros.FlatAppearance.BorderSize = 0;
-            this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarFiltros.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.Image")));
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(556, 37);
-            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnLimpiarFiltros.MaximumSize = new System.Drawing.Size(50, 19);
-            this.btnLimpiarFiltros.MinimumSize = new System.Drawing.Size(50, 19);
-            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
-            this.btnLimpiarFiltros.TabIndex = 4;
-            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
+            this.BtnLimpiarControles.BackColor = System.Drawing.Color.LightBlue;
+            this.BtnLimpiarControles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiarControles.Image = ((System.Drawing.Image)(resources.GetObject("BtnLimpiarControles.Image")));
+            this.BtnLimpiarControles.Location = new System.Drawing.Point(553, 36);
+            this.BtnLimpiarControles.Name = "BtnLimpiarControles";
+            this.BtnLimpiarControles.Size = new System.Drawing.Size(80, 25);
+            this.BtnLimpiarControles.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.BtnLimpiarControles, "Limpiar los filtros");
+            this.BtnLimpiarControles.UseVisualStyleBackColor = false;
+            this.BtnLimpiarControles.Click += new System.EventHandler(this.BtnLimpiarControles_Click);
             // 
             // cmbClientes
             // 
@@ -240,7 +237,7 @@
             // 
             this.tsmConfigurarGrid.Image = ((System.Drawing.Image)(resources.GetObject("tsmConfigurarGrid.Image")));
             this.tsmConfigurarGrid.Name = "tsmConfigurarGrid";
-            this.tsmConfigurarGrid.Size = new System.Drawing.Size(192, 34);
+            this.tsmConfigurarGrid.Size = new System.Drawing.Size(168, 34);
             this.tsmConfigurarGrid.Text = "Congifurar Grid";
             this.tsmConfigurarGrid.Click += new System.EventHandler(this.tsmConfigurarGrid_Click);
             // 
@@ -279,11 +276,12 @@
         private System.Windows.Forms.Label lblTexto;
         private System.Windows.Forms.DataGridView dgvContactos;
         private System.Windows.Forms.Panel pnlBotonera;
-        private System.Windows.Forms.Button btnLimpiarFiltros;
         private System.Windows.Forms.Button btnEliminarEmpleado;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.ContextMenuStrip cmsMenuColumnas;
         private System.Windows.Forms.ToolStripMenuItem tsmConfigurarGrid;
+        private System.Windows.Forms.Button BtnLimpiarControles;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

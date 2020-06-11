@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GendocsController;
+using GendocsModeloDatos.models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -32,6 +34,7 @@ namespace GendocsForms
             CargarGrid();
             FormatearGrid();
             txtIntroduzcaTexto.Focus();
+            G3Forms.CargarParam(this, this.Name + "_");
             //HabilitarBotonera();
         }
 
@@ -197,41 +200,122 @@ namespace GendocsForms
                 };
                 CRec.CargarFrmMantenimientoRecursos();
             }
-
-
         }
         #endregion
 
         #region "Métodos Privados"
 
+        private List<GdColumnasD> CargarConfiguarcionIncial()
+        {
+            List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
+            try
+            {
+                int numColC = G3.DimeIdColumnaC((int)G3.IdEmpleadoFML_Logged, this.dgvRecursos.Name);
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 0, NameField = "IdRecurso", Ancho = 0, OrderBy = "A", Visible = false });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 1, NameField = "Area", Ancho = 0, OrderBy = "A", Visible = false });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 2, NameField = "Activo", Ancho = 0, OrderBy = "A", Visible = false });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 3, NameField = "CodRecurso", Ancho = 300, OrderBy = "A", Visible = true });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 4, NameField = "RecursoContratacion", Ancho = 750, OrderBy = "A", Visible = true });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 5, NameField = "Unidad", Ancho = 250, OrderBy = "A", Visible = true });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 6, NameField = "CosteTotal", Ancho = 350, OrderBy = "A", Visible = true });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 7, NameField = "IdCliente", Ancho = 0, OrderBy = "A", Visible = false });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 8, NameField = "Orden", Ancho = 0, OrderBy = "A", Visible = false });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 9, NameField = "IdRecursosArea", Ancho = 0, OrderBy = "A", Visible = false });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 10, NameField = "IdRecursosActivo", Ancho = 0, OrderBy = "A", Visible = false });
+                ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 11, NameField = "Prohibido", Ancho = 0, OrderBy = "A", Visible = false });
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+            return ListaInicial;
+        }
+
+
         private void FormatearGrid()
         {
             try
-            {   //Ocultar una columna de un datagridview 
-                this.dgvRecursos.Columns["Area"].Visible = false;
-                this.dgvRecursos.Columns["Activo"].Visible = false;
-                this.dgvRecursos.Columns["IdRecurso"].Visible = false;
-                this.dgvRecursos.Columns["IdCliente"].Visible = false;
-                this.dgvRecursos.Columns["Orden"].Visible = false;
-                this.dgvRecursos.Columns["IdRecursosArea"].Visible = false;
-                this.dgvRecursos.Columns["IdRecursosActivo"].Visible = false;
-                this.dgvRecursos.Columns["Prohibido"].Visible = false;
+            {
+                List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
+                // Comprobamos si el usuario tiene registros guardados en la tabla ColumnaC, en caso de que no los guardamos
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                if (G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, this.dgvRecursos.Name) == 0)
+                {
+                    GdColumnasC colC = new GdColumnasC
+                    {
+                        ListName = this.dgvRecursos.Name,
+                        IdEmpleadoFMl = (int)G3.IdEmpleadoFML_Logged
+                    };
 
-                ////Modificar el ancho de una columna
-                this.dgvRecursos.Columns["CodRecurso"].Width = 300;
-                this.dgvRecursos.Columns["CodRecurso"].HeaderText = "Código Recurso";
-                this.dgvRecursos.Columns["RecursoContratacion"].Width = 750;
-                this.dgvRecursos.Columns["RecursoContratacion"].HeaderText = "Recurso Contratación";
-                this.dgvRecursos.Columns["Unidad"].Width = 250;
-                this.dgvRecursos.Columns["CosteTotal"].Width = 350;
-                this.dgvRecursos.Columns["CosteTotal"].HeaderText = "Coste Total";
+                    db.GdColumnasC.Add(colC);
+                    db.SaveChanges();
+
+                    // Se carga en una lista una configuracion general para la primera vez que el usuario accede al grid
+                    ListaInicial = CargarConfiguarcionIncial();
+
+                    foreach (GdColumnasD item in ListaInicial)
+                    {
+                        GdColumnasD colD = new GdColumnasD
+                        {
+                            IdColumnaC = item.IdColumnaC,
+                            NumCol = item.NumCol,
+                            NameField = item.NameField,
+                            Ancho = item.Ancho,
+                            OrderBy = item.OrderBy,
+                            Visible = item.Visible
+                        };
+
+                        db.GdColumnasD.Add(colD);
+                        db.SaveChanges();
+                    }
+
+
+                    //Ocultar una columna de un datagridview 
+                    this.dgvRecursos.Columns["IdRecurso"].Visible = false;
+                    this.dgvRecursos.Columns["Area"].Visible = false;
+                    this.dgvRecursos.Columns["Activo"].Visible = false;
+                    this.dgvRecursos.Columns["IdCliente"].Visible = false;
+                    this.dgvRecursos.Columns["Orden"].Visible = false;
+                    this.dgvRecursos.Columns["IdRecursosArea"].Visible = false;
+                    this.dgvRecursos.Columns["IdRecursosActivo"].Visible = false;
+                    this.dgvRecursos.Columns["Prohibido"].Visible = false;
+
+                    ////Modificar el ancho de una columna
+                    this.dgvRecursos.Columns["CodRecurso"].Width = 300;
+                    this.dgvRecursos.Columns["CodRecurso"].HeaderText = "Código Recurso";
+                    this.dgvRecursos.Columns["RecursoContratacion"].Width = 750;
+                    this.dgvRecursos.Columns["RecursoContratacion"].HeaderText = "Recurso Contratación";
+                    this.dgvRecursos.Columns["Unidad"].Width = 250;
+                    this.dgvRecursos.Columns["CosteTotal"].Width = 350;
+                    this.dgvRecursos.Columns["CosteTotal"].HeaderText = "Coste Total";
+                }
+                else
+                {
+                    var lstFiltro = (from a in db.GdColumnasD
+                                     where a.IdColumnaC == G3.DimeIdColumnaC((int)G3.IdEmpleadoFML_Logged, this.dgvRecursos.Name)
+                                     select a).ToList();
+
+                    if (lstFiltro.Count() != 0)
+                    {
+                        foreach (var item in lstFiltro)
+                        {
+                            this.dgvRecursos.Columns[item.NameField].Visible = item.Visible;
+                            if (Convert.ToInt32(item.Ancho) > 0)
+                            {
+                                this.dgvRecursos.Columns[item.NameField].Width = Convert.ToInt32(item.Ancho);
+                            }
+                            else
+                                this.dgvRecursos.Columns[item.NameField].Visible = false;
+                        }
+                    }
+                }
 
                 ////Alinear las columnas 
                 dgvRecursos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvRecursos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvRecursos.Columns["RecursoContratacion"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 dgvRecursos.Columns["CosteTotal"].DefaultCellStyle.Format = "C2";
-                //dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;              
+                //dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;          
             }
             catch (Exception ex)
             {
@@ -277,6 +361,16 @@ namespace GendocsForms
             {
                 _ = ex.Message;
             }
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData) // cerrar formulario con ESCAPE
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
         }
 
         public void ColorearGrid()
@@ -432,5 +526,36 @@ namespace GendocsForms
         }
 
         #endregion
+
+        private void FrmRecursos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                foreach (DataGridViewColumn itemCol in dgvRecursos.Columns)
+                {
+                    var query = (from a in db.GdColumnasD
+                                 where a.IdColumnaC == G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, this.dgvRecursos.Name) && a.NameField.Equals(itemCol.Name)
+                                 select a).ToList();
+
+                    if (query.Count() > 0)
+                    {
+                        foreach (var item in query)
+                        {
+                            item.Visible = itemCol.Visible;
+                            item.Ancho = itemCol.Width;
+                        }
+
+                        db.SaveChanges();
+                    }
+
+                    G3Forms.GrabarParam(this, this.Name + "_");
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
     }
 }
