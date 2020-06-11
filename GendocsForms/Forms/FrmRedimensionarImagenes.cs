@@ -14,7 +14,7 @@ namespace GendocsForms
     {
         FolderBrowserDialog CarpetaEntrada;
         FolderBrowserDialog CarpetaSalida;
-        bool Redimensionar = false;
+        public static bool Redimensionar;
 
         public FrmRedimensionarImagenes()
         {
@@ -70,7 +70,7 @@ namespace GendocsForms
         {
             try
             {
-                if (Redimensionar)
+                if (txtRutaOrigen.Text != string.Empty && txtRutaDestino.Text != string.Empty)
                 {
                     string[] files = Directory.GetFiles(txtRutaOrigen.Text);
                     String NombreArchivo;
@@ -79,12 +79,12 @@ namespace GendocsForms
 
                     for (int i = 0; i < files.Length; i++)
                     {
-                        if (Path.GetExtension(files[i]) == ".jpg")
+                        if (Path.GetExtension(files[i]) == ".jpg" || Path.GetExtension(files[i]) == ".JPG")
                         {
                             NombreArchivo = Path.GetFileName(files[i]);
                             Bitmap orig = new Bitmap(files[i].Trim());
-                            Bitmap bmp = new Bitmap(RedimensionarImagen(orig, (int)numAncho.Value, (int)numAlto.Value));
-                            bmp.Save(NuevaCarpetaArchivo + txtNomeclatura.Text + NombreArchivo, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            Bitmap bmp = new Bitmap(RedimensionarImagen(orig, 500, 500));
+                            bmp.Save(NuevaCarpetaArchivo + "_Cambio" + NombreArchivo, System.Drawing.Imaging.ImageFormat.Jpeg);
                             pbProgreso.Value = (100 * i + 1) / (files.Length);
                         }
                     }

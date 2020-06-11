@@ -72,15 +72,6 @@ namespace GendocsForms
             frm.Show();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            FrmContactos2 frm = new FrmContactos2
-            {
-                MdiParent = this.MdiParent,
-                WindowState = FormWindowState.Maximized
-            };
-            frm.Show();
-        }
 
         private void BtnRecursos_Click(object sender, EventArgs e)
         {
@@ -96,7 +87,14 @@ namespace GendocsForms
      
         private void BtnAgenda_Click(object sender, EventArgs e)
         {
-            //System.Diagnostics.Process.Start("https://trello.com");
+            try
+            {
+                Utiles.AbrirArchivo("https://trello.com/b/f3Pt4ytE/fml-pedidos");
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
         }
 
         private void BtnLeerPedidos_Click(object sender, EventArgs e)
@@ -119,6 +117,36 @@ namespace GendocsForms
             {
                 FrmUnidadesConstructivas frm = new FrmUnidadesConstructivas();
                 frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void BtnParametros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmParametros frm = new FrmParametros();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmClientes frm = new FrmClientes
+                {
+                    MdiParent = this.MdiParent,
+                    WindowState = FormWindowState.Maximized
+                };
+                frm.Show();
             }
             catch (Exception ex)
             {

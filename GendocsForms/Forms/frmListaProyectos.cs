@@ -1,5 +1,6 @@
 ﻿using GendocsController;
 using GendocsModeloDatos.models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,8 +13,7 @@ namespace GendocsForms
     public partial class FrmListaProyectos : Form
     {
         public static string TipoProyecto { get; set; } = string.Empty;
-        public string NombreGrid = string.Empty;
-        public int IdEmpFML = 0;
+        public static String CarpetaBase;
 
         public FrmListaProyectos()
         {
@@ -24,11 +24,15 @@ namespace GendocsForms
         private void FrmListaProyectos_Load(object sender, EventArgs e)
         {
             txtIntroduzcaTexto.Focus();
-            CargarGrid();
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
             FormatearGrid();
             CargarComboEstadosProyectos();
             CargarComboAccesos();
             CargarComboUsuarios();
+            G3Forms.CargarParam(this, this.Name + "_");
+            TipoProyecto = (String)G3.GetParam(this.Name + "_TipoProyecto", true, out _, false, 10);
+            CambiarColorBotonSeleccionado(TipoProyecto);
+
         }
         private void BtnCerrarForm_Click(object sender, EventArgs e)
         {
@@ -56,22 +60,6 @@ namespace GendocsForms
             }
         }
 
-        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                txtIntroduzcaTexto.Text = string.Empty;
-                cmbEstadoProyecto.SelectedIndex = 0;
-                CargarGrid(txtIntroduzcaTexto.Text);
-                FormatearGrid();
-                CambiarColorBotonSeleccionado(btnTodos);
-                txtIntroduzcaTexto.Focus();
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
-        }
 
         private void DgvProyectos_CurrentCellChanged(object sender, EventArgs e)
         {
@@ -80,6 +68,7 @@ namespace GendocsForms
                 if (dgvProyectos.CurrentRow != null)
                 {
                     txtCodProyecto.Text = dgvProyectos.CurrentRow.Cells["CodigoProyecto"].Value.ToString();
+                    CarpetaBase = dgvProyectos.CurrentRow.Cells["CarpetaBase"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -192,7 +181,7 @@ namespace GendocsForms
             }
         }
 
-        protected override bool ProcessDialogKey(Keys keyData)
+        protected override bool ProcessDialogKey(Keys keyData) // cerrar formulario con ESCAPE
         {
             if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
             {
@@ -223,8 +212,7 @@ namespace GendocsForms
             {
                 FrmConfigPedido frm = new FrmConfigPedido
                 {
-                    //frm.IdEmpFML = Utiles.IdEmpleadoFML;
-                    NombreGrid = this.dgvProyectos.Name
+                    NombreGrid = dgvProyectos.Name
                 };
                 frm.ShowDialog();
                 CargarGrid();
@@ -244,7 +232,7 @@ namespace GendocsForms
                 foreach (DataGridViewColumn itemCol in dgvProyectos.Columns)
                 {
                     var query = (from a in db.GdColumnasD
-                                 where a.IdColumnaC == G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, NombreGrid) && a.NameField.Equals(itemCol.Name)
+                                 where a.IdColumnaC == G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name) && a.NameField.Equals(itemCol.Name)
                                  select a).ToList();
 
                     if (query.Count() > 0)
@@ -257,22 +245,8 @@ namespace GendocsForms
 
                         db.SaveChanges();
                     }
-                    //else
-                    //{
-                    //    GdColumnasD colD = new GdColumnasD
-                    //    {
-                    //        IdColumnaC = Utiles.NumColumna(IdEmpFML, NombreGrid),                           
-                    //        NumCol =5,
-                    //        NameField = itemCol.Name,
-                    //        Ancho = itemCol.Width,
-                    //        OrderBy = "A",
-                    //        Visible = itemCol.Visible
-                    //    };
 
-                    //    db.GdColumnasD.Add(colD);
-                    //    db.SaveChanges();
-                    //}
-
+                    G3Forms.GrabarParam(this, this.Name + "_");
                 }
             }
             catch (Exception ex)
@@ -284,12 +258,13 @@ namespace GendocsForms
         #endregion
 
         #region "Métodos Privados"
+
         private List<GdColumnasD> CargarConfiguarcionIncial()
         {
             List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
             try
             {
-                int numColC = G3.DimeIdColumnaC(IdEmpFML, NombreGrid);
+                int numColC = G3.DimeIdColumnaC((int)G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name);
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 0, NameField = "IdProyectoEstado", Ancho = 0, OrderBy = "A", Visible = false });
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 1, NameField = "CodigoProyecto", Ancho = 145, OrderBy = "A", Visible = true });
                 ListaInicial.Add(new GdColumnasD() { IdColumnaC = numColC, NumCol = 2, NameField = "Alias", Ancho = 235, OrderBy = "A", Visible = true });
@@ -313,17 +288,15 @@ namespace GendocsForms
         {
             try
             {
-                NombreGrid = this.dgvProyectos.Name;
-                IdEmpFML = G3.IdEmpleadoFML_Logged;
                 List<GdColumnasD> ListaInicial = new List<GdColumnasD>();
                 // Comprobamos si el usuario tiene registros guardados en la tabla ColumnaC, en caso de que no los guardamos
                 GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
-                if (G3.DimeIdColumnaC(IdEmpFML, NombreGrid) == 0)
+                if (G3.DimeIdColumnaC(G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name) == 0)
                 {
                     GdColumnasC colC = new GdColumnasC
                     {
                         ListName = this.dgvProyectos.Name,
-                        IdEmpleadoFMl = this.IdEmpFML
+                        IdEmpleadoFMl = (int)G3.IdEmpleadoFML_Logged
                     };
 
                     db.GdColumnasC.Add(colC);
@@ -352,6 +325,7 @@ namespace GendocsForms
                     this.dgvProyectos.Columns["IdProyecto"].Visible = false;
                     this.dgvProyectos.Columns["EmailResponsable"].Visible = false;
 
+
                     //DataGridViewImageColumn columna = new DataGridViewImageColumn();
                     //columna.Name = "Imagen";
                     //dgvProyectos.Columns.Add(columna);
@@ -371,7 +345,7 @@ namespace GendocsForms
                 else
                 {
                     var lstFiltro = (from a in db.GdColumnasD
-                                     where a.IdColumnaC == G3.DimeIdColumnaC(IdEmpFML, NombreGrid)
+                                     where a.IdColumnaC == G3.DimeIdColumnaC((int)G3.IdEmpleadoFML_Logged, this.dgvProyectos.Name)
                                      select a).ToList();
 
                     if (lstFiltro.Count() != 0)
@@ -402,6 +376,8 @@ namespace GendocsForms
                     }
                 }
 
+                this.dgvProyectos.Columns["CarpetaBase"].Visible = false;
+
                 //Alinear las columnas 
                 dgvProyectos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvProyectos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -425,7 +401,7 @@ namespace GendocsForms
                                   d.TipoProyecto.Contains(TipoProyecto) & (d.Alias.Contains(TextoIntroducido)) ||
                                   d.TipoProyecto.Contains(TipoProyecto) & (d.IdProyectoEstado == EstadoProyecto)))
 
-                           select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, d.Provincia, d.EmailResponsable, p.ProyectoEstado }
+                           select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, d.Provincia, d.EmailResponsable, p.ProyectoEstado , d.CarpetaBase}
 
                            ).ToList();
 
@@ -434,7 +410,7 @@ namespace GendocsForms
                     var lstFiltrada = (from d in db.GdProyectos
                                        join p in db.GdProyectoEstados on d.IdProyectoEstado equals p.IdProyectoEstado
                                        where (d.TipoProyecto.Contains(TipoProyecto) & ((d.CodigoProyecto.Contains(TextoIntroducido) || (d.Alias.Contains(TextoIntroducido))) & (d.IdProyectoEstado == EstadoProyecto)))
-                                       select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado }
+                                       select new { d.IdProyecto, d.CodigoProyecto, d.Alias, d.TipoProyecto, d.TerminoMunicipal, d.Gestor, d.Responsable, p.ProyectoEstado , d.CarpetaBase}
                                         ).ToList();
 
                     DataTable dtFilrado = FormUtiles.ToDataTable(lstFiltrada);
@@ -455,6 +431,23 @@ namespace GendocsForms
             }
         }
 
+        private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIntroduzcaTexto.Text = string.Empty;
+                cmbEstadoProyecto.SelectedIndex = 0;
+                CargarGrid(txtIntroduzcaTexto.Text);
+                FormatearGrid();
+                TipoProyecto = "";
+                CambiarColorBotonSeleccionado(TipoProyecto);
+                txtIntroduzcaTexto.Focus();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
 
         private void CargarComboEstadosProyectos()
         {
@@ -540,68 +533,76 @@ namespace GendocsForms
             }
         }
 
-        private void CambiarColorBotonSeleccionado(Button button)
+        private void CambiarColorBotonSeleccionado(String TipoProyecto)
         {
             foreach (Control cnt in this.pnlLateral.Controls)
             {
-                if (cnt is Button && cnt == button)
+                if (cnt.Tag != null && cnt.Tag.ToString().Contains("btn_"))
                 {
-                    cnt.BackColor = Color.Yellow;
-                }
-                else if (cnt is Label || cnt is PictureBox)
-                {
-
-                }
-                else
-                {
-                    cnt.BackColor = Color.LightBlue;
+                    String tp = TipoProyecto;
+                    if (tp == "") tp = "Td";
+                    if (cnt.Tag.ToString().Equals("btn_" + tp))
+                    {
+                        cnt.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        cnt.BackColor = Color.LightBlue;
+                    }
                 }
             }
         }
 
+        private void BtnCarpeta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                if (txtCodProyecto.Text != string.Empty)
+                {
+                    String ruta = G3.GetParam("CarpetaBaseProyectos", true, out bool ok, false, 10).ToString() + "\\";
+                    ruta += CarpetaBase;
+                    //System.Diagnostics.Process.Start("explorer.exe", ruta);
+                    Utiles.AbrirArchivo(ruta);
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
         #endregion
 
         #region "Control de evenetos"
         private void BtnAT_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnAT);
-            TipoProyecto = "AT";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnAT);
         }
 
         private void BtnMediaTension_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnMediaTension);
-            TipoProyecto = "MT";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnMediaTension);
         }
 
         private void BtnBajaTension_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnBajaTension);
-            TipoProyecto = "BT";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+
+            BotonTipoProyecto(this.btnBajaTension);
         }
 
         private void BtnCartografia_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnCartografia);
-            TipoProyecto = "Ca";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnCartografia);
         }
 
         private void BtnOtros_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnOtros);
-            TipoProyecto = "Ot";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnOtros);
         }
 
         private void BtnTodos_Click(object sender, EventArgs e)
         {
-            CambiarColorBotonSeleccionado(btnTodos);
-            TipoProyecto = "";
-            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+            BotonTipoProyecto(this.btnTodos);
         }
 
         private void CmbEstadoProyecto_SelectedIndexChanged(object sender, EventArgs e)
@@ -615,7 +616,18 @@ namespace GendocsForms
         }
 
 
-        #endregion
+        private void BotonTipoProyecto(Control sender)
+        {
+            TipoProyecto = Strings.Mid(sender.Tag.ToString(), 5);
+            if (TipoProyecto == "Td")
+            {
+                TipoProyecto = "";
+            }
+            CambiarColorBotonSeleccionado(TipoProyecto);
+            G3.SetParam(this.Name + "_TipoProyecto", true, TipoProyecto, false, 10);
+            CargarGrid(TipoProyecto, txtIntroduzcaTexto.Text, Convert.ToInt32(cmbEstadoProyecto.SelectedValue));
+        }
 
+        #endregion
     }
 }

@@ -37,7 +37,7 @@
             // lblIntroduzcaDatos
             // 
             this.lblIntroduzcaDatos.AutoSize = true;
-            this.lblIntroduzcaDatos.Location = new System.Drawing.Point(22, 25);
+            this.lblIntroduzcaDatos.Location = new System.Drawing.Point(21, 21);
             this.lblIntroduzcaDatos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIntroduzcaDatos.Name = "lblIntroduzcaDatos";
             this.lblIntroduzcaDatos.Size = new System.Drawing.Size(88, 13);
@@ -46,10 +46,10 @@
             // 
             // txtCantidadRecursos
             // 
-            this.txtCantidadRecursos.Location = new System.Drawing.Point(23, 40);
-            this.txtCantidadRecursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCantidadRecursos.Location = new System.Drawing.Point(23, 36);
+            this.txtCantidadRecursos.Margin = new System.Windows.Forms.Padding(2);
             this.txtCantidadRecursos.Name = "txtCantidadRecursos";
-            this.txtCantidadRecursos.Size = new System.Drawing.Size(324, 20);
+            this.txtCantidadRecursos.Size = new System.Drawing.Size(361, 20);
             this.txtCantidadRecursos.TabIndex = 3;
             this.txtCantidadRecursos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadRecursos_KeyPress);
             // 
@@ -60,9 +60,9 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(153, 65);
+            this.btnAceptar.Location = new System.Drawing.Point(154, 61);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(94, 31);
+            this.btnAceptar.Size = new System.Drawing.Size(112, 29);
             this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -70,14 +70,14 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Silver;
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnCancelar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(253, 65);
+            this.btnCancelar.Location = new System.Drawing.Point(272, 61);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(94, 31);
+            this.btnCancelar.Size = new System.Drawing.Size(112, 29);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -87,12 +87,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(358, 108);
+            this.ClientSize = new System.Drawing.Size(395, 110);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtCantidadRecursos);
             this.Controls.Add(this.lblIntroduzcaDatos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmInputBox";
             this.Text = "Introduzca Datos";
             this.Load += new System.EventHandler(this.FrmCantidadRecursos_Load);

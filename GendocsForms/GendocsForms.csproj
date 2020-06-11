@@ -12,13 +12,23 @@
     <Version>1.0.0</Version>
     <Authors />
     <Company />
+    <AssemblyName>Gen3Forms</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Forms\FrmCantidadRecursos.cs" />
+    <Compile Remove="Forms\FrmCantidadRecursos.Designer.cs" />
     <Compile Remove="Forms\Utiles.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Forms\FrmCantidadRecursos.resx" />
     <EmbeddedResource Remove="Forms\frmEmpleadosFML.resx" />
   </ItemGroup>
 
@@ -41,9 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Forms\FrmMantenimientoEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
