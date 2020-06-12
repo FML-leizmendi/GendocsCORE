@@ -88,6 +88,7 @@
             this.btnAsignarTrabajos = new System.Windows.Forms.Button();
             this.BtnCalendario = new System.Windows.Forms.Button();
             this.btnModificarEstadoTrabajo = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -601,7 +602,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPedidosEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidosEdit.Location = new System.Drawing.Point(197, 248);
-            this.dgvPedidosEdit.MultiSelect = false;
             this.dgvPedidosEdit.Name = "dgvPedidosEdit";
             this.dgvPedidosEdit.RowHeadersWidth = 82;
             this.dgvPedidosEdit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -716,6 +716,7 @@
             this.btnModificarResponsableFML.Name = "btnModificarResponsableFML";
             this.btnModificarResponsableFML.Size = new System.Drawing.Size(46, 25);
             this.btnModificarResponsableFML.TabIndex = 33;
+            this.toolTip1.SetToolTip(this.btnModificarResponsableFML, "Modificar Responsable FML");
             this.btnModificarResponsableFML.UseVisualStyleBackColor = false;
             // 
             // btnAsignarTrabajos
@@ -731,6 +732,7 @@
             this.btnAsignarTrabajos.Name = "btnAsignarTrabajos";
             this.btnAsignarTrabajos.Size = new System.Drawing.Size(46, 25);
             this.btnAsignarTrabajos.TabIndex = 34;
+            this.toolTip1.SetToolTip(this.btnAsignarTrabajos, "Asignar Trabajo y Fecha");
             this.btnAsignarTrabajos.UseVisualStyleBackColor = false;
             // 
             // BtnCalendario
@@ -746,6 +748,7 @@
             this.BtnCalendario.Name = "BtnCalendario";
             this.BtnCalendario.Size = new System.Drawing.Size(46, 25);
             this.BtnCalendario.TabIndex = 35;
+            this.toolTip1.SetToolTip(this.BtnCalendario, "Modificar Plazo de Entrega");
             this.BtnCalendario.UseVisualStyleBackColor = false;
             this.BtnCalendario.Click += new System.EventHandler(this.BtnCalendario_Click);
             // 
@@ -762,6 +765,7 @@
             this.btnModificarEstadoTrabajo.Name = "btnModificarEstadoTrabajo";
             this.btnModificarEstadoTrabajo.Size = new System.Drawing.Size(46, 25);
             this.btnModificarEstadoTrabajo.TabIndex = 32;
+            this.toolTip1.SetToolTip(this.btnModificarEstadoTrabajo, "Modificar Estado de Trabajo");
             this.btnModificarEstadoTrabajo.UseVisualStyleBackColor = false;
             // 
             // FrmPedidoEdit
@@ -860,5 +864,6 @@
         private System.Windows.Forms.Button btnAsignarTrabajos;
         private System.Windows.Forms.Button BtnCalendario;
         private System.Windows.Forms.Button btnModificarEstadoTrabajo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
