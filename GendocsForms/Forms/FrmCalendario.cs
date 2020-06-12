@@ -14,5 +14,10 @@ namespace GendocsForms
         {
             InitializeComponent();
         }
+
+        private void pbCerrarFormulario_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

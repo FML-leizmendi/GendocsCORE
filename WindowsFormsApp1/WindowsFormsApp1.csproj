@@ -48,6 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GendocsForms\Forms\FrmCalendario.cs">
+      <Link>FrmCalendario.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmCalendario.designer.cs">
+      <Link>FrmCalendario.designer.cs</Link>
+      <DependentUpon>FrmCalendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmClientes.cs">
       <Link>FrmClientes.cs</Link>
       <SubType>Form</SubType>
@@ -218,6 +226,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmCalendario.resx">
+      <Link>FrmCalendario.resx</Link>
+      <DependentUpon>FrmCalendario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmClientes.resx">
       <Link>FrmClientes.resx</Link>
       <DependentUpon>FrmClientes.cs</DependentUpon>

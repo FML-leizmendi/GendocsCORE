@@ -84,7 +84,7 @@ namespace GendocsForms
                             NombreArchivo = Path.GetFileName(files[i]);
                             Bitmap orig = new Bitmap(files[i].Trim());
                             Bitmap bmp = new Bitmap(RedimensionarImagen(orig, 500, 500));
-                            bmp.Save(NuevaCarpetaArchivo + "_Cambio" + NombreArchivo, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            bmp.Save(NuevaCarpetaArchivo + "_Copia" + NombreArchivo, System.Drawing.Imaging.ImageFormat.Jpeg);
                             pbProgreso.Value = (100 * i + 1) / (files.Length);
                         }
                     }
