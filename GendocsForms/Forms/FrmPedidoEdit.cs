@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GendocsForms.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -325,30 +326,36 @@ namespace GendocsForms
             }
         }
 
+        private void BtnCalendario_Click(object sender, EventArgs e)
+        {
+            FrmCalendario frm = new FrmCalendario();
+            frm.ShowDialog();
+        }
+
         #endregion
 
         #region "Control de Eventos"
 
         #endregion
 
-        private void BtnCalendario_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvPedidosEdit.CurrentRow != null)
-                {
-                    FrmCalendario frm = new FrmCalendario();
-                    frm.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("No hay ninguna fila de pedido seleccionada", "Detalle de Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                _ = ex.Message;
-            }
-        }
+        //private void BtnCalendario_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (dgvPedidosEdit.CurrentRow != null)
+        //        {
+        //            FrmCalendario frm = new FrmCalendario();
+        //            frm.ShowDialog();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("No hay ninguna fila de pedido seleccionada", "Detalle de Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ = ex.Message;
+        //    }
+        //}
     }
 }

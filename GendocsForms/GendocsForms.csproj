@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Forms\FrmCalendario.resx" />
     <EmbeddedResource Remove="Forms\FrmCantidadRecursos.resx" />
     <EmbeddedResource Remove="Forms\frmEmpleadosFML.resx" />
   </ItemGroup>
