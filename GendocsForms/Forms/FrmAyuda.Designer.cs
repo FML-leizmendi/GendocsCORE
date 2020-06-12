@@ -1,6 +1,6 @@
 ﻿namespace GendocsForms
 {
-    partial class FrmAyuda
+    partial class FrmCalendario
     {
         /// <summary>
         /// Required designer variable.

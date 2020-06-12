@@ -10,6 +10,7 @@ namespace GendocsForms
     public partial class FrmPedidoEdit : Form
     {
         public int IdPedidoCab;
+        public DateTime FechaPlazoEntrega;
        
         public clsPedidoCab CPedCab { get; set; }
 
@@ -328,6 +329,26 @@ namespace GendocsForms
 
         #region "Control de Eventos"
 
-        #endregion      
+        #endregion
+
+        private void BtnCalendario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvPedidosEdit.CurrentRow != null)
+                {
+                    FrmCalendario frm = new FrmCalendario();
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No hay ninguna fila de pedido seleccionada", "Detalle de Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
     }
 }

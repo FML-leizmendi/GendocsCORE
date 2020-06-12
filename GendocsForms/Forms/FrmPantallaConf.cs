@@ -1,12 +1,9 @@
-﻿using System;
+﻿using GendocsController;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Windows;
-using GendocsController;
 
 namespace GendocsForms
 {
