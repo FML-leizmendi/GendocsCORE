@@ -38,6 +38,10 @@ namespace GendocsForms
 
         private void DgvPedidos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+        }
+        private void dgvPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             try
             {
                 if (dgvPedidos.CurrentCell != null) // Se valida que la fila actual no esté vacía
@@ -281,6 +285,8 @@ namespace GendocsForms
         }
 
         #endregion
+
+       
     }
 }
 

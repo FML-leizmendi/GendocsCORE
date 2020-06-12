@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GendocsForms
+namespace GendocsForms.Forms
 {
     public partial class FrmCalendario : Form
     {
@@ -15,7 +15,7 @@ namespace GendocsForms
             InitializeComponent();
         }
 
-        private void pbCerrarFormulario_Click(object sender, EventArgs e)
+        private void PbCerrarFormulario_Click(object sender, EventArgs e)
         {
             this.Close();
         }
