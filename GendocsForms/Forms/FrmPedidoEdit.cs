@@ -363,6 +363,19 @@ namespace GendocsForms
             }
         }
 
+        private void btnModificarEstadoTrabajo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmAyuda frm = new FrmAyuda();
+                frm.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
         #endregion
 
         #region "Control de Eventos"

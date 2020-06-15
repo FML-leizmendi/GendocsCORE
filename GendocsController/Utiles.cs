@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Net;
 
 namespace GendocsForms
 {
@@ -35,7 +32,57 @@ namespace GendocsForms
             }
         }
 
+        public static void ConectarDB()
+        {
+            try
+            {
+                string g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User);
 
+                using SqlConnection sql = new SqlConnection(g3_connection);
+                sql.Open();
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+
+        }
+
+        public static void BuscaAyuda(String CodBusqueda)
+        {
+            try
+            {
+                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+                {
+                    var lst = (from d in db.GdBusqueda
+                               where d.c
+                               orderby d.IdEmpleado
+                               select d.IdEmpleado
+
+                           ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+
+        }
+
+
+        public static void ConsultaSql(String cadena)
+        {
+            try
+            {
+                ConectarDB();
+
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+
+        }
         //public static void CargarPedidosPedientes()
         //{
         //    try
