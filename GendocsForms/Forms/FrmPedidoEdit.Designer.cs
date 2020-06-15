@@ -767,6 +767,7 @@
             this.btnModificarEstadoTrabajo.TabIndex = 32;
             this.toolTip1.SetToolTip(this.btnModificarEstadoTrabajo, "Modificar Estado de Trabajo");
             this.btnModificarEstadoTrabajo.UseVisualStyleBackColor = false;
+            this.btnModificarEstadoTrabajo.Click += new System.EventHandler(this.btnModificarEstadoTrabajo_Click);
             // 
             // FrmPedidoEdit
             // 

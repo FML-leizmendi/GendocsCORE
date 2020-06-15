@@ -28,80 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblIntroduzcaDatos = new System.Windows.Forms.Label();
-            this.txtCantidadRecursos = new System.Windows.Forms.TextBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.pnlBotonera = new System.Windows.Forms.Panel();
+            this.lblAyuda = new System.Windows.Forms.Label();
+            this.lsvAyuda = new System.Windows.Forms.ListView();
+            this.pnlBotonera.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblIntroduzcaDatos
+            // pnlBotonera
             // 
-            this.lblIntroduzcaDatos.AutoSize = true;
-            this.lblIntroduzcaDatos.Location = new System.Drawing.Point(22, 25);
-            this.lblIntroduzcaDatos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIntroduzcaDatos.Name = "lblIntroduzcaDatos";
-            this.lblIntroduzcaDatos.Size = new System.Drawing.Size(88, 13);
-            this.lblIntroduzcaDatos.TabIndex = 2;
-            this.lblIntroduzcaDatos.Text = "Introduzca Datos";
+            this.pnlBotonera.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.pnlBotonera.Controls.Add(this.lblAyuda);
+            this.pnlBotonera.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotonera.Location = new System.Drawing.Point(0, 320);
+            this.pnlBotonera.Name = "pnlBotonera";
+            this.pnlBotonera.Size = new System.Drawing.Size(358, 41);
+            this.pnlBotonera.TabIndex = 0;
             // 
-            // txtCantidadRecursos
+            // lblAyuda
             // 
-            this.txtCantidadRecursos.Location = new System.Drawing.Point(23, 40);
-            this.txtCantidadRecursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCantidadRecursos.Name = "txtCantidadRecursos";
-            this.txtCantidadRecursos.Size = new System.Drawing.Size(324, 20);
-            this.txtCantidadRecursos.TabIndex = 3;
+            this.lblAyuda.AutoSize = true;
+            this.lblAyuda.Location = new System.Drawing.Point(22, 16);
+            this.lblAyuda.Name = "lblAyuda";
+            this.lblAyuda.Size = new System.Drawing.Size(66, 13);
+            this.lblAyuda.TabIndex = 0;
+            this.lblAyuda.Text = "Texto ayuda";
             // 
-            // btnAceptar
+            // lsvAyuda
             // 
-            this.btnAceptar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(153, 65);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(94, 31);
-            this.btnAceptar.TabIndex = 8;
-            this.btnAceptar.Text = "&Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.lsvAyuda.HideSelection = false;
+            this.lsvAyuda.Location = new System.Drawing.Point(12, 12);
+            this.lsvAyuda.Name = "lsvAyuda";
+            this.lsvAyuda.Size = new System.Drawing.Size(334, 302);
+            this.lsvAyuda.TabIndex = 1;
+            this.lsvAyuda.UseCompatibleStateImageBehavior = false;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Silver;
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(253, 65);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(94, 31);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // FrmInputBox
+            // FrmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(358, 108);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtCantidadRecursos);
-            this.Controls.Add(this.lblIntroduzcaDatos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "FrmInputBox";
-            this.Text = "Introduzca Datos";
+            this.ClientSize = new System.Drawing.Size(358, 361);
+            this.Controls.Add(this.lsvAyuda);
+            this.Controls.Add(this.pnlBotonera);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FrmAyuda";
+            this.Text = "Ayuda";
+            this.Load += new System.EventHandler(this.FrmAyuda_Load);
+            this.pnlBotonera.ResumeLayout(false);
+            this.pnlBotonera.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblIntroduzcaDatos;
-        private System.Windows.Forms.TextBox txtCantidadRecursos;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnCancelar;
+
+        private System.Windows.Forms.Panel pnlBotonera;
+        private System.Windows.Forms.Label lblAyuda;
+        private System.Windows.Forms.ListView lsvAyuda;
     }
 }

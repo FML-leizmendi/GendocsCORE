@@ -54,6 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GendocsForms\Forms\FrmAyuda.cs">
+      <Link>FrmAyuda.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmAyuda.designer.cs">
+      <Link>FrmAyuda.designer.cs</Link>
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmCalendario.cs">
       <Link>FrmCalendario.cs</Link>
       <SubType>Form</SubType>
@@ -232,6 +240,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmAyuda.resx">
+      <Link>FrmAyuda.resx</Link>
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmCalendario.resx">
       <Link>FrmCalendario.resx</Link>
       <DependentUpon>FrmCalendario.cs</DependentUpon>
