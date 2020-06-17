@@ -44,6 +44,7 @@
             this.btnRedimensionarImagenes = new System.Windows.Forms.Button();
             this.btnParametros = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -259,12 +260,29 @@
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.Navy;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(575, 445);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(266, 43);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "PRUEBAS";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1173, 558);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnParametros);
             this.Controls.Add(this.btnRedimensionarImagenes);
@@ -311,5 +329,6 @@
         private System.Windows.Forms.Button btnRedimensionarImagenes;
         private System.Windows.Forms.Button btnParametros;
         private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Button button1;
     }
 }

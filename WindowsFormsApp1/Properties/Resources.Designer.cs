@@ -73,9 +73,39 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_abajo_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_abajo_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_añadir_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-añadir-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancelar_rojo_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cancelar_rojo_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_comprobado_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_comprobado_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

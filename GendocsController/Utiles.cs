@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Net;
 
 namespace GendocsForms
 {
@@ -35,6 +33,22 @@ namespace GendocsForms
             }
         }
 
+        //public static void ConectarDB()
+        //{
+        //    try
+        //    {
+        //        string g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User);
+        //        using SqlConnection sql = new SqlConnection(g3_connection);
+        //        sql.Open();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ = ex.Message;
+        //    }
+
+        //}
+
+        
 
         //public static void CargarPedidosPedientes()
         //{

@@ -63,46 +63,6 @@ namespace GendocsForms.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fml_ingenieria_logo_194x89 {
-            get {
-                object obj = ResourceManager.GetObject("fml_ingenieria_logo_194x89", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap fml_ingenieria_logo_194x891 {
-            get {
-                object obj = ResourceManager.GetObject("fml_ingenieria_logo_194x891", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_abajo_16 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_abajo_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_abajo_32 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_abajo_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_abrir_carpeta_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_abrir_carpeta_16", resourceCulture);
@@ -153,16 +113,6 @@ namespace GendocsForms.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_calendario_32_white {
-            get {
-                object obj = ResourceManager.GetObject("icons8_calendario_32_white", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_cancelar_2_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8_cancelar_2_24", resourceCulture);
@@ -183,9 +133,49 @@ namespace GendocsForms.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancelar_rojo_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cancelar_rojo_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_carpeta_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8_carpeta_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_ventana_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cerrar_ventana_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_ventana_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cerrar_ventana_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_comprobado_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_comprobado_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -463,9 +453,39 @@ namespace GendocsForms.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_maximizar_la_ventana_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_maximizar_la_ventana_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_menos_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_menos_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_minimizar_la_ventana_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_minimizar_la_ventana_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_minimizar_la_ventana_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_minimizar_la_ventana_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

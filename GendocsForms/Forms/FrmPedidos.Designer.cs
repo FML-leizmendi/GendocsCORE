@@ -65,7 +65,7 @@
             this.pnlCabecera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
-            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCabecera.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCabecera.Name = "pnlCabecera";
             this.pnlCabecera.Size = new System.Drawing.Size(1341, 55);
             this.pnlCabecera.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.pnlLateral.Controls.Add(this.lblTituloFormulario);
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLateral.Location = new System.Drawing.Point(0, 55);
-            this.pnlLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(191, 581);
             this.pnlLateral.TabIndex = 1;
@@ -116,7 +116,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(66, 196);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(56, 38);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -142,7 +142,7 @@
             this.pnlBotonera.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnlBotonera.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlBotonera.Location = new System.Drawing.Point(191, 590);
-            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlBotonera.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBotonera.Name = "pnlBotonera";
             this.pnlBotonera.Size = new System.Drawing.Size(1150, 46);
             this.pnlBotonera.TabIndex = 4;
@@ -155,9 +155,9 @@
             this.grbPedidos.Controls.Add(this.txtIntroduzcaTexto);
             this.grbPedidos.Controls.Add(this.lblTexto);
             this.grbPedidos.Location = new System.Drawing.Point(195, 122);
-            this.grbPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbPedidos.Margin = new System.Windows.Forms.Padding(2);
             this.grbPedidos.Name = "grbPedidos";
-            this.grbPedidos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbPedidos.Padding = new System.Windows.Forms.Padding(2);
             this.grbPedidos.Size = new System.Drawing.Size(1138, 73);
             this.grbPedidos.TabIndex = 2;
             this.grbPedidos.TabStop = false;
@@ -218,6 +218,7 @@
             this.dgvPedidos.Size = new System.Drawing.Size(1138, 384);
             this.dgvPedidos.TabIndex = 3;
             this.dgvPedidos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellContentDoubleClick);
+            this.dgvPedidos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellDoubleClick);
             // 
             // pnlDatosUsuario
             // 
@@ -236,7 +237,7 @@
             this.pnlDatosUsuario.Controls.Add(this.cmbUsuarios);
             this.pnlDatosUsuario.Controls.Add(this.lblUsuarios);
             this.pnlDatosUsuario.Location = new System.Drawing.Point(195, 59);
-            this.pnlDatosUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDatosUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDatosUsuario.Name = "pnlDatosUsuario";
             this.pnlDatosUsuario.Size = new System.Drawing.Size(1139, 68);
             this.pnlDatosUsuario.TabIndex = 5;
@@ -358,7 +359,7 @@
             this.Controls.Add(this.pnlBotonera);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.pnlCabecera);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmPedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pedidos Entrantes";

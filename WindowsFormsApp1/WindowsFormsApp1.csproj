@@ -35,8 +35,14 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GendocsForms\Forms\FrmAyuda.cs">
+      <Link>FrmAyuda.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmAyuda.designer.cs">
+      <Link>FrmAyuda.designer.cs</Link>
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmCalendario.cs">
+      <Link>FrmCalendario.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GendocsForms\Forms\FrmCalendario.designer.cs">
+      <Link>FrmCalendario.designer.cs</Link>
+      <DependentUpon>FrmCalendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\GendocsForms\Forms\FrmClientes.cs">
       <Link>FrmClientes.cs</Link>
       <SubType>Form</SubType>
@@ -218,6 +240,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmAyuda.resx">
+      <Link>FrmAyuda.resx</Link>
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\GendocsForms\Forms\FrmCalendario.resx">
+      <Link>FrmCalendario.resx</Link>
+      <DependentUpon>FrmCalendario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\GendocsForms\Forms\FrmClientes.resx">
       <Link>FrmClientes.resx</Link>
       <DependentUpon>FrmClientes.cs</DependentUpon>
@@ -312,6 +342,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -333,6 +364,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-añadir-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-abajo-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancelar-rojo-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-comprobado-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

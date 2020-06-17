@@ -28,8 +28,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Forms\FrmCalendario.resx" />
     <EmbeddedResource Remove="Forms\FrmCantidadRecursos.resx" />
     <EmbeddedResource Remove="Forms\frmEmpleadosFML.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\icons8-cancelar-rojo-24.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\icons8-comprobado-24.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace GendocsForms
 {
     public partial class FrmPedidoEdit : Form
     {
         public int IdPedidoCab;
-       
+        public DateTime FechaPlazoEntrega;
+
         public clsPedidoCab CPedCab { get; set; }
 
         public FrmPedidoEdit(clsPedidoCab cpcab)
@@ -206,6 +207,7 @@ namespace GendocsForms
                                join c in db.GdTrabajoEstados on a.IdEstadoTrabajo equals c.IdEstadoTrabajo
                                let NombreCompleto = b.Nombre + " " + b.Apellidos
                                where a.IdPedidoCab == IdPedidoCab
+                               orderby a.PlazoEntrega ascending
                                select new
                                {
                                    a.IdPedidoDet,
@@ -324,10 +326,95 @@ namespace GendocsForms
             }
         }
 
+        private void BtnCalendario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvPedidosEdit.CurrentRow != null)
+                {
+                    FrmCalendario frm = new FrmCalendario();
+                    frm.ShowDialog();
+                    FechaPlazoEntrega = Convert.ToDateTime(frm.FechaPlazoEntrega);
+
+                    if (FechaPlazoEntrega != Convert.ToDateTime("01/01/0001 0:00:00"))
+                    {
+                        foreach (DataGridViewRow dgvr in dgvPedidosEdit.SelectedRows)
+                        {
+                            GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                            var query = (from a in db.GdPedidosDet
+                                         where a.IdPedidoDet == Convert.ToInt32( dgvr.Cells["IdPedidoDet"].Value.ToString())
+                                         select a).FirstOrDefault();
+
+                            query.PlazoEntrega = FechaPlazoEntrega;
+                            db.SaveChanges();
+                        }
+                        frm.Close();
+                        CargarGrid();
+                        FormatearGrid();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay ninguna fila de pedido seleccionada", "Detalle de Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void btnModificarEstadoTrabajo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Object est = G3Forms.BuscaAyuda("ETRA1");
+                if (est != null)
+                {
+                        foreach (DataGridViewRow dgvr in dgvPedidosEdit.SelectedRows)
+                        {
+                        GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                        var query = (from a in db.GdPedidosDet
+                                     where a.IdPedidoDet == Convert.ToInt32(dgvr.Cells["IdPedidoDet"].Value.ToString())
+                                     select a).FirstOrDefault();
+
+                        query.IdEstadoTrabajo = Convert.ToInt32(((int[])est)[0]);
+                        db.SaveChanges();
+                    }
+                        CargarGrid();
+                        FormatearGrid();
+                }
+            }
+            catch(Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
         #endregion
 
         #region "Control de Eventos"
 
-        #endregion      
+        #endregion
+
+        //private void BtnCalendario_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (dgvPedidosEdit.CurrentRow != null)
+        //        {
+        //            FrmCalendario frm = new FrmCalendario();
+        //            frm.ShowDialog();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("No hay ninguna fila de pedido seleccionada", "Detalle de Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ = ex.Message;
+        //    }
+        //}
     }
 }
