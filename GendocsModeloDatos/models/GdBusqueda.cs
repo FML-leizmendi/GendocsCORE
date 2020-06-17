@@ -15,8 +15,8 @@ namespace GendocsModeloDatos.models
         public string Titulo { get; set; }
 
         public String TextoOtra { get; set; }
-        public int AnchoFrm { get; set; }
+        public int? AnchoFrm { get; set; }
 
-        public int AltoFrm { get; set; }
+        public int? AltoFrm { get; set; }
     }
 }

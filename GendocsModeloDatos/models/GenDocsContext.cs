@@ -32,7 +32,7 @@ namespace GendocsModeloDatos.models
         public virtual DbSet<GdEmpleadosEtiquetas> GdEmpleadosEtiquetas { get; set; }
         public virtual DbSet<GdColumnasC>GdColumnasC { get; set; } // TODO se agrega una nueva Tabla a DbContext SEGUNDO PASO
         public virtual DbSet<GdColumnasD> GdColumnasD { get; set; }
-        public virtual DbSet<GdColumnasD> GdBusqueda { get; set; }
+        public virtual DbSet<GdBusqueda> GdBusqueda { get; set; }
         public virtual DbSet<GdEmpleadosFml> GdEmpleadosFml { get; set; }
         public virtual DbSet<GdEmpleadosFmlEtiquetas> GdEmpleadosFmlEtiquetas { get; set; }
         public virtual DbSet<GdEmpleadosFmlTiposTrabajo> GdEmpleadosFmlTiposTrabajo { get; set; }
