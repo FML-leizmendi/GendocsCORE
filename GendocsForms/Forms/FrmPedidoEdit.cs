@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace GendocsForms
 {
@@ -367,8 +368,22 @@ namespace GendocsForms
         {
             try
             {
-                FrmAyuda frm = new FrmAyuda();
-                frm.ShowDialog();
+                Object est = G3Forms.BuscaAyuda("ETRA1");
+                if (est != null)
+                {
+                        foreach (DataGridViewRow dgvr in dgvPedidosEdit.SelectedRows)
+                        {
+                        GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                        var query = (from a in db.GdPedidosDet
+                                     where a.IdPedidoDet == Convert.ToInt32(dgvr.Cells["IdPedidoDet"].Value.ToString())
+                                     select a).FirstOrDefault();
+
+                        query.IdEstadoTrabajo = Convert.ToInt32(((int[])est)[0]);
+                        db.SaveChanges();
+                    }
+                        CargarGrid();
+                        FormatearGrid();
+                }
             }
             catch(Exception ex)
             {

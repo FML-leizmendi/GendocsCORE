@@ -128,8 +128,50 @@ namespace GendocsForms
             }
             catch { }
         }
+
+        public static object BuscaAyuda(String CodBusqueda, bool multiSelect = false)
+        {
+            Object r;
+            try
+            {
+                //using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                //var lst = (from d in db.GdBusqueda
+                //           where d.CodBusqueda.Equals(CodBusqueda)
+                //           select d).FirstOrDefault();
+
+                //if (lst.StrSQL != string.Empty)
+                //{
+                //    string strSql = lst.StrSQL.ToString();
+                //    SqlCommand comando = new SqlCommand(strSql, new SqlConnection(Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User)));
+                //    SqlDataAdapter data = new SqlDataAdapter(comando);
+                //    DataTable tabla = new DataTable();
+                //    data.Fill(tabla);
+                //}
+                var frm = new FrmAyuda();
+                frm.LlenarLista(CodBusqueda);
+                frm.lstvAyuda.MultiSelect = multiSelect;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    r = frm.ElementosSeleccionados;
+                }
+                else
+                {
+                    r = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+                r = null;
+            }
+            return r;
+        }
     }
-public class InputBox
+
+    
+
+    public class InputBox
     ////////////// https://www.csharp-examples.net/inputbox-class/
     ////////////// InputBox with value validation - first define validation delegate, which
     ////////////// returns empty string for valid values and error message for invalid values

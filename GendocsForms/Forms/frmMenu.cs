@@ -84,7 +84,7 @@ namespace GendocsForms
             frm.Show();
         }
 
-     
+
         private void BtnAgenda_Click(object sender, EventArgs e)
         {
             try
@@ -104,7 +104,7 @@ namespace GendocsForms
                 FrmRedimensionarImagenes frm = new FrmRedimensionarImagenes();
                 frm.ShowDialog();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _ = ex.Message;
             }
@@ -152,6 +152,13 @@ namespace GendocsForms
             {
                 _ = ex.Message;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmAyuda frm = new FrmAyuda();
+            frm.CodBusqueda = "ETRA1";
+            frm.ShowDialog();
         }
     }
 }
