@@ -19,6 +19,8 @@ namespace GendocsForms
 
         public List<int> lstId = new List<int>();
 
+        public List<GdUnidadesConstructivas> lstUnds = new List<GdUnidadesConstructivas>();
+
         public bool esNuevo = false;
 
         public bool EsAlta = false;

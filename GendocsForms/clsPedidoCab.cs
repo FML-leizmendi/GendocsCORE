@@ -8,7 +8,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace GendocsForms
 {
-    public partial class clsPedidoCab
+    public partial class ClsPedidoCab
     {
         public int IdPedidoCab { get; set; }
         public int IdPedidoDet { get; set; }
@@ -54,60 +54,55 @@ namespace GendocsForms
 
         public void CargarPedido()
         {
-            using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
+            using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+            var lst = (from d in db.GdPedidosCab
+                       where (d.IdPedidoCab == this.IdPedidoCab)
+                       select d).ToList();
+
+            if (lst.Count() != 0)
             {
-                var lst = (from d in db.GdPedidosCab
-                           where (d.IdPedidoCab == this.IdPedidoCab)
-                           select d
-
-                       ).ToList();
-
-                if (lst.Count() != 0)
+                foreach (var item in lst)
                 {
-                    foreach (var item in lst)
-                    {
-                        IdPedidoCab = item.IdPedidoCab;
-                        NumContrato = item.NumContrato;
-                        NumRef = item.NumRef;
-                        NumObra = item.NumObra;
-                        IdCliente = item.IdCliente;
-                        DescripcionObra = item.DescripcionObra;
-                        FechaPedido = item.FechaPedido;
-                        FechaEntrega = item.FechaEntrega;
-                        Actuacion = item.Actuacion;
-                        Gestor = item.Gestor;
-                        FilePdf = item.FilePdf;
-                        Provincia = item.Provincia;
-                        IdEmpleadoGestor = item.IdEmpleadoGestor;
-                        Txt1 = item.Txt1;
-                        Txt2 = item.Txt2;
-                        Poblacion = item.Poblacion;
-                        Direccion = item.Direccion;
-                        CoeficientePrecio = item.CoeficientePrecio;
-                        CoeficienteFacturacion = item.CoeficienteFacturacion;
-                    }
+                    IdPedidoCab = item.IdPedidoCab;
+                    NumContrato = item.NumContrato;
+                    NumRef = item.NumRef;
+                    NumObra = item.NumObra;
+                    IdCliente = item.IdCliente;
+                    DescripcionObra = item.DescripcionObra;
+                    FechaPedido = item.FechaPedido;
+                    FechaEntrega = item.FechaEntrega;
+                    Actuacion = item.Actuacion;
+                    Gestor = item.Gestor;
+                    FilePdf = item.FilePdf;
+                    Provincia = item.Provincia;
+                    IdEmpleadoGestor = item.IdEmpleadoGestor;
+                    Txt1 = item.Txt1;
+                    Txt2 = item.Txt2;
+                    Poblacion = item.Poblacion;
+                    Direccion = item.Direccion;
+                    CoeficientePrecio = item.CoeficientePrecio;
+                    CoeficienteFacturacion = item.CoeficienteFacturacion;
                 }
-                else
-                {
-                    IdPedidoCab = 0;
-                    NumContrato = string.Empty;
-                    NumRef = string.Empty;
-                    NumObra = string.Empty;
-                    IdCliente = 0;
-                    DescripcionObra = string.Empty;
-                    FechaPedido = null;
-                    FechaEntrega = null;
-                    Gestor = string.Empty;
-                    FilePdf = string.Empty;
-                    Provincia = string.Empty;
-                    IdEmpleadoGestor = 0;
-                    Txt2 = string.Empty;
-                    Poblacion = string.Empty;
-                    Direccion = string.Empty;
-                    CoeficientePrecio = 0;
-                    CoeficienteFacturacion = 0;
-                }
-
+            }
+            else
+            {
+                IdPedidoCab = 0;
+                NumContrato = string.Empty;
+                NumRef = string.Empty;
+                NumObra = string.Empty;
+                IdCliente = 0;
+                DescripcionObra = string.Empty;
+                FechaPedido = null;
+                FechaEntrega = null;
+                Gestor = string.Empty;
+                FilePdf = string.Empty;
+                Provincia = string.Empty;
+                IdEmpleadoGestor = 0;
+                Txt2 = string.Empty;
+                Poblacion = string.Empty;
+                Direccion = string.Empty;
+                CoeficientePrecio = 0;
+                CoeficienteFacturacion = 0;
             }
         }
 
@@ -117,15 +112,13 @@ namespace GendocsForms
 
             if (result == DialogResult.Yes)
             {
-                using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                {
-                    var cSelect = from x in db.GdPedidosDet
-                                  where x.IdPedidoCab == IdPedidoCab & x.IdPedidoDet == IdPedidoDet
-                                  select x;
+                using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var cSelect = from x in db.GdPedidosDet
+                              where x.IdPedidoCab == IdPedidoCab & x.IdPedidoDet == IdPedidoDet
+                              select x;
 
-                    db.GdPedidosDet.RemoveRange(cSelect);
-                    db.SaveChanges();
-                }
+                db.GdPedidosDet.RemoveRange(cSelect);
+                db.SaveChanges();
             }
             CargarPedido();
         }
@@ -135,55 +128,57 @@ namespace GendocsForms
             try
             {
                 {
-                    using (GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
-                        if (EsAlta)
+                    using GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                    if (EsAlta)
+                    {
+                        if (this.IdUC != 0)
                         {
-                            if (this.IdUC != 0)
+                            var lst = (from a in db.GdUnidadesConstructivas
+                                       where a.IdUc == this.IdUC
+                                       select a).FirstOrDefault();
+
+                            GdPedidosDet PedDet = new GdPedidosDet
                             {
-                                var lst = (from a in db.GdUnidadesConstructivas
-                                           where a.IdUc == this.IdUC
-                                           select a).FirstOrDefault();
+                                IdPedidoCab = IdPedidoCab,
+                                CodigoUc = lst.CodigoUc,
+                                DescripcionUc = lst.DescripcionUc,
+                                Cantidad = Cantidad,
+                                Unidad = lst.Ud,
+                                Precio = lst.PrecioUnidad
+                            };
+                            PedDet.Importe = PedDet.Cantidad * PedDet.Precio;
+                            PedDet.PlazoEntrega = DateTime.UtcNow.Date;
+                            PedDet.IdUc = lst.IdUc;
+                            PedDet.IdResponsableFml = 11;
+                            PedDet.IdEstadoTrabajo = 1;
 
-                                GdPedidosDet PedDet = new GdPedidosDet();
-                                PedDet.IdPedidoCab = IdPedidoCab;
-                                PedDet.CodigoUc = lst.CodigoUc;
-                                PedDet.DescripcionUc = lst.DescripcionUc;
-                                PedDet.Cantidad = Cantidad;
-                                PedDet.Unidad = lst.Ud;
-                                PedDet.Precio = lst.PrecioUnidad;
-                                PedDet.Importe = PedDet.Cantidad * PedDet.Precio;
-                                PedDet.PlazoEntrega = DateTime.UtcNow.Date;
-                                PedDet.IdUc = lst.IdUc;
-                                PedDet.IdResponsableFml = 11;
-                                PedDet.IdEstadoTrabajo = 1;
+                            db.GdPedidosDet.Add(PedDet);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            //{
+                            //    var query = (from a in db.GdEmpleados
+                            //                 where a.IdEmpleado == IdEmpleado
+                            //                 select a).FirstOrDefault();
 
-                                db.GdPedidosDet.Add(PedDet);
-                                db.SaveChanges();
-                            }
-                            else
-                            {
-                                //{
-                                //    var query = (from a in db.GdEmpleados
-                                //                 where a.IdEmpleado == IdEmpleado
-                                //                 select a).FirstOrDefault();
+                            //    query.IdEmpleado = IdEmpleado;
+                            //    query.Empleado = Empleado;
+                            //    query.IdCargo = IdCargo;
+                            //    query.IdCliente = IdCliente;
+                            //    query.IdEmpleadoSuperior = IdEmpleadoSuperior;
+                            //    query.IdCliente = IdCliente;
+                            //    query.Telefono = Telefono;
+                            //    query.Email = Email;
+                            //    query.Etiquetas = Etiquetas;
 
-                                //    query.IdEmpleado = IdEmpleado;
-                                //    query.Empleado = Empleado;
-                                //    query.IdCargo = IdCargo;
-                                //    query.IdCliente = IdCliente;
-                                //    query.IdEmpleadoSuperior = IdEmpleadoSuperior;
-                                //    query.IdCliente = IdCliente;
-                                //    query.Telefono = Telefono;
-                                //    query.Email = Email;
-                                //    query.Etiquetas = Etiquetas;
+                            //    db.SaveChanges();
 
-                                //    db.SaveChanges();
-
-                                //    MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                //}
-                            }
-                            CargarPedido();
-                        }       
+                            //    MessageBox.Show("Los cambios han sido modificados correctamente", "Modificar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //}
+                        }
+                        CargarPedido();
+                    }
                 }
             }
             catch (Exception ex)
