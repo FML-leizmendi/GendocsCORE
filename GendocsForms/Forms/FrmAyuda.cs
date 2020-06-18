@@ -25,46 +25,13 @@ namespace GendocsForms
         {
             try
             {
-                //strSQL = DameSql(CodBusqueda);
-                //BuscaAyuda();
+
             }
             catch (Exception ex)
             {
                 _ = ex.Message;
             }
         }
-
-        //public void LlenarLista()
-        //{
-
-        //    try
-        //    {
-        //        if (strSQL != string.Empty)
-        //        {
-        //            SqlDataAdapter data = new SqlDataAdapter(strSQL, new SqlConnection(Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User)));
-        //            DataTable dt = new DataTable();
-        //            data.Fill(dt);
-
-        //            string[] arrayAnchoColumnas = DameArrayAnchoColumnas(AnchoColumnas);
-        //            for (int i = 0; i < dt.Columns.Count; i++)
-        //            { 
-        //                this.lstvAyuda.Columns.Add(dt.Columns[i].ToString(), Convert.ToInt32(arrayAnchoColumnas[i]));
-        //            }
-
-        //            for (int i = 0; i < dt.Rows.Count; i++)
-        //            {
-        //                DataRow dr = dt.Rows[i];
-        //                ListViewItem listitem = new ListViewItem(dr["IdEstadoTrabajo"].ToString());
-        //                listitem.SubItems.Add(dr["EstadoTrabajo"].ToString());
-        //                lstvAyuda.Items.Add(listitem);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _ = ex.Message;
-        //    }
-        //}
 
         private String[] DameArrayAnchoColumnas(String AnchoColumnas)
         {
@@ -91,6 +58,7 @@ namespace GendocsForms
                     this.lblAyuda.Text = lst.TextoOtra;
                     this.TotalColumnas = Convert.ToInt32(lst.NumColumnas);
                     this.AnchoColumnas = lst.AnchoColumnas;
+                    this.lstvAyuda.AutoResizeColumns(ColumnHeaderAutoResizeStyle.None);
                 }
 
                 if (lst.StrSQL != string.Empty)
@@ -99,19 +67,24 @@ namespace GendocsForms
                     DataTable dt = new DataTable();
                     data.Fill(dt);
 
-                    string[] arrayAnchoColumnas = DameArrayAnchoColumnas(AnchoColumnas);
-                    for (int i = 0; i < dt.Columns.Count; i++)
+                    // Se añades las columnas 
+                    dt.Columns.Cast<DataColumn>().ToList().ForEach(column => lstvAyuda.Columns.Add(column.Caption));
+                    // Se añaden las filas
+                    dt.AsEnumerable().ToList().ForEach(row =>
                     {
-                        this.lstvAyuda.Columns.Add(dt.Columns[i].ToString(), Convert.ToInt32(arrayAnchoColumnas[i]));
-                    }
+                        ListViewItem item = new ListViewItem(Convert.ToString(row[0]));
+                        row.ItemArray.ToList().Skip(1).ToList().ForEach(value =>
+                              item.SubItems.Add(Convert.ToString(value)));
+                        lstvAyuda.Items.Add(item);
+                    });
 
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    //Se le asigna un ancho a cada columna
+                    string[] arrayAnchoColumnas = DameArrayAnchoColumnas(AnchoColumnas);
+                    for (int i = 0; i < arrayAnchoColumnas.Length; i++)
                     {
-                        DataRow dr = dt.Rows[i];
-                        ListViewItem listitem = new ListViewItem(dr["IdEstadoTrabajo"].ToString()); // TODO
-                        listitem.SubItems.Add(dr["EstadoTrabajo"].ToString());
-                        lstvAyuda.Items.Add(listitem);
+                        lstvAyuda.Columns[i].Width = Convert.ToInt32(arrayAnchoColumnas[i]);
                     }
+                    lstvAyuda.AutoResizeColumns(ColumnHeaderAutoResizeStyle.None);
                 }
             }
             catch (Exception ex)
@@ -124,17 +97,16 @@ namespace GendocsForms
         {
             if (lstvAyuda.SelectedItems.Count > 0)
             {
-                Array.Resize( ref ElementosSeleccionados, lstvAyuda.SelectedItems.Count);
+                Array.Resize(ref ElementosSeleccionados, lstvAyuda.SelectedItems.Count);
                 int i = 0;
                 foreach (ListViewItem itemRow in lstvAyuda.SelectedItems)
                 {
-                    ElementosSeleccionados[i] = Convert.ToInt32( itemRow.Text);
+                    ElementosSeleccionados[i] = Convert.ToInt32((itemRow.Text));
                     i++;
-                    //ElementosSeleccionados.Add(itemRow.  SubItems[1].Text);
                 }
             }
             else
-                MessageBox.Show("Debe seleccionar al menos una etiqueta para añadir a la lista de Asignadas", "Seleccione una opción", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe seleccionar una opción", "Seleccione una opción", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Visible = false;
         }
 

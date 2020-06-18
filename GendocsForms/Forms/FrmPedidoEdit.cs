@@ -12,9 +12,9 @@ namespace GendocsForms
         public int IdPedidoCab;
         public DateTime FechaPlazoEntrega;
 
-        public clsPedidoCab CPedCab { get; set; }
+        public ClsPedidoCab CPedCab { get; set; }
 
-        public FrmPedidoEdit(clsPedidoCab cpcab)
+        public FrmPedidoEdit(ClsPedidoCab cpcab)
         {
             CPedCab = cpcab;
             InitializeComponent();
@@ -41,10 +41,17 @@ namespace GendocsForms
             {
                 clsUnidadesContructivas clsUnds = new clsUnidadesContructivas();
                 clsUnds.CargarFrmUnidadesContructivas();
-                //CPedCab.IdUC = clsUnds.IdUc;
-                //CPedCab.Cantidad = clsUnds.Cantidad;
-                //CPedCab.EsAlta = true;
-                //CPedCab.GuardarUnidadContructiva();
+                if (clsUnds.lstId.Count > 0)
+                {
+                    foreach (var item in clsUnds.lstUnds)
+                    {
+                        GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                        var lst = (from a in db.GdPedidosDet
+                                   where a.IdPedidoCab == Convert.ToInt32(txtPedidoCab)
+                                   select a).FirstOrDefault();
+
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -76,8 +83,14 @@ namespace GendocsForms
             {
                 if (dgvPedidosEdit.CurrentRow != null)
                 {
-                    CPedCab.IdPedidoDet = Convert.ToInt32(dgvPedidosEdit.CurrentRow.Cells["IdPedidoDet"].Value); // ALEX Obtener el valor de una columna de la fila seleccionada
-                    CPedCab.EliminarUnidadContructiva();
+                    ClsPedidoCab pedCab = new ClsPedidoCab
+                    {
+                        IdPedidoCab = Convert.ToInt32(txtPedidoCab.Text),
+                        IdPedidoDet = Convert.ToInt32(dgvPedidosEdit.CurrentRow.Cells["IdPedidoDet"].Value) // ALEX Obtener el valor de una columna de la fila seleccionada
+                    };
+                    pedCab.EliminarUnidadContructiva();
+                    CargarGrid();
+                    FormatearGrid();
                 }
             }
             catch (Exception ex)
@@ -342,7 +355,7 @@ namespace GendocsForms
                         {
                             GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
                             var query = (from a in db.GdPedidosDet
-                                         where a.IdPedidoDet == Convert.ToInt32( dgvr.Cells["IdPedidoDet"].Value.ToString())
+                                         where a.IdPedidoDet == Convert.ToInt32(dgvr.Cells["IdPedidoDet"].Value.ToString())
                                          select a).FirstOrDefault();
 
                             query.PlazoEntrega = FechaPlazoEntrega;
@@ -364,16 +377,17 @@ namespace GendocsForms
             }
         }
 
-        private void btnModificarEstadoTrabajo_Click(object sender, EventArgs e)
+        private void BtnModificarEstadoTrabajo_Click(object sender, EventArgs e)
         {
             try
             {
                 Object est = G3Forms.BuscaAyuda("ETRA1");
                 if (est != null)
                 {
-                        foreach (DataGridViewRow dgvr in dgvPedidosEdit.SelectedRows)
-                        {
+                    foreach (DataGridViewRow dgvr in dgvPedidosEdit.SelectedRows)
+                    {
                         GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+
                         var query = (from a in db.GdPedidosDet
                                      where a.IdPedidoDet == Convert.ToInt32(dgvr.Cells["IdPedidoDet"].Value.ToString())
                                      select a).FirstOrDefault();
@@ -381,11 +395,39 @@ namespace GendocsForms
                         query.IdEstadoTrabajo = Convert.ToInt32(((int[])est)[0]);
                         db.SaveChanges();
                     }
-                        CargarGrid();
-                        FormatearGrid();
+                    CargarGrid();
+                    FormatearGrid();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+            }
+        }
+
+        private void BtnModificarResponsableFML_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Object est = G3Forms.BuscaAyuda("EFML");
+                if (est != null)
+                {
+                    foreach (DataGridViewRow dgvr in dgvPedidosEdit.SelectedRows)
+                    {
+                        GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+
+                        var query = (from a in db.GdPedidosDet
+                                     where a.IdPedidoDet == Convert.ToInt32(dgvr.Cells["IdPedidoDet"].Value.ToString())
+                                     select a).FirstOrDefault();
+
+                        query.IdResponsableFml = Convert.ToInt32(((int[])est)[0]);
+                        db.SaveChanges();
+                    }
+                    CargarGrid();
+                    FormatearGrid();
+                }
+            }
+            catch (Exception ex)
             {
                 _ = ex.Message;
             }
