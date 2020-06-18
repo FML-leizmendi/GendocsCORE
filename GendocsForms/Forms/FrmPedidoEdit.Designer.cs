@@ -718,6 +718,7 @@
             this.btnModificarResponsableFML.TabIndex = 33;
             this.toolTip1.SetToolTip(this.btnModificarResponsableFML, "Modificar Responsable FML");
             this.btnModificarResponsableFML.UseVisualStyleBackColor = false;
+            this.btnModificarResponsableFML.Click += new System.EventHandler(this.BtnModificarResponsableFML_Click);
             // 
             // btnAsignarTrabajos
             // 
@@ -767,7 +768,7 @@
             this.btnModificarEstadoTrabajo.TabIndex = 32;
             this.toolTip1.SetToolTip(this.btnModificarEstadoTrabajo, "Modificar Estado de Trabajo");
             this.btnModificarEstadoTrabajo.UseVisualStyleBackColor = false;
-            this.btnModificarEstadoTrabajo.Click += new System.EventHandler(this.btnModificarEstadoTrabajo_Click);
+            this.btnModificarEstadoTrabajo.Click += new System.EventHandler(this.BtnModificarEstadoTrabajo_Click);
             // 
             // FrmPedidoEdit
             // 

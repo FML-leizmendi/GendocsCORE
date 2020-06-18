@@ -1,9 +1,11 @@
-﻿using System;
+﻿using GendocsModeloDatos.models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace GendocsForms
 {
@@ -36,20 +38,77 @@ namespace GendocsForms
         {
             try
             {
-                ClsPedidos clsPed = new ClsPedidos();
-                List<int> miLista = new List<int>();
-                clsPed.lstId = miLista;
-                FrmInputBox frm = new FrmInputBox();
-                frm.ShowDialog();
-                CUnds.Cantidad = Convert.ToInt32(frm.DatosIntroducidos);
-                CUnds.IdUc = Convert.ToInt32(dgvUndsContructivas.SelectedRows[0].Cells["IdUc"].Value.ToString());
-                frm.Close();
-                this.Close();
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                List<GdUnidadesConstructivas> lstUnds = new List<GdUnidadesConstructivas>();
+                if (dgvUndsContructivas.SelectedRows.Count > 0)
+                {
+                    for (int i = 0; i < dgvUndsContructivas.SelectedRows.Count; i++)
+                    {
+                        int IdUC = Convert.ToInt32(dgvUndsContructivas.SelectedRows[i].Cells["IdUC"].Value.ToString());
+                        var lst = (from a in db.GdUnidadesConstructivas
+                                   where a.IdUc == IdUC
+                                   select a).FirstOrDefault();
+
+                        int PlazoEntregaDias = 0;
+                        if (lst.PlazoEntregaDias != null)
+                        {
+                            PlazoEntregaDias = (int)lst.PlazoEntregaDias;
+                        }
+                        else
+                        {
+                            PlazoEntregaDias = DamePlazoEntregaDias((int)lst.IdTipoTrabajo);
+                        }
+
+                        GdUnidadesConstructivas unds = new GdUnidadesConstructivas()
+                        {
+                            IdUc = lst.IdUc,
+                            IdCliente = lst.IdCliente,
+                            CodigoUc = lst.CodigoUc,
+                            CodigoUc2 = lst.CodigoUc2,
+                            DescripcionUc = lst.DescripcionUc,
+                            Ud = lst.Ud,
+                            PrecioUnidad = lst.PrecioUnidad,
+                            IdTipoTrabajo = lst.IdTipoTrabajo,
+                            PlazoEntregaDias = PlazoEntregaDias
+                        };
+
+                        lstUnds.Add(unds);
+                    }
+                }
+                CUnds.lstUnds = lstUnds;
             }
             catch (Exception ex)
             {
                 _ = ex.Message;
             }
+        }
+
+        private int DamePlazoEntregaDias(int IdTipoTrabajo)
+        {
+            int PlazoEntregaDias;
+            try
+            {
+                GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext();
+                var lst = (from a in db.GdTiposTrabajo
+                           where a.IdTipoTrabajo == IdTipoTrabajo
+                           select a).FirstOrDefault();
+
+                if (lst.PlazoEntregaDias != null)
+                {
+                    PlazoEntregaDias = Convert.ToInt32(lst.PlazoEntregaDias);
+                }
+                else
+                    PlazoEntregaDias = 0;
+
+
+            }
+            catch (Exception ex)
+            {
+                _ = ex.Message;
+                return 0;
+            }
+            return PlazoEntregaDias;
+
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

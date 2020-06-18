@@ -224,7 +224,6 @@
             this.dgvUndsContructivas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUndsContructivas.Location = new System.Drawing.Point(194, 146);
             this.dgvUndsContructivas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dgvUndsContructivas.MultiSelect = false;
             this.dgvUndsContructivas.Name = "dgvUndsContructivas";
             this.dgvUndsContructivas.ReadOnly = true;
             this.dgvUndsContructivas.RowHeadersWidth = 72;
