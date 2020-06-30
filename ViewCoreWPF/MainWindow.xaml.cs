@@ -24,5 +24,23 @@ namespace ViewCoreWPF
         {
             InitializeComponent();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void txtUsuario_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtUsuario.Clear();
+        }
+
+        private void StackPanel_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtPassword.Clear();
+        }
     }
 }
