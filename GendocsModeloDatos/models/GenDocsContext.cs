@@ -81,7 +81,8 @@ namespace GendocsModeloDatos.models
                 //optionsBuilder.UseSqlServer("Server=ZUBIXILEKO-PC\\SQLEXPRESS;database=GenDocs;Integrated Security=True;");
                 string g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION",EnvironmentVariableTarget.User);
                 optionsBuilder.UseSqlServer(g3_connection);
-
+                //optionsBuilder.UseSqlServer(@"Server=DESKTOP-6HO0024\MSSQLSERVERALEX;Database=master;Trusted_Connection=True;")
+                   // .EnableSensitiveDataLogging(true);
             }
         }
 

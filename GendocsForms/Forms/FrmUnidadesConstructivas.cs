@@ -50,6 +50,7 @@ namespace GendocsForms
                                    select a).FirstOrDefault();
 
                         int PlazoEntregaDias = 0;
+
                         if (lst.PlazoEntregaDias != null)
                         {
                             PlazoEntregaDias = (int)lst.PlazoEntregaDias;
