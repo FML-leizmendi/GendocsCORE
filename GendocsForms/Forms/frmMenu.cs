@@ -154,10 +154,12 @@ namespace GendocsForms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            FrmAyuda frm = new FrmAyuda();
-            frm.CodBusqueda = "ETRA1";
+            FrmAyuda frm = new FrmAyuda
+            {
+                CodBusqueda = "ETRA1"
+            };
             frm.ShowDialog();
         }
     }

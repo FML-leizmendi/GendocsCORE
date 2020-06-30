@@ -15,7 +15,7 @@ namespace GendocsForms
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             /*
              * using(GendocsModeloDatos.models.GenDocsContext db = new GendocsModeloDatos.models.GenDocsContext())
@@ -31,9 +31,8 @@ namespace GendocsForms
             }
             */
             //string text = System.IO.File.ReadAllText(@"C:\Users\Lorenzo\Desktop\basProcedures.txt");
-            bool ok;
-            var i = GendocsController.G3.GetParam("xxxxx", false,out ok  ) ;
-            
+            var i = GendocsController.G3.GetParam("xxxxx", false, out bool ok);
+
             //Console.WriteLine();
             //Console.WriteLine("GetEnvironmentVariables: ");
             //foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
@@ -45,14 +44,15 @@ namespace GendocsForms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var g3_connection = Environment.GetEnvironmentVariable("G3_CONNECTION", EnvironmentVariableTarget.User);
-            if (g3_connection == null || g3_connection == "")
+            if ( g3_connection == null || g3_connection == "")
+            //if (1 == 1)
             {
-                InputBoxValidation validation = delegate (string val)
+                static string validation(string val)
                 {
                     if (val == "")
                         return "Value cannot be empty.";
                     return "";
-                };
+                }
 
                 string value = "";
                 if (InputBox.Show("Cadena de conexión a base de datos G3", "G3 database:", ref value, validation) == DialogResult.OK)
@@ -65,8 +65,10 @@ namespace GendocsForms
             if (G3Forms.Login())
             {
                 //MessageBox.Show("OK!","Acceso correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                FrmMDIGd frmMDI = new FrmMDIGd();
-                frmMDI.WindowState = FormWindowState.Maximized;
+                FrmMDIGd frmMDI = new FrmMDIGd
+                {
+                    WindowState = FormWindowState.Maximized
+                };
                 frmMDI.ShowDialog();
                 //FrmListaProyectos frm = new FrmListaProyectos();
                 //frm.ShowDialog();
