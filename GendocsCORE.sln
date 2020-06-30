@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		WindowsFormsApp1\WindowsFormsApp1.csproj = WindowsFormsApp1\WindowsFormsApp1.csproj
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewCoreWPF", "ViewCoreWPF\ViewCoreWPF.csproj", "{85C33538-4321-4D26-AE00-FF41816E6904}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E87F060E-70DC-40D8-8108-33A540E2BFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E87F060E-70DC-40D8-8108-33A540E2BFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E87F060E-70DC-40D8-8108-33A540E2BFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C33538-4321-4D26-AE00-FF41816E6904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C33538-4321-4D26-AE00-FF41816E6904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C33538-4321-4D26-AE00-FF41816E6904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C33538-4321-4D26-AE00-FF41816E6904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
