@@ -37,5 +37,8 @@
         <StackPanel>
             <TextBlock>Prueba GIT</TextBlock>
         </StackPanel>
+        <StackPanel>
+            <TextBlock>Prueba GIT</TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
