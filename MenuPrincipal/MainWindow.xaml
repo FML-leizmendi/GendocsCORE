@@ -33,7 +33,7 @@
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Background="#FF8FCEDC">
                 <StackPanel x:Name="Menu" Margin="8"/>
             </ScrollViewer>
-            <Label>Popopop Prueba Alex</Label>
+            <Label>Papapapa Prueba Alex</Label>
         </Grid>
     </Grid>
 </Window>
