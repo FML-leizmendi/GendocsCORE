@@ -31,7 +31,7 @@
                 <Image Source="Recursos/fml_ingenieria_logo_194x89.jpg"/>
             </Grid>
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Background="#FF8FCEDC">
-                <StackPanel x:Name="Menu" Margin="10"/>
+                <StackPanel x:Name="Menu" Margin="8"/>
             </ScrollViewer>
         </Grid>
     </Grid>
