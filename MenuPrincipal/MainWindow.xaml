@@ -35,7 +35,7 @@
             </ScrollViewer>
         </Grid>
         <DockPanel>
-            <TextBox>Prueba GIT</TextBox>
+            <TextBox>Prueba GIT Lorenzo</TextBox>
         </DockPanel>
     </Grid>
 </Window>
