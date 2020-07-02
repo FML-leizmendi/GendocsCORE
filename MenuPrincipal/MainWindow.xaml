@@ -34,5 +34,8 @@
                 <StackPanel x:Name="Menu" Margin="8"/>
             </ScrollViewer>
         </Grid>
+        <StackPanel>
+            <TextBlock>Prueba GIT</TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
